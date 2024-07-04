@@ -1,28 +1,165 @@
+# ===============================================================================================
+# HyperCells-Website configuration file :
+# ===============================================================================================
 # Configuration file for the Sphinx documentation builder.
-#
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
+# ===============================================================================================
+# Import needed packages :
+# ===============================================================================================
 
-# -- Project information -----------------------------------------------------
+import sys, os
+import datetime
+import notfound
+
+sys.path.append(os.path.abspath("sphinxext"))
+
+
+# ===============================================================================================
+# Project information :
+# ===============================================================================================
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'HyperCells-Website'
-copyright = '2024, Marcelo Looser\\\\and Patrick M. Lenggenhager\\\\and Joseph Maciejko\\\\ and Tomáš Bzdušek'
-author = 'Marcelo Looser\\\\and Patrick M. Lenggenhager\\\\and Joseph Maciejko\\\\ and Tomáš Bzdušek'
-release = '0.0.1'
+# Get current year.
+date = datetime.datetime.now().date()
+year = date.strftime("%Y")
 
-# -- General configuration ---------------------------------------------------
+project = "HyperCells and HyperBloch documentation"
+copyright = f"2023-{year}, by the HyperCells development team" 
+author = "by the HyperCells development team"
+release = "0.0.1"
+
+# ===============================================================================================
+# General configuration :
+# ===============================================================================================
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = []
+extensions = ["myst_parser", "sphinx.ext.imgmath", "sphinx_design", "sphinx_copybutton",'notfound.extension']
+myst_enable_extensions = ["colon_fence"]
 
-templates_path = ['_templates']
+# imgmath extension configuration.
+imgmath_image_format = "svg"
+imgmath_dvipng_args = ["-gamma", "1.5", "-D", "110", "-bg", "Transparent"]
+
+# The file extensions of source files. 
+source_suffix = [".rst", ".md"]
+
+templates_path = ["_templates"]
 exclude_patterns = []
 
+# The encoding of all reST source files.
+source_encoding = "utf-8-sig"
 
+# master_doc: The document name of the “root” document, that is, 
+# the document that contains the root toctree directive. 
+master_doc = "index"
 
-# -- Options for HTML output -------------------------------------------------
+# If true, figures, tables and code-blocks are automatically numbered if they have a caption.
+numfig = False
+
+# ===============================================================================================
+# 404 not found page configuration :
+# ===============================================================================================
+
+#  (seems not to work properly)
+notfound_template = "./catch404/404.html"
+notfound_pagename = "404"
+notfound_urls_prefix = None
+
+# ===============================================================================================
+# Options for HTML output :
+# ===============================================================================================
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'alabaster'
-html_static_path = ['_static']
+# Path to static objects.
+html_static_path = ["_static"]
+
+# Title to concatenated with tab title in browser.
+html_title = "HyperCells & HyperBloch"
+
+# Theme template and cotum css file path.
+html_theme = "pydata_sphinx_theme"
+html_css_files = ["css/costum.css"]
+
+# Logo on browser tab.
+html_favicon = "_static/images/lightMode/html_logo__tab.ico"
+
+# Logo on webpage title.
+html_logo = "_static/images/lightMode/html_logo_HyperSupercells2_light.png"
+
+# html light/drak mode setting.
+# Note, I will set this to automatic eventually.
+html_context = {"default_mode": "light"}
+
+# Drop primary sidebar (left, called Section Navigation) of pages.
+# Note, in order to drop the secondary sidebar (right), one needs to
+# adjust the .md and .rst files it self.
+html_sidebars = {
+  "contents/Installation/installation": [],
+  "contents/GettingStarted/Getting_started": [],
+  "contents/About/Intro": [],
+  "contents/Gallery/gallery": [],
+  "contents/Gallery/SubgroupTreegraph64": [],
+  "contents/Gallery/PrimitiveCell64GAP": [],
+  "contents/Publications/publications": [],
+  "contents/Contribute/contribute": [],
+  "contents/Contact/contact": [],
+  }
+
+# Adjust the theme.
+html_theme_options = {
+
+    "body_max_width": "none",
+
+    "secondary_sidebar_items": ["page-toc", "edit-this-page"],
+    
+   "logo": {
+      "image_light": "_static/images/lightMode/html_logo_HyperSupercells2_light.png",
+      "image_dark": "_static/images/darkMode/html_logo_HyperSupercells2_dark.png"
+   },
+
+  # Number of header links displayed
+  "header_links_before_dropdown": 5,
+
+  # Number of links in header link dropdown
+  "navigation_depth": 10,
+
+  # Link icons that appear on the right upper corner of front page (desktop view),
+  # or burger menu in reduced and mobile view.
+  "icon_links": [
+        {
+            # Label for this link
+            "name": "GitHub",
+            # URL where the link will redirect
+            "url": "https://github.com/patrick-lenggenhager/HyperCells",  # required
+            # Icon class (if "type": "fontawesome"), or path to local image (if "type": "local")
+            "icon": "fa-brands fa-square-github",
+            # The type of image to be used (see below for details)
+            "type": "fontawesome",
+        },
+        {
+            # Label for this link
+            "name": "GitHub",
+            # URL where the link will redirect
+            "url": "https://github.com/patrick-lenggenhager/HyperBloch",  # required
+            # Icon class (if "type": "fontawesome"), or path to local image (if "type": "local")
+            "icon": "fa-brands fa-square-github",
+            # The type of image to be used (see below for details)
+            "type": "fontawesome",
+        }
+   ],
+
+   # Footer options.
+   "article_footer_items": []
+}
+
+#   "external_links": [
+#      {"name": "link-one-name", "url": "https://<link-one>"},
+#      {"name": "link-two-name", "url": "https://<link-two>"} 
+#   ]
+#
+
+# Prevent the copy button from appearing on top of notebook cell numbers:
+#copybutton_selector = ":not(.prompt) > div.highlight pre"
+
+# ===============================================================================================
