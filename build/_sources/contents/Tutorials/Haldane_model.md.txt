@@ -1,7 +1,4 @@
-
-.. _flatbands:
-
-# Flat bands
+# Haldane model
 
 This is how you reference [google](https://google.com)
 

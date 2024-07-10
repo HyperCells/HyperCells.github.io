@@ -10,8 +10,6 @@
 
 import sys, os
 import datetime
-import notfound
-
 sys.path.append(os.path.abspath("sphinxext"))
 
 
@@ -25,7 +23,7 @@ date = datetime.datetime.now().date()
 year = date.strftime("%Y")
 
 project = "HyperCells and HyperBloch documentation"
-copyright = f"2023-{year}, by the HyperCells development team" 
+copyright = f"2023-{year}, the HyperCells & HyperBloch development team" 
 author = "by the HyperCells development team"
 release = "0.0.1"
 
@@ -34,7 +32,7 @@ release = "0.0.1"
 # ===============================================================================================
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ["myst_parser", "sphinx.ext.imgmath", "sphinx_design", "sphinx_copybutton",'notfound.extension']
+extensions = ["myst_parser", "sphinx.ext.imgmath", "sphinx_design", "sphinx_copybutton","notfound.extension","sphinx_reredirects"]
 myst_enable_extensions = ["colon_fence"]
 
 # imgmath extension configuration.
@@ -61,7 +59,7 @@ numfig = False
 # 404 not found page configuration :
 # ===============================================================================================
 
-#  (seems not to work properly)
+# (seems not to work properly)
 notfound_template = "./catch404/404.html"
 notfound_pagename = "404"
 notfound_urls_prefix = None
@@ -79,7 +77,7 @@ html_title = "HyperCells & HyperBloch"
 
 # Theme template and cotum css file path.
 html_theme = "pydata_sphinx_theme"
-html_css_files = ["css/costum.css"]
+html_css_files = ["css/custom.css"]
 
 # Logo on browser tab.
 html_favicon = "_static/images/lightMode/html_logo__tab.ico"
