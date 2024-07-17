@@ -45,7 +45,7 @@ gap> ListTGQuotients( [ 2, 8, 8 ] );
 [ [ 2, 6 ], [ 3, 10 ], [ 3, 11 ], [ 5, 12 ], [ 5, 13 ], [ 9, 19 ], ... ]
 ```
 
-which allows us to select one of them, here the one denoted by <code class="code" style="font-size:1.1em;">T2.6</code>, where 2 is the genus of the surface on which the quotient group acts, and 6 the position in the list of all quotients with the same genus.
+which allows us to select one of them. In the following, we select the quotient denoted by <code class="code" style="font-size:1.1em;">T2.6</code>, where the '2' indicates the genus of the surface on which the quotient group acts, and the '6' indicates the position in the list of all quotients with the same genus.
 
 ```gap
 gap> q := TGQuotient( [ 2, 6 ] );
