@@ -74,7 +74,7 @@ gap> TGTranslationGroup( tg, q );
 TranslationGroup( < g1, g2, g3, g4 | g4*g3*g2*g1*g2^-1*g4^-1*g1^-1*g3^-1 > )
 ```
 
-The next step is to construct the graph representing primitive cell. This graph corresponds to a triangular tessellation of the compactified cell and is stored as an object of category <code class="code-gap" style="font-size:1.1em;">TGCellGraph</code> (<a target="_blank" href="https://patrick-lenggenhager.github.io/HyperCells/doc/chap3_mj.html#X7945E96B7A771F5A">see 3.7</a>). In addition to the triangle group and quotient, we also need to specify the vertex at which the cell should be centered (here we choose <code class="code-gap" style="font-size:1.1em;">3</code> corresponding to the <code class="code-gap" style="font-size:1.1em;">z</code> vertex of the fundamental Schwarz triangle):
+The next step is to construct the graph representing primitive cell. This graph corresponds to a triangular tessellation of the compactified cell and is stored as an object of category <code class="code-gap" style="font-size:1.1em;">TGCellGraph</code> (<a target="_blank" href="https://patrick-lenggenhager.github.io/HyperCells/doc/chap3_mj.html#X7945E96B7A771F5A">see 3.7</a>). In addition to the triangle group and quotient, we also need to specify the vertex at which the cell should be centered (here we choose <code class="code-gap" style="font-size:1.1em;">3</code>, corresponding to the <code class="code-gap" style="font-size:1.1em;">z</code> vertex of the fundamental Schwarz triangle):
 
 ```gap
 gap> cg := TGCellGraph( tg, q, 3 : simplify := 5 );
