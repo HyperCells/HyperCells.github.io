@@ -1,20 +1,24 @@
 # The HyperCells & HyperBloch website
 
+This website demonstrates the usage of the HyperCells and HyperBloch packages through
+examples, guides, and tutorials.
 
+## Building and Viewing the Website
 
-<figure class="text-center">
-  <picture> 
-    <source type="image/svg+xml" srcset="./_static/images/lightMode/TitleFigure2_light.png">
-    <img src="./_static/images/lightMode/TitleFigure2_light.png" class="figure-img img-fluid rounded" alt="Title image" width="600"/>
-  </picture>
-</figure>
-
-
->**HyperCells** is a |GAP| package which enables the construction of graphs underlying tight-binding models 
-on infinite and compactified hyperbolic lattices on primitive cells and supercells based on triangle groups 
-and quotients with normal subgroups.
-
-
->**HyperBloch** is a |Mathematica| package for the construction of the corresponding Bloch Hamiltonian, its
-eigenstates, and spectrum based on Abelian hyperbolic band theory. It enables advanced visualizations of
-hyperbolic lattices and graphs of underlying tight-binding models on the Poincaré disk model.
+1. Install [Python](https://www.python.org/).
+2. Set up the environment, e.g., using `venv`:
+```bash
+python -m venv env
+source env/bin/activate
+pip install --upgrade pip
+```
+3. Install the necessary Python packages
+```bash
+pip install -r requirements_pip.txt
+```
+4. Install [make](https://www.gnu.org/software/make/).
+5. Build HTML
+```bash
+make html
+```
+6. Start a webserver in the directory `build/html`, e.g., in VSCode use the [LiveServer](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension.
