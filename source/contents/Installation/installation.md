@@ -1,3 +1,17 @@
+
+<style type="text/css">
+    @media (min-width: 959.98px) {
+        .bd-main .bd-content  {
+            max-width: 84.1%;  
+            align-self: end;
+            }
+        .bd-main .bd-content .bd-sidebar-secondary .bd-toc {
+            align-items:right;
+            }
+</style>
+
+
+
 # Installation
 
 ## HyperCells package
@@ -7,7 +21,6 @@
 
 GAP version 4.11+
 ```
-
 
 First install GAP by following the <a target="_blank" href="https://www.gap-system.org/Download/index.html">instructions</a> on the GAP website. In most cases, this boils down to the following steps (to be executed in the directory where GAP should be installed to):
 ```shell
@@ -62,3 +75,31 @@ and then the package itself as a paclet:
 PacletInstall["https://github.com/patrick-lenggenhager/HyperBloch/releases/download/v0.9.0/PatrickMLenggenhager__HyperBloch-0.9.0.paclet"]
 ```
 If necessary, update the version number to match the one of the <a target="_blank" href="https://github.com/patrick-lenggenhager/HyperBloch/releases/latest">latest release</a>. Alternatively, download the release file manually, and install it with <code class="language-Mathematica">PacletInstall["path"]</code> by passing the path to the downloaded file as argument.
+
+
+## Extensions (optional)
+
+The HyperCells package has an integrated word simplification procedure that can be applied with two methods, brute force or the **Knuth-Bendix completion algorithm**. The default is the brute force method. The Knuth-Bendix completion algorithm, which is implemented in the <a target="_blank" href="https://gap-packages.github.io/kbmag/doc/chap0_mj.html">kbmag</a> package, can be applied for groups with a maximal number of generators of 127 (currently). However, this limit can manually be extended up to 65535. The corresponding README file can be found in the folder containing GAP: **"...\gap\gap-< version >\pkg\kbmag\standalone"**, where the following modifications are layed out:
+
+
+```
+NEW in Version 2.3: It is now possible to use kbmag with more than the
+previous default number of 127 generators. To use up to 65535 generators,
+before making the package, edit the file "defs.h" in the lib directory,
+and change the two lines:
+
+#define MAXGEN MAXCHAR /* maximum number of generators */
+typedef char gen; /* for generators of monoids and groups */
+
+to
+
+#define MAXGEN MAXUSHORT /* maximum number of generators */
+typedef unsigned short gen; /* for generators of monoids and groups */
+```
+
+If these change are not made and supercells, compactified on Rieman surfaces with genus exceeding 64, are used with the Knuth-Bendix completion algorithm to simplify words, the simplification procedure will not be excecuted and a warning will be printed in GAP:
+
+```gap
+#WARNING: maximal number of genartors have been exceeded; non-simplified words will be used.
+Please follow the instructions in chapter ?? in order to use simplify for groups with more than 127 generators.
+```
