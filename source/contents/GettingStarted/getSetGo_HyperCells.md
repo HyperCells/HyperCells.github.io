@@ -103,7 +103,7 @@ gap> G := TGQuotientGroup( tg, q );
 <fp group on the generators [ x, y, z ]>
 ```
 
-or the associated translation group <code class="code-gap" style="font-size:1.1em;">&#915;</code>
+or the associated translation group {math}`\Gamma`:
 
 ```gap
 gap> TGTranslationGroup( tg, q );
