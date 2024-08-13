@@ -1,25 +1,110 @@
 /* Costume theming of HyperCells website
-*  --------------------------------------*/
+*  -------------------------------------*/
+
+/* Set font size.*/
+html {
+     --pst-font-size-base:105%!important;
+     --pst-sidebar-font-size-mobile: 100%!important; 
+}
 
 /* Set global text alignemnt for block quotes.
 *  and set the color of the border.*/
 section {
-     text-align:justify!important
+     text-align:justify!important;
 } 
+
+/* Custom admonition */
+
+/* Seealso admonition */
+/*--------------------*/
+div.admonition.seealso-icon > .admonition-title::after {
+  content: "\f064"; /* the fa-scale icon */
+}
+
+div.admonition.seealso-icon {
+     border-color: rgb(255, 136, 0.25, 1);
+   }
+
+div.admonition.seealso-icon > .admonition-title {
+     background-color: rgba(255, 136, 0, 0.14);
+}
+
+div.admonition.seealso-icon > .admonition-title::after {
+     color: rgb(255, 136, 0.25, 1);
+}
+/*-------------------*/
 
 /* Set global text alignemnt for block quotes.
 *  and set the color of the border.*/
 blockquote {
      text-align:justify!important;
-     border-color:blueviolet!important
+     border-color: #8045e5!important;
 } 
 
-/* Set font size.*/
-html {
-     --pst-font-size-base:105%!important;
-     --pst-sidebar-font-size-mobile: 100%!important;
-     
+/* Customize gap code block */
+div.highlight-gap.notranslate {
+     div.highlight {
+          pre {
+               border-left-color: rgba(15, 0, 230, 1);
+               border-left-width: 3px;
+          }
+     }
 }
+
+/* Customize Mathematica code block */
+div.highlight-Mathematica.notranslate {
+     div.highlight { 
+          pre {
+               border-left-color: rgb(200, 0, 0, 1);
+               border-left-width: 3px;
+          }
+     }
+}
+
+
+/* Customize download button */
+/*---------------------------*/
+a.btn.btn-primary, 
+a.btn.btn-primary:link, 
+a.btn.btn-primary:visited,
+a.btn.btn-primary:active {
+     color: white;
+     text-decoration:white;
+     background-color:#0a7d91;
+     border-color:#0a7d91;
+}
+
+a.btn.btn-primary, 
+a.btn.btn-primary:hover{
+     background-color:#8045e5;
+     border-color:#8045e5;
+}
+/*---------------------------*/
+
+/* Customize clickable cards */
+/*---------------------------*/
+div.sd-card.sd-sphinx-override.docutils {
+     border-color:#0a7d91;
+}
+
+div.sd-card.sd-sphinx-override.docutils:hover {
+     border-color:#8045e5;
+}
+/*---------------------------*/
+
+/* Change primary sidebar width*/
+@media (min-width: 959.98px) {
+     .bd-sidebar-primary {
+     width: 20%;
+     }
+}
+
+
+nav#navbar-main, div.container-fluid, div.footer {
+     max-width: 1000px;
+     margin-left: auto;
+     margin-right: auto;
+ }
 
 /* Set figure caption*/
 figcaption {
@@ -50,33 +135,51 @@ figcaption {
      align-items: stretch
  }
 
-/* Control article dimension.
-*-----------------------------*/
+/* Some configurations, to be removed once the website is online. */
+/*----------------------------------------------------------------*/
+
+/* Prevent pydata from adding extra background colors to my images
+  to be removed when https://github.com/pydata/pydata-sphinx-theme/issues/879
+  will be solved */
 /*
-*.bd-main .bd-content .bd-article-container {
-*    max-width: 80%;
-*} 
+html[data-theme="dark"] .bd-content img:not(.only-dark):not(.dark-light) {
+     background: transparent;
+     border-radius: 0;
+}
+*/
+
+
+/* Control article dimension.
+ -----------------------------*/
+/*
+.bd-main .bd-content .bd-article-container {
+    max-width: 80%;
+} 
 */
 
 /*
-*.bd-page-width {
-*    max-width: 100% !important;
-*}
+.bd-page-width {
+    max-width: 100% !important;
+}
 */
 
  /*
-*.bd-article-container {
-*     max-width: 100% !important;
-*}
+.bd-article-container {
+     max-width: 100% !important;
+}
 */
 
+/* Alternative (buggy) download button */
+/*
+a.btn.btn-primary,
+a.btn.btn-primary:visited {
+     background-color:#053f49;
+     border-color:#053f49;
+}
 
- /*! sphinx-book-theme CSS
- * BSD 3-Clause License
- * Copyright (c) 2020, EBP
- * All rights reserved.
- *
- * This follows the 7-1 pattern described here:
- * https://sass-guidelin.es/#architecture
- */
- 
+a.btn.btn-primary, 
+a.btn.btn-primary:hover:visited {
+     background-color:#591bc2;
+     border-color:#591bc2;
+}
+*/
