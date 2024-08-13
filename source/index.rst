@@ -6,24 +6,54 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+
 .. raw:: html
 
-  <script type="text/javascript">
-    var observer = new MutationObserver(function(mutations) {
-      const dark = document.documentElement.dataset.theme == 'dark';
-      document.getElementsByClassName('no-scaled-link')[0].src = dark ? '_static/images/darkMode/TitleFigure2_dark.png' : "_static/images/lightMode/TitleFigure2_light.png";
+    <style type="text/css">
+         @media (min-width: 959.98px) {
+            .bd-main .bd-content .bd-article-container {
+               max-width: 80%!important; 
+               }
+            }
+    </style>
+
+
+.. raw:: html
+
+   <style type="text/css">
+      .bd-content .sd-card {
+         border: 1px solid var(--pst-color-border);
+         text-align: center;
+         place-items: center;
+         border-radius: 20px;
+      }
+    </style>
+
+
+.. raw:: html
+
+   <script type="text/javascript">
+      var observer = new MutationObserver(function(mutations) {
+         const dark = document.documentElement.dataset.theme == 'dark';
+         var windowWidth = window.innerWidth;
+         if(windowWidth > 500) {
+            document.getElementsByClassName('no-scaled-link')[0].src = dark ? '_static/images/darkMode/TitleFigure2.2_dark.png' : "_static/images/lightMode/TitleFigure2.2_light.png";
+         }
+         else {
+            document.getElementsByClassName('no-scaled-link')[0].src = dark ? '_static/images/darkMode/TitleFigure_mobile_dark.png' : "_static/images/lightMode/TitleFigure_mobile_light.png";
+         }
     })
     observer.observe(document.documentElement, {attributes: true, attributeFilter: ['data-theme']});
+  
   </script>
-  <link rel="preload" href="_static/images/darkMode/TitleFigure2_dark.png" as="image">
+  <link rel="preload" href="_static/images/darkMode/TitleFigure2.2_dark.png" as="image">
 
 
-.. image:: _static/images/lightMode/TitleFigure2_light.png
+.. image:: _static/images/lightMode/TitleFigure2.2_light.png
    :width: 100%
    :class: no-scaled-link, dark-light
    :align: center
 
-=====
 
 .. card:: Documentation
    :link: docs
@@ -31,7 +61,6 @@
    :link-alt: clickable cards
    :text-align: center
    :margin: 4 2 0 0
-
 
 .. grid:: 3
    :gutter: 2
@@ -50,7 +79,6 @@
       :link: tutorials
       :link-type: ref
       :link-alt: clickable cards
-
 
 .. |GAP| raw:: html
 
@@ -107,7 +135,6 @@ Supercell Method
     observer.observe(document.documentElement, {attributes: true, attributeFilter: ['data-theme']});
   </script>
   <link rel="preload" href="_static/images/darkMode/SuperCells2_dark.png" as="image">
-
 
 .. image:: _static/images/lightMode/SuperCells2_light.png
    :scale: 15%
