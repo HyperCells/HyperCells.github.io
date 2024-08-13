@@ -12,7 +12,6 @@ import sys, os
 import datetime
 sys.path.append(os.path.abspath("sphinxext"))
 
-
 # ===============================================================================================
 # Project information :
 # ===============================================================================================
@@ -23,16 +22,26 @@ date = datetime.datetime.now().date()
 year = date.strftime("%Y")
 
 project = "HyperCells and HyperBloch documentation"
-copyright = f"2023-{year}, the HyperCells & HyperBloch development team" 
+copyright = f"2023-{year}, Patrick M. Lenggenhager, Joseph Maciejko and Tomáš Bzdušek. Website development and tutorials by Marcelo Looser" 
 author = "by the HyperCells development team"
-release = "0.0.1"
+release = "0.0.2"
+version = "0.0.2"
 
 # ===============================================================================================
 # General configuration :
 # ===============================================================================================
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ["myst_parser", "sphinx.ext.imgmath", "sphinx_design", "sphinx_copybutton","notfound.extension","sphinx_reredirects"]
+extensions = [
+    "myst_parser",  
+    "sphinx_design", 
+    "sphinx_copybutton",
+    "notfound.extension", 
+    "sphinx_reredirects", 
+    "sphinx_togglebutton",
+    "sphinx.ext.mathjax"
+]
+
 myst_enable_extensions = ["colon_fence"]
 
 # imgmath extension configuration.
@@ -59,10 +68,8 @@ numfig = False
 # 404 not found page configuration :
 # ===============================================================================================
 
-# (seems not to work properly)
-notfound_template = "./catch404/404.html"
 notfound_pagename = "404"
-notfound_urls_prefix = None
+notfound_urls_prefix = "/build/"
 
 # ===============================================================================================
 # Options for HTML output :
@@ -80,7 +87,7 @@ html_theme = "pydata_sphinx_theme"
 html_css_files = ["css/custom.css"]
 
 # Logo on browser tab.
-html_favicon = "_static/images/lightMode/html_logo__tab.ico"
+html_favicon = "_static/images/lightMode/html___logo___tab.ico"
 
 # Logo on webpage title.
 html_logo = "_static/images/lightMode/html_logo_HyperSupercells2_light.png"
@@ -101,33 +108,35 @@ html_sidebars = {
   "contents/Gallery/PrimitiveCell64GAP": [],
   "contents/Publications/publications": [],
   "contents/Contribute/contribute": [],
-  "contents/Contact/contact": [],
-  }
+  "contents/Contact/contact": []
+}
 
 # Adjust the theme.
 html_theme_options = {
 
     "body_max_width": "none",
 
-    "secondary_sidebar_items": ["page-toc", "edit-this-page"],
-    
+    "secondary_sidebar_items": {
+        "**": ["page-toc"]
+    },
+
    "logo": {
       "image_light": "_static/images/lightMode/html_logo_HyperSupercells2_light.png",
       "image_dark": "_static/images/darkMode/html_logo_HyperSupercells2_dark.png"
    },
+   
+    # Number of header links displayed
+    "header_links_before_dropdown": 5,
 
-  # Number of header links displayed
-  "header_links_before_dropdown": 5,
+    # Number of links in header link dropdown
+    "navigation_depth": 10,
 
-  # Number of links in header link dropdown
-  "navigation_depth": 10,
-
-  # Link icons that appear on the right upper corner of front page (desktop view),
-  # or burger menu in reduced and mobile view.
-  "icon_links": [
+    # Link icons that appear on the right upper corner of front page (desktop view),
+    # or burger menu in reduced and mobile view.
+    "icon_links": [
         {
             # Label for this link
-            "name": "GitHub",
+            "name": "HyperCells",
             # URL where the link will redirect
             "url": "https://github.com/patrick-lenggenhager/HyperCells",  # required
             # Icon class (if "type": "fontawesome"), or path to local image (if "type": "local")
@@ -137,19 +146,20 @@ html_theme_options = {
         },
         {
             # Label for this link
-            "name": "GitHub",
+            "name": "HyperBloch",
             # URL where the link will redirect
             "url": "https://github.com/patrick-lenggenhager/HyperBloch",  # required
             # Icon class (if "type": "fontawesome"), or path to local image (if "type": "local")
             "icon": "fa-brands fa-square-github",
             # The type of image to be used (see below for details)
             "type": "fontawesome",
-        }
-   ],
+        },
+    ],
 
-   # Footer options.
-   "article_footer_items": []
+    # Footer options.
+    "article_footer_items": []
 }
+
 
 #   "external_links": [
 #      {"name": "link-one-name", "url": "https://<link-one>"},
@@ -159,5 +169,21 @@ html_theme_options = {
 
 # Prevent the copy button from appearing on top of notebook cell numbers:
 #copybutton_selector = ":not(.prompt) > div.highlight pre"
+
+# ===============================================================================================
+# Latex and simplepdf configurations (to be dropped once the website is online)
+# ===============================================================================================
+
+latex_elements = {
+   'papersize':'a4paper',
+   'pointsize':'11pt',
+   'classoptions': ',openany',
+   'babel': '\\usepackage[english]{babel}',
+
+}
+
+simplepdf_vars = {
+    'cover-bg': 'url(images/pdf_cover_temp.png) no-repeat center'
+}
 
 # ===============================================================================================
