@@ -9,14 +9,15 @@ thumbnail: ../../../source/assets/media/thumbnails/project_HyperbolicLattices.jp
 
 # HyperBloch
 
-```{admonition} Learning goals
-:class: hint
+```{dropdown} Learning goals
+:color: success
+:icon: light-bulb
 
 Import of:
 
-* <code class="code-gap" style="font-size:1.1em;">TGCellGraph</code>,
-* <code class="code-gap" style="font-size:1.1em;">TGCellModelGraph</code>
-* and <code class="code-gap" style="font-size:1.1em;">TGSuperCellModelGraph</code> files.
+* cell grah,
+* model graph
+* and supercell model graphs files.
 
 Visualization of:
 
@@ -25,18 +26,35 @@ Visualization of:
 
 construction of:
 
-* corresponding **Abelian Bloch Hamiltonian**.
+* corresponding **Abelian Bloch Hamiltonians**.
+```
 
+```{dropdown}  Featured functions
+:color: info
+:icon: gear
+
+**HyperCells**:
+
+<code class="code-gap" style="font-size:1.1em;">
+ProperTriangleGroup, TGQuotient, TGCellGraph, Export, TessellationModelGraph, TGCellSymmetric, TGSuperCellModelGraph
+</code>
+<br></br>
+
+**HyperBloch**:
+
+<code class="code-gap" style="font-size:1.1em;">
+ImportCellGraphString, ImportModelGraphString, VisualizeModelGraph, ShowCellGraphFlattened, ShowCellBoundary, AbelianBlochHamiltonian, ImportCellGraphString, ImportSupercellModelGraphString
+</code>
 ```
 
 Aspects of the content below originate from the  <a target="_blank" href="https:/doi.org/10.5281/zenodo.10142167">Supplementary Data and Code</a>, 
-where the necessary steps to find the **density of states** of an elementary nearest-neighbor hopping model on the {8,8}-lattice are discussed 
+where the necessary steps to find the **density of states** of an elementary nearest-neighbor hopping model on the {math}`\{8,8\}`-lattice are discussed 
 in more depth.
 
 
 ## Prerequisits **in GAP**
 
-In order to construct the Bloch Hamiltonian for a nearest-neighbor tight-binding model on the {8,8}-lattice, we need to create the necessary files 
+In order to construct the Bloch Hamiltonian for a nearest-neighbor tight-binding model on the {math}`\{8,8\}`-lattice, we need to create the necessary files 
 using the **HyperCells** package in GAP. We first construct the primitive cell and the model graph (based on the tessellation graph), 
 and finally the 2-supercell, as we have established previously in getting started with [HyperCells](./getSetGo_HyperCells):
 
@@ -80,8 +98,8 @@ Export( scmodel, "{8,8}-tess_T2.6_3_sc-T3.11.hcs" ); # export
 ```
 
 <div class="flex ">
-  <a href="../../../source/assets/misc/code_snippets/GettingStarted/getting_started_HyperCells_pc_sc_files.zip" download class="btn btn-primary" class="flex-child">Download generated files</a>
-  <a href="../../../source/assets/misc/code_snippets/GettingStarted/getting_started_HyperCells.g" download class="btn btn-primary" class="flex-child">Download GAP Code</a>
+  <a href="../../../source/assets/misc/code_snippets/GettingStarted/getting_started_HyperCells_pc_sc_files.zip" class="btn btn-primary" class="flex-child"><i class="fa-solid fa-download"></i> Download generated files</a>
+  <a href="../../../source/assets/misc/code_snippets/GettingStarted/getting_started_HyperCells.g" class="btn btn-primary" class="flex-child"><i class="fa-solid fa-download"></i> Download GAP Code</a>
 </div>
 
 
@@ -124,7 +142,7 @@ VisualizeModelGraph[pcmodel,
 ]
 ```
 
-producing a figure of an elementary nearest-neighbor model on the {8,8} lattice:
+producing a figure of an elementary nearest-neighbor model on the {math}`\{8,8\}`-lattice:
 
 <figure class="text-center">
   <picture>
@@ -136,14 +154,14 @@ producing a figure of an elementary nearest-neighbor model on the {8,8} lattice:
 In order to construct the **Abelian Bloch Hamiltonian**, we need to assign the parameters to vertices and edges in the model graph. This takes a very compact form for a simple nearest neighbour tight-binding model. In order to illustrate the procedure, we will start with the most general assignment strategy and demonstrate the compact form afterwards.
 
 ```{admonition} Skip to subsection [Compact strategy](#compact-strategy)
-:class: seealso
+:class: seealso-icon
 
 On a first read one may want to skip the subsection "General strategy" and resume at the subsection "Compact strategy".
 ```
 
 ### General strategy
 
-The HyperBloch package supports the construction of models with **multiple orbits per site** and allows for different numbers of orbitals per site as well. For now, we will set the number of orbitals to one. The assignement of  multiple orbitals per site are  discussion in the tutorial (???).
+The HyperBloch package supports the construction of models with **multiple orbits per site** and allows for different numbers of orbitals per site as well. For now, we will set the number of orbitals to one. The assignement of  multiple orbitals per site are  discussion in the tutorial [Higher-order topology](../Tutorials/HigherOrder_topology.md).
 
 ```Mathematica
 norbits = 1;
@@ -175,7 +193,7 @@ which returns four edges:
 <figure class="text-center">
   <picture>
     <source type="image/svg+xml" srcset="../../../source/assets/media/figs/getSetGoHyperBloch/EdgeListPC88.png">
-    <img src="../../../source/assets/media/figs/getSetGoHyperBloch/EdgeListPC88.png" class="figure-img img-fluid rounded" alt="Edge list primitive cell {8,8}-lattice" width="500"/>
+    <img src="../../../source/assets/media/figs/getSetGoHyperBloch/EdgeListPC88.png" class="figure-img img-fluid rounded" alt="Edge list primitive cell {8,8}-lattice" width="600"/>
   </picture>
 </figure>
 
@@ -190,7 +208,7 @@ pcmodel["EdgeTranslations"]
 which contains four translation operators ``{g1, g4, g2, g3}``. We will now set the hopping terms to a constant real value <code class="language-Mathematica">1</code> for all edges by associating the edge list with a list of constant values. 
 
 ```Mathematica
-nnHoppingVec = ConstantArray[1, 4];
+nnHoppingVec = ConstantArray[-1, 4];
 hoppingPC = AssociationThread[EdgeList@pcmodel["Graph"] -> nnHoppingVec];
 ```
 
@@ -239,7 +257,7 @@ We find the density of states of the elementary nearest-neighbor model on the pr
 ```Mathematica
 SmoothHistogram[evspc, 0.005, "PDF", Frame, -> True, FrameStyle -> Black,
                 PlotRange -> All, LableStyle -> 20, ImageSize -> 500,
-                ImagePadding ->{{Automatic, 10},{Automatic}},
+                ImagePadding ->{{Automatic, 10},{Automatic, 10}},
                 PlotLabel -> "Primitive cell (T2.6); k sampling: 10^6",
                 FrameLabel -> {"Energy E", "Density of states"}]
 ```
@@ -290,12 +308,12 @@ The resulting DOS can be computed as follows:
 vessc = ComputeEigenvalues[Hsc, 2*10^5, 32];
 ```
 
-We find the density of states of the elementary nearest-neighbor model on the supercell <code class="code" style="font-size:1.1em;">T3.11</code> of the {8,8}-lattice:
+We find the density of states of the elementary nearest-neighbor model on the supercell <code class="code" style="font-size:1.1em;">T3.11</code> of the {math}`\{8,8\}`-lattice:
 
 ```Mathematica
 SmoothHistogram[evssc, 0.005, "PDF", Frame, -> True, FrameStyle -> Black,
                 PlotRange -> All, LableStyle -> 20, ImageSize -> 500,
-                ImagePadding ->{{Automatic, 10},{Automatic}},
+                ImagePadding ->{{Automatic, 10},{Automatic, 10}},
                 PlotLabel -> "Primitive cell (T2.6); k sampling: 2*10^5",
                 FrameLabel -> {"Energy E", "Density of states"}]
 ```
@@ -308,6 +326,6 @@ SmoothHistogram[evssc, 0.005, "PDF", Frame, -> True, FrameStyle -> Black,
 </figure>
 
 <div style="text-align: right;">
-  <a href="../../../source/assets/misc/code_snippets/GettingStarted/getting_started_HyperBloch.nb" download class="btn btn-primary">Download Mathematica Notebook</a>
+  <a href="../../../source/assets/misc/code_snippets/GettingStarted/getting_started_HyperBloch.nb" class="btn btn-primary"><i class="fa-solid fa-download"></i> Download Mathematica Notebook</a>
 </div>
 <br>

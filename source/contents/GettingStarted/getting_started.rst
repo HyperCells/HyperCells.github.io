@@ -1,12 +1,21 @@
 :html_theme.sidebar_secondary.remove: true
 
+.. raw:: html
+
+    <style type="text/css">
+         @media (min-width: 959.98px) {
+            .bd-main .bd-content {
+               max-width: 80%!important; 
+               text-align:left!important;
+               }
+            }
+    </style>
+
 .. _getsetgo:
 
 Getting started
 ===============
 
-Overview
---------
 
 .. |GAP| raw:: html
 
@@ -30,7 +39,13 @@ Overview
 
 The task of modeling tight-binding models on hyperbolic lattices is split into two steps:
 
-#. **Construction of lattice/model graphs:** For finite systems, this includes the construction 
+.. card:: 1. HyperCells package
+   :link: ./getSetGo_HyperCells.html 
+   :link-alt: getSetGo_HyperCells.html
+   :text-align: justify
+   :margin: 3 3 2 2
+
+   **Construction of lattice/model graphs** for finite systems, this includes the construction 
    of appropriate periodic boundary conditions, while for infinite systems, the corresponding 
    primitive cell and successive supercells are constructed in order to apply the supercell 
    method for hyperbolic band theory. This part is implemented in the |GAP| package **HyperCells**. 
@@ -39,8 +54,15 @@ The task of modeling tight-binding models on hyperbolic lattices is split into t
    definition of the graph underlying a specific model, i.e., selecting specific Wyckoff positions, 
    nearest or next-nearest neighbors etc.
 
-#. **Defining tight-binding models and using hyperbolic band theory:** The second package, a 
-   Mathematica package called **HyperBloch** provides functions for importing and easily visualizing 
+
+.. card:: 2. HyperBloch package
+   :link: ./getSetGo_HyperBloch.html 
+   :link-alt: getSetGo_HyperBloch.html
+   :text-align: justify
+   :margin: 3 3 2 2
+
+   **Defining tight-binding models and using hyperbolic band theory** implemented in the the second package,
+   a Mathematica package called **HyperBloch**. It provides functions for importing and easily visualizing 
    the clusters, supercells, and model graphs. Additionally, it allows the user to easily define 
    tight-binding models ontop of the model graph, by placing orbitals at vertices and definining 
    hopping matrices on the edges. Finally, the Abelian Bloch Hamiltonian for the defined model is 
