@@ -34,12 +34,18 @@ div.admonition.seealso-icon > .admonition-title::after {
 }
 /*-------------------*/
 
+
 /* Set global text alignemnt for block quotes.
 *  and set the color of the border.*/
 blockquote {
      text-align:justify!important;
      border-color: #8045e5!important;
 } 
+
+/* Customize inline gap code */
+code.code-gap {
+     font-size: 1em
+}
 
 /* Customize gap code block */
 div.highlight-gap.notranslate {
@@ -49,6 +55,11 @@ div.highlight-gap.notranslate {
                border-left-width: 3px;
           }
      }
+}
+
+/* Customize inline Mathematica code */
+code.code-Mathematica {
+     font-size: 1em
 }
 
 /* Customize Mathematica code block */
