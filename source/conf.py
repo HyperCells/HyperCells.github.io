@@ -78,6 +78,7 @@ notfound_urls_prefix = "/build/"
 
 # Path to static objects.
 html_static_path = ["_static"]
+html_extra_path = ["assets"]
 
 # Title to concatenated with tab title in browser.
 html_title = "HyperCells & HyperBloch"
