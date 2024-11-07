@@ -109,7 +109,8 @@ html_sidebars = {
   "contents/Gallery/PrimitiveCell64GAP": [],
   "contents/Publications/publications": [],
   "contents/Contribute/contribute": [],
-  "contents/Contact/contact": []
+  "contents/Contact/contact": [],
+  "contents/Cite/cite": []
 }
 
 # Adjust the theme.
