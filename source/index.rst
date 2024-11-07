@@ -180,6 +180,8 @@ growing supercells and obtain a converging description of the infinite lattice. 
 
    contents/Contribute/contribute.md
 
+   contents/Cite/cite.md
+
    contents/Releases/releases.md
 
    contents/Contact/contact.md
