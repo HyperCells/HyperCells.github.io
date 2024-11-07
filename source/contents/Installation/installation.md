@@ -79,8 +79,9 @@ If necessary, update the version number to match the one of the <a target="_blan
 
 ## Extensions (optional)
 
-The HyperCells package has an integrated word simplification procedure that can be applied with two methods, brute force or the **Knuth-Bendix completion algorithm**. The default is the brute force method. The Knuth-Bendix completion algorithm, which is implemented in the <a target="_blank" href="https://gap-packages.github.io/kbmag/doc/chap0_mj.html">kbmag</a> package, can be applied for groups with a maximal number of generators of 127 (currently). However, this limit can manually be extended up to 65535. The corresponding README file can be found in the folder containing GAP: **"...\gap\gap-< version >\pkg\kbmag\standalone"**, where the following modifications are layed out:
+The HyperCells package has an integrated word simplification procedure for a selection of functions. Two methods are available: a default brute-force method, and a method based on the Knuth-Bendix completion algorithm. The latter can only be used provided the <a target="_blank" href="https://gap-packages.github.io/kbmag/doc/chap0_mj.html">kbmag</a> package (verion 1.5.10+) is available. 
 
+The default configuration of the kbmag package allows HyperCells to simplify words in groups with a maximal number of generators of 127. However, this limit can manually be extended up to 65535. The corresponding adjustments are laid out in a README file in the kbmag package and can be found in the folder containing GAP: “…/gap/gap-< version >/pkg/kbmag/standalone”, with the following instructions:
 
 ```
 NEW in Version 2.3: It is now possible to use kbmag with more than the
@@ -97,9 +98,12 @@ to
 typedef unsigned short gen; /* for generators of monoids and groups */
 ```
 
-If these change are not made and supercells, compactified on Rieman surfaces with genus exceeding 64, are used with the Knuth-Bendix completion algorithm to simplify words, the simplification procedure will not be excecuted and a warning will be printed in GAP:
+Once these changes are made, kbmag needs to be recompiled. This can be done in the terminal, where in the kbmag directory one needs to execute the command **make clean** and afterwards **make**.
+
+If these changes are not made while using the Knuth-Bendix completion algorithm based simplification and unit cells compactified on Rieman surfaces with genus exceeding 63 are used, the procedure will not be excecuted and a warning will be printed in GAP:
 
 ```gap
-#WARNING: maximal number of genartors have been exceeded; non-simplified words will be used.
-Please follow the instructions in chapter ?? in order to use simplify for groups with more than 127 generators.
+#WARNING: maximal number of genartors have been exceeded; non-simplified words 
+will be used. Please follow the instructions in the chapter Introduction section
+Simplify extension (optional) in the HyperCells reference manual.
 ```
