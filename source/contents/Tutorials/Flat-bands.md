@@ -17,44 +17,63 @@ Construction of:
 
 **HyperCells:**
 
-<code class="code-gap" style="font-size:1.1em;">
-ProperTriangleGroup, TGQuotient, TGCellGraph, Export, LiebModelGraph, TGQuotientSequencesAdjacencyMatrix, GetLongestSequence, TGCellSymmetric, TGSuperCellModelGraph, KagomeModelGraph, TGCellModelGraph
+<code class="code-gap">
+ProperTriangleGroup, TGQuotient, TGCellGraph, Export, LiebModelGraph, TGQuotientSequencesAdjacencyMatrix, LongestSequence, TGCellSymmetric, TGSuperCellModelGraph, KagomeModelGraph, TGCellModelGraph
 </code>
 <br></br>
 
 **HyperBloch:**
 
-<code class="code-gap" style="font-size:1.1em;">
+<code class="code-gap">
 ImportCellGraphString, ImportModelGraphString, VisualizeModelGraph, ShowCellGraphFlattened, ShowCellBoundary, ImportSupercellModelGraphString, AbelianBlochHamiltonian
 </code>
 ```
 
+```{dropdown}  Needed functions
+:color: warning
+:icon: tools
+
+**Mathematica:**
+
+In previous tutorials, [Getting started with the HyperBloch](../GettingStarted/getSetGo_HyperBloch.md) package and HyperBloch [Supercells](./Supercells.md) tutorial, we have calculated the density of states of various nearest-neighbor tight-binding models via exact diagonalization and random samples. We predefine a function in order to calculate the eigenvalues for the Abelian Bloch Hamiltonians that we will construct. We  take advantage of the independence of different momentum sectors and parallelize the computation, where we partition the set of *Npts* into  *Nruns* subsets:
+
+```Mathematica
+ComputeEigenvalues[cfH_, Npts_, Nruns_, genus_] :=
+ Flatten@ParallelTable[
+   Flatten@Table[
+     Eigenvalues[cfH @@ RandomReal[{-Pi, Pi}, 2 genus]], {i, 1, 
+      Round[Npts/Nruns]}],
+   {j, 1, Nruns}, Method -> "FinestGrained"]
+```
+
+
+
 The HyperCells package contains built-in functions for several tight-binding models such as:
 
-* <code class="code-gap" style="font-size:1.1em;">TessellationModelGraph</code> which constructs a tessellation graph from a cell graph of a triangle group, i.e. the nearest-neighbor graphs of the {math}`\{p,q\}`-tessellation of the hyperbolic plane.
+* <code class="code-gap">TessellationModelGraph</code> which constructs a tessellation graph from a cell graph of a triangle group, i.e. the nearest-neighbor graphs of the {math}`\{p,q\}`-tessellation of the hyperbolic plane.
 
-* <code class="code-gap" style="font-size:1.1em;">LiebModelGraph</code> which constructs a Lieb graph from a cell graph of a triangle group.
+* <code class="code-gap">LiebModelGraph</code> which constructs a Lieb graph from a cell graph of a triangle group.
 
-* <code class="code-gap" style="font-size:1.1em;">KagomeModelGraph</code> which constructs a kagome graph from a cell graph of a triangle group.
+* <code class="code-gap">KagomeModelGraph</code> which constructs a kagome graph from a cell graph of a triangle group.
 
-* <code class="code-gap" style="font-size:1.1em;">TGCellModelGraph</code> which constructs a model graph from a cell graph and a specification of which cell-graph vertices are to be used as vertices of the model graph, which define edges, and
+* <code class="code-gap">TGCellModelGraph</code> which constructs a model graph from a cell graph and a specification of which cell-graph vertices are to be used as vertices of the model graph, which define edges, and
 which define faces of the model graph.
 
 as well as :
 
-* <code class="code-gap" style="font-size:1.1em;">AddOrientedNNNEdgesToTessellationModelGraph</code> which modifies the {math}`\{p,q\}`-tessellation model graph model by adding oriented next-nearest neighbor edges to all faces with at least five edges.
+* <code class="code-gap">AddOrientedNNNEdgesToTessellationModelGraph</code> which modifies the {math}`\{p,q\}`-tessellation model graph model by adding oriented next-nearest neighbor edges to all faces with at least five edges.
 
-Previously, in the tutorials [Getting started with HyperBloch](../GettingStarted/getSetGo_HyperBloch.md) and [Supercells](./Supercells.md), we have constructed tessellation graphs. In this tutorial we will constrcut hyperbolic Lieb lattices and hyperbolic kagome lattices on primitive cells and supercells. Both constructions rely on the <code class="code-gap" style="font-size:1.1em;">TGCellModelGraph</code> function which we will discuss afterwards.
+Previously, in the tutorials [Getting started with the HyperBloch](../GettingStarted/getSetGo_HyperBloch.md) and [Supercells](./Supercells.md), we have constructed tessellation graphs. In this tutorial we will constrcut hyperbolic Lieb lattices and hyperbolic kagome lattices on primitive cells and supercells. Both constructions rely on the <code class="code-gap">TGCellModelGraph</code> function which we will discuss afterwards.
 
 ```{admonition} Skip to page [Haldane model](./Haldane_model.md)
 :class: seealso-icon
 
-The construction of next-nearest-neighbor model graphs through the function <code class="code-gap" style="font-size:1.1em;">AddOrientedNNNEdgesToTessellationModelGraph</code> will be discussed in the next tutorial on hyperbolic Haldane models.
+The construction of next-nearest-neighbor model graphs through the function <code class="code-gap">AddOrientedNNNEdgesToTessellationModelGraph</code> will be discussed in the next tutorial on hyperbolic Haldane models.
 ```
 
 ## {math}`\{6,4\}` Lieb lattice
 
-Hyperbolic Lieb lattices are specified by placing vertices at Wyckoff positions <code class="code-gap" style="font-size:1.1em;">1</code> and <code class="code-gap" style="font-size:1.1em;">2</code> for {math}`\{p,q\}`-tesselations of the hyperbolic plane (here we choose <code class="code-gap" style="font-size:1.1em;">1</code> and <code class="code-gap" style="font-size:1.1em;">2</code> corresponding to the <code class="code-gap" style="font-size:1.1em;">x</code> and <code class="code-gap" style="font-size:1.1em;">y</code> vertices of the fundamental Schwarz triangle). As ususal, we start by constructing the cell graph and model graph for the primitive cell in **GAP**:
+Hyperbolic Lieb lattices are specified by placing vertices at Wyckoff positions <code class="code-gap">1</code> and <code class="code-gap">2</code> for {math}`\{p,q\}`-tesselations of the hyperbolic plane (here we choose <code class="code-gap">1</code> and <code class="code-gap">2</code> corresponding to the <code class="code-gap">x</code> and <code class="code-gap">y</code> vertices of the fundamental Schwarz triangle). As ususal, we start by constructing the cell graph and model graph for the primitive cell in **GAP**:
 
 ```gap
 # Primitive cell:
@@ -65,7 +84,7 @@ cgpc := TGCellGraph( tg, qpc, 3 : simplify := 5 );
 Export( cgpc, "(2,4,6)_T2.2_3.hcc" ); # export
 ```
 
-Analogous to the <code class="code-gap" style="font-size:1.1em;">TessellationModelGraph</code> function, all built-in model graph functions only need to be specified on the **primitive cell**. The model specifications are inherited by subsequent supercell model graphs. The Lieb lattice can be constructed as follows:
+Analogous to the <code class="code-gap">TessellationModelGraph</code> function, all built-in model graph functions only need to be specified on the **primitive cell**. The model specifications are inherited by subsequent supercell model graphs. The Lieb lattice can be constructed as follows:
 
 ```gap
 # Lieb lattice:
@@ -81,7 +100,7 @@ We choose a supercell sequence by following the central concepts discussed in th
 # Supercells:
 # -----------
 tgQAdjMat := TGQuotientSequencesAdjacencyMatrix(tg : boundByGenus := 10);;
-sequence := GetLongestSequence(tgQAdjMat : quotient := 1);
+sequence := LongestSequence(tgQAdjMat : quotient := 1);
 sc_lst := sequence{[2..Length(sequence)]};
 
 for sc_i_index in sc_lst do
@@ -97,88 +116,101 @@ od;
 ```
 
 <div class="flex ">
-  <a href="../../../source/assets/misc/code_snippets/Tutorials/FlatBands/tutorial_FlatBands_{6,4}-Lieb_HyperCells_pc_sc_files.zip" class="btn btn-primary" class="flex-child"><i class="fa-solid fa-download"></i> Download generated files</a>
-  <a href="../../../source/assets/misc/code_snippets/Tutorials/FlatBands/tutorial_FlatBands_{6,4}-Lieb_HyperCells.g" class="btn btn-primary" class="flex-child"><i class="fa-solid fa-download"></i> Download GAP Code</a>
+  <a href="../../misc/code_snippets/Tutorials/FlatBands/tutorial_FlatBands_{6,4}-Lieb_HyperCells_pc_sc_files.zip" class="btn btn-primary" class="flex-child"><i class="fa-solid fa-download"></i> Download generated files</a>
+  <a href="../../misc/code_snippets/Tutorials/FlatBands/tutorial_FlatBands_{6,4}-Lieb_HyperCells.g" class="btn btn-primary" class="flex-child"><i class="fa-solid fa-download"></i> Download GAP Code</a>
 </div>
 <br></br>
 
-Next, in **Mathematica** we import the generated files for the primitive cell and visualize the model graph:
+Next, in **Mathematica** we load the HyperBloch package, set the working directory of the files we have created through the HyperCells package and in addition define a list of available unit cells together with the corresponding genera of the compactified unit cells:
 
 ```Mathematica
 (* Preliminaries *)
+<< PatrickMLenggenhager`HyperBloch`
+SetDirectory[NotebookDirectory[]];
+
 cellsLieb = {"T2.2", "T5.4", "T9.3"}; 
 genusLstLieb = {2, 5, 9};
+```
 
+The cell, model and supercell model graph can now be imported by parsing the imported strings with the functions <code class="code-Mathematica">ImportCellGraphString</code>, <code class="code-Mathematica">ImportModelGraphString</code> and <code class="code-Mathematica">ImportSupercellModelGraphString</code>, respectively:
+
+```Mathematica
 (* Primitive cell *)
 pcellLieb = ImportCellGraphString[Import["(2,4,6)_T2.2_3.hcc"]];
 pcmodelLieb = ImportModelGraphString[Import["{6,4}-Lieb_T2.2_3.hcm"]];
 
+(* Import supercells *)
+scmodelsLieb = Association[# -> 
+  ImportSupercellModelGraphString[ 
+    Import["{6,4}-Lieb_T2.2_3_sc-" <> # <> ".hcs"]] 
+  &/@ cellsLieb[[2 ;;]]];
+```
+
+It is instructive to visualize the graph representation of the model graph in the primitive cell after the model graph has been imported:
+
+```Mathematica
 VisualizeModelGraph[pcmodelLieb,
+  CellGraph -> pcellLieb,
   Elements -> <|
         ShowCellGraphFlattened -> {},
    	ShowCellBoundary -> {ShowEdgeIdentification -> True}
   |>,
-  CellGraph -> pcellLieb,
-  NumberOfGenerations -> 3,
-  ImageSize -> 400]
+  ImageSize -> 400,
+  NumberOfGenerations -> 3]
 ```
 
 <figure class="text-center">
   <picture> 
-    <source type="image/svg+xml" srcset="../../../source/assets/media/figs/Tutorials/FlatBands/LiebLattice{6,4}_T2.2.png">
-    <img src="../../../source/assets/media/figs/Tutorials/FlatBands/LiebLattice{6,4}_T2.2.png" class="figure-img img-fluid rounded" alt="{6,4} Lieb lattice pc" width="450"/>
+    <source type="image/svg+xml" srcset="../../media/figs/Tutorials/FlatBands/LiebLattice{6,4}_T2.2.png">
+    <img src="../../media/figs/Tutorials/FlatBands/LiebLattice{6,4}_T2.2.png" class="figure-img img-fluid rounded" alt="{6,4} Lieb lattice pc" width="450"/>
   </picture>
 </figure>
 
-The supercell method can be applied as usual, where we use the function <code class="code-gap" style="font-size:1.1em;">ComputeEigenvalues</code> defined in the tutorial [Supercells](./Supercells.md):
+Once the (supercell) model graphs are imported the corresponding Abelian Bloch Hamiltonians for the elementary nearest-neighbor hopping model can be constructed. We set the number of orbital per site to one, the on-site terms {math}`0` and the nearest-neighbor hopping amplitudes to {math}`-1`: 
 
 ```Mathematica
-(* Import supercells *)
-scmodelsLieb = Association[# ->
-      ImportSupercellModelGraphString[ 
-       Import[ToString@StringForm["{6,4}-Lieb_T2.2_3_sc-``.hcs", #]]]
-     & /@ cellsLieb[[2 ;;]]];
-
-(* Abelian Bloch Hamiltonians *)
+(* primitive cell *)
 HpcLieb = AbelianBlochHamiltonian[pcmodelLieb, 1, 0 &, -1 &, CompileFunction -> True];
-HclstLieb =
-  Join[Association["T2.2" -> HpcLieb],
-   Association[# ->
-       AbelianBlochHamiltonian[scmodelsLieb[#], 1, 0 &, -1 &, 
-        PCModel -> pcmodelLieb, CompileFunction -> True]
-      & /@ cellsLieb[[2 ;;]]]];
+
+(* supercells *)
+HscLieblst = Association[# -> 
+  AbelianBlochHamiltonian[scmodelsLieb[#], 1, 0 &, -1 &, PCModel -> pcmodelLieb, CompileFunction -> True] 
+  &/@ cellsLieb[[2 ;;]] ];
+
+(* all *)
+HcLieblst = Join[Association[cellsLieb[[1]] -> HpcLieb], HscLieblst];
+```
+
+The supercell method can be applied as usual, where we use the function <code class="code-gap">ComputeEigenvalues</code>, which can be found in the dropdown menu **Needed function** above:
+
+```Mathematica
+(* color maps *)
+cLst = (ColorData["SunsetColors", "ColorFunction"] /@ (1 - Range[1, 3]/3.));
 
 (* Compute the Eigenvalues *)
-evalsLieb = 
-  Association[
-   cellsLieb[[#]] -> 
-      ComputeEigenvalues[HclstLieb[cellsLieb[[#]]],  10^4, 32, genusLstLieb[[#]]] 
-      & /@ Range[3]];
+evalsLieb = Association[# ->  ComputeEigenvalues[HcLieblst[#], 10^4, 32, genusLstLieb[#]]&/@cellsLieb];
 
 (* Visualize *)
-SmoothHistogram[evalsLieb, 0.01, "PDF", Frame -> True, FrameStyle -> Black, 
-               FrameLabel -> {"Energy E", "Density of states"}, 
-               PlotRange -> {0, 1}, ImageSize -> 500, LabelStyle -> 20, 
-               PlotLabel -> "k sampling: 10^4", PlotStyle -> 
-               (ColorData["SunsetColors", "ColorFunction"] /@ (1 - Range[1, 3]/3.)), 
-               ImagePadding -> {{Automatic, 10}, {Automatic, 10}}]
-
+SmoothHistogram[evalsLieb, 0.01, "PDF",
+  Frame -> True, FrameLabel -> {"Energy E", "Density of states"} FrameStyle -> Black, 
+  ImageSize -> 500, ImagePadding -> {{Automatic, 10}, {Automatic, 10}}, LabelStyle -> 20,
+  PlotLabel -> "k sampling: 10^4", PlotRange -> All, PlotStyle -> cLst]
 ```
 
 <figure class="text-center">
   <picture> 
-    <source type="image/svg+xml" srcset="../../../source/assets/media/figs/Tutorials/FlatBands/dos_Lieb_64_scm.png">
-    <img src="../../../source/assets/media/figs/Tutorials/FlatBands/dos_Lieb_64_scm.png" class="figure-img img-fluid rounded" alt="{6,4} Lieb lattice pc" width="600"/>
+    <source type="image/svg+xml" srcset="../../media/figs/Tutorials/FlatBands/dos_Lieb_64_scm.png">
+    <img src="../../media/figs/Tutorials/FlatBands/dos_Lieb_64_scm.png" class="figure-img img-fluid rounded" alt="{6,4} Lieb lattice pc" width="600"/>
   </picture>
 </figure>
 
 <div style="text-align: right;">
-  <a href="../../../source/assets/misc/code_snippets/Tutorials/FlatBands/tutorial_FlatBands_{6,4}-Lieb_HyperBloch.nb" class="btn btn-primary"><i class="fa-solid fa-download"></i> Download Mathematica Notebook</a>
+  <a href="../../misc/code_snippets/Tutorials/FlatBands/tutorial_FlatBands_{6,4}-Lieb_HyperBloch.nb" class="btn btn-primary"><i class="fa-solid fa-download"></i> Download Mathematica Notebook</a>
 </div>
 
 ## {math}`\{8,3\}` kagome lattice
 
-Hyperbolic kagome lattices can be constructed just as easily as hyperbolic Lieb lattices. These lattices are specified by placing vertices at Wyckoff positions <code class="code-gap" style="font-size:1.1em;">1</code>. These lattices are **restricted to {math}`\{p,3\}`-tessellation** of the hyperbolic plane. Once again, we start by constructing the cell graph and model graph for the primitive cell in **GAP**:
+Hyperbolic kagome lattices can be constructed just as easily as hyperbolic Lieb lattices. These lattices are specified by placing vertices at Wyckoff positions <code class="code-gap">1</code>. These lattices are **restricted to {math}`\{p,3\}`-tessellation** of the hyperbolic plane. Once again, we start by constructing the cell graph and model graph for the primitive cell in **GAP**:
 
 ```gap
 # Primitive cell:
@@ -204,7 +236,7 @@ with supercells:
 # Supercells:
 # -----------
 tgQAdjMat := TGQuotientSequencesAdjacencyMatrix(tg : boundByGenus := 20);;
-sequence := GetLongestSequence(tgQAdjMat : quotient := 1);
+sequence := LongestSequence(tgQAdjMat : quotient := 1);
 sc_lst := sequence{[2..Length(sequence)]};
 
 for sc_i_index in sc_lst do
@@ -220,8 +252,8 @@ od;
 ```
 
 <div class="flex ">
-  <a href="../../../source/assets/misc/code_snippets/Tutorials/FlatBands/tutorial_FlatBands_{8,3}-kagome_HyperCells_pc_sc_files.zip" class="btn btn-primary" class="flex-child"><i class="fa-solid fa-download"></i> Download generated files</a>
-  <a href="../../../source/assets/misc/code_snippets/Tutorials/FlatBands/tutorial_FlatBands_{8,3}-kagome_HyperCells.g" class="btn btn-primary" class="flex-child"><i class="fa-solid fa-download"></i> Download GAP Code</a>
+  <a href="../../misc/code_snippets/Tutorials/FlatBands/tutorial_FlatBands_{8,3}-kagome_HyperCells_pc_sc_files.zip" class="btn btn-primary" class="flex-child"><i class="fa-solid fa-download"></i> Download generated files</a>
+  <a href="../../misc/code_snippets/Tutorials/FlatBands/tutorial_FlatBands_{8,3}-kagome_HyperCells.g" class="btn btn-primary" class="flex-child"><i class="fa-solid fa-download"></i> Download GAP Code</a>
 </div>
 <br></br>
 
@@ -229,49 +261,47 @@ We can proceed anologously to the hyperbolic Lieb lattice in **Mathematica**, we
 
 ```Mathematica
 VisualizeModelGraph[pcmodelKagome,
+  CellGraph -> pcellKagome,
   Elements -> <|
         ShowCellGraphFlattened -> {},
    	ShowCellBoundary -> {ShowEdgeIdentification -> True}
   |>,
-  CellGraph -> pcellKagome,
-  NumberOfGenerations -> 3,
-  ImageSize -> 400]
+  ImageSize -> 400,
+  NumberOfGenerations -> 3]
 ```
 
 <figure class="text-center">
   <picture> 
-    <source type="image/svg+xml" srcset="../../../source/assets/media/figs/Tutorials/FlatBands/KagomeLattice{8,3}_T2.1.png">
-    <img src="../../../source/assets/media/figs/Tutorials/FlatBands/KagomeLattice{8,3}_T2.1.png" class="figure-img img-fluid rounded" alt="{6,4} Lieb lattice pc" width="450"/>
+    <source type="image/svg+xml" srcset="../../media/figs/Tutorials/FlatBands/KagomeLattice{8,3}_T2.1.png">
+    <img src="../../media/figs/Tutorials/FlatBands/KagomeLattice{8,3}_T2.1.png" class="figure-img img-fluid rounded" alt="{6,4} Lieb lattice pc" width="450"/>
   </picture>
 </figure>
 
 The application of the supercell method shows a fast convergence to the thermodynamic limit in the density of states:
 
 ```Mathematica
-SmoothHistogram[evalsKagome, 0.01, "PDF", Frame -> True, FrameStyle -> Black, 
-               FrameLabel -> {"Energy E", "Density of states"}, 
-               PlotRange -> {0, 1}, ImageSize -> 500, LabelStyle -> 20, 
-               PlotLabel -> "k sampling: 2*10^4", PlotStyle -> 
-               (ColorData["SunsetColors", "ColorFunction"] /@ (1 - Range[1, 3]/3.)), 
-               ImagePadding -> {{Automatic, 10}, {Automatic, 10}}]
+SmoothHistogram[evalsKagome, 0.01, "PDF",
+  Frame -> True, FrameLabel -> {"Energy E", "Density of states"} FrameStyle -> Black, 
+  ImageSize -> 500, ImagePadding -> {{Automatic, 10}, {Automatic, 10}}, LabelStyle -> 20,
+  PlotLabel -> "k sampling: 2*10^4", PlotRange -> All, PlotStyle -> cLst]
 
 ```
 
 <figure class="text-center">
   <picture> 
-    <source type="image/svg+xml" srcset="../../../source/assets/media/figs/Tutorials/FlatBands/dos_kagome_83_scm.png">
-    <img src="../../../source/assets/media/figs/Tutorials/FlatBands/dos_kagome_83_scm.png" class="figure-img img-fluid rounded" alt="{6,4} Lieb lattice pc" width="600"/>
+    <source type="image/svg+xml" srcset="../../media/figs/Tutorials/FlatBands/dos_kagome_83_scm.png">
+    <img src="../../media/figs/Tutorials/FlatBands/dos_kagome_83_scm.png" class="figure-img img-fluid rounded" alt="{6,4} Lieb lattice pc" width="600"/>
   </picture>
 </figure>
 
 <div style="text-align: right;">
-  <a href="../../../source/assets/misc/code_snippets/Tutorials/FlatBands/tutorial_FlatBands_{8,3}-kagome_HyperBloch.nb" class="btn btn-primary"><i class="fa-solid fa-download"></i> Download Mathematica Notebook</a>
+  <a href="../../misc/code_snippets/Tutorials/FlatBands/tutorial_FlatBands_{8,3}-kagome_HyperBloch.nb" class="btn btn-primary"><i class="fa-solid fa-download"></i> Download Mathematica Notebook</a>
 </div>
 
 
 ## Custom model graphs
 
-The built-in Lieb and kagome model graph functions rely on the parent function <code class="code-gap" style="font-size:1.1em;">TGCellModelGraph</code>, which takes as input <code class="code-gap" style="font-size:1.1em;">cellgraph, vfs, efs, ffs</code>:
+The built-in Lieb and kagome model graph functions rely on the parent function <code class="code-gap">TGCellModelGraph</code>, which takes as input <code class="code-gap">cellgraph, vfs, efs, ffs</code>:
 
 ```gap
 # Lieb model graph:
@@ -283,7 +313,7 @@ model := TGCellModelGraph(cellgraph, [ 1, 2 ], [  ], [ 3 ]);
 model := TGCellModelGraph(cellgraph, [ 1 ], [ 2 ], [ 2, 3 ]);
 ```
 
-The model graphs are constructed by selecting the vertices of types given in the list vfs as vertices of the model graph. The type is given in terms of the cell graph’s vertex type, i.e., <code class="code-gap" style="font-size:1.1em;">1</code>, <code class="code-gap" style="font-size:1.1em;">2</code> or <code class="code-gap" style="font-size:1.1em;">3</code>, corresponding to the vertices of the fundamental Schwarz triangle <code class="code-gap" style="font-size:1.1em;">x</code>, <code class="code-gap" style="font-size:1.1em;">y</code> and <code class="code-gap" style="font-size:1.1em;">z</code>, respectively. The edges of the model graph are determined by adjacency to the cell-graph vertices of the type given in the list efs and the faces are determined by the cell-graph vertices of the type given in the list ffs. (see href ??)
+The model graphs are constructed by selecting the vertices of types given in the list vfs as vertices of the model graph. The type is given in terms of the cell graph’s vertex type, i.e., <code class="code-gap">1</code>, <code class="code-gap">2</code> or <code class="code-gap">3</code>, corresponding to the vertices of the fundamental Schwarz triangle <code class="code-gap">x</code>, <code class="code-gap">y</code> and <code class="code-gap">z</code>, respectively. The edges of the model graph are determined by adjacency to the cell-graph vertices of the type given in the list efs and the faces are determined by the cell-graph vertices of the type given in the list ffs. (see href ??)
 
 
 ....
