@@ -1,8 +1,23 @@
 # Advanced visualizations
 
-This is how you reference [google](https://google.com)
+```{dropdown} Learning goals
+:color: success
+:icon: light-bulb
 
-List:
-- first
-- second
-- third
+* Lorem ipsum ... 
+```
+
+```{dropdown}  Featured functions
+:color: info
+:icon: gear
+
+<code class="code-gap" style="font-size:1.1em;">Lorem ipsum ....</code>
+```
+
+The HyperCells package is equipped with a variety of functions for advanced visualizations within the Poincaré disk model. ....
+In this tutorial, we will look at various themes, ...
+
+
+
+
+
