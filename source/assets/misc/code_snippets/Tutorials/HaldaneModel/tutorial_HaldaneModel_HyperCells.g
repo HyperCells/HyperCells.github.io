@@ -15,7 +15,6 @@ cgpc := TGCellGraph( tg, qpc, 3 : simplify := 5 );
 Export( cgpc, "(2,4,6)_T2.2_3.hcc" ); # export
 
 
-
 # Construction of NNN model:
 # ---------------------------
 # specify underlying model graph
@@ -27,12 +26,12 @@ AddOrientedNNNEdgesToTessellationModelGraph(model);
 Export(model, "{6,4}-tess-NNN_T2.2_3.hcm");
 
 
-
 # Supercells:
 # -----------
 
-sc_lst := [[5, 4], [9, 3]];
-
+tgQAdjMat := TGQuotientSequencesAdjacencyMatrix(tg : boundByGenus := 10);;
+sequence := LongestSequence(tgQAdjMat : quotient := 1);
+sc_lst := sequence{[2..Length(sequence)]};
 
 for sc_i_index in sc_lst do
     

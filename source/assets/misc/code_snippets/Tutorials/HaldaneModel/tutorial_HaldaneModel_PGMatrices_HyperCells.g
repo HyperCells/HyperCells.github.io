@@ -1,56 +1,71 @@
 # load the HyperCells package
 LoadPackage( "HyperCells" );
 
+# --------------
+# Preliminaries:
+# --------------
 
-# Set up triangle group:
-# ----------------------
+# (Proper) triangle group:
+# ------------------------
 
-# set up ProperTriangleGroup obj.
+# TriangleGroup obj. and group
+fulltg := TriangleGroup( [ 2, 4, 6 ] );
+DELTA := FpGroup(fulltg);
+
+# ProperTriangleGroup obj. and group
 tg := ProperTriangleGroup( [ 2, 4, 6 ] );
-
-# set up (full) triangle group 
-DELTA := FpGroup(TriangleGroup([2, 4, 6]));
+D := FpGroup(tg);
 
 
-# Symmetries:
-# -----------
-
-symNames := "c";
-symmetries := DELTA.3;
-
-
-# Primitive cell:
-# ---------------
+# ---------------------------
+# Point-group matrix example:
+# ---------------------------
 
 # specify the quotient defining the primitive cell
 qpc := TGQuotient( 1, [ 2, 4, 6 ] );
 
-# construct symmetric primitive cell
-cgpc := TGCellGraph( tg, qpc, 3 : simplify := 5 ); # or TGCellSymmetric( tg, qpc, 3 );
+# get the PGMatricesOfGenerators
+pgMatGs := PGMatricesOfGenerators(fulltg, tg, qpc);
 
-# Primitive cell:
-# ---------------
+# symmety
+symName := "z";;
+symmetry := D.3;
 
-# construct and export PGMatrices
-pgMat_T2_2 := PGMatrix(DELTA, GetTGCell(cgpc), 1, symmetries : symNames := symNames, sparse := true);
-ExportPGMatrix(pgMat_T2_2, "(2,4,6)_T2.2_3_PGMatrix_c.g");
+# get the corresponding point-group matrix
+EvaluatePGMatrix(symmetry, pgMatGs);
 
-# Supercells:
-# -----------
+
+# --------------------------------------------------
+# Construct the point-group matrices to be exported:
+# --------------------------------------------------
+
+# Quotient T2.2 (primitive cell):
+# -------------------------------
+
+# get the PGMatricesOfGenerators
+pgMatGs := PGMatricesOfGenerators(fulltg, tg, qpc : sparse := true);
+
+# construct and export the PGMatrices
+pgMat_T2_2 := PGMatrices(symmetry, pgMatGs : symNames := symName);
+Export(pgMat_T2_2, "(2,4,6)-T2.2-pgMat_z_sparse.hcpgm");
+
+
+# Quotients T5.4, T9.3 (supercells):
+# ---------------------------------
 tgQAdjMat := TGQuotientSequencesAdjacencyMatrix(tg : boundByGenus := 10);;
-sequence := GetLongestSequence(tgQAdjMat : quotient := 1);
+sequence := LongestSequence(tgQAdjMat : quotient := 1);
 sc_lst := sequence{[2..Length(sequence)]};
 
 for sc_i_index in sc_lst do
     qsc_i := TGQuotient( sc_i_index );
 
-    # construct TGcell 
-    csc_i := TGCellSymmetric( tg, qsc_i, 3 );
+    # get the PGMatricesOfGenerators
+    pgMatGs := PGMatricesOfGenerators(fulltg, tg, qsc_i : sparse := true);
 
-    # construct and export PGMatrices
-    pgMat_sc_i := PGMatrix(DELTA, csc_i, sc_i_index, symmetries : symNames := symNames, sparse := true);
+    # construct and export the PGMatrices
+    pgMat_sc_i := PGMatrices(symmetry, pgMatGs : symNames := symName);
 
-    sc_i_label := StringFormatted("(2,4,6)_T{}.{}_3_PGMatrix_c.g", sc_i_index[1], sc_i_index[2]);
-    ExportPGMatrix(pgMat_sc_i, sc_i_label);
+    sc_i_label := StringFormatted("(2,4,6)-T{}.{}-pgMat_z_sparse.hcpgm", sc_i_index[1], sc_i_index[2]);
+    Export(pgMat_sc_i, sc_i_label);
 od;
 
