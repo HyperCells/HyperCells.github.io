@@ -103,7 +103,7 @@ html_context = {"default_mode": "light"}
 html_sidebars = {
   "contents/Installation/installation": [],
   "contents/GettingStarted/Getting_started": [],
-  "contents/About/Intro": [],
+  "contents/About/about": [],
   "contents/Gallery/gallery": [],
   "contents/Gallery/SubgroupTreegraph64": [],
   "contents/Gallery/PrimitiveCell64GAP": [],
