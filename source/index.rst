@@ -25,7 +25,7 @@
          border: 1px solid var(--pst-color-border);
          text-align: center;
          place-items: center;
-         border-radius: 20px;
+         border-radius: 10px;
       }
     </style>
 
@@ -75,8 +75,7 @@
       :link-alt: clickable cards
 
 .. card:: Documentation
-   :link: docs
-   :link-type: ref
+   :link: ./contents/Documentation/documentation.html
    :link-alt: clickable cards
    :text-align: center
    :margin: 0 4 0 0
@@ -158,19 +157,20 @@ and their symmetries are of interest, independent of a potential momentum-space 
       
    contents/Tutorials/tutorials.rst
 
-   contents/Documentation/documentation.rst
-
-   contents/Gallery/gallery.rst
-
-   contents/Publications/publications.md
+   contents/Documentation/documentation.md
 
    contents/Contribute/contribute.md
 
    contents/Cite/cite.md
 
-   contents/Releases/releases.md
+..
+   contents/Gallery/gallery.rst
 
    contents/Contact/contact.md
+
+   contents/Publications/publications.md
+
+   contents/Releases/releases.md
 
 
 ..
