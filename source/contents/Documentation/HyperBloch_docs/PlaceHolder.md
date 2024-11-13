@@ -1,3 +1,7 @@
+---
+orphan: true
+---
+
 # PlaceHolder
 
 This is how you reference [google](https://google.com)
