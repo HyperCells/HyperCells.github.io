@@ -66,11 +66,11 @@ and *HyperBloch*.
 .. |space| unicode:: U+2064 .. space
 
 .. raw:: html
-
+  
   <script type="text/javascript">
     var observer = new MutationObserver(function(mutations) {
       const dark = document.documentElement.dataset.theme == 'dark';
-      document.getElementsByClassName('no-scaled-link')[1].src = dark ? '../../_static/images/darkMode/SuperCells2_dark.png' : "../../_static/images/lightMode/SuperCells2_light.png";
+      document.getElementsByClassName('no-scaled-link')[0].src = dark ? '../../_static/images/darkMode/SuperCells2_dark.png' : "../../_static/images/lightMode/SuperCells2_light.png";
     })
     observer.observe(document.documentElement, {attributes: true, attributeFilter: ['data-theme']});
   </script>
