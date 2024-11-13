@@ -15,26 +15,26 @@
 **HyperCells:**
 
 <code class="code-gap">
-ProperTriangleGroup, TGQuotient, TGCellGraph, TessellationModelGraph, Export, TGCellSymmetric, TGSuperCellModelGraph
+Export, ProperTriangleGroup, TessellationModelGraph, TGCellGraph, TGCellSymmetric, TGQuotient, TGSuperCellModelGraph
 </code>
 <br></br>
 
 **HyperBloch:**
 
-<code class="code-gap">
-ImportModelGraphString, AbelianBlochHamiltonian, ImportSupercellModelGraphString
+<code class="code-Mathematica">
+AbelianBlochHamiltonian, ImportModelGraphString, ImportSupercellModelGraphString
 </code>
 ```
 
-The HyperCells package provides a framework for an efficient construction of **supercells**. These supercells are formed by aggregates of primitive cells into larger unit cells. Particular **sequences** of supercells enable the application of the **supercell method**, which let us access higher dimensional irreducible representations on the original primitive cell through **Abelian hyperbolic band theory** implemented in the HyperBloch package. 
+The HyperCells package provides a framework for an efficient construction of **supercells**. These supercells are formed by aggregates of primitive cells into larger unit cells. Particular **sequences** of supercells enable the application of the **supercell method**, which lets us access **higher-dimensional irreducible representations** on the original primitive cell through **Abelian hyperbolic band theory** implemented in the HyperBloch package. The supercell method enables us to iteratively accumulate more and more higher-dimensional irreducible representations through the consecutive supercells associated with a so-called **coherent sequence** of translation groups specified through triangle group quotients.
 
 ## Constructing a supercell sequence
 
-Appropriate supercell sequences, associated with corresponding translation group sequences, are restricted to so-called **coherent sequences** of translation groups. The workflow to identify such sequences will be discussed in more depth in the next tutorial [Coherent sequences](./Coherent_SC_sequences.md). So long, let us construct an appropriate supercell sequence in order to use the supercell method for hyperbolic lattices on tight-binding models.
+Appropriate supercell sequences, associated with corresponding translation group sequences, are restricted to so-called **coherent sequences** of translation groups. The workflow to identify such sequences will be discussed in more depth in the next tutorial [Coherent sequences](./Coherent_SC_sequences.md). So long, let us construct an appropriate supercell sequence in order to use the supercell method for an elementary tight-binding model on the {math}`\{8,8\}`-lattice.
 
 Previously, in [Getting started with HyperCells](../GettingStarted/getSetGo_HyperCells.md) and [Getting started with HyperBloch](../GettingStarted/getSetGo_HyperBloch.md) package, we have seen how a primitive cell and one supercell on the {math}`\{8,8\}`-lattice can be constructed. This minimal sequence can be extended with consecutive **m-supercell**s by considering higher order quotient groups {math}`\Delta^{+}/\Gamma^{(m)}`. 
 
-We choose the following supercell sequence identified with quotient groups in  <a target="_blank" href="https://patrick-lenggenhager.github.io/HyperCells/doc/chapBib_mj.html#biBConder:2007">Marston Conder's</a> list:
+We choose the following supercell sequence identified with quotient groups in <a target="_blank" href="https://patrick-lenggenhager.github.io/HyperCells/doc/chapBib_mj.html#biBConder:2007">Marston Conder's</a> list:
 
 <p style="text-align: center;">
 <b>Supercell sequence 1</b>: &emsp; <code class="code-gap">T2.6</code>, <code class="code-gap">T3.11</code>, <code class="code-gap">T5.13</code>, <code class="code-gap">T9.20</code>, <code class="code-gap">T17.29</code>, <code class="code-gap">T33.44</code> and <code class="code-gap">T65.78</code> 
@@ -65,7 +65,7 @@ model := TessellationModelGraph( cgpc, true : simplify := 5 );
 Export( model, "{8,8}-tess_T2.6_3.hcm" ); # export
 ```
 
-The nearest-neighbor supercell model graphs for the {math}`\{8,8\}`-tessellation of the hyperbolic plane are easily extracted by iterating over the list of quotients <code class="code-gap">sc_lst</code> that specify our chosen supercell sequence:
+The nearest-neighbor supercell model graphs for the {math}`\{8,8\}`-tesselation of the hyperbolic plane are easily extracted by iterating over the list of quotients <code class="code-gap">sc_lst</code> that specify our chosen supercell sequence:
 
 ```gap
 # Supercells:
@@ -128,7 +128,7 @@ Once the (supercell) model graphs are imported the corresponding Abelian Bloch H
 Hpc = AbelianBlochHamiltonian[pcmodel, 1, 0 &, -1 &, CompileFunction -> True]; 
 ```
 
-Recall, the construction of the model on the primitive cell already specifies all the model specification for the supercell. As such we just need to replace the model graph with the supercell model graphs in the first argument and pass the model graph to the option *PCModel*:
+Recall, the construction of the model on the primitive cell already defines all the model specification for the supercell. As such we just need to replace the model graph with the supercell model graphs in the first argument and pass the model graph to the option <code class="code-Mathematica">PCModel</code>:
 
 ```Mathematica
 Hsclst = Association[# -> 
