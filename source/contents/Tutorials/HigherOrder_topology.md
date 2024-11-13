@@ -17,8 +17,8 @@ Construction of:
 
 **HyperBloch:**
 
-<code class="code-gap">
-VisualizeModelGraph, ShowCellGraphFlattened, ShowCellBoundary, EdgeFilter, AbelianBlochHamiltonian, TBClusterHamiltonian, TBDisclinationClusterHamiltonian, IntroduceDisclinationInModelGraph
+<code class="code-Mathematica">
+AbelianBlochHamiltonian, IntroduceDisclination, ShowCellBoundary, ShowCellGraphFlattened, TBHamiltonian, VisualizeModelGraph
 </code>
 ```
 
@@ -28,15 +28,15 @@ VisualizeModelGraph, ShowCellGraphFlattened, ShowCellBoundary, EdgeFilter, Abeli
 
 **Mathematica:**
 
-In previous tutorials, such as [Getting started with the HyperBloch package](../GettingStarted/getSetGo_HyperBloch.md) and HyperBloch [Supercells](./Supercells.md) tutorial etc., we have calculated the density of states of various nearest-neighbor tight-binding models via exact diagonalization and random samples. We predefine a function in order to calculate the eigenvalues for the Abelian Bloch Hamiltonians that we will construct. We  take advantage of the independence of different momentum sectors and parallelize the computation, where we partition the set of *Npts* into *Nruns* subsets:
+In previous tutorials, such as [Getting started with the HyperBloch package](../GettingStarted/getSetGo_HyperBloch.md) and HyperBloch [Supercells](./Supercells.md) tutorial etc., we have calculated the density of states of various nearest-neighbor tight-binding models via exact diagonalization and random samples. We predefine a function in order to calculate the eigenvalues for the Abelian Bloch Hamiltonians that we will construct. We  take advantage of the independence of different momentum sectors and parallelize the computation, where we partition the set of <code class="code-Mathematica">Npts</code> into <code class="code-Mathematica">Nruns</code> subsets:
 
 ```Mathematica
 ComputeEigenvalues[cfH_, Npts_, Nruns_, genus_] :=
  Flatten@ParallelTable[
    Flatten@Table[
-     Eigenvalues[cfH @@ RandomReal[{-Pi, Pi}, 2 genus]], {i, 1, 
-      Round[Npts/Nruns]}],
-   {j, 1, Nruns}, Method -> "FinestGrained"]
+     Eigenvalues[cfH @@ RandomReal[{-Pi, Pi}, 2 genus]], 
+    {i, 1, Round[Npts/Nruns]}], {j, 1, Nruns}, 
+  Method -> "FinestGrained"]
 ```
 
 
@@ -300,15 +300,15 @@ Row[
   </picture>
 </figure>
 
-The Abelian Bloch Hamiltonians of (supercell) model graphs depends on the chosen quasiparticle basis used by the HyperBloch package. The used convention is cell-dependent and thus hyperbolic momenta are introduced in inter-cell hopping terms. This enables us to construct the tight-binding Hamiltonians for finite flakes in real space efficiently by setting inter-cell terms to zero through the function <code class="code-Mathematica" style="font-size:1.1em;">TBClusterHamiltonian</code>:  
+The Abelian Bloch Hamiltonians of (supercell) model graphs depends on the chosen quasiparticle basis used by the HyperBloch package. The used convention is cell-dependent and thus hyperbolic momenta are introduced in inter-cell hopping terms. This enables us to construct the tight-binding Hamiltonians for finite flakes in real space efficiently by setting inter-cell terms to zero through the function <code class="code-Mathematica" style="font-size:1.1em;">TBHamiltonian</code>:  
 
 ```Mathematica
 HcFlakelst = Join[
   Association[
-    cells[[1]] -> TBClusterHamiltonian[cmodels[cells[[1]]], 4 &, onsitePC,
+    cells[[1]] -> TBHamiltonian[cmodels[cells[[1]]], 4 &, onsitePC,
   hoppingsPC]],
   Association[
-    # -> TBClusterHamiltonian[cmodels[#], 4 &, onsitePC, hoppingsPC, PCModel -> cmodels[cells[[1]]]] 
+    # -> TBHamiltonian[cmodels[#], 4 &, onsitePC, hoppingsPC, PCModel -> cmodels[cells[[1]]]] 
   & /@ cells[[2 ;;]]
 ]];
 ```
@@ -345,10 +345,10 @@ The gapped spectrum indicates emergent boundary modes in the topological phase.
 The introduction of disclination defects enables us to demonstrate the existence of boundary modes and associated quantized fractional charges in higher-order topological insulators. The HyperBloch package provides a function for the construction of finite flakes with disclination defects. This is achieved through
 a cutting and glueing procedure known as the **Volterra process**.
 
-We choose to cut away a sector in the finite flake subtended by an angle {math}`\pi/3`, and glue the newly introduced borders together. The corresponding flakes can easily be constructed through the function <code class="code-Mathematica" style="font-size:1.1em;">IntroduceDisclinationInModelGraph</code>. To do so, we set the so-called **Frank angle** {math}`\alpha_{F}` to {math}`-\pi/3`. This can be specified by passing a negative integer to the function, which we denote as the **Frank angle increment** {math}`\Delta\alpha_{F}`, taking values {math}`-1,  -2, ... -(m-1)`, where {math}`m` is given by the {math}`C_{m}` rotation symmetry {math}`m \, \epsilon \, \{r, q, p\}` specified by the chosen cell center. The actual Frank angle is then given by {math}`\alpha_{F} = \Delta\alpha_{F}\,2\pi/m`. In addition, a reference angle needs to be passed, which specifies the relative rotation angle in counter-clockwise direction of the normal vector to the reference vector {math}`\vec{v}=(1, 0)` defining the disclination defect. Analogous to the Frank angle increments, the reference angle is specified by a positive integer, which we denote as the **reference angle increment** , taking values {math}`0, 1,  2, ... 2m-1`. A disclination defect can thus be introduced as follows:
+We choose to cut away a sector in the finite flake subtended by an angle {math}`\pi/3`, and glue the newly introduced borders together. The corresponding flakes can easily be constructed through the function <code class="code-Mathematica" style="font-size:1.1em;">IntroduceDisclination</code>. To do so, we set the so-called **Frank angle** {math}`\alpha_{F}` to {math}`-\pi/3`. This can be specified by passing a negative integer to the function, which we denote as the **Frank angle increment** {math}`\Delta\alpha_{F}`, taking values {math}`-1,  -2, ... -(m-1)`, where {math}`m` is given by the {math}`C_{m}` rotation symmetry {math}`m \, \epsilon \, \{r, q, p\}` specified by the chosen cell center. The actual Frank angle is then given by {math}`\alpha_{F} = \Delta\alpha_{F}\,2\pi/m`. In addition, a reference angle needs to be passed, which specifies the relative rotation angle in counter-clockwise direction of the normal vector to the reference vector {math}`\vec{v}=(1, 0)` defining the disclination defect. Analogous to the Frank angle increments, the reference angle is specified by a positive integer, which we denote as the **reference angle increment** , taking values {math}`0, 1,  2, ... 2m-1`. A disclination defect can thus be introduced as follows:
 
 ```Mathematica
-cmodelsDisclination = Association[# -> IntroduceDisclinationInModelGraph[cmodels[#], -1, 0] & /@ cells];
+cmodelsDisclination = Association[# -> IntroduceDisclination[cmodels[#], -1, 0] & /@ cells];
 ```
 
 We can visualize the (supercell) model graphs with disclination defects using the function <code class="code-Mathematica" style="font-size:1.1em;">VisualizeModelGraph[]</code>: 
@@ -408,10 +408,10 @@ gluedEdges = cmodelsDisclination["T2.2"]["GluedEdges"];
 hoppingsGlued = AssociationThread[gluedEdges -> {hopMat1}];
 ```
 
-Every other coupling relation is inherited by the previously defined model on the primitive cell. The tight-binding Hamiltonian in real space can now be set up by specifying the model graph with a disclination defect, the model graph of the primitive cell without a disclination defect and the corresponding coupling constants specified above. These arguments are passed to the function <code class="code-Mathematica" style="font-size:1.1em;">TBDisclinationClusterHamiltonian</code> as follows:
+Every other coupling relation is inherited by the previously defined model on the primitive cell. The tight-binding Hamiltonian in real space can now be set up by specifying the model graph with a disclination defect, the model graph of the primitive cell without a disclination defect and the corresponding coupling constants specified above. These arguments are passed to the function <code class="code-Mathematica" style="font-size:1.1em;">TBHamiltonian</code> as follows:
 
 ```Mathematica
-HPCDisclinationFlake = TBDisclinationClusterHamiltonian[
+HPCDisclinationFlake = TBHamiltonian[
   cmodelsDisclination["T2.2"], cmodels["T2.2"], 4 &, onsitePC, hoppingsPC, hoppingsGlued
 ];
 ```
@@ -423,7 +423,7 @@ hoppingsGlued = AssociationThread[
   cmodelsDisclination["T5.4"]["GluedEdges"] -> {hopMat1}
 ];
 
-HSC1DisclinationFlake = TBDisclinationClusterHamiltonian[
+HSC1DisclinationFlake = TBHamiltonian[
   cmodelsDisclination["T5.4"], cmodels["T2.2"], 4 &, onsitePC, hoppingsPC, hoppingsGlued
 ];
 ```
@@ -435,7 +435,7 @@ hoppingsGlued = AssociationThread[
   cmodelsDisclination["T9.3"]["GluedEdges"] -> {hopMat1, hopMat2}
 ];
 
-HSC2DisclinationFlake = TBDisclinationClusterHamiltonian[
+HSC2DisclinationFlake = TBHamiltonian[
   cmodelsDisclination["T9.3"], cmodels["T2.2"], 4 &, onsitePC, hoppingsPC, hoppingsGlued
 ];
 ```
@@ -513,8 +513,8 @@ For example, let us consider the T9.3 supercell. A sector subtended by an angle 
 FrankAngle = cmodelsDisclination["T9.3"]["FrankAngle"];
 referenceAngle = cmodelsDisclination["T9.3"]["ReferenceAngle"];
 
-upperCut = Line[{{0, 0}, RotationMatrix[referenceAngle] . RotationMatrix[Abs[FrankAngle/2]] . {1, 0}}];
-bottomCut = Line[{{0, 0}, RotationMatrix[referenceAngle] . RotationMatrix[FrankAngle/2] . {1, 0}}];
+upperCut = Line[{{0, 0}, Dot[RotationMatrix[referenceAngle], RotationMatrix[Abs[FrankAngle/2]], {1, 0}]}];
+bottomCut = Line[{{0, 0}, Dot[RotationMatrix[referenceAngle], RotationMatrix[FrankAngle/2], {1, 0}]}];
 ```
 
 The  regular  flake  together  with  the  two  cuts  can  be  visualized  as  follows :
@@ -561,16 +561,16 @@ disclinationFlake = Show[
 
 ```
 
-It is possible to symmetrize the resulting flake using the option  SymmetrizeFlake of  IntroduceDisclinationInModelGraph:
+It is possible to symmetrize the resulting flake using the option <code class="code-Mathematica">SymmetrizeFlake</code> of  <code class="code-Mathematica">IntroduceDisclination</code>:
 
 ```Mathematica
 cmodelsDisclinationSymmetric = 
   Association[# -> 
-      IntroduceDisclinationInModelGraph[cmodels[#], -1, 0, 
+      IntroduceDisclination[cmodels[#], -1, 0, 
        SymmetrizeFlake -> True] & /@ cells];
 ```
 
-The disclination defect can explicitly be indicated using the options IndicateDisclination and DisclinationLineStyle of VisualizeModelGraph:
+The disclination defect can explicitly be indicated using the options <code class="code-Mathematica">IndicateDisclination</code> and <code class="code-Mathematica">DisclinationLineStyle</code> of <code class="code-Mathematica">VisualizeModelGraph</code>:
 
 ```Mathematica
 disclinationFlakeSymmetrized = Show[
