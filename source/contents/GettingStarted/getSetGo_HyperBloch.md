@@ -1,11 +1,3 @@
----
-title: Getting Started with HyperCells and HyperBloch
-layout: code_guide
-summary: A getting-started guide for using the software packages <a href="https://github.com/patrick-lenggenhager/HyperCells">HyperCells</a> 
-and <a href="https://github.com/patrick-lenggenhager/HyperBloch">HyperBloch</a> for modeling tight-binding models on hyperbolic lattices. 
-It includes a brief overview over the purposes of the packages, complete instructions for installing them and simple examples including code scripts to download.
-thumbnail: ../../media/thumbnails/project_HyperbolicLattices.jpg
----
 
 # HyperBloch
 
@@ -15,9 +7,9 @@ thumbnail: ../../media/thumbnails/project_HyperbolicLattices.jpg
 
 Import of:
 
-* cell grah,
-* model graph
-* and supercell model graphs files.
+* a cell graph,
+* a model graph,
+* and a supercell model graph file.
 
 Visualization of:
 
@@ -36,24 +28,23 @@ construction of:
 **HyperCells**:
 
 <code class="code-gap">
-ProperTriangleGroup, TGQuotient, TGCellGraph, Export, TessellationModelGraph, TGCellSymmetric, TGSuperCellModelGraph
+Export, ProperTriangleGroup, TessellationModelGraph, TGCellGraph, TGCellSymmetric, TGQuotient, TGSuperCellModelGraph
 </code>
 <br></br>
 
 **HyperBloch**:
 
-<code class="code-gap">
-ImportCellGraphString, ImportModelGraphString, VisualizeModelGraph, ShowCellGraphFlattened, ShowCellBoundary, AbelianBlochHamiltonian, ImportCellGraphString, ImportSupercellModelGraphString
+<code class="code-Mathematica">
+AbelianBlochHamiltonian, AbelianBlochHamiltonianExpression, ImportCellGraphString, ImportModelGraphString, ImportSupercellModelGraphString, ShowCellBoundary, ShowCellGraphFlattened, ShowCellSchwarzTriangles, VisualizeModelGraph
 </code>
 ```
 
-In this tutorial we will see how the cell, model and supercell model graphs, constructed through **HyperCells**, can be imported and visualized in the Poincaré disk. Moreover, we go through the intended workflow for the construction of corresponding **Abelian Bloch Hamiltonians** in order to demonstrate the <a target="_blank" href="https://doi.org/10.1103/PhysRevLett.131.226401">supercell</a> method through density of states calculations. Aspects of the content below originate from the  <a target="_blank" href="https:/doi.org/10.5281/zenodo.10142167">Supplementary Data and Code</a>, where the necessary steps to find the **density of states** of an elementary nearest-neighbor hopping model on the {math}`\{8,8\}`-lattice are discussed 
-in more depth.
+In this tutorial we will see how the cell, model and supercell model graphs, constructed through **HyperCells**, can be imported and visualized in the Poincaré disk through the **HyperBloch** package. Moreover, we go through the intended workflow for the construction of corresponding **Abelian Bloch Hamiltonians** in order to demonstrate the <a target="_blank" href="https://doi.org/10.1103/PhysRevLett.131.226401">supercell</a> method through density of states calculations. 
 
 
 ## Prerequisits **in GAP**
 
-In order to get started with the HyperBloch package we construct nearest-neighbor graphs of the {8,8}-tessellation of the hyperbolic plane through the **HyperCells** package in GAP. We first construct the primitive cell and the model graph (based on the tessellation graph), and finally the 2-supercell, as we have established previously in getting started with [HyperCells](./getSetGo_HyperCells) package:
+In order to get started with the HyperBloch package we construct nearest-neighbor graphs of the {8,8}-tessellation of the hyperbolic plane through the **HyperCells** package in GAP. We first construct the primitive cell and the model graph (based on the tessellation graph), and finally the supercell, as we have established previously in getting started with [HyperCells](./getSetGo_HyperCells) package:
 
 ```gap
 # load the HyperCells package
@@ -102,10 +93,11 @@ Export( scmodel, "{8,8}-tess_T2.6_3_sc-T3.11.hcs" ); # export
 
 ## Hands-on **in Mathematica**
 
-Next, in Mathematica, we load the **HyperBloch** package
+Next, in Mathematica, we load the **HyperBloch** package and set the current directory to the working directory, assuming it contains the **HyperCells** files created above:
 
 ```Mathematica
 << PatrickMLenggenhager`HyperBloch`
+SetDirectory[NotebookDirectory[]];
 ```
 
 ### Primitive cell
@@ -129,7 +121,7 @@ and then used the <code class="code-Mathematica">ImportCellGraphString</code> fu
 
 #### Import the model graph
 
-The model graph is derived from cell graph. In our case it defines a nearest-neighbor graph of the {math}`\{8,8\}`-tessellation of the hyperbolic plane restricted to the primitive cell. It can be imported analogously, but requires the use of the function <code class="code-Mathematica">ImportModelGraphString</code> in order to parse the string and construct the model graph instead: 
+The model graph is derived from cell graph. In our case it defines a nearest-neighbor graph of the {math}`\{8,8\}`-tesselation of the hyperbolic plane restricted to the primitive cell. It can be imported analogously, but requires the use of the function <code class="code-Mathematica">ImportModelGraphString</code> in order to parse the string and construct the model graph instead: 
 
 ```Mathematica
 pcmodel = ImportModelGraphString[Import["{8,8}-tess_T2.6_3.hcm"]];
@@ -141,7 +133,7 @@ The HyperBloch package provides convenient functions for the visualization of gr
 
 ```Mathematica
 VisualizeModelGraph[pcmodel,
-	CellGraph -> pcell,
+  CellGraph -> pcell,
 	Elements -> <|
 		ShowCellBoundary -> {ShowEdgeIdentification -> True},
 		ShowCellGraphFlattened -> {}
@@ -154,24 +146,48 @@ producing a figure of an elementary nearest-neighbor model on the {math}`\{8,8\}
 
 <figure class="text-center">
   <picture>
-    <source type="image/svg+xml" srcset="../../media/figs/getSetGoHyperBloch/ENNM_88.png">
-    <img src="../../media/figs/getSetGoHyperBloch/ENNM_88.png" class="figure-img img-fluid rounded" alt="elementary nearest-neighbor model on the {8,8} lattice" width="400"/>
+    <source type="image/svg+xml" srcset="../../media/figs/getSetGoHyperBloch/ENNMPC_88.png">
+    <img src="../../media/figs/getSetGoHyperBloch/ENNMPC_88.png" class="figure-img img-fluid rounded" alt="elementary nearest-neighbor model on the {8,8} lattice" width="350"/>
   </picture>
 </figure>
 
-We have passed the cell graph to the option *CellGraph* which enables us to indicate the unit cell boundary through the function <code class="code-Mathematica">ShowCellBoundary</code>. Moreover, the boundary segments are indicated together with the associated (composite) translation and colored according to the boundary identification. The function <code class="code-Mathematica">ShowCellGraphFlattened</code> is used to shown all edges connecting pairs of vertices as hyperbolic geodesics in the Poincaré disk.
+The function <code class="code-Mathematica">ShowCellGraphFlattened</code> is used to shown all edges connecting pairs of vertices as hyperbolic geodesics in the Poincaré disk. We have passed the cell graph to the option <code class="code-Mathematica">CellGraph</code> which enables us to indicate the unit cell boundary through the function <code class="code-Mathematica">ShowCellBoundary</code>. Moreover, the boundary segments are indicated together with the associated (composite) translations in the translation group {math}`\Gamma_{pc}` and colored according to the boundary identification.
+
+We can further emphasize the Schwarz triangles inside the indicated primitive cell through the function <code class="code-Mathematica">ShowCellSchwarzTriangles</code>:
+
+```Mathematica
+VisualizeModelGraph[pcmodel,
+  CellGraph -> pcell,
+  Elements -> <|
+   	ShowCellBoundary -> {ShowEdgeIdentification -> True},
+   	ShowCellSchwarzTriangles -> {TriangleStyle -> FaceForm[GrayLevel[0.5]]}
+  |>,
+  ImageSize -> 300,
+  NumberOfGenerations -> 2]
+```
+
+<figure class="text-center">
+  <picture> 
+    <source type="image/svg+xml" srcset="../../media/figs/getSetGoHyperBloch/ENNMPC_UnitCell_88.png">
+    <img src="../../media/figs/getSetGoHyperbloch/ENNMPC_UnitCell_88.png" class="figure-img img-fluid rounded" alt="{8,8} pc" width="350"/>
+  </picture>
+</figure>
+
+There are 8 Schwarz triangles in the primitive cell associated with the chosen representatives in the right transversal {math}`T_{\Delta^{+}}(\Gamma_{pc})`.
 
 #### Construct the Hamiltonian
 
 In order to construct the **Abelian Bloch Hamiltonian**, parameters need to be assigned to the vertices and the edges in the model graph. This takes a very compact form for an elementary nearest-neighbour tight-binding model. In order to illustrate the procedure, we will start with the most general assignment strategy and demonstrate the compact form afterwards.
 
-```{admonition} Skip to subsection [Compact strategy](#compact-strategy)
+```{admonition} Skip to subsection [Compact strategy](#cs)
 :class: seealso-icon
 
-On a first read one may want to skip the subsubsection "General strategy" and resume at the subsubsection "Compact strategy".
+On a first reading, you may want to skip the section "General strategy" and continue with the section "Compact strategy".
 ```
 
 ##### General strategy
+
+###### Number of orbitals
 
 Every model graph can be equipped with **multiple orbitals** per site, and even with a varying number of orbitals at each site. We will construct more involved models with multiple orbitals per site in the [Higher-order topology](../Tutorials/HigherOrder_topology.md) tutorial, for now, however, we will set the number of orbitals to one:
 
@@ -179,7 +195,9 @@ Every model graph can be equipped with **multiple orbitals** per site, and even 
 norbits = 1;
 ```
 
-Next, we need to assign parameters which describe the tight-binding model. This is achieved through the vertices and edges with the model graph and the use of <code class="code-Mathematica">Associtation</code>s.
+Next, we need to assign the parameters which describe the tight-binding model. This is achieved through the vertices and edges specified in the model graph. Each, should be associated with a coupling constant such that they can be called through a function or an <code class="code-Mathematica">Association</code>.
+
+###### On-site terms
 
 **On-site** terms in the Hamiltonian are associated with vertices in the model graph. As such, it is instructive to explicitly print these vertices by using the function <code class="code-Mathematica">VertexList</code>, which takes as argument the graph representation:
 
@@ -187,16 +205,18 @@ Next, we need to assign parameters which describe the tight-binding model. This 
 VertexList@pcmodel["Graph"]
 ```
 
-There is only one site residing in the primitive cell, as such the vertex list contains only one entry ``{{3, 1}}``.
+There is only one site residing in this particular primitive cell of the {math}`\{8,8\}`-lattice, as such the vertex list contains only one entry ``{{3, 1}}``.
  
-We choose to set the on-site term to zero by associating the list of vertices with a list of zeros using an <code class="code-Mathematica">Associtation</code>:
+We choose to set the on-site term to zero by associating the list of vertices with a list of zeros using an <code class="code-Mathematica">Association</code>:
 
 ```Mathematica
 mVec = ConstantArray[0, 1]; 
 onsitePC = AssociationThread[VertexList@pcmodel["Graph"] -> mVec];
 ```
 
-The **hopping terms** are associated with edges in the model graph. Similarly to the on-site terms, it is useful to explicitly print the edges using the function <code class="code-Mathematica">EdgeList</code>, which takes as argument the graph representation:
+###### Hopping terms
+
+The **hopping terms** are associated with edges in the model graph. In analogy with the on-site terms, it is useful to explicitly print the edges using the function <code class="code-Mathematica">EdgeList</code>, which takes as argument the graph representation:
 
 ```Mathematica
 EdgeList@pcmodel["Graph"]
@@ -228,21 +248,24 @@ which contains four translation operators ``{g1, g4, g2, g3}``. In our particula
 
 The HyperBloch package is equipped with elaborate visualization tools of cell, model and supercell model graphs which can further guide the construction of models in more advanced settings. We will exploit these in subsequent tutorials.
 
-The Abelian Bloch Hamiltonian can now be set up by passing the model graph and the corresponding coupling constants specified above to as arguments to the function <code class="code-Mathematica">AbelianBlochHamiltonian</code> or alternatively <code class="code-Mathematica">AbelianBlochHamiltonianExpression</code>, the former returns the Hamiltonian as a function of momenta. We choose to use the latter for now, in order to print a symbolic expression of the Hamiltonian:
+###### Hamiltonian
+
+The Abelian Bloch Hamiltonian can now be set up by passing the model graph and the corresponding coupling constants specified above as arguments to the function <code class="code-Mathematica">AbelianBlochHamiltonian</code> or alternatively <code class="code-Mathematica">AbelianBlochHamiltonianExpression</code>, the former returns the Hamiltonian as a function of momenta. We choose to use the latter for now, in order to print a symbolic expression of the Hamiltonian:
 
 ```Mathematica
 Hpc = AbelianBlochHamiltonianExpression[pcmodel, norbits, onsitePC, hoppingPC]
 ```
 
-which results in a function of four momenta:
+which in this particular example constructs a {math}`1\times1` matrix as a function of four momenta:
 
 ```Mathematica
 { { -2 (Cos[k[1]] + Cos[k[2]] + Cos[k[3]] + Cos[k[4]]) } }
 ```
 
+(cs)=
 ##### Compact strategy
 
-The simplicity of the specified model reduces the construction of the Hamiltonian to just one line of code. Once again we set the number of orbitals per site in the second argument to {math}`1`, the on-site term to {math}`0` and the nearest-neighbor coupling to {math}`-1`, where we use the function <code class="code-Mathematica">AbelianBlochHamiltonian</code>, which returns the Hamiltonian as a function of momenta:
+The simplicity of the specified model reduces the construction of the Hamiltonian to just one line of code. Once again we set the number of orbitals per site in the second argument to {math}`1`, the on-site term to {math}`0` and the nearest-neighbor coupling to {math}`-1`, with the function <code class="code-Mathematica">AbelianBlochHamiltonian</code>, which returns the Hamiltonian as a function of momenta. A very economic way to do this is through the use of constant <code class="code-Mathematica">Function</code>s instead of <code class="code-Mathematica">Association</code>s:
 
 ```Mathematica
 Hpc = AbelianBlochHamiltonian[pcmodel, 1, 0 &, -1 &];
@@ -269,7 +292,7 @@ ComputeEigenvalues[cfH_, Npts_, Nruns_, genus_] :=
   Method -> "FinestGrained"]
 ```
 
-We compute the Eigenvalues with a set of  {math}`10^6` random samples in momentum space and  {math}`32` subsets:
+We compute the eigenvalues with a set of  {math}`10^6` random samples in momentum space and  {math}`32` subsets:
 
 ```Mathematica
 evspc = ComputeEigenvalues[Hpc, 10^6, 32];
@@ -316,10 +339,10 @@ Let us visualize the supercell model representation of the nearest-neighbor mode
 VisualizeModelGraph[scmodel,
   CellGraph -> scell,
   Elements -> <|
-    ShowCellBoundary -> {ShowEdgeIdentification -> True}
-    ShowCellGraphFlattened -> {},
+    ShowCellBoundary -> {ShowEdgeIdentification -> True},
+    ShowCellGraphFlattened -> {}
   |>,
-  ImageMargins -> 0, ImagePadding -> 10, 
+  ImageMargins -> 0, ImagePadding -> 15, 
   ImageSize -> 300, NumberOfGenerations -> 3]
 ```
 
@@ -330,9 +353,33 @@ VisualizeModelGraph[scmodel,
   </picture>
 </figure>
 
+Let us further emphasize the Schwarz triangles inside the indicated supercell:
+
+```Mathematica
+VisualizeModelGraph[scmodel,
+  CellGraph -> scell,
+  Elements -> <|
+    ShowCellBoundary -> {ShowEdgeIdentification -> True},
+    ShowCellSchwarzTriangles -> {
+      TriangleStyle -> Directive[ Opacity[0.6], FaceForm[GrayLevel[0.5]]]
+      }
+  |>,
+  ImageSize -> 300, ImageMargins -> 0,
+  ImagePadding -> 15, NumberOfGenerations -> 3]
+```
+
+<figure class="text-center">
+  <picture> 
+    <source type="image/svg+xml" srcset="../../media/figs/getSetGoHyperBloch/ENNMSC_UnitCell_88.png">
+    <img src="../../media/figs/getSetGoHyperbloch/ENNMSC_UnitCell_88.png" class="figure-img img-fluid rounded" alt="{8,8} pc" width="400"/>
+  </picture>
+</figure>
+
+There are 16 Schwarz triangles in the supercell associated with the chosen representatives in the right transversal {math}`T_{\Delta^{+}}(\Gamma_{sc})`, as such this particular supercell consists of a symmetric aggregation of two primitive cells.
+
 #### Hamiltonian and density of states
 
-The construction of the model on the primitive cell already specifies all the model specification for the supercell. In order to construct the elementary nearest-neighbor tight-binding model on the supercell, we just need to replace the model graph with the supercell model graph in the first argument in the function <code class="code-Mathematica">AbelianBlochHamiltonian</code>. In addition, we also need to specify the associated model graph with the option *PCModel*. This captures some of the higher-dimensional irreducible representations on the original primitive cell:
+The construction of the model on the primitive cell already defines all the necessary model specification for the supercell. In order to construct the elementary nearest-neighbor tight-binding model on the supercell, we just need to replace the model graph with the supercell model graph in the first argument in the function <code class="code-Mathematica">AbelianBlochHamiltonian</code>. In addition, we also need to specify the associated model graph with the option *PCModel*. This already captures some of the higher-dimensional irreducible representations on the original primitive cell:
 
 ```Mathematica
 Hsccf = AbelianBlochHamiltonian[scmodel, 1, 0 &, -1 &, PCModel -> pcmodel, CompileFunction -> True];
@@ -364,3 +411,5 @@ SmoothHistogram[evssc, 0.005, "PDF",
   <a href="../../misc/code_snippets/GettingStarted/getting_started_HyperBloch.nb" class="btn btn-primary"><i class="fa-solid fa-download"></i> Download Mathematica Notebook</a>
 </div>
 <br>
+
+Aspects of the content above originate from the  <a target="_blank" href="https:/doi.org/10.5281/zenodo.10142167">Supplementary Data and Code</a>, where more examples are provided and the necessary steps to find the **density of states** of an elementary nearest-neighbor hopping model on the {math}`\{8,8\}`-lattice are discussed in detail.
