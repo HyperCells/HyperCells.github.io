@@ -22,7 +22,7 @@
 GAP version 4.11+
 ```
 
-First install GAP by following the <a target="_blank" href="https://www.gap-system.org/Download/index.html">instructions</a> on the GAP website. In most cases, this boils down to the following steps (to be executed in the directory where GAP should be installed to):
+First install GAP by following the <a target="_blank" href="https://www.gap-system.org/Download/index.html">instructions</a> on the GAP website. In most cases, this boils down to the following steps which installs GAP 4.12.2 (to be executed in the directory where GAP should be installed to):
 ```shell
 sudo apt-get install build-essential autoconf libtool libgmp-dev libreadline-dev zlib1g-dev
 wget https://github.com/gap-system/gap/releases/download/v4.12.2/gap-4.12.2.tar.gz
@@ -66,10 +66,19 @@ or <a target="_blank" href="https://www.wolfram.com/mathematica">Mathematica</a>
 - <a target="_blank" href="https://github.com/NCAlgebra/NC">NCAlgebra</a> package (version 6+)
 ```
 
+```{admonition}  NCAlgebra
+:class: danger
+
+* All NCAlgebra paclet versions smaller than version 6 are incompatible. 
+* We recommend to install the paclet via the function <code class="language-Mathematica">PacletInstall</code> as described below.
+* Otherwise, if a problem occurs during a manual installation, please follow the instructions below, instead.
+```
+
 Assuming a Wolfram Language Interpreter is already installed, we first install its dependency NCAlgebra
 ```Mathematica
 PacletInstall["https://github.com/NCAlgebra/NC/blob/master/NCAlgebra-6.0.3.paclet?raw=true"];
 ```
+
 and then the package itself as a paclet:
 ```Mathematica
 PacletInstall["https://github.com/patrick-lenggenhager/HyperBloch/releases/download/v0.9.0/PatrickMLenggenhager__HyperBloch-0.9.0.paclet"]
@@ -100,10 +109,11 @@ typedef unsigned short gen; /* for generators of monoids and groups */
 
 Once these changes are made, kbmag needs to be recompiled. This can be done in the terminal, where in the kbmag directory one needs to execute the command **make clean** and afterwards **make**.
 
-If these changes are not made while using the Knuth-Bendix completion algorithm based simplification and unit cells compactified on Rieman surfaces with genus exceeding 63 are used, the procedure will not be excecuted and a warning will be printed in GAP:
+If these changes are not made while using the Knuth-Bendix completion algorithm based simplification and unit cells compactified on Riemann surfaces with genus exceeding 63 are used, the procedure will not be executed and a warning will be printed in GAP:
 
-```gap
-#WARNING: maximal number of genartors have been exceeded; non-simplified words 
-will be used. Please follow the instructions in the chapter Introduction section
-Simplify extension (optional) in the HyperCells reference manual.
-```
+<div class="highlight-gap notranslate"><div class="highlight">
+<pre><span></span><span class="c1">#WARNING: maximal number of generators have been exceeded; non-simplified words will 
+be used. Please follow the instructions in the chapter Introduction section Simplify
+extension (optional) in the HyperCells reference manual.</span>
+</pre></div>
+</div>
