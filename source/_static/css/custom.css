@@ -18,22 +18,59 @@ section {
 /* Seealso admonition */
 /*--------------------*/
 div.admonition.seealso-icon > .admonition-title::after {
-  content: "\f064"; /* the fa-scale icon */
-}
+     content: "\f064"; /* the fa-scale icon */
+     }
 
-div.admonition.seealso-icon {
-     border-color: rgb(255, 136, 0.25, 1);
-   }
+     div.admonition.seealso-icon {
+          border-color: rgb(255, 136, 0.25, 1);
+     }
 
-div.admonition.seealso-icon > .admonition-title {
-     background-color: rgba(255, 136, 0, 0.14);
-}
+     div.admonition.seealso-icon > .admonition-title {
+          background-color: rgb(255, 136, 0, 0.14);
+     }
 
-div.admonition.seealso-icon > .admonition-title::after {
-     color: rgb(255, 136, 0.25, 1);
-}
+     div.admonition.seealso-icon > .admonition-title::after {
+          color: rgb(255, 136, 0.25, 1);
+     }
 /*-------------------*/
 
+/* HyperCells admonition */
+/*--------------------*/
+div.admonition.HyperCells > .admonition-title::after {
+     content: "\f1b2"; /* the fa-scale icon */
+   }
+   
+   div.admonition.HyperCells {
+        border-color: rgb(8, 0, 130, 1);
+      }
+   
+   div.admonition.HyperCells > .admonition-title {
+        background-color: rgb(8, 0, 130, 0.14);
+   }
+   
+   div.admonition.HyperCells > .admonition-title::after {
+        color: rgb(8, 0, 130, 1);
+   }
+/*-------------------*/
+
+/* HyperBloch admonition */
+/*--------------------*/
+div.admonition.HyperBloch > .admonition-title::after {
+     content: "\f1b2"; /* the fa-scale icon */
+   }
+   
+   div.admonition.HyperBloch {
+        border-color: rgb(130, 0, 0, 1);
+      }
+   
+   div.admonition.HyperBloch > .admonition-title {
+        background-color: rgb(130, 0, 0, 0.14);
+   }
+   
+   div.admonition.HyperBloch > .admonition-title::after {
+        color: rgb(130, 0, 0, 1);
+   }
+/*-------------------*/
 
 /* Set global text alignemnt for block quotes.
 *  and set the color of the border.*/
@@ -51,11 +88,12 @@ code.code-gap {
 div.highlight-gap.notranslate {
      div.highlight {
           pre {
-               border-left-color: rgba(15, 0, 230, 1);
+               border-left-color: rgb(15, 0, 230, 1);
                border-left-width: 3px;
           }
      }
 }
+
 
 /* Customize inline Mathematica code */
 code.code-Mathematica {
@@ -146,8 +184,8 @@ figcaption {
      align-items: stretch
  }
 
-/* Some configurations, to be removed once the website is online. */
-/*----------------------------------------------------------------*/
+/* Control the background of images in dark mode. */
+/*------------------------------------------------*/
 
 /* Prevent pydata from adding extra background colors to my images
   to be removed when https://github.com/pydata/pydata-sphinx-theme/issues/879
@@ -156,41 +194,5 @@ figcaption {
 html[data-theme="dark"] .bd-content img:not(.only-dark):not(.dark-light) {
      background: transparent;
      border-radius: 0;
-}
-*/
-
-
-/* Control article dimension.
- -----------------------------*/
-/*
-.bd-main .bd-content .bd-article-container {
-    max-width: 80%;
-} 
-*/
-
-/*
-.bd-page-width {
-    max-width: 100% !important;
-}
-*/
-
- /*
-.bd-article-container {
-     max-width: 100% !important;
-}
-*/
-
-/* Alternative (buggy) download button */
-/*
-a.btn.btn-primary,
-a.btn.btn-primary:visited {
-     background-color:#053f49;
-     border-color:#053f49;
-}
-
-a.btn.btn-primary, 
-a.btn.btn-primary:hover:visited {
-     background-color:#591bc2;
-     border-color:#591bc2;
 }
 */
