@@ -7,8 +7,7 @@
 Construction of:
 
 * hyperbolic Lieb lattices,
-* hyperbolic kagome lattices and
-* custom model graphs.
+* hyperbolic kagome lattice.
 ```
 
 ```{dropdown}  Featured functions
@@ -18,14 +17,14 @@ Construction of:
 **HyperCells:**
 
 <code class="code-gap">
-ProperTriangleGroup, TGQuotient, TGCellGraph, Export, LiebModelGraph, TGQuotientSequencesAdjacencyMatrix, LongestSequence, TGCellSymmetric, TGSuperCellModelGraph, KagomeModelGraph, TGCellModelGraph
+Export, KagomeModelGraph, LiebModelGraph, LongestSequence, ProperTriangleGroup, TGCellGraph, TGCellModelGraph, TGCellSymmetric, TGQuotient, TGQuotientSequencesAdjacencyMatrix, TGSuperCellModelGraph
 </code>
 <br></br>
 
 **HyperBloch:**
 
-<code class="code-gap">
-ImportCellGraphString, ImportModelGraphString, VisualizeModelGraph, ShowCellGraphFlattened, ShowCellBoundary, ImportSupercellModelGraphString, AbelianBlochHamiltonian
+<code class="code-Mathematica">
+AbelianBlochHamiltonian, GetSchwarzTriangle, GetWyckoffPosition, ImportCellGraphString, ImportModelGraphString, ImportSupercellModelGraphString, ShowCellBoundary, ShowCellGraphFlattened,  VisualizeModelGraph
 </code>
 ```
 
@@ -35,22 +34,20 @@ ImportCellGraphString, ImportModelGraphString, VisualizeModelGraph, ShowCellGrap
 
 **Mathematica:**
 
-In previous tutorials, [Getting started with the HyperBloch](../GettingStarted/getSetGo_HyperBloch.md) package and HyperBloch [Supercells](./Supercells.md) tutorial, we have calculated the density of states of various nearest-neighbor tight-binding models via exact diagonalization and random samples. We predefine a function in order to calculate the eigenvalues for the Abelian Bloch Hamiltonians that we will construct. We  take advantage of the independence of different momentum sectors and parallelize the computation, where we partition the set of *Npts* into  *Nruns* subsets:
+In previous tutorials, [Getting started with the HyperBloch](../GettingStarted/getSetGo_HyperBloch.md) package and HyperBloch [Supercells](./Supercells.md) tutorial, we have calculated the density of states of various nearest-neighbor tight-binding models via exact diagonalization and random samples. We predefine a function in order to calculate the eigenvalues for the Abelian Bloch Hamiltonians that we will construct. We  take advantage of the independence of different momentum sectors and parallelize the computation, where we partition the set of <code class="code-Mathematica">Npts</code> into <code class="code-Mathematica">Nruns</code> subsets:
 
 ```Mathematica
 ComputeEigenvalues[cfH_, Npts_, Nruns_, genus_] :=
  Flatten@ParallelTable[
    Flatten@Table[
-     Eigenvalues[cfH @@ RandomReal[{-Pi, Pi}, 2 genus]], {i, 1, 
-      Round[Npts/Nruns]}],
-   {j, 1, Nruns}, Method -> "FinestGrained"]
+     Eigenvalues[cfH @@ RandomReal[{-Pi, Pi}, 2 genus]], 
+    {i, 1, Round[Npts/Nruns]}], {j, 1, Nruns}, 
+  Method -> "FinestGrained"]
 ```
-
-
 
 The HyperCells package contains built-in functions for several tight-binding models such as:
 
-* <code class="code-gap">TessellationModelGraph</code> which constructs a tessellation graph from a cell graph of a triangle group, i.e. the nearest-neighbor graphs of the {math}`\{p,q\}`-tessellation of the hyperbolic plane.
+* <code class="code-gap">TessellationModelGraph</code> which constructs a tessellation graph from a cell graph of a triangle group, i.e. the nearest-neighbor graphs of the {math}`\{p,q\}`-tesselation of the hyperbolic plane.
 
 * <code class="code-gap">LiebModelGraph</code> which constructs a Lieb graph from a cell graph of a triangle group.
 
@@ -61,9 +58,9 @@ which define faces of the model graph.
 
 as well as :
 
-* <code class="code-gap">AddOrientedNNNEdgesToTessellationModelGraph</code> which modifies the {math}`\{p,q\}`-tessellation model graph model by adding oriented next-nearest neighbor edges to all faces with at least five edges.
+* <code class="code-gap">AddOrientedNNNEdgesToTessellationModelGraph</code> which modifies the {math}`\{p,q\}`-tesselation model graph model by adding oriented next-nearest neighbor edges to all faces with at least five edges.
 
-Previously, in the tutorials [Getting started with the HyperBloch](../GettingStarted/getSetGo_HyperBloch.md) and [Supercells](./Supercells.md), we have constructed tessellation graphs. In this tutorial we will constrcut hyperbolic Lieb lattices and hyperbolic kagome lattices on primitive cells and supercells. Both constructions rely on the <code class="code-gap">TGCellModelGraph</code> function which we will discuss afterwards.
+Previously, in the tutorials [Getting started with the HyperBloch](../GettingStarted/getSetGo_HyperBloch.md) and [Supercells](./Supercells.md), we have constructed tessellation graphs. In this tutorial we will construct hyperbolic Lieb lattices and hyperbolic kagome lattices on primitive cells and supercells. Both constructions rely on the <code class="code-gap">TGCellModelGraph</code> function which we will discuss afterwards.
 
 ```{admonition} Skip to page [Haldane model](./Haldane_model.md)
 :class: seealso-icon
@@ -71,9 +68,18 @@ Previously, in the tutorials [Getting started with the HyperBloch](../GettingSta
 The construction of next-nearest-neighbor model graphs through the function <code class="code-gap">AddOrientedNNNEdgesToTessellationModelGraph</code> will be discussed in the next tutorial on hyperbolic Haldane models.
 ```
 
-## {math}`\{6,4\}` Lieb lattice
+## {math}`\{6,4\}`-Lieb lattice
 
-Hyperbolic Lieb lattices are specified by placing vertices at Wyckoff positions <code class="code-gap">1</code> and <code class="code-gap">2</code> for {math}`\{p,q\}`-tesselations of the hyperbolic plane (here we choose <code class="code-gap">1</code> and <code class="code-gap">2</code> corresponding to the <code class="code-gap">x</code> and <code class="code-gap">y</code> vertices of the fundamental Schwarz triangle). As ususal, we start by constructing the cell graph and model graph for the primitive cell in **GAP**:
+Hyperbolic Lieb lattices are specified by placing vertices at **Wyckoff positions** <code class="code-gap">1</code> and <code class="code-gap">2</code> for {math}`\{p,q\}`-tesselations of the hyperbolic plane (here we choose <code class="code-gap">1</code> and <code class="code-gap">2</code> corresponding to the <code class="code-gap">x</code> and <code class="code-gap">y</code> vertices of the fundamental Schwarz triangle). It is instructive to jump a bit ahead to look at the two Wyckoff positions and the fundamental Schwarz in the Poincaré disk, which we will properly discuss shortly after:
+
+<figure class="text-center">
+  <picture> 
+    <source type="image/svg+xml" srcset="../../media/figs/Tutorials/FlatBands/LiebLattice{6,4}_Wyckoff.png">
+    <img src="../../media/figs/Tutorials/FlatBands/LiebLattice{6,4}_Wyckoff.png" class="figure-img img-fluid rounded" alt="{6,4}-Lieb lattice w" width="450"/>
+  </picture>
+</figure>
+
+Next, let us start by constructing a cell graph on the primitive cell for the {math}`\{6,4\}`-lattice in **GAP**:
 
 ```gap
 # Primitive cell:
@@ -146,23 +152,51 @@ scmodelsLieb = Association[# ->
   &/@ cellsLieb[[2 ;;]]];
 ```
 
-It is instructive to visualize the graph representation of the model graph in the primitive cell after the model graph has been imported:
+It is instructive to visualize the graph representation of the model in the primitive cell after the model graph has been imported. Moreover, we choose to highlight the two Wyckoff positions and the fundamental Schwarz in the Poincaré disk. 
+
+We can visualize Wyckoff positions of the fundamental Schwarz triangle through the function <code class="code-Mathematica">GetWyckoffPosition</code>, which enables us to extract the corresponding coordinates in the Poincaré disk, where we will use the label <code class="code-Mathematica">"1"</code> that identifies the symmetry operation relating the vertices of the fundamental Schwarz triangle to the Wyckoff positions:
+
 
 ```Mathematica
-VisualizeModelGraph[pcmodelLieb,
+x = GetWyckoffPosition[{2, 4, 6}, {1, "1"}];
+y = GetWyckoffPosition[{2, 4, 6}, {2, "1"}];
+```
+
+We can highlighted individual Schwarz triangles in the Poincaré disk through the function <code class="code-Mathematica">GetSchwarzTriangle</code>. Let us extract the <code class="code-Mathematica">Polygon</code> representing the fundamental Schwarz triangle associated with the identity element in the proper triangle group {math}`\Delta^{+}(2,4,6)`:
+
+```Mathematica
+sf = GetSchwarzTriangle[{2, 4, 6}, "1"];
+```
+
+We can highlight the two Wyckoff positions and the fundamental Schwarz triangle in the graph representation of the nearest-neighbor tight-binding model model as follows:
+
+```Mathematica
+Show[
+ VisualizeModelGraph[pcmodelLieb,
   CellGraph -> pcellLieb,
+  NumberOfGenerations -> 3,
   Elements -> <|
-        ShowCellGraphFlattened -> {},
-   	ShowCellBoundary -> {ShowEdgeIdentification -> True}
-  |>,
-  ImageSize -> 400,
-  NumberOfGenerations -> 3]
+    	ShowCellGraphFlattened -> {},
+    	ShowCellBoundary -> {ShowEdgeIdentification -> True}
+    |>],
+ 
+ Graphics[{Darker[Gray, 0.01], Opacity[0.4], sf}],
+ Graphics[{Text[Style["s_f", 17, Thick, White], {0.3, 0.09}]}],
+ 
+ Graphics[{Darker[Green, 0.3], PointSize[0.03], Point@x}],
+ Graphics[{Darker[Blue, 0.3], PointSize[0.03], Point@y}],
+ 
+ Graphics[{Darker[Green, 0.5], Text[Style["1", 17, Thick], {0.30, 0.17}]}],
+ Graphics[{Darker[Blue, 0.5], Text[Style["2", 17, Thick], {0.43, 0.00}]}],
+ 
+ ImageSize -> 400
+ ]
 ```
 
 <figure class="text-center">
   <picture> 
     <source type="image/svg+xml" srcset="../../media/figs/Tutorials/FlatBands/LiebLattice{6,4}_T2.2.png">
-    <img src="../../media/figs/Tutorials/FlatBands/LiebLattice{6,4}_T2.2.png" class="figure-img img-fluid rounded" alt="{6,4} Lieb lattice pc" width="450"/>
+    <img src="../../media/figs/Tutorials/FlatBands/LiebLattice{6,4}_T2.2.png" class="figure-img img-fluid rounded" alt="{6,4}-Lieb lattice pc" width="450"/>
   </picture>
 </figure>
 
@@ -200,17 +234,21 @@ SmoothHistogram[evalsLieb, 0.01, "PDF",
 <figure class="text-center">
   <picture> 
     <source type="image/svg+xml" srcset="../../media/figs/Tutorials/FlatBands/dos_Lieb_64_scm.png">
-    <img src="../../media/figs/Tutorials/FlatBands/dos_Lieb_64_scm.png" class="figure-img img-fluid rounded" alt="{6,4} Lieb lattice pc" width="600"/>
+    <img src="../../media/figs/Tutorials/FlatBands/dos_Lieb_64_scm.png" class="figure-img img-fluid rounded" alt="{6,4}-Lieb lattice pc" width="600"/>
   </picture>
 </figure>
+
+Pronounced flat-bands emerge in density of states, centered around zero energy 
+with gaps developing between the flat-band and the dispersive part of the spectrum.
 
 <div style="text-align: right;">
   <a href="../../misc/code_snippets/Tutorials/FlatBands/tutorial_FlatBands_{6,4}-Lieb_HyperBloch.nb" class="btn btn-primary"><i class="fa-solid fa-download"></i> Download Mathematica Notebook</a>
 </div>
 
-## {math}`\{8,3\}` kagome lattice
 
-Hyperbolic kagome lattices can be constructed just as easily as hyperbolic Lieb lattices. These lattices are specified by placing vertices at Wyckoff positions <code class="code-gap">1</code>. These lattices are **restricted to {math}`\{p,3\}`-tessellation** of the hyperbolic plane. Once again, we start by constructing the cell graph and model graph for the primitive cell in **GAP**:
+## {math}`\{8,3\}`-kagome lattice
+
+Hyperbolic kagome lattices can be constructed just as easily as hyperbolic Lieb lattices. These lattices are specified by placing vertices at Wyckoff positions <code class="code-gap">1</code>. These lattices are **restricted to {math}`\{p,3\}`-tesselation** of the hyperbolic plane. Once again, we start by constructing the cell graph and model graph for the primitive cell in **GAP**:
 
 ```gap
 # Primitive cell:
@@ -257,7 +295,7 @@ od;
 </div>
 <br></br>
 
-We can proceed anologously to the hyperbolic Lieb lattice in **Mathematica**, we omitt the detailed specificities which can be found in the downloadable files. As such, let us visualize the {math}`\{8,3\}` kagome lattice: 
+We can proceed anologously to the hyperbolic Lieb lattice in **Mathematica**, we omitt the detailed specificities which can be found in the downloadable files. As such, let us visualize the {math}`\{8,3\}`-kagome lattice: 
 
 ```Mathematica
 VisualizeModelGraph[pcmodelKagome,
@@ -273,14 +311,14 @@ VisualizeModelGraph[pcmodelKagome,
 <figure class="text-center">
   <picture> 
     <source type="image/svg+xml" srcset="../../media/figs/Tutorials/FlatBands/KagomeLattice{8,3}_T2.1.png">
-    <img src="../../media/figs/Tutorials/FlatBands/KagomeLattice{8,3}_T2.1.png" class="figure-img img-fluid rounded" alt="{6,4} Lieb lattice pc" width="450"/>
+    <img src="../../media/figs/Tutorials/FlatBands/KagomeLattice{8,3}_T2.1.png" class="figure-img img-fluid rounded" alt="{6,4}-Lieb lattice pc" width="450"/>
   </picture>
 </figure>
 
 The application of the supercell method shows a fast convergence to the thermodynamic limit in the density of states:
 
 ```Mathematica
-SmoothHistogram[evalsKagome, 0.01, "PDF",
+dos = SmoothHistogram[evalsKagome, 0.01, "PDF",
   Frame -> True, FrameLabel -> {"Energy E", "Density of states"} FrameStyle -> Black, 
   ImageSize -> 500, ImagePadding -> {{Automatic, 10}, {Automatic, 10}}, LabelStyle -> 20,
   PlotLabel -> "k sampling: 2*10^4", PlotRange -> All, PlotStyle -> cLst]
@@ -290,31 +328,32 @@ SmoothHistogram[evalsKagome, 0.01, "PDF",
 <figure class="text-center">
   <picture> 
     <source type="image/svg+xml" srcset="../../media/figs/Tutorials/FlatBands/dos_kagome_83_scm.png">
-    <img src="../../media/figs/Tutorials/FlatBands/dos_kagome_83_scm.png" class="figure-img img-fluid rounded" alt="{6,4} Lieb lattice pc" width="600"/>
+    <img src="../../media/figs/Tutorials/FlatBands/dos_kagome_83_scm.png" class="figure-img img-fluid rounded" alt="{6,4}-Lieb lattice pc" width="600"/>
   </picture>
 </figure>
+
+The density of states for the {math}`\{8,3\}`-lattice exhibits pronounced flat-band centered at {math}`E=2` with gaps developing between the flat-band and the dispersive part of the spectrum. The accumulation of higher-dimensional irreducible representations on the primitive cell through the supercell method comes with a characteristic density of states suppression near the edges. As such, let us take a closer look at the band edge in the vicinity of the flat-band:
+
+```Mathematica
+Show[dos,
+ Epilog -> {
+   Inset[Show[First@dos,
+     FrameLabel -> None, Frame -> True, ImageSize -> 200,
+     LabelStyle -> 15, PlotRange -> {{1.85, 2.05}, {0, 0.4}},
+     PlotLabel -> None], {-2, 0.65}]
+   }]
+```
+
+<figure class="text-center">
+  <picture> 
+    <source type="image/svg+xml" srcset="../../media/figs/Tutorials/FlatBands/dos_kagome_inset_83_scm.png">
+    <img src="../../media/figs/Tutorials/FlatBands/dos_kagome_inset_83_scm.png" class="figure-img img-fluid rounded" alt="{6,4}-Lieb lattice pc" width="600"/>
+  </picture>
+</figure>
+
+The density of states between the flat-band and the dispersive bands is suppressed with increasing supercell size, such that in the thermodynamic limit the flat-band is detached. This suggests that the gaplessness for the primitive cell is a finite-size effect.
 
 <div style="text-align: right;">
   <a href="../../misc/code_snippets/Tutorials/FlatBands/tutorial_FlatBands_{8,3}-kagome_HyperBloch.nb" class="btn btn-primary"><i class="fa-solid fa-download"></i> Download Mathematica Notebook</a>
 </div>
-
-
-## Custom model graphs
-
-The built-in Lieb and kagome model graph functions rely on the parent function <code class="code-gap">TGCellModelGraph</code>, which takes as input <code class="code-gap">cellgraph, vfs, efs, ffs</code>:
-
-```gap
-# Lieb model graph:
-# -----------------
-model := TGCellModelGraph(cellgraph, [ 1, 2 ], [  ], [ 3 ]);
-
-# Kagome model graph:
-# -------------------
-model := TGCellModelGraph(cellgraph, [ 1 ], [ 2 ], [ 2, 3 ]);
-```
-
-The model graphs are constructed by selecting the vertices of types given in the list vfs as vertices of the model graph. The type is given in terms of the cell graph’s vertex type, i.e., <code class="code-gap">1</code>, <code class="code-gap">2</code> or <code class="code-gap">3</code>, corresponding to the vertices of the fundamental Schwarz triangle <code class="code-gap">x</code>, <code class="code-gap">y</code> and <code class="code-gap">z</code>, respectively. The edges of the model graph are determined by adjacency to the cell-graph vertices of the type given in the list efs and the faces are determined by the cell-graph vertices of the type given in the list ffs. (see href ??)
-
-
-....
 
