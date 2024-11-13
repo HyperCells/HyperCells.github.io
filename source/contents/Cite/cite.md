@@ -8,22 +8,21 @@ html_theme.sidebar_secondary.remove: |
 If you use one of the packages, please cite the package itself (check out Zenodo for DOIs for specific versions)
 ```BibTeX
 @misc{HyperCells,
-  title           = {Hyper{C}ells: {A} {GAP} package for constructing primitive cells and supercells of hyperbolic lattices},
-  author          = {Lenggenhager, Patrick M. and Maciejko, Joseph and Bzdu\v{s}ek, Tom\'{a}\v{s}},
-  year            = {2023},
-  doi             = {10.5281/zenodo.10222598},
-  note            = {\url{https://github.com/patrick-lenggenhager/HyperCells}}
+ title  = {Hyper{C}ells: {A} {GAP} package for constructing primitive cells and supercells of hyperbolic lattices},
+ author = {Lenggenhager, Patrick M. and Maciejko, Joseph and Bzdu\v{s}ek, Tom\'{a}\v{s}},
+ year   = {2023},
+ doi    = {10.5281/zenodo.10222598},
+ note   = {\url{https://github.com/patrick-lenggenhager/HyperCells}}
 }
 ```
 or
 ```BibTeX
 @misc{HyperBloch,
-  title           = {{HyperBloch}: {A} {M}athematica package for hyperbolic tight-binding models and the
-  supercell method},
-  author          = {Lenggenhager, Patrick M. and Maciejko, Joseph and Bzdu\v{s}ek, Tom\'{a}\v{s}},
-  year            = {2023},
-  doi             = {10.5281/zenodo.10222865},
-  note            = {\url{https://github.com/patrick-lenggenhager/HyperBloch}}
+ title  = {{HyperBloch}: {A} {M}athematica package for hyperbolic tight-binding models and the supercell method},
+ author = {Lenggenhager, Patrick M. and Maciejko, Joseph and Bzdu\v{s}ek, Tom\'{a}\v{s}},
+ year   = {2023},
+ doi    = {10.5281/zenodo.10222865},
+ note   = {\url{https://github.com/patrick-lenggenhager/HyperBloch}}
 }
 ```
 and at least one of the following references:
