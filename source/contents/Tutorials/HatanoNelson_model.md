@@ -6,7 +6,7 @@
 
 Construction of **non-Hermitian** Abelian Bloch Hamiltonians of:
 
-* a tight-binding model with hermiticity breaking gains and losses
+* a tight-binding model with Hermiticity-breaking gains and losses
 * and a variant of the Hatano-Nelson model for the {math}`\{6,4\}`-lattice.
 ```
 
@@ -17,14 +17,14 @@ Construction of **non-Hermitian** Abelian Bloch Hamiltonians of:
 **HyperCells:**
 
 <code class="code-gap">
-ProperTriangleGroup, TGQuotient, Export, TessellationModelGraph, TGQuotientSequencesAdjacencyMatrix, GetLongestSequence, TGCellSymmetric, TGSuperCellModelGraph
+Export, LongestSequence, ProperTriangleGroup, TGCellSymmetric, TessellationModelGraph, TGQuotient,  TGQuotientSequencesAdjacencyMatrix,   TGSuperCellModelGraph
 </code>
 <br></br>
 
 **HyperBloch:**
 
-<code class="code-gap">
-ImportCellGraphString, ImportModelGraphString, ImportSupercellModelGraphString, VisualizeModelGraph, ShowCellGraphFlattened, ShowCellBoundary, NonHermitianAbelianBlochHamiltonian, EdgeFilter
+<code class="code-Mathematica">
+AbelianBlochHamiltonian, GetCellGraphEdge, ImportCellGraphString, ImportModelGraphString, ImportSupercellModelGraphString, NonReciprocalAbelianBlochHamiltonian, ShowCellBoundary, ShowCellGraphFlattened, VisualizeModelGraph
 </code>
 ```
 
@@ -34,19 +34,19 @@ ImportCellGraphString, ImportModelGraphString, ImportSupercellModelGraphString, 
 
 **Mathematica:**
 
-In previous tutorials, such as [Getting started with the HyperBloch package](../GettingStarted/getSetGo_HyperBloch.md) and HyperBloch [Supercells](./Supercells.md) tutorial etc., we have calculated the density of states of various nearest-neighbor tight-binding models via exact diagonalization and random samples. We predefine a function in order to calculate the eigenvalues for the (non-reciprocal) Abelian Bloch Hamiltonians that we will construct. We  take advantage of the independence of different momentum sectors and parallelize the computation, where we partition the set of *Npts* into *Nruns* subsets:
+In previous tutorials, such as [Getting started with the HyperBloch package](../GettingStarted/getSetGo_HyperBloch.md) and HyperBloch [Supercells](./Supercells.md) tutorial etc., we have calculated the density of states of various nearest-neighbor tight-binding models via exact diagonalization and random samples. We predefine a function in order to calculate the eigenvalues for the (non-reciprocal) Abelian Bloch Hamiltonians that we will construct. We  take advantage of the independence of different momentum sectors and parallelize the computation, where we partition the set of <code class="code-Mathematica">Npts</code> into <code class="code-Mathematica">Nruns</code> subsets:
 
 ```Mathematica
 ComputeEigenvalues[cfH_, Npts_, Nruns_, genus_] :=
  Flatten@ParallelTable[
    Flatten@Table[
-     Eigenvalues[cfH @@ RandomReal[{-Pi, Pi}, 2 genus]], {i, 1, 
-      Round[Npts/Nruns]}],
-   {j, 1, Nruns}, Method -> "FinestGrained"]
+     Eigenvalues[cfH @@ RandomReal[{-Pi, Pi}, 2 genus]], 
+    {i, 1, Round[Npts/Nruns]}], {j, 1, Nruns}, 
+  Method -> "FinestGrained"]
 ```
 
 
-The HyperBloch package provides a framework for the construction of Abelian Bloch Hamiltonians of Hermitian as well as **non-Hermitian systems**. In principle, the workflow for the construction of non-Hermitian compared to Hermitian models is unchanged. However, particular attention is required when assigning coupling constants. In this tutorial we will see how non-Hermitian hyperbolic lattice models can be set up through the construction of nearest-neighbor tight-binding models on the {math}`\{6,4\}`-lattice. Specifically, we will consider hermiticity breaking terms, such as gains and losses, and a variant of the **Hatano-Nelson model**.
+The HyperBloch package provides a framework for the construction of Abelian Bloch Hamiltonians of Hermitian as well as **non-Hermitian systems**. In principle, the workflow for the construction of non-Hermitian compared to Hermitian models is unchanged. However, particular attention is required when assigning coupling constants. In this tutorial we will see how non-Hermitian hyperbolic lattice models can be set up through the construction of nearest-neighbor tight-binding models on the {math}`\{6,4\}`-lattice. Specifically, we will consider Hermiticity-breaking terms, such as gains and losses, and a variant of the **Hatano-Nelson model**.
 
 
 ## Prerequisits
@@ -220,7 +220,7 @@ ComplexListPlot[ComplexRandomThinning[evals, 1000],
 
 ## {math}`\{6,4\}`-Hatano-Nelson model
 
-A possible  variant of the Hatano-Nelson model for the {math}`\{6,4\}`-lattice consists of (weakly) coupled 1 dimensional chains with asymmetric hopping amplitudes and zero on-site potential. Each chain follows a hyperbolic geodesic and consists of a particular pair of vertices connected through directed edges in the model graph. Let us take a look at the list of edges:
+Other Hermiticity-breaking terms, aside from gains and losses, are for example non-reciprocal hopping amplitudes, most prominently used in the Hatano-Nelson model for a Euclidean one dimensional system with asymmetric hopping terms. A possible variant of the Hatano-Nelson model for the {math}`\{6,4\}`-lattice consists of (weakly) coupled 1 dimensional chains with asymmetric hopping amplitudes and zero on-site potential. Each chain follows a hyperbolic geodesic and consists of a particular pair of vertices connected through directed edges in the model graph. Let us take a look at the list of edges in order to construct it:
 
 ```Mathematica
 EdgeList@pcmodel["Graph"]
@@ -242,10 +242,10 @@ edgesInChains = {
     DirectedEdge[{2,4}, {2,6}], DirectedEdge[{2,6}, {2,4}]}
 ```
 
-We can make use of the option *EdgeFilter* within the option <code class="code-Mathematica">ShowCellGraphFlattened</code> in the function <code class="code-Mathematica">VisualizeModelGraph</code> in order to visualize the corresponding one dimensional chains. Therefore, the graph representation of the Hatano-Nelson with decoupled one dimensional chains on the primitive cell looks as follows:
+We can make use of the option <code class="code-Mathematica">EdgeFilter</code> within the option <code class="code-Mathematica">ShowCellGraphFlattened</code> in the function <code class="code-Mathematica">VisualizeModelGraph</code> in order to visualize the corresponding one dimensional chains. Therefore, the graph representation of the Hatano-Nelson with decoupled one dimensional chains on the primitive cell looks as follows:
 
 ```Mathematica
-VisualizeModelGraph[pcmodel,
+HNgraph = VisualizeModelGraph[pcmodel,
  CellGraph -> pcell,
  Elements -> <|
    ShowCellGraphFlattened -> {EdgeFilter -> (MemberQ[edgesInChains, #[[{1, 2}]]] &)},
@@ -262,7 +262,45 @@ VisualizeModelGraph[pcmodel,
   </picture>
 </figure>
 
-The hopping amplitudes can be assigned by inspecting the list of edges in the model graph, however, we may as well choose to proceed programmatically by filtering through the list:
+It is instructive to also visualize the equivalent (translated) inter-cell edges starting outside the cell and ending inside. First, let us extract the inter-cell edges. Each inter-cell edge is associated with a non-trivial translation:
+
+```Mathematica
+pcmodel["EdgeTranslations"]
+```
+
+<figure class="text-center">
+  <picture> 
+    <source type="image/svg+xml" srcset="../../media/figs/Tutorials/HatanoNelson/EdgeTranslations.png">
+    <img src="../../media/figs/Tutorials/HatanoNelson/EdgeTranslations.png" class="figure-img img-fluid rounded" alt="EdgeTranslations {6,4}-tess model" width="700"/>
+  </picture>
+</figure>
+
+In addition, we restrict the list to the edges present in the Hatano-Nelson chains specified in our previously defined list:
+
+```Mathematica
+intercedges = Select[
+    Transpose[{EdgeList@pcmodel["Graph"], pcmodel["EdgeTranslations"]}], 
+    MemberQ[edgesInChains, #[[1, {1, 2}]]] && #[[2]] != "1" &][[;;, 1]
+  ];
+```
+
+We can use the function <code class="code-Mathematica">GetCellGraphEdge</code> and its option <code class="code-Mathematica">ShowEquivalentEdge</code> in order visualize specific edges and equivalent (translated) inter-cell edges in the Poincaré disk:
+
+```Mathematica
+Show[HNgraph,
+ Graphics[{AbsoluteThickness[2],
+    GetCellGraphEdge[pcmodel, #, ShowEquivalentEdge -> True] /. Line -> Arrow}] 
+  &/@intercedges]
+```
+
+<figure class="text-center">
+  <picture> 
+    <source type="image/svg+xml" srcset="../../media/figs/Tutorials/HatanoNelson/1DChains_complete_{6,4}-tess-NN_pc_T2.2.png">
+    <img src="../../media/figs/Tutorials/HatanoNelson/1DChains_complete_{6,4}-tess-NN_pc_T2.2.png" class="figure-img img-fluid rounded" alt="Vertices tessellation model {6,4}-lattice" width="380"/>
+  </picture>
+</figure>
+
+The visualization enables us to ensure we construct the corresponding Abelian Bloch Hamiltonian consistently. The hopping amplitudes can be assigned by inspecting the list of edges in the model graph, however, we may as well choose to proceed programmatically by filtering through the list:
 
 ```Mathematica
 hoppingVecHatanoNelson = If[MemberQ[edgesInChains, #[[{1, 2}]]], 1, 0] 
@@ -327,5 +365,5 @@ ComplexListPlot[ComplexRandomThinning[evals, 1000],
 </figure>
 
 <div style="text-align: right;">
-  <a href="../../misc/code_snippets/Tutorials/HatanoNelson/tutorial_HatanoNelsonModel_HyperBloch.nb" class="btn btn-primary"><i class="fa-solid fa-download"></i> Download Mathematica Notebook</a>
+  <a href="../../misc/code_snippets/Tutorials/HatanoNelsonModel/tutorial_HatanoNelsonModel_HyperBloch.nb" class="btn btn-primary"><i class="fa-solid fa-download"></i> Download Mathematica Notebook</a>
 </div>
