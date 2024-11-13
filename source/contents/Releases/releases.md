@@ -1,6 +1,8 @@
 ---
 html_theme.sidebar_secondary.remove: |
   true
+
+orphan: true
 ---
 
 # Releases
