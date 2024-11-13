@@ -13,6 +13,58 @@ import datetime
 sys.path.append(os.path.abspath("sphinxext"))
 
 # ===============================================================================================
+# Execute preliminary functions:
+# ===============================================================================================
+# If you want to disable the execution of this code section, please make sure to delete the code:
+# .. include:: interlinkTutorials.rst
+#   :start-line: 2
+# which is part of the contents/Tutorials/tutorials.rst file.
+
+# interlink featured functions and tutorials
+sys.path.append(os.path.abspath('execCode'))
+from interlink import ffspageDict, interlinkFile
+
+cwd = os.getcwd() # current directory
+dirTutorials = "/contents/Tutorials/" # relative path to the tutorials
+
+# list of excluded files
+exclude_files = [
+    "tutorials.rst",
+    "AdvancedVisualization.md",
+    "interlinkTutorials.rst"
+]
+
+files = [f for f in os.listdir(cwd + dirTutorials) 
+        if os.path.isfile(os.path.join(cwd + dirTutorials, f))
+        and f not in exclude_files ]
+
+[ffspDics, rstLinks] = ffspageDict(cwd + dirTutorials, files, rstLinks=True)
+interlinkFile(cwd + dirTutorials, "interlinkTutorials", ffspDics, rstLinks=rstLinks)
+
+# ===============================================================================================
+# If you want to disable the execution of this code section, please make sure to delete the code:
+# .. include:: interlinkGetSetGo.rst
+#   :start-line: 2
+# which is part of the contents/GettingStarted/getting_started.rst file.
+
+# interlink featured functions and getSetGo files
+dirGetSetGo = "/contents/GettingStarted/" # relative path to the getSetGo files
+
+# list of excluded files
+exclude_files = [
+    "getting_started.rst",
+    "interlinkGetSetGo.rst"
+]
+
+files = [f for f in os.listdir(cwd + dirGetSetGo) 
+        if os.path.isfile(os.path.join(cwd + dirGetSetGo, f))
+        and f not in exclude_files ]
+
+[ffspDics, rstLinks] = ffspageDict(cwd + dirGetSetGo, files, rstLinks=True)
+interlinkFile(cwd + dirGetSetGo, "interlinkGetSetGo", ffspDics, rstLinks=rstLinks)
+
+
+# ===============================================================================================
 # Project information :
 # ===============================================================================================
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
@@ -110,7 +162,8 @@ html_sidebars = {
   "contents/Publications/publications": [],
   "contents/Contribute/contribute": [],
   "contents/Contact/contact": [],
-  "contents/Cite/cite": []
+  "contents/Cite/cite": [],
+  "contents/Documentation/documentation": []
 }
 
 # Adjust the theme.
