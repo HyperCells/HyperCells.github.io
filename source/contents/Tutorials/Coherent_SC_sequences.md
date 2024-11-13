@@ -5,7 +5,7 @@
 :icon: light-bulb
 
 Identifying supercell sequences through:
-* custom functions
+* user defined functions
 * and normal subgroup tree graphs.
 ```
 
@@ -16,20 +16,35 @@ Identifying supercell sequences through:
 **HyperCells:**
 
 <code class="code-gap">
-ProperTriangleGroup, TGQuotient, TGTranslationGroup, TGCellGraph, TessellationModelGraph, Export, AsTGSubgroup, FpGroup, Signature, TriangleGroup, TGQuotientRelators, TGQuotientName, TGCellSymmetric, TGSuperCellModelGraph, TGQuotientSequencesAdjacencyMatrix, LongestSequence
+AsTGSubgroup, Export, FpGroup, LongestSequence, ProperTriangleGroup, Signature, TessellationModelGraph, TGCellGraph, TGCellSymmetric, TGQuotient, TGQuotientName,TGQuotientRelators, TGQuotientSequencesAdjacencyMatrix, TGSuperCellModelGraph, TGTranslationGroup, TriangleGroup
 </code>
 <br></br>
 
 **HyperBloch:**
 
-<code class="code-gap">
+<code class="code-Mathematica">
 ImportAdjMatrixString, VisualizeQuotientSequences
 </code>
 ```
 
-The application of the supercell method relies on the construction of appropriate supercell sequences. These sequences, are associated with corresponding translation group sequences, and restricted to so-called **coherent sequences** of translation groups. In the previous tutorial [Supercells](./Supercells.md) we have seen how such sequences are constructed, but have kept their identification somewhat shrouded. As such, let us see how suitable supercell sequences can be determined.
+The application of the **supercell method** relies on the construction of appropriate supercell sequences. These sequences, are associated with corresponding translation group sequences, and restricted to so-called **coherent sequences** of translation groups. In the previous tutorial [Supercells](./Supercells.md) we have seen how such sequences are constructed, but have kept their identification somewhat shrouded. As such, let us see how suitable supercell sequences can be determined.
 
-In this tutorial we will look at two approaches to construct supercell sequences which consist of constructing a custom function and a **normal subgroup tree graph**. A usual workflow starts by constructing the latter, which shows the normal subgroup relations between any given translation group extracted from quotient groups in  <a target="_blank" href="https://patrick-lenggenhager.github.io/HyperCells/doc/chapBib_mj.html#biBConder:2007">Marston Conder's</a> list. 
+In this tutorial we will look at two approaches to construct supercell sequences which consist of constructing a user defined function and a **normal subgroup tree graph**. A usual workflow starts by constructing the latter, which shows the normal subgroup relations between any given translation group extracted from quotient groups in  <a target="_blank" href="https://patrick-lenggenhager.github.io/HyperCells/doc/chapBib_mj.html#biBConder:2007">Marston Conder's</a> list. 
+
+## Introduction 
+
+The supercell sequences used in the supercell method are constructed through quotients {math}`\Delta/\Gamma^{(m)}` of the triangle groups {math}`\Delta`. Each triangle group quotient is associated with a corresponding translation group {math}`\Gamma^{(m)}` which forms a **normal subgroup** of the triangle group {math}`\Delta\triangleright\Gamma^{(m)}`. The {math}`m`'th consecutive supercell in the sequence, which we denote as the **{math}`m`-supercell**, is thus associated with a corresponding translation group {math}`\Gamma^{(m)}`, which obeys the following normal subgroup relations:
+
+```{math}
+:label: coherent-sequences
+\Delta\triangleright\Gamma^{(1)}\cdot\Gamma^{(2)}\triangleright\cdot\cdot\cdot\triangleright\Gamma^{(m)}\triangleright\cdot\cdot\cdot
+```
+
+and {math}`\bigcap_{m\ge0}\Gamma^{(m)}=1`, where {math}`\Gamma^{(0)}=\Delta`.
+
+Such sequences are called **coherent sequences** of translation groups, which enable us to accumulate higher dimensional irreducible representations of elements in the translation groups on the original primitive cell through the supercell method.
+
+## Preliminaries
 
 As usual, we start by constructing the proper triangle group, the quotient group for the primitive cell and additionally the corresponding translation group for the {math}`\{8,8\}`-lattice in **GAP**:
 
@@ -54,7 +69,7 @@ model := TessellationModelGraph( cgpc, true : simplify := 5 );
 Export( model, "{8,8}-tess_T2.6_3.hcm" ); # export
 ```
 
-```{admonition} Skip to section [Normal subgroup tree graph approach](normal-subgroup-tree-graph-approach)
+```{admonition} Skip to section [Normal subgroup tree graph approach](#nstga)
 :class: seealso-icon
 
 On a first read, one may want to skip the section "Custom function approach" and resume at the section "Normal subgroup tree graph approach".
@@ -62,11 +77,11 @@ On a first read, one may want to skip the section "Custom function approach" and
 
 ## Custom function approach
 
-Before constructing our custom function, let us go through the main points that should be considered in any custom function that identifies coherent supercell sequences.
+Before constructing our custom function, let us go through the main points that should be considered in any user defined function that identifies coherent supercell sequences.
 
-The {math}`(m+1)`-supercell in a coherent supercell sequence is associated with a translation group {math}`\Gamma^{(m+1)}`, which is a consecutive normal subgroup of the translation group {math}`\Gamma^{(m)}` (of the m-supercell) and the proper triangle group {math}`\Delta^{+}`. We extract the translation groups {math}`\Gamma^{(m)}` from quotient groups in <a target="_blank" href="https://patrick-lenggenhager.github.io/HyperCells/doc/chapBib_mj.html#biBConder:2007">Marston Conder's</a> list. Since they are normal subgroups of {math}`\Delta^{+}`, it is sufficient to check if the set of elements in a translation group {math}`\Gamma^{(m+1)}` forms a subset of {math}`\Gamma^{(m)}`. 
+The {math}`(m+1)`-supercell in a coherent supercell sequence is associated with a translation group {math}`\Gamma^{(m+1)}`, which is a consecutive normal subgroup of the translation group {math}`\Gamma^{(m)}` (of the {math}`m`-supercell) and the proper triangle group {math}`\Delta^{+}`. We extract the translation groups {math}`\Gamma^{(m)}` from quotient groups in <a target="_blank" href="https://patrick-lenggenhager.github.io/HyperCells/doc/chapBib_mj.html#biBConder:2007">Marston Conder's</a> list. Since they are normal subgroups of {math}`\Delta^{+}`, it is sufficient to check if the set of elements in a translation group {math}`\Gamma^{(m+1)}` forms a subset of {math}`\Gamma^{(m)}`. 
 
-For example, let us extract the translation group associated with the second quotient group in order to identify the first candidate for the 2-supercell:
+For example, let us extract the translation group associated with the second quotient group in order to identify the first candidate for the {math}`2`-supercell:
 
 ```gap
 q2 := TGQuotient(2, [2, 8, 8]);
@@ -202,7 +217,7 @@ gap> TGQuotientName(qsc_3_11);
 [ 3, 11 ]
 ```
 
-The <code class="code-gap">TGQuotientName</code> returns the label given in M. Conder's list, where <code class="code-gap">3</code> is the genus of the Riemann surface the quotient acts upon and <code class="code-gap">11</code> the index in the list. Let us retrieve the next 5 supercells, together with the corresponding  tessellation graphs, i.e., the nearest-neighbor graphs of the {math}`\{8,8\}`-tessellation of the hyperbolic plane by iterating over the list of available quotient:
+The <code class="code-gap">TGQuotientName</code> returns the label given in M. Conder's list, where <code class="code-gap">3</code> is the genus of the Riemann surface the quotient acts upon and <code class="code-gap">11</code> the index in the list. Let us retrieve the next 5 supercells, together with the corresponding  tessellation graphs, i.e., the nearest-neighbor graphs of the {math}`\{8,8\}`-tesselation of the hyperbolic plane by iterating over the list of available quotient:
 
 
 ```gap
@@ -242,11 +257,12 @@ The sequence of quotient groups we were able to extract is:
 
 This coincides with the supercell sequence **1** we have considered in the tutorial [Supercells](./Supercells.md).
 
+(nstga)=
 ## Normal subgroup tree graph approach
 
-Identifying sequences of supercells through custom functions might be cumbersome. The built-in function to identify normal subgroup relations of the translation groups provides efficient access to all sequences which are normal subgroups of {math}`\Delta^{+}` and obey the normal subgroup relation {math}`\Delta^{+}\triangleright \Gamma^{(1)} \triangleright \Gamma^{(2)} \triangleright \cdot \cdot \cdot \triangleright \Gamma^{(m)} \triangleright  \cdot \cdot \cdot` available through the access of <a target="_blank" href="https://patrick-lenggenhager.github.io/HyperCells/doc/chapBib_mj.html#biBConder:2007">Marston Conder's</a> list. It can be used to build advanced custom functions as well as to visualize appropriate sequences in tree graphs we denote as normal subgroup tree graphs. 
+Identifying sequences of supercells through user defined functions might be cumbersome. The built-in function to identify normal subgroup relations of the translation groups provides efficient access to all sequences which are normal subgroups of {math}`\Delta^{+}` and obey the normal subgroup relation {math}`\Delta^{+}\triangleright \Gamma^{(1)} \triangleright \Gamma^{(2)} \triangleright \cdot \cdot \cdot \triangleright \Gamma^{(m)} \triangleright  \cdot \cdot \cdot` available through the access of <a target="_blank" href="https://patrick-lenggenhager.github.io/HyperCells/doc/chapBib_mj.html#biBConder:2007">Marston Conder's</a> list. It can be used to build advanced user defined functions as well as to visualize appropriate sequences in tree graphs we denote as normal subgroup tree graphs. 
 
-In order to visualize a normal subgroup tree graph we first need to construct an adjacency matrix, which describes the normal subgroup relations between any pairwise distinct translation group of a {math}`\{p,q\}`-tessellation of the hyperbolic plane. Since these matrices are in general sparsely occupied we may choose a sparse representation. The adjacency matrix for the {math}`\{8,8\}`-tesselation, with quotient groups acting upon Riemann surfaces up to genus <code class="code-gap">66</code>, can be extracted as follows (caution, this may take a few minutes):
+In order to visualize a normal subgroup tree graph we first need to construct an adjacency matrix, which describes the normal subgroup relations between any pairwise distinct translation groups of a {math}`\{p,q\}`-tesselation of the hyperbolic plane. Since these matrices are in general sparse we may choose a corresponding representation. The adjacency matrix for the {math}`\{8,8\}`-tesselation, with quotient groups acting upon Riemann surfaces up to genus <code class="code-gap">66</code>, can be extracted as follows (caution, this may take a few minutes):
 
 ```gap
 tgQSAdjMat := TGQuotientSequencesAdjacencyMatrix(tg : sparse := true, boundByGenus := 66);;
@@ -287,7 +303,7 @@ SetDirectory[NotebookDirectory[]];
 qsAdjMat = ImportQuotientSequencesAdjMatString[Import["(2,8,8)-adjMat-BBG_66_sparse.hcqs"]];
 ```
 
-Normal subgroup tree graphs can be visualized with the high-level visualization function <code class="code-Mathematica">VisualizeQuotientSequences</code>. It is convenient to first consider a subgraph with genera of compactified unit cells up to genus {math}`30`, which provides an overseeable example. We can achieve this by passing a function to the option *VertexFilter*, which takes quotient names <code class="code-Mathematica">Tg.n</code> of the form <code class="code-Mathematica">{g, n}</code> as arguments and returns a boolean:
+Normal subgroup tree graphs can be visualized with the high-level visualization function <code class="code-Mathematica">VisualizeQuotientSequences</code>. It is convenient to first consider a subgraph with genera of compactified unit cells up to genus {math}`30`, which provides an overseeable example. We can achieve this by passing a function to the option <code class="code-Mathematica">VertexFilter</code>, which takes quotient names <code class="code-Mathematica">Tg.n</code> of the form <code class="code-Mathematica">{g, n}</code> as arguments and returns a boolean:
 
 ```Mathematica
 VisualizeQuotientSequences[qsAdjMat,
@@ -303,9 +319,9 @@ VisualizeQuotientSequences[qsAdjMat,
   </picture>
 </figure>
 
-Every vertex corresponds to a translation group {math}`\Gamma^{(m)}` associated with a corresponding unit cell and denoted with the label of the triangle group quotient {math}`\Delta^{+}/\Gamma^{(m)}`, with quotients in the tabulated list of quotients by <a target="_blank" href="https://patrick-lenggenhager.github.io/HyperCells/doc/chapBib_mj.html#biBConder:2007">Marston Conder</a>. Each {math}`\Gamma^{(m)}` is a normal subgroup of {math}`\Delta`. Vertices highlighted in red indicate that the corresponding unit cell can be assembled mirror symmetrically with Schwarz triangles. Black vertices do not admit a mirror-symmetric unit cell. Pairwise distinct vertices  {math}`\Gamma^{(m)}`, {math}`\Gamma^{(m+1)}` connected by a directed edge obey the normal subgroup relation {math}`\Gamma^{(m)} \triangleright \Gamma^{(m+1)}`. 
+Every vertex corresponds to a translation group {math}`\Gamma^{(m)}` associated with a corresponding unit cell and denoted with the label of the triangle group quotient {math}`\Delta^{+}/\Gamma^{(m)}`, with quotients in the tabulated list of quotients by <a target="_blank" href="https://patrick-lenggenhager.github.io/HyperCells/doc/chapBib_mj.html#biBConder:2007">Marston Conder</a>. Each {math}`\Gamma^{(m)}` is a normal subgroup of {math}`\Delta`. Vertices highlighted in red indicate that the corresponding unit cell can be assembled mirror symmetrically with Schwarz triangles. Black vertices do not admit a mirror-symmetric unit cell, which limits some of the functionality of HyperCells package for them, namely those functions that construct or rely on symmetric cells (but not those working with generic supercells). Pairwise distinct vertices  {math}`\Gamma^{(m)}`, {math}`\Gamma^{(m+1)}` connected by a directed edge obey the normal subgroup relation {math}`\Gamma^{(m)} \triangleright \Gamma^{(m+1)}`. 
 
-Let us visualize the entire normal subgroup tree graph. We choose to emphasize the vertices associated with compactified unit cells of lower genera. This can be achieved by passing a function to the option *LayerDistributionFunction*, which distributes the layers of distinct genera in a desired way. In addition, we try avoid overlapping vertex labels by placing the labels alternately above and below the vertices of the tree graph:
+Let us visualize the entire normal subgroup tree graph. We choose to emphasize the vertices associated with compactified unit cells of lower genera. This can be achieved by passing a function to the option <code class="code-Mathematica">LayerDistributionFunction</code>, which distributes the layers of distinct genera in a desired way. In addition, we try avoid overlapping vertex labels by placing the labels alternately above and below the vertices of the tree graph:
 
 
 ```Mathematica
@@ -322,7 +338,7 @@ fullGraph = VisualizeQuotientSequences[qsAdjMat,
   </picture>
 </figure>
 
-Let us highlight the supercell sequence **1** we have previously determined in GAP. This can be achieved with the option *VertexFilter* and *HighlightSubgraph* set to True:
+Let us highlight the supercell sequence **1** we have previously determined in GAP. This can be achieved with the option <code class="code-Mathematica">VertexFilter</code> and <code class="code-Mathematica">HighlightSubgraph</code> set to True:
 
 ```Mathematica
 keepVertices = {{2, 6}, {3, 11}, {5, 13}, {9, 20}, {17, 29}, {33, 44}, {65, 78}};
@@ -401,7 +417,7 @@ sq2A = sq1Lst[[2]]
 
 ### Highlighting multiple coherent sequences (bonus)
 
-We can use the <code class="code-Mathematica">VisualizeQuotientSequences</code> function to highlight multiple coherent sequences in the full normal subgroup tree graph. In order to avoid the inclusion of superfluous edges, we can use the option *EdgeFilter* instead of *VertexFilter*. The corresponding edges are easily constructed:
+We can use the <code class="code-Mathematica">VisualizeQuotientSequences</code> function to highlight multiple coherent sequences in the full normal subgroup tree graph. In order to avoid the inclusion of superfluous edges, we can use the option <code class="code-Mathematica">EdgeFilter</code> instead of <code class="code-Mathematica">VertexFilter</code>. The corresponding edges are easily constructed:
 
 ```Mathematica
 sequnceLst = {sq1, sq1A, sq2A};
