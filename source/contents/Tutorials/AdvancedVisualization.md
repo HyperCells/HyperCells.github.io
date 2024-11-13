@@ -1,3 +1,7 @@
+---
+orphan: true
+---
+
 # Advanced visualizations
 
 ```{dropdown} Learning goals
@@ -11,7 +15,7 @@
 :color: info
 :icon: gear
 
-<code class="code-gap" style="font-size:1.1em;">Lorem ipsum ....</code>
+<code class="code-gap">Lorem ipsum ....</code>
 ```
 
 The HyperCells package is equipped with a variety of functions for advanced visualizations within the Poincaré disk model. ....
