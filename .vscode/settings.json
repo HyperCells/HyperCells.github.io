@@ -2,8 +2,10 @@
     "cSpell.words": [
         "Abelian",
         "assignement",
+        "binwidth",
         "cgpc",
         "cgsc",
+        "Chern",
         "compactified",
         "Conder",
         "Conder's",
@@ -17,8 +19,11 @@
         "evssc",
         "grah",
         "Hamiltonians",
+        "hermiticity",
+        "kagome",
         "Lable",
         "Lenggenhager",
+        "Lieb",
         "Marston",
         "Mathematica",
         "neighbour",
@@ -26,6 +31,7 @@
         "Npts",
         "Nruns",
         "overseeable",
+        "paclet",
         "pcell",
         "pcmodel",
         "plaquette",
@@ -33,16 +39,78 @@
         "Prerequisits",
         "primive",
         "quasiparticle",
+        "reflexible",
         "relators",
         "scell",
+        "Schwarz",
         "scmodel",
         "seealso",
         "srcset",
         "subsubsection",
         "supercell",
         "supercells",
+        "tesselations",
         "vessc",
         "Volterra",
+        "Wyckoff",
         "zenodo"
+    ],
+    "zipViewer.textFileAssociations": [
+        {
+            "zipPath": "/source/assets/misc/code_snippets/GettingStarted/getting_started_HyperCells_pc_sc_files.zip",
+            "subfilePath": "(2,8,8)_T3.11_3.hcc"
+        },
+        {
+            "zipPath": "/source/assets/misc/code_snippets/GettingStarted/getting_started_HyperCells_pc_sc_files.zip",
+            "subfilePath": "{8,8}-tess_T2.6_3_sc-T3.11.hcs"
+        },
+        {
+            "zipPath": "/source/assets/misc/code_snippets/GettingStarted/getting_started_HyperCells_pc_sc_files.zip",
+            "subfilePath": "{8,8}-tess_T2.6_3.hcm"
+        },
+        {
+            "zipPath": "/source/assets/misc/code_snippets/GettingStarted/getting_started_HyperCells_pc_sc_files.zip",
+            "subfilePath": "(2,8,8)_T2.6_3.hcc"
+        },
+        {
+            "zipPath": "/source/assets/misc/code_snippets/Tutorials/Supercells/tutorial_Supercells_HyperCells_sc_sequence_files.zip",
+            "subfilePath": "{8,8}-tess_T2.6_3.hcm"
+        },
+        {
+            "zipPath": "/source/assets/misc/code_snippets/Tutorials/Supercells/tutorial_Supercells_HyperCells_sc_sequence_files.zip",
+            "subfilePath": "{8,8}-tess_T5.12_3_sc-T9.22.hcs"
+        },
+        {
+            "zipPath": "/source/assets/misc/code_snippets/Tutorials/Supercells/tutorial_Supercells_HyperCells_sc_sequence_files.zip",
+            "subfilePath": "{8,8}-tess_T5.12_3_sc-T65.79.hcs"
+        },
+        {
+            "zipPath": "/source/assets/misc/code_snippets/Tutorials/FlatBands/tutorial_FlatBands_{6,4}-Lieb_HyperCells_pc_sc_files.zip",
+            "subfilePath": "{6,4}-Lieb_T2.2_3.hcm"
+        },
+        {
+            "zipPath": "/source/assets/misc/code_snippets/Tutorials/FlatBands/tutorial_FlatBands_{8,3}-kagome_HyperCells_pc_sc_files.zip",
+            "subfilePath": "{8,3}-kagome_T2.1_3.hcm"
+        },
+        {
+            "zipPath": "/source/assets/misc/code_snippets/Tutorials/HaldaneModel/tutorial_HaldaneModel_HyperCells_pc_sc_files.zip",
+            "subfilePath": "{6,4}-tess-NNN_T2.2_3.hcm"
+        },
+        {
+            "zipPath": "/source/assets/misc/code_snippets/Tutorials/HatanoNelsonModel/tutorial_HatanoNelsonModel_HyperCells_pc_sc_files.zip",
+            "subfilePath": "{6,4}-tess-NN_T2.2_3.hcm"
+        },
+        {
+            "zipPath": "/source/assets/misc/code_snippets/Tutorials/HatanoNelsonModel/tutorial_HatanoNelsonModel_HyperCells_pc_sc_files.zip",
+            "subfilePath": "{6,4}-tess-NN_T2.2_3_sc-T5.4.hcs"
+        },
+        {
+            "zipPath": "/source/assets/misc/code_snippets/Tutorials/HatanoNelsonModel/tutorial_HatanoNelsonModel_HyperCells_pc_sc_files.zip",
+            "subfilePath": "{6,4}-tess-NN_T2.2_3_sc-T9.3.hcs"
+        },
+        {
+            "zipPath": "/source/assets/misc/code_snippets/Tutorials/Supercells/tutorial_Supercells_HyperCells_sc_sequence_files.zip",
+            "subfilePath": "{8,8}-tess_T3.10_3.hcm"
+        }
     ]
 }
