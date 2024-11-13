@@ -37,7 +37,7 @@ The supercell sequences used in the supercell method are constructed through quo
 
 ```{math}
 :label: coherent-sequences
-\Delta\triangleright\Gamma^{(1)}\cdot\Gamma^{(2)}\triangleright\cdot\cdot\cdot\triangleright\Gamma^{(m)}\triangleright\cdot\cdot\cdot
+\Delta\triangleright\Gamma^{(1)}\triangleright\Gamma^{(2)}\triangleright\cdot\cdot\cdot\triangleright\Gamma^{(m)}\triangleright\cdot\cdot\cdot
 ```
 
 and {math}`\bigcap_{m\ge0}\Gamma^{(m)}=1`, where {math}`\Gamma^{(0)}=\Delta`.
