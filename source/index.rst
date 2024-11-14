@@ -163,6 +163,8 @@ and their symmetries are of interest, independent of a potential momentum-space 
 
    contents/Cite/cite.md
 
+   contents/LicenseCopyright/licenseCopyright.md
+
 ..
    contents/Gallery/gallery.rst
 
