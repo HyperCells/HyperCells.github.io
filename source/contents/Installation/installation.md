@@ -70,7 +70,7 @@ or <a target="_blank" href="https://www.wolfram.com/mathematica">Mathematica</a>
 :class: danger
 
 * All NCAlgebra paclet versions smaller than version 6 are incompatible. 
-* We recommend to install the paclet via the function <code class="language-Mathematica">PacletInstall</code> as described below.
+* We recommend to install the paclet via the function <code class="code-Mathematica">PacletInstall</code> as described below.
 * Otherwise, if a problem occurs during a manual installation, please follow the instructions below, instead.
 ```
 
@@ -83,7 +83,7 @@ and then the package itself as a paclet:
 ```Mathematica
 PacletInstall["https://github.com/patrick-lenggenhager/HyperBloch/releases/download/v0.9.0/PatrickMLenggenhager__HyperBloch-0.9.0.paclet"]
 ```
-If necessary, update the version number to match the one of the <a target="_blank" href="https://github.com/patrick-lenggenhager/HyperBloch/releases/latest">latest release</a>. Alternatively, download the release file manually, and install it with <code class="language-Mathematica">PacletInstall["path"]</code> by passing the path to the downloaded file as argument.
+If necessary, update the version number to match the one of the <a target="_blank" href="https://github.com/patrick-lenggenhager/HyperBloch/releases/latest">latest release</a>. Alternatively, download the release file manually, and install it with <code class="code-Mathematica">PacletInstall["path"]</code> by passing the path to the downloaded file as argument.
 
 
 ## Extensions (optional)
