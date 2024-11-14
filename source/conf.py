@@ -13,55 +13,16 @@ import datetime
 sys.path.append(os.path.abspath("sphinxext"))
 
 # ===============================================================================================
-# Execute preliminary functions:
+# Execute preliminary functions; inter-link:
 # ===============================================================================================
 # If you want to disable the execution of this code section, please make sure to delete the code:
 # .. include:: interlinkTutorials.rst
 #   :start-line: 2
 # which is part of the contents/Tutorials/tutorials.rst file.
 
-# interlink featured functions and tutorials
 sys.path.append(os.path.abspath('execCode'))
-from interlink import pageffsDict, ffspageDict, interlinkFile, mergeDicts
+import ExeInterlink
 
-cwd = os.getcwd() # current directory
-dirTutorials = "/contents/Tutorials/" # relative path to the tutorials
-
-# list of excluded files
-exclude_files = [
-    "tutorials.rst",
-    "AdvancedVisualization.md",
-    "interlinkTutorials.rst"
-]
-
-filesTutorials = [f for f in os.listdir(cwd + dirTutorials) 
-        if os.path.isfile(os.path.join(cwd + dirTutorials, f))
-        and f not in exclude_files ]
-
-# interlink featured functions and getSetGo files
-dirGetSetGo = "/contents/GettingStarted/" # relative path to the getSetGo files
-
-# list of excluded files
-exclude_files = [
-    "getting_started.rst"
-]
-
-filesGetSetGo = [f for f in os.listdir(cwd + dirGetSetGo) 
-        if os.path.isfile(os.path.join(cwd + dirGetSetGo, f))
-        and f not in exclude_files ]
-
-[pffsDicsTutorials, rstLinksTutorials] = pageffsDict(cwd + dirTutorials, filesTutorials, rstLinks=True)
-[pffsDicsGetSetGo, rstLinksGetSetGo] = pageffsDict(cwd + dirGetSetGo, filesGetSetGo, rstLinks=True, dirLink="../GettingStarted/", refName="Getting started - ")
-
-pffsDics = {
-    "HyperCells" : 
-        mergeDicts(pffsDicsTutorials["HyperCells"], pffsDicsGetSetGo["HyperCells"]), 
-    "HyperBloch" :
-        mergeDicts(pffsDicsTutorials["HyperBloch"], pffsDicsGetSetGo["HyperBloch"])
-}
-[ffspDics, rstLinks] = ffspageDict("", [], rstLinks = True, preDic = [pffsDics, rstLinksTutorials + rstLinksGetSetGo])
-
-interlinkFile(cwd + dirTutorials, "interlinkTutorials", ffspDics, rstLinks=rstLinks)
 # ===============================================================================================
 # Project information :
 # ===============================================================================================
@@ -74,8 +35,8 @@ year = date.strftime("%Y")
 project = "HyperCells and HyperBloch documentation"
 copyright = f"2023-{year}, Patrick M. Lenggenhager, Joseph Maciejko and Tomáš Bzdušek. Website development and tutorials by Marcelo Looser" 
 author = "by the HyperCells development team"
-release = "0.0.2"
-version = "0.0.2"
+release = "0.1.0"
+version = "0.1.0"
 
 # ===============================================================================================
 # General configuration :
@@ -161,7 +122,8 @@ html_sidebars = {
   "contents/Contribute/contribute": [],
   "contents/Contact/contact": [],
   "contents/Cite/cite": [],
-  "contents/Documentation/documentation": []
+  "contents/Documentation/documentation": [],
+  "contents/LicenseCopyright/licenseCopyright": []
 }
 
 # Adjust the theme.
