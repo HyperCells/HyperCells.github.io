@@ -206,7 +206,7 @@ def mergeDicts(dic1, dic2):
     Returns
     -------
     dic3 : dictionary
-        Merged dictonary.
+        Merged dictionary.
     """ 
     dic3 = dic1
     
@@ -256,6 +256,6 @@ def interlinkFile(path, name, ffspDics, filetype=".rst", rstLinks=None):
         file.write(f'\n\n.. dropdown:: {package} package\n   :color: {colors[package]}\n   :icon: package\n\n')
         for k in ffspDic.keys():
             LstToStr = re.sub("'", "", str(ffspDic[k])[1:-1])
-            file.write(f"   .. dropdown:: {k}:\n\n      {LstToStr}\n")
+            file.write(f"   .. dropdown:: {k}\n\n      {LstToStr}\n")
 
 # ===============================================================================================
