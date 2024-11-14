@@ -1,17 +1,17 @@
-..
-   :html_theme.sidebar_secondary.remove: true
 
-..
-   .. raw:: html
+:html_theme.sidebar_secondary.remove: true
 
-      <style type="text/css">
-            @media (min-width: 959.98px) {
-               .bd-main .bd-content {
-                  max-width: 80%!important; 
-                  text-align:left!important;
-                  }
+
+.. raw:: html
+
+   <style type="text/css">
+         @media (min-width: 959.98px) {
+            .bd-main .bd-content {
+               max-width: 80%!important; 
+               text-align:left!important;
                }
-      </style>
+            }
+   </style>
 
 .. _getsetgo:
 
@@ -73,17 +73,6 @@ The task of modeling tight-binding models on hyperbolic lattices is split into t
 Note that the output of the HyperCells package, i.e., the cell, model and supercell model graphs can be 
 read by any programming language, such that using the HyperBloch package is not strictly necessary. 
 The file format definition can be found in the |documentation|.
-
-
-
-Featured function index
-^^^^^^^^^^^^^^^^^^^^^^^
-
-The getting started page features the following **HyperCells** and **HyperBloch** functions:
-
-.. include:: interlinkGetSetGo.rst
-   :start-line: 2
-
 
 
 .. toctree::
