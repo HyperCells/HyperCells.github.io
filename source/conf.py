@@ -138,7 +138,7 @@ html_theme = "pydata_sphinx_theme"
 html_css_files = ["css/custom.css"]
 
 # Logo on browser tab.
-html_favicon = "_static/images/lightMode/html___logo___tab.ico"
+html_favicon = "_static/images/lightMode/favicon.ico"
 
 # Logo on webpage title.
 html_logo = "_static/images/lightMode/html_logo_HyperSupercells2_light.png"
