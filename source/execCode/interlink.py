@@ -85,7 +85,7 @@ def HBfeaturedFuncs(ffsStr):
     return HBffs
 
  
-def pageffsDict(path, fileNames, rstLinks = False):
+def pageffsDict(path, fileNames, rstLinks = False, dirLink = None, refName = None, refNameOnly = False):
     """ Construct two dictionaries of featured functions.
 
     Parameters
@@ -96,6 +96,11 @@ def pageffsDict(path, fileNames, rstLinks = False):
         File names of the markdown files.
     rstLinks : boolean, optional
         Whether to return a list .rst hyperlinks. The default is False.
+    dirLink : string, optional
+        Whether to prepend a path to a different directory to the rstLinks. 
+        The default is None.
+    refName : string, optional
+        Whether to prepend a name to the hyperlink names. The default is None.
 
     Returns
     -------
@@ -111,8 +116,16 @@ def pageffsDict(path, fileNames, rstLinks = False):
         ffsStr = featuredFuncs(mdStr)
 
         title = pageTitle(mdStr)
+        if refName:
+            if refNameOnly:
+                title = refName
+            else:
+                title = refName + title
+
         if rstLinks:
-            hyLinks.append(f'.. _{title}: ./{file[:-3]}.html')
+            if not dirLink:
+                dirLink = ""
+            hyLinks.append(f'.. _{title}: ./{dirLink + file[:-3]}.html')
         title = "`" + title + "`_"
 
         ffsLst = []
@@ -132,7 +145,7 @@ def pageffsDict(path, fileNames, rstLinks = False):
         return pffsDics
 
 
-def ffspageDict(path, fileNames, rstLinks = False, preDic = None):
+def ffspageDict(path, fileNames, rstLinks = False, preDic = None, dirLink = None, refName = None, refNameOnly = False):
     """ Construct two dictionaries of featured functions.
 
     Parameters
@@ -145,6 +158,11 @@ def ffspageDict(path, fileNames, rstLinks = False, preDic = None):
         Whether to return a list .rst hyperlinks. The default is False.
     preDic : dictionary, optional
         Whether to use a predefined dictionary instead. The default is None.
+    dirLink : string, optional
+        Whether to prepend a path to a different directory to the rstLinks. 
+        The default is None.
+    refName : string, optional
+        Whether to prepend a name to the hyperlink names. The default is None.
 
     Returns
     -------
@@ -153,12 +171,15 @@ def ffspageDict(path, fileNames, rstLinks = False, preDic = None):
         page titles of the files as values, HyperCells and HyperBloch, respectively.
     """ 
     if preDic:
-        pffsDic = preDic
+        if rstLinks:
+            [pffsDic, hyLinks] = preDic
+        else:
+            pffsDic = preDic
     else: 
         if rstLinks:
-            [pffsDic, hyLinks]  = pageffsDict(path, fileNames, rstLinks=rstLinks)
+            [pffsDic, hyLinks]  = pageffsDict(path, fileNames, rstLinks=rstLinks, dirLink=dirLink, refName=refName, refNameOnly=refNameOnly)
         else:
-            pffsDic = pageffsDict(path, fileNames)
+            pffsDic = pageffsDict(path, fileNames, dirLink=dirLink, refName=refName, refNameOnly=refNameOnly)
 
     ffspDics = {"HyperCells" : {}, "HyperBloch" : {}}
     for package in ["HyperCells", "HyperBloch"]:
@@ -170,6 +191,36 @@ def ffspageDict(path, fileNames, rstLinks = False, preDic = None):
         return [ffspDics, hyLinks]
     else:
         return ffspDics
+
+
+def mergeDicts(dic1, dic2):
+    """ Merge two dictionaries with lists as values.
+
+    Parameters
+    ----------
+    dic1 : dictionary
+        Dictionary with lists as values.
+    dic2 : dictionary
+        Dictionary with lists as values.
+
+    Returns
+    -------
+    dic3 : dictionary
+        Merged dictonary.
+    """ 
+    dic3 = dic1
+    
+    for key2, value2 in dic2.items():
+        if key2 in dic3.keys():
+            value1 = dic3[key2]
+        else:
+            value1 = []
+        if key2 in dic3:
+            value2 = [item for item in value2 if item not in value1]
+            dic3[key2].extend(value2)
+        else:
+            dic3[key2] = value2
+    return dic3
 
 # ===============================================================================================
 # Main functions  :
@@ -202,7 +253,7 @@ def interlinkFile(path, name, ffspDics, filetype=".rst", rstLinks=None):
 
     colors = {"HyperCells" : "info", "HyperBloch" : "danger"}
     for package, ffspDic in ffspDics.items():
-        file.write(f'\n\n.. dropdown:: {package} package:\n   :color: {colors[package]}\n   :icon: package\n\n')
+        file.write(f'\n\n.. dropdown:: {package} package\n   :color: {colors[package]}\n   :icon: package\n\n')
         for k in ffspDic.keys():
             LstToStr = re.sub("'", "", str(ffspDic[k])[1:-1])
             file.write(f"   .. dropdown:: {k}:\n\n      {LstToStr}\n")

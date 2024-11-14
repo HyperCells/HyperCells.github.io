@@ -22,7 +22,7 @@ sys.path.append(os.path.abspath("sphinxext"))
 
 # interlink featured functions and tutorials
 sys.path.append(os.path.abspath('execCode'))
-from interlink import ffspageDict, interlinkFile
+from interlink import pageffsDict, ffspageDict, interlinkFile, mergeDicts
 
 cwd = os.getcwd() # current directory
 dirTutorials = "/contents/Tutorials/" # relative path to the tutorials
@@ -34,36 +34,34 @@ exclude_files = [
     "interlinkTutorials.rst"
 ]
 
-files = [f for f in os.listdir(cwd + dirTutorials) 
+filesTutorials = [f for f in os.listdir(cwd + dirTutorials) 
         if os.path.isfile(os.path.join(cwd + dirTutorials, f))
         and f not in exclude_files ]
-
-[ffspDics, rstLinks] = ffspageDict(cwd + dirTutorials, files, rstLinks=True)
-interlinkFile(cwd + dirTutorials, "interlinkTutorials", ffspDics, rstLinks=rstLinks)
-
-# ===============================================================================================
-# If you want to disable the execution of this code section, please make sure to delete the code:
-# .. include:: interlinkGetSetGo.rst
-#   :start-line: 2
-# which is part of the contents/GettingStarted/getting_started.rst file.
 
 # interlink featured functions and getSetGo files
 dirGetSetGo = "/contents/GettingStarted/" # relative path to the getSetGo files
 
 # list of excluded files
 exclude_files = [
-    "getting_started.rst",
-    "interlinkGetSetGo.rst"
+    "getting_started.rst"
 ]
 
-files = [f for f in os.listdir(cwd + dirGetSetGo) 
+filesGetSetGo = [f for f in os.listdir(cwd + dirGetSetGo) 
         if os.path.isfile(os.path.join(cwd + dirGetSetGo, f))
         and f not in exclude_files ]
 
-[ffspDics, rstLinks] = ffspageDict(cwd + dirGetSetGo, files, rstLinks=True)
-interlinkFile(cwd + dirGetSetGo, "interlinkGetSetGo", ffspDics, rstLinks=rstLinks)
+[pffsDicsTutorials, rstLinksTutorials] = pageffsDict(cwd + dirTutorials, filesTutorials, rstLinks=True)
+[pffsDicsGetSetGo, rstLinksGetSetGo] = pageffsDict(cwd + dirGetSetGo, filesGetSetGo, rstLinks=True, dirLink="../GettingStarted/", refName="Getting started - ")
 
+pffsDics = {
+    "HyperCells" : 
+        mergeDicts(pffsDicsTutorials["HyperCells"], pffsDicsGetSetGo["HyperCells"]), 
+    "HyperBloch" :
+        mergeDicts(pffsDicsTutorials["HyperBloch"], pffsDicsGetSetGo["HyperBloch"])
+}
+[ffspDics, rstLinks] = ffspageDict("", [], rstLinks = True, preDic = [pffsDics, rstLinksTutorials + rstLinksGetSetGo])
 
+interlinkFile(cwd + dirTutorials, "interlinkTutorials", ffspDics, rstLinks=rstLinks)
 # ===============================================================================================
 # Project information :
 # ===============================================================================================

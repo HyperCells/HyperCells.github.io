@@ -118,7 +118,7 @@ of interest.
 Featured function index
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-The tutorials feature the following **HyperCells** and **HyperBloch** functions:
+The getting started and the tutorial page feature the following **HyperCells** and **HyperBloch** functions:
 
 .. include:: interlinkTutorials.rst
    :start-line: 2
