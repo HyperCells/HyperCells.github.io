@@ -77,7 +77,7 @@ and *HyperBloch*.
   <link rel="preload" href="../../_static/images/darkMode/SuperCells2_dark.png" as="image">
 
 .. image:: ../../_static/images/lightMode/SuperCells2_light.png
-   :scale: 15%
+   :scale: 28%
    :class: no-scaled-link, dark-light
    :align: left
 
