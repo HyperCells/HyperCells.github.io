@@ -88,7 +88,7 @@
    .. dropdown:: TGQuotientRelators
 
       `Coherent sequences`_, `Getting started - HyperCells`_
-   .. dropdown:: TGQuotientSequencesAdjacencyMatrix
+   .. dropdown:: TGQuotientSequencesStructure
 
       `Coherent sequences`_, `Flat-bands`_, `Haldane model`_, `Hatano-Nelson model`_
    .. dropdown:: TGSuperCellModelGraph
@@ -133,9 +133,6 @@
    .. dropdown:: GetWyckoffPosition
 
       `Flat-bands`_
-   .. dropdown:: ImportAdjMatrixString
-
-      `Coherent sequences`_
    .. dropdown:: ImportCellGraphString
 
       `Flat-bands`_, `Haldane model`_, `Hatano-Nelson model`_, `Getting started - HyperBloch`_
@@ -145,6 +142,9 @@
    .. dropdown:: ImportPGMatricesString
 
       `Haldane model`_
+   .. dropdown:: ImportQuotientSequencesStructureString
+
+      `Coherent sequences`_
    .. dropdown:: ImportSupercellModelGraphString
 
       `Flat-bands`_, `Haldane model`_, `Hatano-Nelson model`_, `Supercells`_, `Getting started - HyperBloch`_

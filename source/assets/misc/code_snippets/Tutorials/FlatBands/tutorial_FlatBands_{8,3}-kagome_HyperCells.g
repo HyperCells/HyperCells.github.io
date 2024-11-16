@@ -23,8 +23,8 @@ Export( model_kagome, "{8,3}-kagome_T2.1_3.hcm" ); # export
 
 # Supercells:
 # -----------
-tgQAdjMat := TGQuotientSequencesAdjacencyMatrix(tg : boundByGenus := 20);;
-sequence := LongestSequence(tgQAdjMat : quotient := 1);
+tgQSS := TGQuotientSequencesStructure(tg : boundByGenus := 20);;
+sequence := LongestSequence(tgQSS : quotient := 1);
 sc_lst := sequence{[2..Length(sequence)]};
 
 for sc_i_index in sc_lst do

@@ -17,7 +17,7 @@ Construction of:
 **HyperCells:**
 
 <code class="code-gap">
-Export, KagomeModelGraph, LiebModelGraph, LongestSequence, ProperTriangleGroup, TGCellGraph, TGCellModelGraph, TGCellSymmetric, TGQuotient, TGQuotientSequencesAdjacencyMatrix, TGSuperCellModelGraph
+Export, KagomeModelGraph, LiebModelGraph, LongestSequence, ProperTriangleGroup, TGCellGraph, TGCellModelGraph, TGCellSymmetric, TGQuotient, TGQuotientSequencesStructure, TGSuperCellModelGraph
 </code>
 <br></br>
 
@@ -105,8 +105,8 @@ We choose a supercell sequence by following the central concepts discussed in th
 ```gap
 # Supercells:
 # -----------
-tgQAdjMat := TGQuotientSequencesAdjacencyMatrix(tg : boundByGenus := 10);;
-sequence := LongestSequence(tgQAdjMat : quotient := 1);
+tgQS := TGQuotientSequencesStructure(tg : boundByGenus := 10);;
+sequence := LongestSequence(tgQS : quotient := 1);
 sc_lst := sequence{[2..Length(sequence)]};
 
 for sc_i_index in sc_lst do
@@ -273,8 +273,8 @@ with supercells:
 ```gap
 # Supercells:
 # -----------
-tgQAdjMat := TGQuotientSequencesAdjacencyMatrix(tg : boundByGenus := 20);;
-sequence := LongestSequence(tgQAdjMat : quotient := 1);
+tgQS := TGQuotientSequencesStructure(tg : boundByGenus := 20);;
+sequence := LongestSequence(tgQS : quotient := 1);
 sc_lst := sequence{[2..Length(sequence)]};
 
 for sc_i_index in sc_lst do

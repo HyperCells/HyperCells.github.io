@@ -16,14 +16,14 @@ Identifying supercell sequences through:
 **HyperCells:**
 
 <code class="code-gap">
-AsTGSubgroup, Export, FpGroup, LongestSequence, ProperTriangleGroup, Signature, TessellationModelGraph, TGCellGraph, TGCellSymmetric, TGQuotient, TGQuotientName,TGQuotientRelators, TGQuotientSequencesAdjacencyMatrix, TGSuperCellModelGraph, TGTranslationGroup, TriangleGroup
+AsTGSubgroup, Export, FpGroup, LongestSequence, ProperTriangleGroup, Signature, TessellationModelGraph, TGCellGraph, TGCellSymmetric, TGQuotient, TGQuotientName,TGQuotientRelators, TGQuotientSequencesStructure, TGSuperCellModelGraph, TGTranslationGroup, TriangleGroup
 </code>
 <br></br>
 
 **HyperBloch:**
 
 <code class="code-Mathematica">
-ImportAdjMatrixString, VisualizeQuotientSequences
+ImportQuotientSequencesStructureString, VisualizeQuotientSequences
 </code>
 ```
 
@@ -265,48 +265,48 @@ Identifying sequences of supercells through user defined functions might be cumb
 In order to visualize a normal subgroup tree graph we first need to construct an adjacency matrix, which describes the normal subgroup relations between any pairwise distinct translation groups of a {math}`\{p,q\}`-tesselation of the hyperbolic plane. Since these matrices are in general sparse we may choose a corresponding representation. The adjacency matrix for the {math}`\{8,8\}`-tesselation, with quotient groups acting upon Riemann surfaces up to genus <code class="code-gap">66</code>, can be extracted as follows (caution, this may take a few minutes):
 
 ```gap
-tgQSAdjMat := TGQuotientSequencesAdjacencyMatrix(tg : sparse := true, boundByGenus := 66);;
+tgQSS := TGQuotientSequencesStructure(tg : sparse := true, boundByGenus := 66);;
 ```
 
-The returned object is of category <code class="code-gap">TGQuotientSequencesAdjacencyMatrix</code>. This enables us to extract one of the longest coherent supercell sequence available, with supercells that can be symmetrically aggregated with primitive cells:
+The returned object is of category <code class="code-gap">TGQuotientSequencesStructure</code>. This enables us to extract one of the longest coherent supercell sequence available, with supercells that can be symmetrically aggregated with primitive cells:
 
 ```gap
-gap> LongestSequence(tgQSAdjMat);
+gap> LongestSequence(tgQSS);
 [ [ 2, 6 ], [ 3, 11 ], [ 5, 13 ], [ 9, 20 ], [ 17, 29 ], [ 33, 44 ], [ 65, 78 ] ]
 ```
 which, once again, correspond to the supercell sequence **1** we have considered in the tutorial [Supercells](./Supercells.md). We can also specify the starting quotient of the sequence:
 
 ```gap
-gap> LongestSequence(tgQSAdjMat : quotient := [ 9, 23 ]);
+gap> LongestSequence(tgQSS : quotient := [ 9, 23 ]);
 [ [ 9, 23 ], [ 17, 30 ], [ 33, 46 ], [ 65, 78 ] ]
 ```
 
 Next, let us export the adjacency matrix in order to visualize the normal subgroup tree graph in Mathematica, which can be done by using the <code class="code-gap">Export</code> operation:
 
 ```gap
-Export(tgQSAdjMat, "(2,8,8)-adjMat-BBG_66_sparse.hcqs");
+Export(tgQSS, "(2,8,8)-QSS-BBG_66_sparse.hcqs");
 ```
 
 <div class="flex ">
-  <a href="../../misc/code_snippets/Tutorials/CoherentSequences/(2,8,8)-adjMat-BBG_66_sparse.hcqs" class="btn btn-primary" class="flex-child"><i class="fa-solid fa-download"></i> Download generated files</a>
-  <a href="../../misc/code_snippets/Tutorials/CoherentSequences/tutorial_Coherent_Sequences_HyperCells_QSAdjacencyMatrix.g" class="btn btn-primary" class="flex-child"><i class="fa-solid fa-download"></i> Download GAP Code</a>
+  <a href="../../misc/code_snippets/Tutorials/CoherentSequences/(2,8,8)-QSS-BBG_66_sparse.hcqs" class="btn btn-primary" class="flex-child"><i class="fa-solid fa-download"></i> Download generated files</a>
+  <a href="../../misc/code_snippets/Tutorials/CoherentSequences/tutorial_Coherent_Sequences_HyperCells_QSS.g" class="btn btn-primary" class="flex-child"><i class="fa-solid fa-download"></i> Download GAP Code</a>
 </div><br>
 
-The adjacency matrix can be imported analogously to cell, model and supercell model graphs. The <code class="code-Mathematica">Import</code> function is used to read the file, while the <code class="code-Mathematica">ImportQuotientSequencesAdjMatString</code> function is used to parse the string and construct the adjacency matrix:
+The adjacency matrix can be imported analogously to cell, model and supercell model graphs. The <code class="code-Mathematica">Import</code> function is used to read the file, while the <code class="code-Mathematica">ImportQuotientSequencesStructureString</code> function is used to parse the string and construct the adjacency matrix:
 
 ```Mathematica
 (* Preliminaries *)
 << PatrickMLenggenhager`HyperBloch`
 SetDirectory[NotebookDirectory[]];
 
-(* Import adjacency matrix *)
-qsAdjMat = ImportQuotientSequencesAdjMatString[Import["(2,8,8)-adjMat-BBG_66_sparse.hcqs"]];
+(* Import quotient sequences structure *)
+QSS = ImportQuotientSequencesStructureString[Import["(2,8,8)-QSS-BBG_66_sparse.hcqs"]];
 ```
 
 Normal subgroup tree graphs can be visualized with the high-level visualization function <code class="code-Mathematica">VisualizeQuotientSequences</code>. It is convenient to first consider a subgraph with genera of compactified unit cells up to genus {math}`30`, which provides an overseeable example. We can achieve this by passing a function to the option <code class="code-Mathematica">VertexFilter</code>, which takes quotient names <code class="code-Mathematica">Tg.n</code> of the form <code class="code-Mathematica">{g, n}</code> as arguments and returns a boolean:
 
 ```Mathematica
-VisualizeQuotientSequences[qsAdjMat,
+VisualizeQuotientSequences[QSS,
   EdgeArrowSize -> 0.01, ImageSize -> 1100, 
   VertexFilter -> (#[[1]] < 30 &),
   VertexLabelStyle -> Directive[Black, Italic, 15] ]
@@ -321,11 +321,11 @@ VisualizeQuotientSequences[qsAdjMat,
 
 Every vertex corresponds to a translation group {math}`\Gamma^{(m)}` associated with a corresponding unit cell and denoted with the label of the triangle group quotient {math}`\Delta^{+}/\Gamma^{(m)}`, with quotients in the tabulated list of quotients by <a target="_blank" href="https://patrick-lenggenhager.github.io/HyperCells/doc/chapBib_mj.html#biBConder:2007">Marston Conder</a>. Each {math}`\Gamma^{(m)}` is a normal subgroup of {math}`\Delta`. Vertices highlighted in red indicate that the corresponding unit cell can be assembled mirror symmetrically with Schwarz triangles. Black vertices do not admit a mirror-symmetric unit cell, which limits some of the functionality of HyperCells package for them, namely those functions that construct or rely on symmetric cells (but not those working with generic supercells). Pairwise distinct vertices  {math}`\Gamma^{(m)}`, {math}`\Gamma^{(m+1)}` connected by a directed edge obey the normal subgroup relation {math}`\Gamma^{(m)} \triangleright \Gamma^{(m+1)}`. 
 
-Let us visualize the entire normal subgroup tree graph. We choose to emphasize the vertices associated with compactified unit cells of lower genera. This can be achieved by passing a function to the option <code class="code-Mathematica">LayerDistributionFunction</code>, which distributes the layers of distinct genera in a desired way. In addition, we try avoid overlapping vertex labels by placing the labels alternately above and below the vertices of the tree graph:
+Let us visualize the entire normal subgroup tree graph. We choose to emphasize the vertices associated with compactified unit cells of lower genera. This can be achieved by passing a function to the option <code class="code-Mathematica">LayerDistributionFunction</code>, which distributes the layers of distinct genera in a desired way. In addition, we try to avoid overlapping vertex labels by placing the labels alternately above and below the vertices of the tree graph through the option <code class="code-Mathematica">VertexLabelPlacement</code>:
 
 
 ```Mathematica
-fullGraph = VisualizeQuotientSequences[qsAdjMat,
+fullGraph = VisualizeQuotientSequences[QSS,
  EdgeArrowSize -> 0.01, ImageSize -> 1140, 
  LayerDistributionFunction -> (6.5 Log[#] &),
  VertexLabelPlacement -> "Alternate"]
@@ -343,7 +343,7 @@ Let us highlight the supercell sequence **1** we have previously determined in G
 ```Mathematica
 keepVertices = {{2, 6}, {3, 11}, {5, 13}, {9, 20}, {17, 29}, {33, 44}, {65, 78}};
 
-VisualizeQuotientSequences[qsAdjMat,
+VisualizeQuotientSequences[QSS,
  EdgeArrowSize -> 0.01, EdgeStyle -> Directive[Darker[Blue, 0.25], Thick, Opacity[0.2]], 
  HighlightSubgraph -> True, ImageSize -> 1140, LayerDistributionFunction -> (6.5 Log[#] &),
  VertexFilter -> (MemberQ[keepVertices, #] &), VertexLabelPlacement -> "Alternate"]
@@ -412,7 +412,7 @@ sq2A = sq1Lst[[2]]
 </figure>
 
 <div style="text-align: right;">
-  <a href="../../misc/code_snippets/Tutorials/CoherentSequences/tutorial_Coherent_Sequences.nb" class="btn btn-primary"><i class="fa-solid fa-download"></i> Download Mathematica Notebook</a>
+  <a href="../../misc/code_snippets/Tutorials/CoherentSequences/tutorial_Coherent_Sequences_HyperBloch.nb" class="btn btn-primary"><i class="fa-solid fa-download"></i> Download Mathematica Notebook</a>
 </div>
 
 ### Highlighting multiple coherent sequences (bonus)
@@ -439,7 +439,7 @@ colorTables = Flatten[Table[
 Therefore:
 
 ```Mathematica
-VisualizeQuotientSequences[qsAdjMat,
+VisualizeQuotientSequences[QSS,
   EdgeArrowSize -> 0.01, EdgeFilter -> (MemberQ[allEdges, #] &), 
   EdgeStyle -> Directive[Darker[Blue, 0.25], Thick, Opacity[0.2]], 
   HighlightSubgraph -> True, HighlightSubgraphEdgeStyle -> colorTables, 

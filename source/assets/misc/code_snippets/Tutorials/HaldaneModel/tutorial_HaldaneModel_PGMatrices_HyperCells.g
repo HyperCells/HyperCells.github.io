@@ -1,6 +1,7 @@
 # load the HyperCells package
 LoadPackage( "HyperCells" );
 
+
 # --------------
 # Preliminaries:
 # --------------
@@ -28,16 +29,20 @@ qpc := TGQuotient( 1, [ 2, 4, 6 ] );
 pgMatGs := PGMatricesOfGenerators(fulltg, tg, qpc);
 
 # symmety
-symName := "z";;
-symmetry := D.3;
+symName := "c";;
+symmetry := DELTA.3;
 
 # get the corresponding point-group matrix
 EvaluatePGMatrix(symmetry, pgMatGs);
 
 
-# --------------------------------------------------
-# Construct the point-group matrices to be exported:
-# --------------------------------------------------
+# ---------------------------
+# Construct PGMatrices obj.s:
+# ---------------------------
+
+# symmety
+symName := "z";;
+symmetry := D.3;
 
 # Quotient T2.2 (primitive cell):
 # -------------------------------
@@ -52,8 +57,8 @@ Export(pgMat_T2_2, "(2,4,6)-T2.2-pgMat_z_sparse.hcpgm");
 
 # Quotients T5.4, T9.3 (supercells):
 # ---------------------------------
-tgQAdjMat := TGQuotientSequencesAdjacencyMatrix(tg : boundByGenus := 10);;
-sequence := LongestSequence(tgQAdjMat : quotient := 1);
+tgQSS := TGQuotientSequencesStructure(tg : boundByGenus := 10);;
+sequence := LongestSequence(tgQSS : quotient := 1);
 sc_lst := sequence{[2..Length(sequence)]};
 
 for sc_i_index in sc_lst do

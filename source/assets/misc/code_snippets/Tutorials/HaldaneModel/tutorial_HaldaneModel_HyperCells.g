@@ -29,8 +29,8 @@ Export(model, "{6,4}-tess-NNN_T2.2_3.hcm");
 # Supercells:
 # -----------
 
-tgQAdjMat := TGQuotientSequencesAdjacencyMatrix(tg : boundByGenus := 10);;
-sequence := LongestSequence(tgQAdjMat : quotient := 1);
+tgQSS := TGQuotientSequencesStructure(tg : boundByGenus := 10);;
+sequence := LongestSequence(tgQSS : quotient := 1);
 sc_lst := sequence{[2..Length(sequence)]};
 
 for sc_i_index in sc_lst do

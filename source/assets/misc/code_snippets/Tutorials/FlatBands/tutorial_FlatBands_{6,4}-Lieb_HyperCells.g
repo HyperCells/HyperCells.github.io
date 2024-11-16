@@ -25,10 +25,10 @@ Export( model_Lieb, "{6,4}-Lieb_T2.2_3.hcm" ); # export
 
 # Supercells:
 # -----------
-
-tgQAdjMat := TGQuotientSequencesAdjacencyMatrix(tg : boundByGenus := 10);;
-sequence := LongestSequence(tgQAdjMat : quotient := 1);
+tgQSS := TGQuotientSequencesStructure(tg : boundByGenus := 10);;
+sequence := LongestSequence(tgQSS : quotient := 1);
 sc_lst := sequence{[2..Length(sequence)]};
+
 
 for sc_i_index in sc_lst do
     

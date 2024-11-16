@@ -17,7 +17,7 @@ Construction of **non-Hermitian** Abelian Bloch Hamiltonians of:
 **HyperCells:**
 
 <code class="code-gap">
-Export, LongestSequence, ProperTriangleGroup, TGCellSymmetric, TessellationModelGraph, TGQuotient,  TGQuotientSequencesAdjacencyMatrix,   TGSuperCellModelGraph
+Export, LongestSequence, ProperTriangleGroup, TGCellSymmetric, TessellationModelGraph, TGQuotient,  TGQuotientSequencesStructure,   TGSuperCellModelGraph
 </code>
 <br></br>
 
@@ -74,8 +74,8 @@ We choose a supercell sequence by following the central concepts discussed in th
 ```gap
 # Supercells:
 # -----------
-tgQAdjMat := TGQuotientSequencesAdjacencyMatrix(tg : boundByGenus := 10);;
-sequence := GetLongestSequence(tgQAdjMat : quotient := 1);
+tgQS := TGQuotientSequencesStructure(tg : boundByGenus := 10);;
+sequence := GetLongestSequence(tgQS : quotient := 1);
 sc_lst := sequence{[2..Length(sequence)]};
 
 for sc_i_index in sc_lst do
