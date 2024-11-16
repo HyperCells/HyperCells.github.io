@@ -52,7 +52,9 @@ of interest.
    :margin: 3 3 2 2
 
    The application of the supercell method relies on the identification of appropriate supercell 
-   sequences, **coherent sequences**. In this tutorial, we showcase how such sequences can be identified.
+   sequences. Each supercell is associated with a triangle group quotient specified by a corresponding 
+   translation group. The sequences of these translation groups form so-called **coherent sequences** defined 
+   by a normal subgroup relation between consecutive translation groups. In this tutorial, we showcase how such sequences can be identified.
    Two approaches are presented, which entail the construction of a user defined functions and **normal subgroup 
    tree graphs** which describes the normal subgroup relations between any pairwise distinct translation 
    group of a :math:`\{p,q\}`-tesselation of the hyperbolic plane.
@@ -90,8 +92,8 @@ of interest.
   
    The HyperBloch package provides a framework for the construction of Hermitian as well as **non-Hermitian** Abelian Bloch Hamiltonians
    for tight-binding models on hyperbolic lattices. In this tutorial, we will construct two non-Hermitian tight-binding models. Specifically, 
-   we will see how Hermiticity-breaking gains and losses can be assigned through **staggered complex on-site potentials** as well as how to construct 
-   a variant of the **Hatano-Nelson model** on hyperbolic lattices.
+   we will see how Hermiticity-breaking **gains and losses** can be assigned through **staggered complex on-site potentials** as well as how to construct 
+   a variant of the **Hatano-Nelson model** describing a **non-reciprocal** tight-binding model on a hyperbolic lattice.
 
 .. card:: Higher-order topology
    :link: ./HigherOrder_topology.html 
