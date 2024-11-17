@@ -151,7 +151,9 @@ EdgeList@pcmodel["Graph"]
   </picture>
 </figure>
 
-The first entry in the edge tags (the nested list above the arrow) indicate the if the edge connects nearest-neighbors or next-nearest-neighbor sites, where 1 and 2 denote NN and NNN-vertices, respectively. We can visualize the corresponding edges by using the option <code class="code-Mathematica">EdgeFilter</code> of the function <code class="code-Mathematica">ShowCellGraphFlattened</code>. This enables us to visualize edges connecting NN-vertices or NNN-vertices separately:
+The first entry in the edge tags (the nested list above the arrow) indicate the if the edge connects NN-vertices or NNN-vertices, indicated with integers 1 and 2, respectively.  We have already discussed the edges that connect NN-vertices in [Getting started with the HyperBloch package](../GettingStarted/getSetGo_HyperBloch.md). Now, for the NNN-edges the remaining edge tags are of the form <code class="code-Mathematica">{f, e1, e2}</code>, <code class="code-Mathematica">f</code> is the position of the face characterizing the edge in the list of faces in the model graph, and <code class="code-Mathematica">e1, e2</code> are the positions of the nearest-neighbor edges that together connect the same vertices as the next-nearest-neighbor edge in the list of edges in the model graph.
+
+We can visualize the corresponding edges by using the option <code class="code-Mathematica">EdgeFilter</code> of the function <code class="code-Mathematica">ShowCellGraphFlattened</code>. This enables us to visualize edges connecting NN-vertices or NNN-vertices separately:
 
 ```Mathematica
 Row[
