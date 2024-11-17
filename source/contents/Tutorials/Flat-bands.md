@@ -200,6 +200,21 @@ Show[
   </picture>
 </figure>
 
+Unlike the edge tags of tesselation and kagome model graphs, see [Getting started with the HyperBloch package](../GettingStarted/getSetGo_HyperBloch.md), the edge tags of Lieb models graphs are of a reduced form. Let us take a look at the edges in the model graph:
+
+```Mathematica
+EdgeList@pcmodelLieb["Graph"]
+```
+
+<figure class="text-center">
+  <picture> 
+    <source type="image/svg+xml" srcset="../../media/figs/Tutorials/FlatBands/ENNMPC_Lieb_64.png">
+    <img src="../../media/figs/Tutorials/FlatBands/ENNMPC_Lieb_64.png" class="figure-img img-fluid rounded" alt="{6,4}-Lieb lattice pc edges" width="400"/>
+  </picture>
+</figure>
+
+Each element in the list is a <code class="code-Mathematica">DirectedEdge</code>, connecting a pair of vertices. The <code class="code-Mathematica">EdgeTags</code> (the list above the arrows) for the nearest-neighbour edges take the form <code class="code-Mathematica">{1, s}</code>, where the first entry, <code class="code-Mathematica">1</code>, indicates a nearest-neighbor edge, and <code class="code-Mathematica">s</code> is the positions of the Schwarz triangles associated with the cell-graph edges in {math}`T_{\Delta^{+}}(\Gamma)`.
+
 Once the (supercell) model graphs are imported the corresponding Abelian Bloch Hamiltonians for the elementary nearest-neighbor hopping model can be constructed. We set the number of orbital per site to one, the on-site terms {math}`0` and the nearest-neighbor hopping amplitudes to {math}`-1`: 
 
 ```Mathematica
