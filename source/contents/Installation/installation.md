@@ -88,7 +88,7 @@ If necessary, update the version number to match the one of the <a target="_blan
 
 ## Extensions (optional)
 
-The HyperCells package has an integrated word simplification procedure for a selection of functions. Two methods are available: a default brute-force method, and a method based on the Knuth-Bendix completion algorithm. The latter can only be used provided the <a target="_blank" href="https://gap-packages.github.io/kbmag/doc/chap0_mj.html">kbmag</a> package (verion 1.5.10+) is available. 
+The HyperCells package has an integrated word simplification procedure for a selection of functions. Two methods are available: a default brute-force method, and a method based on the Knuth-Bendix completion algorithm. The latter can only be used provided the <a target="_blank" href="https://gap-packages.github.io/kbmag/doc/chap0_mj.html">kbmag</a> package (version 1.5.10+) is available. 
 
 The default configuration of the kbmag package allows HyperCells to simplify words in groups with a maximal number of generators of 127. However, this limit can manually be extended up to 65535. The corresponding adjustments are laid out in a README file in the kbmag package and can be found in the folder containing GAP: “…/gap/gap-< version >/pkg/kbmag/standalone”, with the following instructions:
 
