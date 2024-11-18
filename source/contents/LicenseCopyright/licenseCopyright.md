@@ -21,9 +21,8 @@ You are free to:
 
 Under the following terms:
 
-* Attribution - You must give appropriate credit (see [How to cite](../Cite/cite.md) and
-[Authors (HyperCells)](https://github.com/HyperCells/HyperCells/blob/master/AUTHORS.md), 
-[Authors (HyperBloch)](https://github.com/HyperCells/HyperBloch/blob/master/AUTHORS.md)), 
+* Attribution - You must give appropriate credit, see [How to cite](../Cite/cite.md) and
+[Authors (HyperCells)](https://github.com/HyperCells/HyperCells/blob/master/AUTHORS.md)/[Authors (HyperBloch)](https://github.com/HyperCells/HyperBloch/blob/master/AUTHORS.md), 
 provide a link to the license, and indicate if changes were made. You may do so in any 
 reasonable manner, but not in any way that suggests the licensor endorses you or your use.
 
@@ -33,4 +32,4 @@ distribute your contributions under the same license as the original.
 * No additional restrictions - You may not apply legal terms or technological
 measures that legally restrict others from doing anything the license permits.
 
-Copyright 2023 Patrick M. Lenggenhager
+Copyright Patrick M. Lenggenhager
