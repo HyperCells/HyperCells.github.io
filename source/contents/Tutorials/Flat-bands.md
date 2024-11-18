@@ -213,7 +213,7 @@ EdgeList@pcmodelLieb["Graph"]
   </picture>
 </figure>
 
-Each element in the list is a <code class="code-Mathematica">DirectedEdge</code>, connecting a pair of vertices. The <code class="code-Mathematica">EdgeTags</code> (the list above the arrows) for the nearest-neighbour edges take the form <code class="code-Mathematica">{1, s}</code>, where the first entry, <code class="code-Mathematica">1</code>, indicates a nearest-neighbor edge, and <code class="code-Mathematica">s</code> is the positions of the Schwarz triangles associated with the cell-graph edges in {math}`T_{\Delta^{+}}(\Gamma)`.
+Each element in the list is a <code class="code-Mathematica">DirectedEdge</code>, connecting a pair of vertices. The <code class="code-Mathematica">EdgeTags</code> (the list above the arrows) for the nearest-neighbour edges take the form <code class="code-Mathematica">{1, s}</code>, where the first entry, <code class="code-Mathematica">1</code>, indicates a nearest-neighbor edge, and <code class="code-Mathematica">s</code> is the position of the Schwarz triangle associated with the cell-graph edges in {math}`T_{\Delta^{+}}(\Gamma)`.
 
 Once the (supercell) model graphs are imported the corresponding Abelian Bloch Hamiltonians for the elementary nearest-neighbor hopping model can be constructed. We set the number of orbital per site to one, the on-site terms {math}`0` and the nearest-neighbor hopping amplitudes to {math}`-1`: 
 
