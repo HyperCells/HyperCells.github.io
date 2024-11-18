@@ -49,6 +49,11 @@
   <link rel="preload" href="_static/images/darkMode/TitleFigure2.2_dark.png" as="image">
 
 
+.. admonition:: Under construction
+   :class: danger
+
+   The HyperCells & HyperBloch website is currently under construction!
+
 .. image:: _static/images/lightMode/TitleFigure2.2_light.png
    :width: 100%
    :class: no-scaled-link, dark-light
