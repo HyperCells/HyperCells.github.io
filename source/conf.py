@@ -151,19 +151,9 @@ html_theme_options = {
     "icon_links": [
         {
             # Label for this link
-            "name": "HyperCells",
+            "name": "Github",
             # URL where the link will redirect
-            "url": "https://github.com/patrick-lenggenhager/HyperCells",  # required
-            # Icon class (if "type": "fontawesome"), or path to local image (if "type": "local")
-            "icon": "fa-brands fa-square-github",
-            # The type of image to be used (see below for details)
-            "type": "fontawesome",
-        },
-        {
-            # Label for this link
-            "name": "HyperBloch",
-            # URL where the link will redirect
-            "url": "https://github.com/patrick-lenggenhager/HyperBloch",  # required
+            "url": "https://github.com/HyperCells",  # required
             # Icon class (if "type": "fontawesome"), or path to local image (if "type": "local")
             "icon": "fa-brands fa-square-github",
             # The type of image to be used (see below for details)

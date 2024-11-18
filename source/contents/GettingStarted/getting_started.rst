@@ -25,11 +25,11 @@ Getting started
 
 .. |HyperCells| raw:: html
 
-   <a href="https://github.com/patrick-lenggenhager/HyperCells" target="_blank">HyperCells</a>
+   <a href="https://github.com/HyperCells/HyperCells" target="_blank">HyperCells</a>
 
 .. |HyperBloch| raw:: html
 
-   <a href="https://github.com/patrick-lenggenhager/HyperBloch" target="_blank">HyperBloch</a>
+   <a href="https://github.com/HyperCells/HyperBloch" target="_blank">HyperBloch</a>
 
 
 .. |documentation| raw:: html

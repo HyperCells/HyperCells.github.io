@@ -12,7 +12,7 @@ If you use one of the packages, please cite the package itself (check out Zenodo
  author = {Lenggenhager, Patrick M. and Maciejko, Joseph and Bzdu\v{s}ek, Tom\'{a}\v{s}},
  year   = {2023},
  doi    = {10.5281/zenodo.10222598},
- note   = {\url{https://github.com/patrick-lenggenhager/HyperCells}}
+ note   = {\url{https://github.com/HyperCells/HyperCells}}
 }
 ```
 or
@@ -22,7 +22,7 @@ or
  author = {Lenggenhager, Patrick M. and Maciejko, Joseph and Bzdu\v{s}ek, Tom\'{a}\v{s}},
  year   = {2023},
  doi    = {10.5281/zenodo.10222865},
- note   = {\url{https://github.com/patrick-lenggenhager/HyperBloch}}
+ note   = {\url{https://github.com/HyperCells/HyperBloch}}
 }
 ```
 and at least one of the following references:

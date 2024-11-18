@@ -17,7 +17,7 @@ and helping you finalize your pull requests on GitHub.
 
 ## Getting Started
 
-Contributions to <a target="_blank" href="https://github.com/patrick-lenggenhager/HyperCells">HyperCells</a> and <a target="_blank" href="https://github.com/patrick-lenggenhager/HyperBloch">HyperBloch</a> are managed through GitHub and are based on Issues
+Contributions to <a target="_blank" href="https://github.com/HyperCells/HyperCells">HyperCells</a> and <a target="_blank" href="https://github.com/HyperCells/HyperBloch">HyperBloch</a> are managed through GitHub and are based on Issues
 and Pull Requests. Please search for existing Issues and Pull Requests before creating
 your own.
 
