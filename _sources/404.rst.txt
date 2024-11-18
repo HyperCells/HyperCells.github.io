@@ -1,0 +1,30 @@
+:html_theme.sidebar_secondary.remove: true
+:orphan:
+
+.. title:: 404
+
+404 not found
+=============
+
+Unfortunately the page you are looking for does not exist. Seems you're lost.
+But you can click on the HyperCells & HyperBloch logo on top of the page to go back to the homepage.
+
+.. raw:: html
+
+  <script type="text/javascript">
+     var observer = new MutationObserver(function(mutations) {
+       const dark = document.documentElement.dataset.theme == 'dark';
+       document.getElementsByClassName('no-scaled-link')[1].src = dark ? '_static/images/lightMode/404ErrorImage2_light.png' : "_static/images/lightMode/404ErrorImage2_light.png";
+     })
+     observer.observe(document.documentElement, {attributes: true, attributeFilter: ['data-theme']});
+  </script>
+  <link rel="preload" href="_static/images/lightMode/404ErrorImage2_light.png" as="image">
+
+.. image:: _static/images/lightMode/404ErrorImage2_light.png
+   :align: center
+   :class: no-scaled-link, dark-light
+   :width: 450
+
+
+
+

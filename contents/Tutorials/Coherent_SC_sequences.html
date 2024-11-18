@@ -1,0 +1,941 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" data-theme="light">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Coherent sequences &#8212; HyperCells &amp; HyperBloch</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=3519ded7" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'contents/Tutorials/Coherent_SC_sequences';</script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Flat-bands" href="Flat-bands.html" />
+    <link rel="prev" title="Supercells" href="Supercells.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1.0" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="light">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+    
+    <img src="../../_static/html_logo_HyperSupercells2_light.png" class="logo__image only-light" alt="HyperCells & HyperBloch - Home"/>
+    <img src="../../_static/html_logo_HyperSupercells2_dark.png" class="logo__image only-dark pst-js-only" alt="HyperCells & HyperBloch - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../About/about.html">
+    About
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Installation/installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../GettingStarted/getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="tutorials.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Documentation/documentation.html">
+    Documentation
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../Contribute/contribute.html">
+    How to contribute
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../Cite/cite.html">
+    How to cite
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../LicenseCopyright/licenseCopyright.html">
+    License and copyright
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/HyperCells" title="Github" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Github</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../About/about.html">
+    About
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Installation/installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../GettingStarted/getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="tutorials.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Documentation/documentation.html">
+    Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Contribute/contribute.html">
+    How to contribute
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Cite/cite.html">
+    How to cite
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../LicenseCopyright/licenseCopyright.html">
+    License and copyright
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/HyperCells" title="Github" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Github</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Supercells.html">Supercells</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Coherent sequences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Flat-bands.html">Flat-bands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Haldane_model.html">Haldane model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="HatanoNelson_model.html">Hatano-Nelson model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="HigherOrder_topology.html">Higher-order topology</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="tutorials.html" class="nav-link">Tutorials</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Coherent sequences</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="coherent-sequences">
+<h1>Coherent sequences<a class="headerlink" href="#coherent-sequences" title="Link to this heading">#</a></h1>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-success sd-bg-text-success">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-light-bulb" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg></span><span class="sd-summary-text">Learning goals</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Identifying supercell sequences through:</p>
+<ul class="simple">
+<li><p class="sd-card-text">user defined functions</p></li>
+<li><p class="sd-card-text">and normal subgroup tree graphs.</p></li>
+</ul>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-info sd-bg-text-info">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-gear" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a8.2 8.2 0 0 1 .701.031C9.444.095 9.99.645 10.16 1.29l.288 1.107c.018.066.079.158.212.224.231.114.454.243.668.386.123.082.233.09.299.071l1.103-.303c.644-.176 1.392.021 1.82.63.27.385.506.792.704 1.218.315.675.111 1.422-.364 1.891l-.814.806c-.049.048-.098.147-.088.294.016.257.016.515 0 .772-.01.147.038.246.088.294l.814.806c.475.469.679 1.216.364 1.891a7.977 7.977 0 0 1-.704 1.217c-.428.61-1.176.807-1.82.63l-1.102-.302c-.067-.019-.177-.011-.3.071a5.909 5.909 0 0 1-.668.386c-.133.066-.194.158-.211.224l-.29 1.106c-.168.646-.715 1.196-1.458 1.26a8.006 8.006 0 0 1-1.402 0c-.743-.064-1.289-.614-1.458-1.26l-.289-1.106c-.018-.066-.079-.158-.212-.224a5.738 5.738 0 0 1-.668-.386c-.123-.082-.233-.09-.299-.071l-1.103.303c-.644.176-1.392-.021-1.82-.63a8.12 8.12 0 0 1-.704-1.218c-.315-.675-.111-1.422.363-1.891l.815-.806c.05-.048.098-.147.088-.294a6.214 6.214 0 0 1 0-.772c.01-.147-.038-.246-.088-.294l-.815-.806C.635 6.045.431 5.298.746 4.623a7.92 7.92 0 0 1 .704-1.217c.428-.61 1.176-.807 1.82-.63l1.102.302c.067.019.177.011.3-.071.214-.143.437-.272.668-.386.133-.066.194-.158.211-.224l.29-1.106C6.009.645 6.556.095 7.299.03 7.53.01 7.764 0 8 0Zm-.571 1.525c-.036.003-.108.036-.137.146l-.289 1.105c-.147.561-.549.967-.998 1.189-.173.086-.34.183-.5.29-.417.278-.97.423-1.529.27l-1.103-.303c-.109-.03-.175.016-.195.045-.22.312-.412.644-.573.99-.014.031-.021.11.059.19l.815.806c.411.406.562.957.53 1.456a4.709 4.709 0 0 0 0 .582c.032.499-.119 1.05-.53 1.456l-.815.806c-.081.08-.073.159-.059.19.162.346.353.677.573.989.02.03.085.076.195.046l1.102-.303c.56-.153 1.113-.008 1.53.27.161.107.328.204.501.29.447.222.85.629.997 1.189l.289 1.105c.029.109.101.143.137.146a6.6 6.6 0 0 0 1.142 0c.036-.003.108-.036.137-.146l.289-1.105c.147-.561.549-.967.998-1.189.173-.086.34-.183.5-.29.417-.278.97-.423 1.529-.27l1.103.303c.109.029.175-.016.195-.045.22-.313.411-.644.573-.99.014-.031.021-.11-.059-.19l-.815-.806c-.411-.406-.562-.957-.53-1.456a4.709 4.709 0 0 0 0-.582c-.032-.499.119-1.05.53-1.456l.815-.806c.081-.08.073-.159.059-.19a6.464 6.464 0 0 0-.573-.989c-.02-.03-.085-.076-.195-.046l-1.102.303c-.56.153-1.113.008-1.53-.27a4.44 4.44 0 0 0-.501-.29c-.447-.222-.85-.629-.997-1.189l-.289-1.105c-.029-.11-.101-.143-.137-.146a6.6 6.6 0 0 0-1.142 0ZM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9.5 8a1.5 1.5 0 1 0-3.001.001A1.5 1.5 0 0 0 9.5 8Z"></path></svg></span><span class="sd-summary-text">Featured functions</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>HyperCells:</strong></p>
+<code class="code-gap">
+AsTGSubgroup, Export, FpGroup, LongestSequence, ProperTriangleGroup, Signature, TessellationModelGraph, TGCellGraph, TGCellSymmetric, TGQuotient, TGQuotientName,TGQuotientRelators, TGQuotientSequencesStructure, TGSuperCellModelGraph, TGTranslationGroup, TriangleGroup
+</code>
+<br></br>
+<p class="sd-card-text"><strong>HyperBloch:</strong></p>
+<code class="code-Mathematica">
+ImportQuotientSequencesStructureString, VisualizeQuotientSequences
+</code>
+</div>
+</details><p>The application of the <strong>supercell method</strong> relies on the construction of appropriate supercell sequences. These sequences, are associated with corresponding translation group sequences, and restricted to so-called <strong>coherent sequences</strong> of translation groups. In the previous tutorial <a class="reference internal" href="Supercells.html"><span class="std std-doc">Supercells</span></a> we have seen how such sequences are constructed, but have kept their identification somewhat shrouded. As such, let us see how suitable supercell sequences can be determined.</p>
+<p>In this tutorial we will look at two approaches to construct supercell sequences which consist of constructing a user defined function and a <strong>normal subgroup tree graph</strong>. A usual workflow starts by constructing the latter, which shows the normal subgroup relations between any given translation group extracted from quotient groups in  <a target="_blank" href="https://patrick-lenggenhager.github.io/HyperCells/doc/chapBib_mj.html#biBConder:2007">Marston Conder’s</a> list.</p>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>The supercell sequences used in the supercell method are constructed through quotients <span class="math notranslate nohighlight">\(\Delta/\Gamma^{(m)}\)</span> of the triangle groups <span class="math notranslate nohighlight">\(\Delta\)</span>. Each triangle group quotient is associated with a corresponding translation group <span class="math notranslate nohighlight">\(\Gamma^{(m)}\)</span> which forms a <strong>normal subgroup</strong> of the triangle group <span class="math notranslate nohighlight">\(\Delta\triangleright\Gamma^{(m)}\)</span>. The <span class="math notranslate nohighlight">\(m\)</span>’th consecutive supercell in the sequence, which we denote as the <strong><span class="math notranslate nohighlight">\(m\)</span>-supercell</strong>, is thus associated with a corresponding translation group <span class="math notranslate nohighlight">\(\Gamma^{(m)}\)</span>, which obeys the following normal subgroup relations:</p>
+<div class="math notranslate nohighlight" id="equation-coherent-sequences">
+<span class="eqno">(1)<a class="headerlink" href="#equation-coherent-sequences" title="Link to this equation">#</a></span>\[\Delta\triangleright\Gamma^{(1)}\triangleright\Gamma^{(2)}\triangleright\cdot\cdot\cdot\triangleright\Gamma^{(m)}\triangleright\cdot\cdot\cdot\]</div>
+<p>and <span class="math notranslate nohighlight">\(\bigcap_{m\ge0}\Gamma^{(m)}=1\)</span>, where <span class="math notranslate nohighlight">\(\Gamma^{(0)}=\Delta\)</span>.</p>
+<p>Such sequences are called <strong>coherent sequences</strong> of translation groups, which enable us to accumulate higher dimensional irreducible representations of elements in the translation groups on the original primitive cell through the supercell method.</p>
+</section>
+<section id="preliminaries">
+<h2>Preliminaries<a class="headerlink" href="#preliminaries" title="Link to this heading">#</a></h2>
+<p>As usual, we start by constructing the proper triangle group, the quotient group for the primitive cell and additionally the corresponding translation group for the <span class="math notranslate nohighlight">\(\{8,8\}\)</span>-lattice in <strong>GAP</strong>:</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="c1"># load the HyperCells package</span>
+<span class="nv">LoadPackage</span><span class="p">(</span> <span class="s">&quot;HyperCells&quot;</span> <span class="p">)</span><span class="o">;</span>
+
+<span class="c1"># set up (proper) triangle group</span>
+<span class="nv">tg</span> <span class="o">:=</span> <span class="nv">ProperTriangleGroup</span><span class="p">(</span> <span class="p">[</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">8</span><span class="o">,</span> <span class="nv">8</span> <span class="p">]</span> <span class="p">)</span><span class="o">;</span>
+
+<span class="c1"># specify the quotient defining the primitive cell</span>
+<span class="nv">qpc</span> <span class="o">:=</span> <span class="nv">TGQuotient</span><span class="p">(</span> <span class="nv">1</span><span class="o">,</span> <span class="p">[</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">8</span><span class="o">,</span> <span class="nv">8</span> <span class="p">]</span> <span class="p">)</span><span class="o">;</span>
+
+<span class="c1"># associated translation group</span>
+<span class="nv">tgGamma_pc1</span> <span class="o">:=</span> <span class="nv">TGTranslationGroup</span><span class="p">(</span> <span class="nv">tg</span><span class="o">,</span> <span class="nv">qpc</span> <span class="p">)</span><span class="o">;</span>
+
+<span class="c1"># construct symmetric primitive cell</span>
+<span class="nv">cgpc</span> <span class="o">:=</span> <span class="nv">TGCellGraph</span><span class="p">(</span> <span class="nv">tg</span><span class="o">,</span> <span class="nv">qpc</span><span class="o">,</span> <span class="nv">3</span> : <span class="nv">simplify</span> <span class="o">:=</span> <span class="nv">5</span> <span class="p">)</span><span class="o">;</span>
+
+<span class="c1"># elementary nearest-neighbor model</span>
+<span class="nv">model</span> <span class="o">:=</span> <span class="nv">TessellationModelGraph</span><span class="p">(</span> <span class="nv">cgpc</span><span class="o">,</span> <span class="no">true</span> : <span class="nv">simplify</span> <span class="o">:=</span> <span class="nv">5</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">Export</span><span class="p">(</span> <span class="nv">model</span><span class="o">,</span> <span class="s">&quot;{8,8}-tess_T2.6_3.hcm&quot;</span> <span class="p">)</span><span class="o">;</span> <span class="c1"># export</span>
+</pre></div>
+</div>
+<div class="seealso-icon admonition">
+<p class="admonition-title">Skip to section <a class="reference internal" href="#nstga">Normal subgroup tree graph approach</a></p>
+<p>On a first read, one may want to skip the section “Custom function approach” and resume at the section “Normal subgroup tree graph approach”.</p>
+</div>
+</section>
+<section id="custom-function-approach">
+<h2>Custom function approach<a class="headerlink" href="#custom-function-approach" title="Link to this heading">#</a></h2>
+<p>Before constructing our custom function, let us go through the main points that should be considered in any user defined function that identifies coherent supercell sequences.</p>
+<p>The <span class="math notranslate nohighlight">\((m+1)\)</span>-supercell in a coherent supercell sequence is associated with a translation group <span class="math notranslate nohighlight">\(\Gamma^{(m+1)}\)</span>, which is a consecutive normal subgroup of the translation group <span class="math notranslate nohighlight">\(\Gamma^{(m)}\)</span> (of the <span class="math notranslate nohighlight">\(m\)</span>-supercell) and the proper triangle group <span class="math notranslate nohighlight">\(\Delta^{+}\)</span>. We extract the translation groups <span class="math notranslate nohighlight">\(\Gamma^{(m)}\)</span> from quotient groups in <a target="_blank" href="https://patrick-lenggenhager.github.io/HyperCells/doc/chapBib_mj.html#biBConder:2007">Marston Conder’s</a> list. Since they are normal subgroups of <span class="math notranslate nohighlight">\(\Delta^{+}\)</span>, it is sufficient to check if the set of elements in a translation group <span class="math notranslate nohighlight">\(\Gamma^{(m+1)}\)</span> forms a subset of <span class="math notranslate nohighlight">\(\Gamma^{(m)}\)</span>.</p>
+<p>For example, let us extract the translation group associated with the second quotient group in order to identify the first candidate for the <span class="math notranslate nohighlight">\(2\)</span>-supercell:</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">q2</span> <span class="o">:=</span> <span class="nv">TGQuotient</span><span class="p">(</span><span class="nv">2</span><span class="o">,</span> <span class="p">[</span><span class="nv">2</span><span class="o">,</span> <span class="nv">8</span><span class="o">,</span> <span class="nv">8</span><span class="p">])</span><span class="o">;</span>
+<span class="nv">tgGamma_2</span> <span class="o">:=</span> <span class="nv">TGTranslationGroup</span><span class="p">(</span><span class="nv">tg</span><span class="o">,</span> <span class="nv">q2</span><span class="p">)</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>This translation group, however, is not a normal subgroup of the previous translation group:</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">IsSubset</span><span class="p">(</span><span class="nv">AsTGSubgroup</span><span class="p">(</span><span class="nv">tgGamma_pc1</span><span class="p">)</span><span class="o">,</span> <span class="nv">AsTGSubgroup</span><span class="p">(</span><span class="nv">tgGamma_2</span><span class="p">))</span><span class="o">;</span>
+<span class="no">false</span>
+</pre></div>
+</div>
+<p>but the next one is:</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">q3</span> <span class="o">:=</span> <span class="nv">TGQuotient</span><span class="p">(</span><span class="nv">3</span><span class="o">,</span> <span class="p">[</span><span class="nv">2</span><span class="o">,</span> <span class="nv">8</span><span class="o">,</span> <span class="nv">8</span><span class="p">])</span><span class="o">;</span>
+<span class="nv">tgGamma_3</span> <span class="o">:=</span> <span class="nv">TGTranslationGroup</span><span class="p">(</span><span class="nv">tg</span><span class="o">,</span> <span class="nv">q3</span><span class="p">)</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>and:</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">IsSubset</span><span class="p">(</span><span class="nv">AsTGSubgroup</span><span class="p">(</span><span class="nv">tgGamma_pc1</span><span class="p">)</span><span class="o">,</span> <span class="nv">AsTGSubgroup</span><span class="p">(</span><span class="nv">tgGamma_3</span><span class="p">))</span><span class="o">;</span>
+<span class="no">true</span>
+</pre></div>
+</div>
+<p>Next, we impose that supercells are symmetric aggregates of primitive cells. Thus, restricting the selection of quotient groups to those with <strong>point groups</strong> <span class="math notranslate nohighlight">\(G^{(m)}\)</span> and <strong>proper point groups</strong> <span class="math notranslate nohighlight">\(G^{+ (m)}\)</span> with order <span class="math notranslate nohighlight">\(|G^{(m)}| = 2|G^{+ (m)}|\)</span>.</p>
+<p>The extracted quotient groups are isomorphic to the proper point groups <span class="math notranslate nohighlight">\(G^{+ (m)}\)</span>. For example, the third quotient group, isomorphic to the proper point group <span class="math notranslate nohighlight">\(G^{+ (2)}\)</span>, is:</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">Gplus</span> <span class="o">:=</span> <span class="nv">TGQuotientGroup</span><span class="p">(</span><span class="nv">tg</span><span class="o">,</span> <span class="nv">q3</span><span class="p">)</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>The point groups <span class="math notranslate nohighlight">\(G^{(m)}\)</span> can be constructed through the (full) triangle group <span class="math notranslate nohighlight">\(\Delta\)</span> by using the embedding of the proper triangle group <span class="math notranslate nohighlight">\(\Delta^{+}\)</span> in the (full) triangle group <span class="math notranslate nohighlight">\(\Delta\)</span>:</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="c1"># presentation of the (full) triangle group</span>
+<span class="nv">DELTA</span> <span class="o">:=</span> <span class="nv">FpGroup</span><span class="p">(</span><span class="nv">TriangleGroup</span><span class="p">(</span><span class="nv">Signature</span><span class="p">(</span><span class="nv">tg</span><span class="p">)))</span><span class="o">;</span>
+<span class="nv">a</span> <span class="o">:=</span> <span class="nv">DELTA</span><span class="o">.</span><span class="nv">1</span><span class="o">;;</span> <span class="nv">b</span> <span class="o">:=</span> <span class="nv">DELTA</span><span class="o">.</span><span class="nv">2</span><span class="o">;;</span> <span class="nv">c</span> <span class="o">:=</span> <span class="nv">DELTA</span><span class="o">.</span><span class="nv">3</span><span class="o">;</span>
+
+<span class="c1"># embedding homomorphism of D in DELTA</span>
+<span class="nv">embDDELTA</span> <span class="o">:=</span> <span class="nv">GroupHomomorphismByImagesNC</span><span class="p">(</span><span class="nv">D</span><span class="o">,</span> <span class="nv">DELTA</span><span class="o">,</span> <span class="nv">GeneratorsOfGroup</span><span class="p">(</span><span class="nv">D</span><span class="p">)</span><span class="o">,</span> <span class="p">[</span><span class="nv">a</span><span class="o">*</span><span class="nv">b</span><span class="o">,</span> <span class="nv">b</span><span class="o">*</span><span class="nv">c</span><span class="o">,</span> <span class="nv">c</span><span class="o">*</span><span class="nv">a</span><span class="p">])</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>We can use this homomorphism in order to find the relators of <span class="math notranslate nohighlight">\(G^{+ (m)}\)</span> in terms of generators of <span class="math notranslate nohighlight">\(\Delta\)</span>, and thus enabling us to construct <span class="math notranslate nohighlight">\(G^{(m)}\)</span>. For example, for the third quotient we find <span class="math notranslate nohighlight">\(G^{(2)}\)</span>:</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="c1"># relators of the proper point group</span>
+<span class="nv">rels</span> <span class="o">:=</span> <span class="nv">TGQuotientRelators</span><span class="p">(</span><span class="nv">tg</span><span class="o">,</span> <span class="nv">q3</span><span class="p">)</span><span class="o">;</span>
+
+<span class="c1"># point group</span>
+<span class="nv">relsfull</span> <span class="o">:=</span> <span class="nv">List</span><span class="p">(</span><span class="nv">rels</span><span class="o">,</span> <span class="nv">r</span> <span class="o">-&gt;</span> <span class="nv">Image</span><span class="p">(</span><span class="nv">embDDELTA</span><span class="o">,</span> <span class="nv">r</span><span class="p">))</span><span class="o">;</span>
+<span class="nv">G</span> <span class="o">:=</span> <span class="nv">DELTA</span> <span class="o">/</span> <span class="nv">relsfull</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>We can check if our constraint is fulfilled:</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">Order</span><span class="p">(</span><span class="nv">G</span><span class="p">)</span> <span class="o">=</span> <span class="nv">2</span> <span class="o">*</span> <span class="nv">Order</span><span class="p">(</span><span class="nv">Gplus</span><span class="p">)</span><span class="o">;</span>
+<span class="no">true</span>
+</pre></div>
+</div>
+<p>As such, a possible function to retrieve a particular supercell sequence is given:</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">getMthSupercellQuotient</span> <span class="o">:=</span> <span class="k">function</span><span class="p">(</span><span class="nv">tg</span><span class="o">,</span> <span class="nv">tgGamma</span><span class="o">,</span> <span class="nv">n1</span><span class="p">)</span>
+        <span class="k">local</span> <span class="nv">tgGamma_n</span><span class="o">,</span> <span class="nv">Gamma1</span><span class="o">,</span> <span class="nv">qn</span><span class="o">,</span> <span class="nv">signat</span><span class="o">,</span> <span class="nv">switch</span><span class="o">,</span> 
+        <span class="nv">i</span><span class="o">,</span> <span class="nv">D</span><span class="o">,</span> <span class="nv">rels</span><span class="o">,</span> <span class="nv">G</span><span class="o">,</span> <span class="nv">Gplus</span><span class="o">,</span> <span class="nv">a</span><span class="o">,</span> <span class="nv">b</span><span class="o">,</span> <span class="nv">c</span><span class="o">,</span> <span class="nv">DELTA</span><span class="o">,</span> 
+        <span class="nv">embDDELTA</span><span class="o">,</span> <span class="nv">relsfull</span><span class="o">;</span>
+
+  <span class="c1"># signature (2, q, p)</span>
+  <span class="nv">signat</span> <span class="o">:=</span> <span class="nv">Signature</span><span class="p">(</span><span class="nv">tg</span><span class="p">)</span><span class="o">;</span>
+
+  <span class="c1"># presentation of the proper triangle group  </span>
+  <span class="nv">D</span> <span class="o">:=</span> <span class="nv">FpGroup</span><span class="p">(</span><span class="nv">tg</span><span class="p">)</span><span class="o">;</span>
+
+  <span class="c1"># translation group in terms of generators x, y, z</span>
+  <span class="nv">Gamma1</span> <span class="o">:=</span> <span class="nv">AsTGSubgroup</span><span class="p">(</span><span class="nv">tgGamma</span><span class="p">)</span><span class="o">;</span>
+	
+  <span class="c1"># presentation of the (full) triangle group</span>
+  <span class="nv">DELTA</span> <span class="o">:=</span> <span class="nv">FpGroup</span><span class="p">(</span><span class="nv">TriangleGroup</span><span class="p">(</span><span class="nv">Signature</span><span class="p">(</span><span class="nv">tg</span><span class="p">)))</span><span class="o">;</span>
+  <span class="nv">a</span> <span class="o">:=</span> <span class="nv">DELTA</span><span class="o">.</span><span class="nv">1</span><span class="o">;;</span> <span class="nv">b</span> <span class="o">:=</span> <span class="nv">DELTA</span><span class="o">.</span><span class="nv">2</span><span class="o">;;</span> <span class="nv">c</span> <span class="o">:=</span> <span class="nv">DELTA</span><span class="o">.</span><span class="nv">3</span><span class="o">;</span>
+
+  <span class="c1"># embedding homomorphism of D in DELTA</span>
+  <span class="nv">embDDELTA</span> <span class="o">:=</span> <span class="nv">GroupHomomorphismByImagesNC</span><span class="p">(</span><span class="nv">D</span><span class="o">,</span> <span class="nv">DELTA</span><span class="o">,</span>
+      <span class="nv">GeneratorsOfGroup</span><span class="p">(</span><span class="nv">D</span><span class="p">)</span><span class="o">,</span> <span class="p">[</span><span class="nv">a</span><span class="o">*</span><span class="nv">b</span><span class="o">,</span> <span class="nv">b</span><span class="o">*</span><span class="nv">c</span><span class="o">,</span> <span class="nv">c</span><span class="o">*</span><span class="nv">a</span><span class="p">])</span><span class="o">;</span>
+
+  <span class="nv">i</span> <span class="o">:=</span> <span class="nv">n1</span><span class="o">;</span>
+  <span class="nv">switch</span> <span class="o">:=</span> <span class="no">false</span><span class="o">;</span>
+  <span class="k">while</span> <span class="nv">switch</span> <span class="o">=</span> <span class="no">false</span> <span class="k">do</span>
+                
+    <span class="nv">qn</span> <span class="o">:=</span> <span class="nv">TGQuotient</span><span class="p">(</span><span class="nv">i</span><span class="o">,</span> <span class="nv">signat</span><span class="p">)</span><span class="o">;</span>
+    <span class="nv">tgGamma_n</span> <span class="o">:=</span> <span class="nv">TGTranslationGroup</span><span class="p">(</span><span class="nv">tg</span><span class="o">,</span> <span class="nv">qn</span><span class="p">)</span><span class="o">;</span>
+    <span class="nv">switch</span> <span class="o">:=</span> <span class="nv">IsSubset</span><span class="p">(</span><span class="nv">Gamma1</span><span class="o">,</span> <span class="nv">AsTGSubgroup</span><span class="p">(</span><span class="nv">tgGamma_n</span><span class="p">))</span><span class="o">;</span>
+    <span class="k">if</span> <span class="nv">switch</span> <span class="k">then</span>
+    
+      <span class="c1"># proper point group</span>
+      <span class="nv">Gplus</span> <span class="o">:=</span> <span class="nv">D</span> <span class="o">/</span> <span class="nv">rels</span><span class="o">;</span>
+
+      <span class="c1"># relators of the proper point group</span>
+      <span class="nv">rels</span> <span class="o">:=</span> <span class="nv">TGQuotientRelators</span><span class="p">(</span><span class="nv">tg</span><span class="o">,</span> <span class="nv">qn</span><span class="p">)</span><span class="o">;</span>
+      
+      <span class="c1"># (full) point group</span>
+      <span class="nv">relsfull</span> <span class="o">:=</span> <span class="nv">List</span><span class="p">(</span><span class="nv">rels</span><span class="o">,</span> <span class="nv">r</span> <span class="o">-&gt;</span> <span class="nv">Image</span><span class="p">(</span><span class="nv">embDDELTA</span><span class="o">,</span> <span class="nv">r</span><span class="p">))</span><span class="o">;</span>
+      <span class="nv">G</span> <span class="o">:=</span> <span class="nv">DELTA</span> <span class="o">/</span> <span class="nv">relsfull</span><span class="o">;</span>
+      
+      <span class="c1"># ensure that quotient is mirror symmetric</span>
+      <span class="k">if</span> <span class="ow">not</span> <span class="nv">Order</span><span class="p">(</span><span class="nv">G</span><span class="p">)</span> <span class="o">=</span> <span class="nv">2</span> <span class="o">*</span> <span class="nv">Order</span><span class="p">(</span><span class="nv">Gplus</span><span class="p">)</span> <span class="k">then</span>
+        <span class="nv">switch</span> <span class="o">:=</span> <span class="no">false</span><span class="o">;</span>
+      <span class="k">fi</span><span class="o">;</span> 
+     <span class="k">fi</span><span class="o">;</span>
+  
+   <span class="nv">i</span> <span class="o">:=</span> <span class="nv">i</span> <span class="o">+</span> <span class="nv">1</span><span class="o">;</span>
+  <span class="k">od</span><span class="o">;</span>
+
+ <span class="k">return</span> <span class="p">[</span><span class="nv">qn</span><span class="o">,</span> <span class="nv">tgGamma_n</span><span class="o">,</span> <span class="nv">i</span><span class="p">]</span><span class="o">;</span>
+<span class="k">end</span><span class="o">;;</span>
+</pre></div>
+</div>
+<p>This function takes as arguments a <code class="code-gap">ProperTriangleGroup</code> and a <code class="code-gap">TGTranslationGroup</code>. The integer <code class="code-gap">n1</code> is the first index of the quotient groups in the list <code class="code-gap">ListTGQuotients( [ 2, 8, 8 ] )</code> that will be checked to satisfy the conditions stated above. Let us apply this function in order to retrieve a first supercell:</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">qANDtgGamma_sc1</span> <span class="o">:=</span> <span class="nv">getMthSupercellQuotient</span><span class="p">(</span><span class="nv">tg</span><span class="o">,</span> <span class="nv">tgGamma_pc1</span><span class="o">,</span> <span class="nv">2</span><span class="p">)</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>The first supercell in this sequence is given by:</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">qsc_3_11</span> <span class="o">:=</span> <span class="nv">qANDtgGamma_sc1</span><span class="p">[</span><span class="nv">1</span><span class="p">]</span><span class="o">;;</span>
+<span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">TGQuotientName</span><span class="p">(</span><span class="nv">qsc_3_11</span><span class="p">)</span><span class="o">;</span>
+<span class="p">[</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">11</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>The <code class="code-gap">TGQuotientName</code> returns the label given in M. Conder’s list, where <code class="code-gap">3</code> is the genus of the Riemann surface the quotient acts upon and <code class="code-gap">11</code> the index in the list. Let us retrieve the next 5 supercells, together with the corresponding  tessellation graphs, i.e., the nearest-neighbor graphs of the <span class="math notranslate nohighlight">\(\{8,8\}\)</span>-tesselation of the hyperbolic plane by iterating over the list of available quotient:</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">n0</span> <span class="o">:=</span> <span class="nv">2</span><span class="o">;</span>
+<span class="nv">tgGamma_sc_i</span> <span class="o">:=</span> <span class="nv">tgGamma_pc1</span><span class="o">;</span>
+
+<span class="k">for</span> <span class="nv">i</span> <span class="ow">in</span> <span class="p">[</span><span class="nv">1</span> <span class="o">..</span> <span class="nv">6</span><span class="p">]</span> <span class="k">do</span>
+
+  <span class="c1"># find appropriate quotient group</span>
+  <span class="nv">qANDtgGamma_sc_i</span> <span class="o">:=</span> <span class="nv">getMthSupercellQuotient</span><span class="p">(</span><span class="nv">tg</span><span class="o">,</span> <span class="nv">tgGamma_sc_i</span><span class="o">,</span> <span class="nv">n0</span><span class="p">)</span><span class="o">;</span>
+  <span class="nv">qsc_i</span> <span class="o">:=</span> <span class="nv">qANDtgGamma_sc_i</span><span class="p">[</span><span class="nv">1</span><span class="p">]</span><span class="o">;;</span>
+  <span class="nv">tgGamma_sc_i</span> <span class="o">:=</span> <span class="nv">qANDtgGamma_sc_i</span><span class="p">[</span><span class="nv">2</span><span class="p">]</span><span class="o">;;</span> 
+  <span class="nv">n0</span> <span class="o">:=</span> <span class="nv">qANDtgGamma_sc_i</span><span class="p">[</span><span class="nv">3</span><span class="p">]</span><span class="o">;;</span>
+
+  <span class="c1"># construct tessellation graphs</span>
+  <span class="nv">sc_i</span> <span class="o">:=</span> <span class="nv">TGCellSymmetric</span><span class="p">(</span><span class="nv">tg</span><span class="o">,</span> <span class="nv">qsc_i</span><span class="o">,</span> <span class="nv">3</span><span class="p">)</span><span class="o">;</span>
+  <span class="nv">scmodel_i</span> <span class="o">:=</span> <span class="nv">TGSuperCellModelGraph</span><span class="p">(</span><span class="nv">model</span><span class="o">,</span> <span class="nv">sc_i</span><span class="p">)</span><span class="o">;</span>
+
+  <span class="c1"># export file</span>
+  <span class="nv">sc_i_index</span> <span class="o">:=</span> <span class="nv">TGQuotientName</span><span class="p">(</span><span class="nv">qsc_i</span><span class="p">)</span><span class="o">;</span>
+  <span class="nv">sc_i_label</span> <span class="o">:=</span> <span class="nv">StringFormatted</span><span class="p">(</span><span class="s">&quot;-tess_T2.6_3_sc-T{}.{}.hcs&quot;</span><span class="o">,</span> <span class="nv">sc_i_index</span><span class="p">[</span><span class="nv">1</span><span class="p">]</span><span class="o">,</span> <span class="nv">sc_i_index</span><span class="p">[</span><span class="nv">2</span><span class="p">])</span><span class="o">;</span>
+  <span class="nv">scmodel_i_name</span> <span class="o">:=</span> <span class="nv">JoinStringsWithSeparator</span><span class="p">([</span><span class="s">&quot;{8,8}&quot;</span><span class="o">,</span> <span class="nv">sc_i_label</span><span class="p">]</span><span class="o">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span><span class="o">;</span>
+  <span class="nv">Export</span><span class="p">(</span><span class="nv">scmodel_i</span><span class="o">,</span>  <span class="nv">scmodel_i_name</span><span class="p">)</span><span class="o">;</span>
+
+<span class="k">od</span><span class="o">;</span>
+</pre></div>
+</div>
+<div style="text-align: right;">
+  <a href="../../misc/code_snippets/Tutorials/CoherentSequences/tutorial_Coherent_Sequences_HyperCells_CustomFunc.g" class="btn btn-primary"><i class="fa-solid fa-download"></i> Download GAP Code</a>
+</div>
+<p>The sequence of quotient groups we were able to extract is:</p>
+<p style="text-align: center;">
+<code class="code-gap">T2.6</code>, <code class="code-gap">T3.11</code>, <code class="code-gap">T5.13</code>, <code class="code-gap">T9.20</code>, <code class="code-gap">T17.29</code>, <code class="code-gap">T33.44</code> and <code class="code-gap">T65.78</code> 
+</p>
+<p>This coincides with the supercell sequence <strong>1</strong> we have considered in the tutorial <a class="reference internal" href="Supercells.html"><span class="std std-doc">Supercells</span></a>.</p>
+</section>
+<section id="normal-subgroup-tree-graph-approach">
+<span id="nstga"></span><h2>Normal subgroup tree graph approach<a class="headerlink" href="#normal-subgroup-tree-graph-approach" title="Link to this heading">#</a></h2>
+<p>Identifying sequences of supercells through user defined functions might be cumbersome. The built-in function to identify normal subgroup relations of the translation groups provides efficient access to all sequences which are normal subgroups of <span class="math notranslate nohighlight">\(\Delta^{+}\)</span> and obey the normal subgroup relation <span class="math notranslate nohighlight">\(\Delta^{+}\triangleright \Gamma^{(1)} \triangleright \Gamma^{(2)} \triangleright \cdot \cdot \cdot \triangleright \Gamma^{(m)} \triangleright  \cdot \cdot \cdot\)</span> available through the access of <a target="_blank" href="https://patrick-lenggenhager.github.io/HyperCells/doc/chapBib_mj.html#biBConder:2007">Marston Conder’s</a> list. It can be used to build advanced user defined functions as well as to visualize appropriate sequences in tree graphs we denote as normal subgroup tree graphs.</p>
+<p>In order to visualize a normal subgroup tree graph we first need to construct an adjacency matrix, which describes the normal subgroup relations between any pairwise distinct translation groups of a <span class="math notranslate nohighlight">\(\{p,q\}\)</span>-tesselation of the hyperbolic plane. Since these matrices are in general sparse we may choose a corresponding representation. The adjacency matrix for the <span class="math notranslate nohighlight">\(\{8,8\}\)</span>-tesselation, with quotient groups acting upon Riemann surfaces up to genus <code class="code-gap">66</code>, can be extracted as follows (caution, this may take a few minutes):</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">tgQSS</span> <span class="o">:=</span> <span class="nv">TGQuotientSequencesStructure</span><span class="p">(</span><span class="nv">tg</span> : <span class="nv">sparse</span> <span class="o">:=</span> <span class="no">true</span><span class="o">,</span> <span class="nv">boundByGenus</span> <span class="o">:=</span> <span class="nv">66</span><span class="p">)</span><span class="o">;;</span>
+</pre></div>
+</div>
+<p>The returned object is of category <code class="code-gap">TGQuotientSequencesStructure</code>. This enables us to extract one of the longest coherent supercell sequence available, with supercells that can be symmetrically aggregated with primitive cells:</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">LongestSequence</span><span class="p">(</span><span class="nv">tgQSS</span><span class="p">)</span><span class="o">;</span>
+<span class="p">[</span> <span class="p">[</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">6</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">11</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">5</span><span class="o">,</span> <span class="nv">13</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">9</span><span class="o">,</span> <span class="nv">20</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">17</span><span class="o">,</span> <span class="nv">29</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">33</span><span class="o">,</span> <span class="nv">44</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">65</span><span class="o">,</span> <span class="nv">78</span> <span class="p">]</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>which, once again, correspond to the supercell sequence <strong>1</strong> we have considered in the tutorial <a class="reference internal" href="Supercells.html"><span class="std std-doc">Supercells</span></a>. We can also specify the starting quotient of the sequence:</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">gap</span><span class="o">&gt;</span> <span class="nv">LongestSequence</span><span class="p">(</span><span class="nv">tgQSS</span> : <span class="nv">quotient</span> <span class="o">:=</span> <span class="p">[</span> <span class="nv">9</span><span class="o">,</span> <span class="nv">23</span> <span class="p">])</span><span class="o">;</span>
+<span class="p">[</span> <span class="p">[</span> <span class="nv">9</span><span class="o">,</span> <span class="nv">23</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">17</span><span class="o">,</span> <span class="nv">30</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">33</span><span class="o">,</span> <span class="nv">46</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">65</span><span class="o">,</span> <span class="nv">78</span> <span class="p">]</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>Next, let us export the adjacency matrix in order to visualize the normal subgroup tree graph in Mathematica, which can be done by using the <code class="code-gap">Export</code> operation:</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="nv">Export</span><span class="p">(</span><span class="nv">tgQSS</span><span class="o">,</span> <span class="s">&quot;(2,8,8)-QSS-BBG_66_sparse.hcqs&quot;</span><span class="p">)</span><span class="o">;</span>
+</pre></div>
+</div>
+<div class="flex ">
+  <a href="../../misc/code_snippets/Tutorials/CoherentSequences/(2,8,8)-QSS-BBG_66_sparse.hcqs" class="btn btn-primary" class="flex-child"><i class="fa-solid fa-download"></i> Download generated files</a>
+  <a href="../../misc/code_snippets/Tutorials/CoherentSequences/tutorial_Coherent_Sequences_HyperCells_QSS.g" class="btn btn-primary" class="flex-child"><i class="fa-solid fa-download"></i> Download GAP Code</a>
+</div><br>
+<p>The adjacency matrix can be imported analogously to cell, model and supercell model graphs. The <code class="code-Mathematica">Import</code> function is used to read the file, while the <code class="code-Mathematica">ImportQuotientSequencesStructureString</code> function is used to parse the string and construct the adjacency matrix:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="c">(* Preliminaries *)</span>
+<span class="o">&lt;&lt;</span><span class="w"> </span><span class="nn">PatrickMLenggenhager`HyperBloch`</span>
+<span class="n">SetDirectory</span><span class="p">[</span><span class="n">NotebookDirectory</span><span class="p">[]];</span>
+
+<span class="c">(* Import quotient sequences structure *)</span>
+<span class="n">QSS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ImportQuotientSequencesStructureString</span><span class="p">[</span><span class="n">Import</span><span class="p">[</span><span class="s">&quot;(2,8,8)-QSS-BBG_66_sparse.hcqs&quot;</span><span class="p">]];</span>
+</pre></div>
+</div>
+<p>Normal subgroup tree graphs can be visualized with the high-level visualization function <code class="code-Mathematica">VisualizeQuotientSequences</code>. It is convenient to first consider a subgraph with genera of compactified unit cells up to genus <span class="math notranslate nohighlight">\(30\)</span>, which provides an overseeable example. We can achieve this by passing a function to the option <code class="code-Mathematica">VertexFilter</code>, which takes quotient names <code class="code-Mathematica">Tg.n</code> of the form <code class="code-Mathematica">{g, n}</code> as arguments and returns a boolean:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">VisualizeQuotientSequences</span><span class="p">[</span><span class="n">QSS</span><span class="p">,</span>
+<span class="w">  </span><span class="n">EdgeArrowSize</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mf">0.01</span><span class="p">,</span><span class="w"> </span><span class="n">ImageSize</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">1100</span><span class="p">,</span><span class="w"> </span>
+<span class="w">  </span><span class="n">VertexFilter</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">(</span><span class="nv">#</span><span class="p">[[</span><span class="mi">1</span><span class="p">]]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="o">&amp;</span><span class="p">),</span>
+<span class="w">  </span><span class="n">VertexLabelStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Directive</span><span class="p">[</span><span class="n">Black</span><span class="p">,</span><span class="w"> </span><span class="n">Italic</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">]</span><span class="w"> </span><span class="p">]</span>
+</pre></div>
+</div>
+<figure class="text-center">
+  <picture> 
+    <source type="image/svg+xml" srcset="../../media/figs/Tutorials/CoherentSequences/(2,8,8)-NormalSubgroupTreeGraph_BBG_30.png">
+    <img src="../../media/figs/Tutorials/CoherentSequences/(2,8,8)-NormalSubgroupTreeGraph_BBG_30.png" class="figure-img img-fluid rounded" alt="SubgroupTreegraph {8,8}-lattice BBG 30" width="1000"/>
+  </picture>
+</figure>
+<p>Every vertex corresponds to a translation group <span class="math notranslate nohighlight">\(\Gamma^{(m)}\)</span> associated with a corresponding unit cell and denoted with the label of the triangle group quotient <span class="math notranslate nohighlight">\(\Delta^{+}/\Gamma^{(m)}\)</span>, with quotients in the tabulated list of quotients by <a target="_blank" href="https://patrick-lenggenhager.github.io/HyperCells/doc/chapBib_mj.html#biBConder:2007">Marston Conder</a>. Each <span class="math notranslate nohighlight">\(\Gamma^{(m)}\)</span> is a normal subgroup of <span class="math notranslate nohighlight">\(\Delta\)</span>. Vertices highlighted in red indicate that the corresponding unit cell can be assembled mirror symmetrically with Schwarz triangles. Black vertices do not admit a mirror-symmetric unit cell, which limits some of the functionality of HyperCells package for them, namely those functions that construct or rely on symmetric cells (but not those working with generic supercells). Pairwise distinct vertices  <span class="math notranslate nohighlight">\(\Gamma^{(m)}\)</span>, <span class="math notranslate nohighlight">\(\Gamma^{(m+1)}\)</span> connected by a directed edge obey the normal subgroup relation <span class="math notranslate nohighlight">\(\Gamma^{(m)} \triangleright \Gamma^{(m+1)}\)</span>.</p>
+<p>Let us visualize the entire normal subgroup tree graph. We choose to emphasize the vertices associated with compactified unit cells of lower genera. This can be achieved by passing a function to the option <code class="code-Mathematica">LayerDistributionFunction</code>, which distributes the layers of distinct genera in a desired way. In addition, we try to avoid overlapping vertex labels by placing the labels alternately above and below the vertices of the tree graph through the option <code class="code-Mathematica">VertexLabelPlacement</code>:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">fullGraph</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">VisualizeQuotientSequences</span><span class="p">[</span><span class="n">QSS</span><span class="p">,</span>
+<span class="w"> </span><span class="n">EdgeArrowSize</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mf">0.01</span><span class="p">,</span><span class="w"> </span><span class="n">ImageSize</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">1140</span><span class="p">,</span><span class="w"> </span>
+<span class="w"> </span><span class="n">LayerDistributionFunction</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">(</span><span class="mf">6.5</span><span class="w"> </span><span class="n">Log</span><span class="p">[</span><span class="nv">#</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;</span><span class="p">),</span>
+<span class="w"> </span><span class="n">VertexLabelPlacement</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Alternate&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<figure class="text-center">
+  <picture> 
+    <source type="image/svg+xml" srcset="../../media/figs/Tutorials/CoherentSequences/(2,8,8)-NormalSubgroupTreeGraph_BBG_66.png">
+    <img src="../../media/figs/Tutorials/CoherentSequences/(2,8,8)-NormalSubgroupTreeGraph_BBG_66.png" class="figure-img img-fluid rounded" alt="SubgroupTreegraph {8,8}-lattice BBG 66" width="1000"/>
+  </picture>
+</figure>
+<p>Let us highlight the supercell sequence <strong>1</strong> we have previously determined in GAP. This can be achieved with the option <code class="code-Mathematica">VertexFilter</code> and <code class="code-Mathematica">HighlightSubgraph</code> set to True:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">keepVertices</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{{</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="mi">17</span><span class="p">,</span><span class="w"> </span><span class="mi">29</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="mi">33</span><span class="p">,</span><span class="w"> </span><span class="mi">44</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="mi">65</span><span class="p">,</span><span class="w"> </span><span class="mi">78</span><span class="p">}};</span>
+
+<span class="n">VisualizeQuotientSequences</span><span class="p">[</span><span class="n">QSS</span><span class="p">,</span>
+<span class="w"> </span><span class="n">EdgeArrowSize</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mf">0.01</span><span class="p">,</span><span class="w"> </span><span class="n">EdgeStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Directive</span><span class="p">[</span><span class="n">Darker</span><span class="p">[</span><span class="n">Blue</span><span class="p">,</span><span class="w"> </span><span class="mf">0.25</span><span class="p">],</span><span class="w"> </span><span class="n">Thick</span><span class="p">,</span><span class="w"> </span><span class="n">Opacity</span><span class="p">[</span><span class="mf">0.2</span><span class="p">]],</span><span class="w"> </span>
+<span class="w"> </span><span class="n">HighlightSubgraph</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">True</span><span class="p">,</span><span class="w"> </span><span class="n">ImageSize</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">1140</span><span class="p">,</span><span class="w"> </span><span class="n">LayerDistributionFunction</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">(</span><span class="mf">6.5</span><span class="w"> </span><span class="n">Log</span><span class="p">[</span><span class="nv">#</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;</span><span class="p">),</span>
+<span class="w"> </span><span class="n">VertexFilter</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">MemberQ</span><span class="p">[</span><span class="n">keepVertices</span><span class="p">,</span><span class="w"> </span><span class="nv">#</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;</span><span class="p">),</span><span class="w"> </span><span class="n">VertexLabelPlacement</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Alternate&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<figure class="text-center">
+  <picture> 
+    <source type="image/svg+xml" srcset="../../media/figs/Tutorials/CoherentSequences/(2,8,8)-NormalSubgroupTreeGraph_BBG_66_ScS_High.png">
+    <img src="../../media/figs/Tutorials/CoherentSequences/(2,8,8)-NormalSubgroupTreeGraph_BBG_66_ScS_High.png" class="figure-img img-fluid rounded" alt="SubgroupTreegraph {8,8}-lattice BBG 66 scSQ 1" width="1000"/>
+  </picture>
+</figure>
+<p>We can determine coherent sequences through the built-in Mathematica functions, such as <code class="code-Mathematica">FindPath</code> or the resource function <code class="code-Mathematica">FindLongetPath</code>, etc.. Let us reconstruct the sequences we have considered in the <a class="reference internal" href="Supercells.html"><span class="std std-doc">Supercells</span></a> tutorial (where we adopt the sequence labels introduced in said tutorial).</p>
+<p>The initial and the final vertex in the supercell sequence <strong>1</strong> are:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">initialVertex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">};</span>
+<span class="n">finalVertex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">65</span><span class="p">,</span><span class="w"> </span><span class="mi">78</span><span class="p">};</span>
+</pre></div>
+</div>
+<p><code class="code-Mathematica">FindPath</code> can be used to determine all sequences that connect the initial with the final vertex. The last sequence corresponds to the sequence we have previously considered:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">sq1Lst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FindPath</span><span class="p">[</span><span class="n">fullGraph</span><span class="p">,</span><span class="w"> </span><span class="n">initialVertex</span><span class="p">,</span><span class="w"> </span><span class="n">finalVertex</span><span class="p">,</span><span class="w"> </span><span class="n">Infinity</span><span class="p">,</span><span class="w"> </span><span class="n">All</span><span class="p">];</span>
+
+<span class="n">sq1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sq1Lst</span><span class="p">[[</span><span class="mi">-1</span><span class="p">]]</span>
+</pre></div>
+</div>
+<figure class="text-center">
+  <picture> 
+    <source type="image/svg+xml" srcset="../../media/figs/Tutorials/CoherentSequences/sq1.png">
+    <img src="../../media/figs/Tutorials/CoherentSequences/sq1.png" class="figure-img img-fluid rounded" alt=" {8,8}-lattice scSQ 1" width="600"/>
+  </picture>
+</figure>
+<p>We can find the supercell sequences <strong>1A</strong> and <strong>2A</strong> analogously. The supercell sequence <strong>1A</strong> can be found as follows:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">initialVertex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">};</span><span class="w"> </span><span class="n">finalVertex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">65</span><span class="p">,</span><span class="w"> </span><span class="mi">81</span><span class="p">};</span>
+<span class="n">sq1ALst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FindPath</span><span class="p">[</span><span class="n">fullGraph</span><span class="p">,</span><span class="w"> </span><span class="n">initialVertex</span><span class="p">,</span><span class="w"> </span><span class="n">finalVertex</span><span class="p">,</span><span class="w"> </span><span class="n">Infinity</span><span class="p">,</span><span class="w"> </span><span class="n">All</span><span class="p">];</span>
+<span class="n">sq1A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sq1Lst</span><span class="p">[[</span><span class="mi">1</span><span class="p">]]</span>
+</pre></div>
+</div>
+<figure class="text-center">
+  <picture> 
+    <source type="image/svg+xml" srcset="../../media/figs/Tutorials/CoherentSequences/sq1A.png">
+    <img src="../../media/figs/Tutorials/CoherentSequences/sq1A.png" class="figure-img img-fluid rounded" alt=" {8,8}-lattice scSQ 1A" width="500"/>
+  </picture>
+</figure>
+<p>and the supercell sequence <strong>2A</strong>:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">initialVertex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">};</span><span class="w"> </span><span class="n">finalVertex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">65</span><span class="p">,</span><span class="w"> </span><span class="mi">79</span><span class="p">};</span>
+<span class="n">sq2ALst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FindPath</span><span class="p">[</span><span class="n">fullGraph</span><span class="p">,</span><span class="w"> </span><span class="n">initialVertex</span><span class="p">,</span><span class="w"> </span><span class="n">finalVertex</span><span class="p">,</span><span class="w"> </span><span class="n">Infinity</span><span class="p">,</span><span class="w"> </span><span class="n">All</span><span class="p">];</span>
+<span class="n">sq2A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sq1Lst</span><span class="p">[[</span><span class="mi">2</span><span class="p">]]</span>
+</pre></div>
+</div>
+<figure class="text-center">
+  <picture> 
+    <source type="image/svg+xml" srcset="../../media/figs/Tutorials/CoherentSequences/sq2A.png">
+    <img src="../../media/figs/Tutorials/CoherentSequences/sq2A.png" class="figure-img img-fluid rounded" alt=" {8,8}-lattice scSQ 2A" width="400"/>
+  </picture>
+</figure>
+<div style="text-align: right;">
+  <a href="../../misc/code_snippets/Tutorials/CoherentSequences/tutorial_Coherent_Sequences_HyperBloch.nb" class="btn btn-primary"><i class="fa-solid fa-download"></i> Download Mathematica Notebook</a>
+</div>
+<section id="highlighting-multiple-coherent-sequences-bonus">
+<h3>Highlighting multiple coherent sequences (bonus)<a class="headerlink" href="#highlighting-multiple-coherent-sequences-bonus" title="Link to this heading">#</a></h3>
+<p>We can use the <code class="code-Mathematica">VisualizeQuotientSequences</code> function to highlight multiple coherent sequences in the full normal subgroup tree graph. In order to avoid the inclusion of superfluous edges, we can use the option <code class="code-Mathematica">EdgeFilter</code> instead of <code class="code-Mathematica">VertexFilter</code>. The corresponding edges are easily constructed:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">sequnceLst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">sq1</span><span class="p">,</span><span class="w"> </span><span class="n">sq1A</span><span class="p">,</span><span class="w"> </span><span class="n">sq2A</span><span class="p">};</span>
+<span class="n">edgeLst</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">Table</span><span class="p">[</span>
+<span class="w">  </span><span class="n">DirectedEdge</span><span class="p">[</span><span class="n">sequnceLst</span><span class="p">[[</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">]],</span><span class="w"> </span><span class="n">sequnceLst</span><span class="p">[[</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]]],</span><span class="w"> </span>
+<span class="w">  </span><span class="p">{</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">Length</span><span class="p">[</span><span class="n">sequnceLst</span><span class="p">[[</span><span class="n">i</span><span class="p">]][[</span><span class="mi">2</span><span class="w"> </span><span class="o">;;</span><span class="p">]]]}];</span>
+<span class="n">allEdges</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Flatten</span><span class="p">[</span><span class="n">edgeLst</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>Let us highlight the three sequences by specifying three color maps:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">cfunc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ColorData</span><span class="p">[</span><span class="s">&quot;SunsetColors&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ColorFunction&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">/@</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Range</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">/</span><span class="mi">3</span><span class="p">));</span>
+<span class="n">colorTables</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Flatten</span><span class="p">[</span><span class="n">Table</span><span class="p">[</span>
+<span class="w">  </span><span class="n">Style</span><span class="p">[</span><span class="n">edgeLst</span><span class="p">[[</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">]],</span><span class="w"> </span><span class="n">Directive</span><span class="p">[</span><span class="n">cfunc</span><span class="p">[[</span><span class="n">i</span><span class="p">]],</span><span class="w"> </span><span class="n">AbsoluteThickness</span><span class="p">[</span><span class="mi">4</span><span class="p">]],</span><span class="w"> </span><span class="n">Opacity</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span>
+<span class="w">    </span><span class="p">{</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">Length</span><span class="o">@</span><span class="n">edgeLst</span><span class="p">[[</span><span class="n">i</span><span class="p">]]}],</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>Therefore:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">VisualizeQuotientSequences</span><span class="p">[</span><span class="n">QSS</span><span class="p">,</span>
+<span class="w">  </span><span class="n">EdgeArrowSize</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mf">0.01</span><span class="p">,</span><span class="w"> </span><span class="n">EdgeFilter</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">MemberQ</span><span class="p">[</span><span class="n">allEdges</span><span class="p">,</span><span class="w"> </span><span class="nv">#</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;</span><span class="p">),</span><span class="w"> </span>
+<span class="w">  </span><span class="n">EdgeStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Directive</span><span class="p">[</span><span class="n">Darker</span><span class="p">[</span><span class="n">Blue</span><span class="p">,</span><span class="w"> </span><span class="mf">0.25</span><span class="p">],</span><span class="w"> </span><span class="n">Thick</span><span class="p">,</span><span class="w"> </span><span class="n">Opacity</span><span class="p">[</span><span class="mf">0.2</span><span class="p">]],</span><span class="w"> </span>
+<span class="w">  </span><span class="n">HighlightSubgraph</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">True</span><span class="p">,</span><span class="w"> </span><span class="n">HighlightSubgraphEdgeStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">colorTables</span><span class="p">,</span><span class="w"> </span>
+<span class="w">  </span><span class="n">ImageSize</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">1140</span><span class="p">,</span><span class="w"> </span><span class="n">LayerDistributionFunction</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">(</span><span class="mf">6.5</span><span class="w"> </span><span class="n">Log</span><span class="p">[</span><span class="nv">#</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;</span><span class="p">),</span><span class="w"> </span>
+<span class="w">  </span><span class="n">VertexSize</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="n">VertexLabelPlacement</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Alternate&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<figure class="text-center">
+  <picture> 
+    <source type="image/svg+xml" srcset="../../media/figs/Tutorials/CoherentSequences/(2,8,8)-NormalSubgroupTreeGraph_BBG_66_ScS_ALLHigh.png">
+    <img src="../../media/figs/Tutorials/CoherentSequences/(2,8,8)-NormalSubgroupTreeGraph_BBG_66_ScS_ALLHigh.png" class="figure-img img-fluid rounded" alt="SubgroupTreegraph {8,8}-lattice BBG 66 scSQ 1" width="1000"/>
+  </picture>
+</figure>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Supercells.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Supercells</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Flat-bands.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Flat-bands</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preliminaries">Preliminaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-function-approach">Custom function approach</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-subgroup-tree-graph-approach">Normal subgroup tree graph approach</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#highlighting-multiple-coherent-sequences-bonus">Highlighting multiple coherent sequences (bonus)</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2023-2024, Patrick M. Lenggenhager, Joseph Maciejko and Tomáš Bzdušek. Website development and tutorials by Marcelo Looser.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

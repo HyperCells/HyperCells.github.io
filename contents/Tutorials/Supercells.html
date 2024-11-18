@@ -1,0 +1,759 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" data-theme="light">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Supercells &#8212; HyperCells &amp; HyperBloch</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=3519ded7" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'contents/Tutorials/Supercells';</script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Coherent sequences" href="Coherent_SC_sequences.html" />
+    <link rel="prev" title="Tutorials" href="tutorials.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1.0" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="light">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+    
+    <img src="../../_static/html_logo_HyperSupercells2_light.png" class="logo__image only-light" alt="HyperCells & HyperBloch - Home"/>
+    <img src="../../_static/html_logo_HyperSupercells2_dark.png" class="logo__image only-dark pst-js-only" alt="HyperCells & HyperBloch - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../About/about.html">
+    About
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Installation/installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../GettingStarted/getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="tutorials.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Documentation/documentation.html">
+    Documentation
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../Contribute/contribute.html">
+    How to contribute
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../Cite/cite.html">
+    How to cite
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../LicenseCopyright/licenseCopyright.html">
+    License and copyright
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/HyperCells" title="Github" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Github</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../About/about.html">
+    About
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Installation/installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../GettingStarted/getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="tutorials.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Documentation/documentation.html">
+    Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Contribute/contribute.html">
+    How to contribute
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Cite/cite.html">
+    How to cite
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../LicenseCopyright/licenseCopyright.html">
+    License and copyright
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/HyperCells" title="Github" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Github</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Supercells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Coherent_SC_sequences.html">Coherent sequences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Flat-bands.html">Flat-bands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Haldane_model.html">Haldane model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="HatanoNelson_model.html">Hatano-Nelson model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="HigherOrder_topology.html">Higher-order topology</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="tutorials.html" class="nav-link">Tutorials</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Supercells</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="supercells">
+<h1>Supercells<a class="headerlink" href="#supercells" title="Link to this heading">#</a></h1>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-success sd-bg-text-success">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-light-bulb" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg></span><span class="sd-summary-text">Learning goals</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<ul class="simple">
+<li><p class="sd-card-text">Construction of a supercell sequence.</p></li>
+<li><p class="sd-card-text">Application of the supercell method.</p></li>
+</ul>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-info sd-bg-text-info">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-gear" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a8.2 8.2 0 0 1 .701.031C9.444.095 9.99.645 10.16 1.29l.288 1.107c.018.066.079.158.212.224.231.114.454.243.668.386.123.082.233.09.299.071l1.103-.303c.644-.176 1.392.021 1.82.63.27.385.506.792.704 1.218.315.675.111 1.422-.364 1.891l-.814.806c-.049.048-.098.147-.088.294.016.257.016.515 0 .772-.01.147.038.246.088.294l.814.806c.475.469.679 1.216.364 1.891a7.977 7.977 0 0 1-.704 1.217c-.428.61-1.176.807-1.82.63l-1.102-.302c-.067-.019-.177-.011-.3.071a5.909 5.909 0 0 1-.668.386c-.133.066-.194.158-.211.224l-.29 1.106c-.168.646-.715 1.196-1.458 1.26a8.006 8.006 0 0 1-1.402 0c-.743-.064-1.289-.614-1.458-1.26l-.289-1.106c-.018-.066-.079-.158-.212-.224a5.738 5.738 0 0 1-.668-.386c-.123-.082-.233-.09-.299-.071l-1.103.303c-.644.176-1.392-.021-1.82-.63a8.12 8.12 0 0 1-.704-1.218c-.315-.675-.111-1.422.363-1.891l.815-.806c.05-.048.098-.147.088-.294a6.214 6.214 0 0 1 0-.772c.01-.147-.038-.246-.088-.294l-.815-.806C.635 6.045.431 5.298.746 4.623a7.92 7.92 0 0 1 .704-1.217c.428-.61 1.176-.807 1.82-.63l1.102.302c.067.019.177.011.3-.071.214-.143.437-.272.668-.386.133-.066.194-.158.211-.224l.29-1.106C6.009.645 6.556.095 7.299.03 7.53.01 7.764 0 8 0Zm-.571 1.525c-.036.003-.108.036-.137.146l-.289 1.105c-.147.561-.549.967-.998 1.189-.173.086-.34.183-.5.29-.417.278-.97.423-1.529.27l-1.103-.303c-.109-.03-.175.016-.195.045-.22.312-.412.644-.573.99-.014.031-.021.11.059.19l.815.806c.411.406.562.957.53 1.456a4.709 4.709 0 0 0 0 .582c.032.499-.119 1.05-.53 1.456l-.815.806c-.081.08-.073.159-.059.19.162.346.353.677.573.989.02.03.085.076.195.046l1.102-.303c.56-.153 1.113-.008 1.53.27.161.107.328.204.501.29.447.222.85.629.997 1.189l.289 1.105c.029.109.101.143.137.146a6.6 6.6 0 0 0 1.142 0c.036-.003.108-.036.137-.146l.289-1.105c.147-.561.549-.967.998-1.189.173-.086.34-.183.5-.29.417-.278.97-.423 1.529-.27l1.103.303c.109.029.175-.016.195-.045.22-.313.411-.644.573-.99.014-.031.021-.11-.059-.19l-.815-.806c-.411-.406-.562-.957-.53-1.456a4.709 4.709 0 0 0 0-.582c-.032-.499.119-1.05.53-1.456l.815-.806c.081-.08.073-.159.059-.19a6.464 6.464 0 0 0-.573-.989c-.02-.03-.085-.076-.195-.046l-1.102.303c-.56.153-1.113.008-1.53-.27a4.44 4.44 0 0 0-.501-.29c-.447-.222-.85-.629-.997-1.189l-.289-1.105c-.029-.11-.101-.143-.137-.146a6.6 6.6 0 0 0-1.142 0ZM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9.5 8a1.5 1.5 0 1 0-3.001.001A1.5 1.5 0 0 0 9.5 8Z"></path></svg></span><span class="sd-summary-text">Featured functions</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>HyperCells:</strong></p>
+<code class="code-gap">
+Export, ProperTriangleGroup, TessellationModelGraph, TGCellGraph, TGCellSymmetric, TGQuotient, TGSuperCellModelGraph
+</code>
+<br></br>
+<p class="sd-card-text"><strong>HyperBloch:</strong></p>
+<code class="code-Mathematica">
+AbelianBlochHamiltonian, ImportModelGraphString, ImportSupercellModelGraphString
+</code>
+</div>
+</details><p>The HyperCells package provides a framework for an efficient construction of <strong>supercells</strong>. These supercells are formed by aggregates of primitive cells into larger unit cells. Particular <strong>sequences</strong> of supercells enable the application of the <strong>supercell method</strong>, which lets us access <strong>higher-dimensional irreducible representations</strong> on the original primitive cell through <strong>Abelian hyperbolic band theory</strong> implemented in the HyperBloch package. The supercell method enables us to iteratively accumulate more and more higher-dimensional irreducible representations through the consecutive supercells associated with a so-called <strong>coherent sequence</strong> of translation groups specified through triangle group quotients.</p>
+<section id="constructing-a-supercell-sequence">
+<h2>Constructing a supercell sequence<a class="headerlink" href="#constructing-a-supercell-sequence" title="Link to this heading">#</a></h2>
+<p>Appropriate supercell sequences, associated with corresponding translation group sequences, are restricted to so-called <strong>coherent sequences</strong> of translation groups. The workflow to identify such sequences will be discussed in more depth in the next tutorial <a class="reference internal" href="Coherent_SC_sequences.html"><span class="std std-doc">Coherent sequences</span></a>. So long, let us construct an appropriate supercell sequence in order to use the supercell method for an elementary tight-binding model on the <span class="math notranslate nohighlight">\(\{8,8\}\)</span>-lattice.</p>
+<p>Previously, in <a class="reference internal" href="../GettingStarted/getSetGo_HyperCells.html"><span class="std std-doc">Getting started with HyperCells</span></a> and <a class="reference internal" href="../GettingStarted/getSetGo_HyperBloch.html"><span class="std std-doc">Getting started with HyperBloch</span></a> package, we have seen how a primitive cell and one supercell on the <span class="math notranslate nohighlight">\(\{8,8\}\)</span>-lattice can be constructed. This minimal sequence can be extended with consecutive <strong>m-supercell</strong>s by considering higher order quotient groups <span class="math notranslate nohighlight">\(\Delta^{+}/\Gamma^{(m)}\)</span>.</p>
+<p>We choose the following supercell sequence identified with quotient groups in <a target="_blank" href="https://patrick-lenggenhager.github.io/HyperCells/doc/chapBib_mj.html#biBConder:2007">Marston Conder’s</a> list:</p>
+<p style="text-align: center;">
+<b>Supercell sequence 1</b>: &emsp; <code class="code-gap">T2.6</code>, <code class="code-gap">T3.11</code>, <code class="code-gap">T5.13</code>, <code class="code-gap">T9.20</code>, <code class="code-gap">T17.29</code>, <code class="code-gap">T33.44</code> and <code class="code-gap">T65.78</code> 
+</p>
+<p>They are denoted as <code class="code-gap">Tg.n</code>, where <code class="code-gap">g</code> is the genus of the corresponding closed Riemann surface, i.e., the compactified unit cell, the corresponding quotients acts upon and <code class="code-gap">n</code> is the <code class="code-gap">n</code>’th quotient group with that genus. The primitive cell is identified with the quotient <code class="code-gap">T2.6</code>.</p>
+<p>First, let us construct the proper triangle group <span class="math notranslate nohighlight">\(\Delta^{+}\)</span> together with the primitive cell <code class="code-gap">T2.6</code> and the model graph, based on the tessellation graph, in <strong>GAP</strong>:</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="c1"># load the HyperCells package</span>
+<span class="nv">LoadPackage</span><span class="p">(</span> <span class="s">&quot;HyperCells&quot;</span> <span class="p">)</span><span class="o">;</span>
+
+<span class="c1"># set up proper triangle group</span>
+<span class="nv">tg</span> <span class="o">:=</span> <span class="nv">ProperTriangleGroup</span><span class="p">(</span> <span class="p">[</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">8</span><span class="o">,</span> <span class="nv">8</span> <span class="p">]</span> <span class="p">)</span><span class="o">;</span>
+
+<span class="c1"># Primitive cell:</span>
+<span class="c1"># ---------------</span>
+
+<span class="c1"># specify the quotient defining the primitive cell</span>
+<span class="nv">qpc</span> <span class="o">:=</span> <span class="nv">TGQuotient</span><span class="p">(</span> <span class="p">[</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">6</span> <span class="p">]</span><span class="o">,</span> <span class="p">[</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">8</span><span class="o">,</span> <span class="nv">8</span> <span class="p">]</span> <span class="p">)</span><span class="o">;</span>
+
+<span class="c1"># construct symmetric primitive cell</span>
+<span class="nv">cgpc</span> <span class="o">:=</span> <span class="nv">TGCellGraph</span><span class="p">(</span> <span class="nv">tg</span><span class="o">,</span> <span class="nv">qpc</span><span class="o">,</span> <span class="nv">3</span> : <span class="nv">simplify</span> <span class="o">:=</span> <span class="nv">5</span> <span class="p">)</span><span class="o">;</span>
+
+<span class="c1"># elementary nearest-neighbor model</span>
+<span class="nv">model</span> <span class="o">:=</span> <span class="nv">TessellationModelGraph</span><span class="p">(</span> <span class="nv">cgpc</span><span class="o">,</span> <span class="no">true</span> : <span class="nv">simplify</span> <span class="o">:=</span> <span class="nv">5</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">Export</span><span class="p">(</span> <span class="nv">model</span><span class="o">,</span> <span class="s">&quot;{8,8}-tess_T2.6_3.hcm&quot;</span> <span class="p">)</span><span class="o">;</span> <span class="c1"># export</span>
+</pre></div>
+</div>
+<p>The nearest-neighbor supercell model graphs for the <span class="math notranslate nohighlight">\(\{8,8\}\)</span>-tesselation of the hyperbolic plane are easily extracted by iterating over the list of quotients <code class="code-gap">sc_lst</code> that specify our chosen supercell sequence:</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="c1"># Supercells:</span>
+<span class="c1"># -----------</span>
+
+<span class="nv">sc_lst</span> <span class="o">:=</span> <span class="p">[[</span><span class="nv">3</span><span class="o">,</span> <span class="nv">11</span><span class="p">]</span><span class="o">,</span> <span class="p">[</span><span class="nv">5</span><span class="o">,</span> <span class="nv">13</span><span class="p">]</span><span class="o">,</span> <span class="p">[</span><span class="nv">9</span><span class="o">,</span> <span class="nv">20</span><span class="p">]</span><span class="o">,</span> <span class="p">[</span><span class="nv">17</span><span class="o">,</span> <span class="nv">29</span><span class="p">]</span><span class="o">,</span> <span class="p">[</span><span class="nv">33</span><span class="o">,</span> <span class="nv">44</span><span class="p">]</span><span class="o">,</span> <span class="p">[</span><span class="nv">65</span><span class="o">,</span> <span class="nv">78</span><span class="p">]]</span><span class="o">;</span>
+
+<span class="k">for</span> <span class="nv">sc_i_index</span> <span class="ow">in</span> <span class="nv">sc_lst</span> <span class="k">do</span>
+  
+  <span class="c1"># quotient group </span>
+  <span class="nv">qsc_i</span> <span class="o">:=</span> <span class="nv">TGQuotient</span><span class="p">(</span> <span class="nv">sc_i_index</span> <span class="p">)</span><span class="o">;</span>
+
+  <span class="c1"># construct tessellation graphs</span>
+  <span class="nv">sc_i</span> <span class="o">:=</span> <span class="nv">TGCellSymmetric</span><span class="p">(</span><span class="nv">tg</span><span class="o">,</span> <span class="nv">qsc_i</span><span class="o">,</span> <span class="nv">3</span><span class="p">)</span><span class="o">;</span>
+  <span class="nv">scmodel_i</span> <span class="o">:=</span> <span class="nv">TGSuperCellModelGraph</span><span class="p">(</span><span class="nv">model</span><span class="o">,</span> <span class="nv">sc_i</span><span class="p">)</span><span class="o">;</span>
+
+  <span class="c1"># export file</span>
+  <span class="nv">sc_i_label</span> <span class="o">:=</span> <span class="nv">StringFormatted</span><span class="p">(</span><span class="s">&quot;-tess_T2.6_3_sc-T{}.{}.hcs&quot;</span><span class="o">,</span> <span class="nv">sc_i_index</span><span class="p">[</span><span class="nv">1</span><span class="p">]</span><span class="o">,</span> <span class="nv">sc_i_index</span><span class="p">[</span><span class="nv">2</span><span class="p">])</span><span class="o">;</span>
+  <span class="nv">scmodel_i_name</span> <span class="o">:=</span> <span class="nv">JoinStringsWithSeparator</span><span class="p">([</span><span class="s">&quot;{8,8}&quot;</span><span class="o">,</span> <span class="nv">sc_i_label</span><span class="p">]</span><span class="o">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span><span class="o">;</span>
+  <span class="nv">Export</span><span class="p">(</span><span class="nv">scmodel_i</span><span class="o">,</span>  <span class="nv">scmodel_i_name</span><span class="p">)</span><span class="o">;</span>
+<span class="k">od</span><span class="o">;</span>
+</pre></div>
+</div>
+</section>
+<section id="the-supercell-method">
+<h2>The supercell method<a class="headerlink" href="#the-supercell-method" title="Link to this heading">#</a></h2>
+<p>We are ready to apply the <strong>supercell method</strong> in <strong>Mathematica</strong> using the HyperBloch package, provided the necessary files with the sequence of supercells are present and located in the directory of the Mathematica notebook. We load the HyperBloch package, set the working directory of the files we have created through the HyperCells package and in addition define a list of available unit cells:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="nn">PatrickMLenggenhager`HyperBloch`</span>
+<span class="n">SetDirectory</span><span class="p">[</span><span class="n">NotebookDirectory</span><span class="p">[]];</span>
+<span class="w"> </span>
+<span class="n">cells</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;T2.6&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;T3.11&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;T5.13&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;T9.20&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;T17.29&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;T33.44&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;T65.78&quot;</span><span class="p">};</span>
+</pre></div>
+</div>
+<p>where we consider the unit cell <code class="code-Mathematica">T2.6</code> as the primitive cell. The model  graph can now be imported by parsing the imported strings with the functions <code class="code-gap">ImportModelGraphString</code>:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">pcmodel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ImportModelGraphString</span><span class="p">[</span><span class="n">Import</span><span class="p">[</span><span class="s">&quot;{8,8}-tess_T2.6_3.hcm&quot;</span><span class="p">]];</span>
+</pre></div>
+</div>
+<p>We repeat this procedure for the consecutive supercell model graphs by parsing the imported strings with the function <code class="code-gap">ImportSupercellModelGraphString</code> instead:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">scmodels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Association</span><span class="p">[</span><span class="nv">#</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span>
+<span class="w">    </span><span class="n">ImportSupercellModelGraphString</span><span class="p">[</span><span class="n">Import</span><span class="p">[</span><span class="s">&quot;{8,8}-tess_T2.6_3_sc-&quot;</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="nv">#</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s">&quot;.hcs&quot;</span><span class="p">]]</span>
+<span class="w">  </span><span class="o">&amp;/@</span><span class="n">cells</span><span class="p">[[</span><span class="mi">2</span><span class="w"> </span><span class="o">;;</span><span class="p">]]];</span>
+</pre></div>
+</div>
+<p>In addition we extract an ordered <code class="code-Mathematica">Association</code>, containing the genera of the compactified unit cells, programmatically:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">genusLst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Join</span><span class="p">[</span>
+<span class="w">  </span><span class="n">Association</span><span class="p">[</span><span class="n">cells</span><span class="p">[[</span><span class="mi">1</span><span class="p">]]</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">pcmodel</span><span class="p">[</span><span class="s">&quot;Genus&quot;</span><span class="p">]],</span>
+<span class="w">  </span><span class="n">Association</span><span class="p">[</span><span class="nv">#</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">scmodels</span><span class="p">[</span><span class="nv">#</span><span class="p">][</span><span class="s">&quot;Genus&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">/@</span><span class="w"> </span><span class="n">cells</span><span class="p">[[</span><span class="mi">2</span><span class="w"> </span><span class="o">;;</span><span class="p">]]]</span><span class="w"> </span><span class="p">];</span>
+</pre></div>
+</div>
+<p>Once the (supercell) model graphs are imported the corresponding Abelian Bloch Hamiltonians can be constructed. We choose to construct an elementary nearest-neighbor tight-binding model with one orbital per site, the on-site terms set to <span class="math notranslate nohighlight">\(0\)</span> and the nearest-neighbor hopping amplitudes set to <span class="math notranslate nohighlight">\(-1\)</span>. Once again, we start with the primitive cell:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">Hpc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AbelianBlochHamiltonian</span><span class="p">[</span><span class="n">pcmodel</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="n">CompileFunction</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">True</span><span class="p">];</span><span class="w"> </span>
+</pre></div>
+</div>
+<p>Recall, the construction of the model on the primitive cell already defines all the model specification for the supercell. As such we just need to replace the model graph with the supercell model graphs in the first argument and pass the model graph to the option <code class="code-Mathematica">PCModel</code>:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">Hsclst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Association</span><span class="p">[</span><span class="nv">#</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span>
+<span class="w">    </span><span class="n">AbelianBlochHamiltonian</span><span class="p">[</span><span class="n">scmodels</span><span class="p">[</span><span class="nv">#</span><span class="p">],</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="n">PCModel</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">pcmodel</span><span class="p">,</span><span class="w"> </span><span class="n">CompileFunction</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">True</span><span class="p">]</span><span class="w"> </span>
+<span class="w">  </span><span class="o">&amp;</span><span class="w"> </span><span class="o">/@</span><span class="w"> </span><span class="n">cells</span><span class="p">[[</span><span class="mi">2</span><span class="w"> </span><span class="o">;;</span><span class="p">]]</span><span class="w"> </span><span class="p">];</span>
+</pre></div>
+</div>
+<p>where we have used an Association to extract the Hamiltonians, with the previously defined labels serving as keys later. For convenience, let us collect the constructed Hamiltonians in a single Association:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">Hclst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Join</span><span class="p">[</span><span class="n">Association</span><span class="p">[</span><span class="n">cells</span><span class="p">[[</span><span class="mi">1</span><span class="p">]]</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Hpc</span><span class="p">],</span><span class="w"> </span><span class="n">Hsclst</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>Next, we want to compute the density of states. We can take advantage of the independence of different momentum sectors and parallelize the computation of the Eigenvalues, where we partition the set of <code class="code-Mathematica">Npts</code> into <code class="code-Mathematica">Nruns</code> subsets. This can be done as follows:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">ComputeEigenvalues</span><span class="p">[</span><span class="nv">cfH_</span><span class="p">,</span><span class="w"> </span><span class="nv">Npts_</span><span class="p">,</span><span class="w"> </span><span class="nv">Nruns_</span><span class="p">,</span><span class="w"> </span><span class="nv">genus_</span><span class="p">]</span><span class="w"> </span><span class="o">:=</span>
+<span class="w"> </span><span class="n">Flatten</span><span class="o">@</span><span class="n">ParallelTable</span><span class="p">[</span>
+<span class="w">  </span><span class="n">Flatten</span><span class="o">@</span><span class="n">Table</span><span class="p">[</span>
+<span class="w">      </span><span class="n">Eigenvalues</span><span class="p">[</span><span class="n">cfH</span><span class="w"> </span><span class="o">@@</span><span class="w"> </span><span class="n">RandomReal</span><span class="p">[{</span><span class="o">-</span><span class="n">Pi</span><span class="p">,</span><span class="w"> </span><span class="n">Pi</span><span class="p">},</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">genus</span><span class="p">]],</span><span class="w"> </span>
+<span class="w">    </span><span class="p">{</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">Round</span><span class="p">[</span><span class="n">Npts</span><span class="o">/</span><span class="n">Nruns</span><span class="p">]}],</span><span class="w"> </span><span class="p">{</span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">Nruns</span><span class="p">},</span><span class="w"> </span>
+<span class="w">  </span><span class="n">Method</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;FinestGrained&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>We compute the Eigenvalues with a set of  <span class="math notranslate nohighlight">\(5 \cdot 10^4\)</span> random samples in momentum space and <span class="math notranslate nohighlight">\(32\)</span> subsets:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">evals</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">Association</span><span class="p">[</span><span class="nv">#</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">ComputeEigenvalues</span><span class="p">[</span><span class="n">Hclst</span><span class="p">[</span><span class="nv">#</span><span class="p">],</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">10</span><span class="o">^</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="n">genusLst</span><span class="p">[</span><span class="nv">#</span><span class="p">]]</span><span class="o">&amp;/@</span><span class="n">cells</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>Let us use the following color maps for the individual unit cells:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">cLst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ColorData</span><span class="p">[</span><span class="s">&quot;SunsetColors&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ColorFunction&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">/@</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Range</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">]</span><span class="o">/</span><span class="mf">7.</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>We can nicely observe the convergence of the DOS:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">SmoothHistogram</span><span class="p">[</span><span class="n">evals</span><span class="p">,</span><span class="w"> </span><span class="mf">0.05</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;PDF&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="n">Frame</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">True</span><span class="p">,</span><span class="w"> </span><span class="n">FrameLabel</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;Energy E&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Density of states&quot;</span><span class="p">}</span><span class="w"> </span><span class="n">FrameStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Black</span><span class="p">,</span><span class="w"> </span>
+<span class="w">  </span><span class="n">ImageSize</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w"> </span><span class="n">ImagePadding</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{{</span><span class="n">Automatic</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">Automatic</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">}},</span><span class="w"> </span><span class="n">LabelStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<span class="w">  </span><span class="n">PlotLabel</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;k sampling: 5*10^4&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">PlotRange</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">All</span><span class="p">,</span><span class="w"> </span><span class="n">PlotStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">cLst</span><span class="p">]</span>
+</pre></div>
+</div>
+<figure class="text-center">
+  <picture> 
+    <source type="image/svg+xml" srcset="../../media/figs/Tutorials/Supercells/dos_88_scm1.png">
+    <img src="../../media/figs/Tutorials/Supercells/dos_88_scm1.png" class="figure-img img-fluid rounded" alt="{8,8}-lattice NN-TB model DOS 1st supercell sequence" width="600"/>
+  </picture>
+</figure>
+</section>
+<section id="alternative-supercell-sequences">
+<h2>Alternative supercell sequences<a class="headerlink" href="#alternative-supercell-sequences" title="Link to this heading">#</a></h2>
+<p>Let us also consider alternative sequences of supercells to verify the independence of the thermodynamic limit on the particular choice of sequence. We choose to construct two alternative sequences:</p>
+<p style="text-align: center;">
+<b>Supercell sequence 1A</b>: &emsp; <code class="code-gap">T3.10</code>, <code class="code-gap">T5.13</code>, <code class="code-gap">T9.22</code>, <code class="code-gap">T17.35</code>, <code class="code-gap">T33.58</code> and <code class="code-gap">T65.81</code> 
+</p>
+<p>and</p>
+<p style="text-align: center;">
+<b>Supercell sequence 2A</b>: &emsp; <code class="code-gap">T5.12</code>, <code class="code-gap">T9.22</code>, <code class="code-gap">T17.32</code>, <code class="code-gap">T33.46</code> and <code class="code-gap">T65.79</code> 
+</p>
+<p>We omit further details and leave the construction of the model and supercell model graphs in GAP, as well as the steps in Mathematica leading to the Eigenvalues for the density of states as an exercise. However, further details can be found in the downloadable files at the end of this page. The steps above can be repeated provided appropriate adjustments are preformed, resulting in the density of states as shown below. For the supercell sequence 1A the density of states looks as follows:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">SmoothHistogram</span><span class="p">[</span><span class="n">evals</span><span class="p">,</span><span class="w"> </span><span class="mf">0.05</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;PDF&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="n">Frame</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">True</span><span class="p">,</span><span class="w"> </span><span class="n">FrameLabel</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;Energy E&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Density of states&quot;</span><span class="p">}</span><span class="w"> </span><span class="n">FrameStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Black</span><span class="p">,</span><span class="w"> </span>
+<span class="w">  </span><span class="n">ImageSize</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w"> </span><span class="n">ImagePadding</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{{</span><span class="n">Automatic</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">Automatic</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">}},</span><span class="w"> </span><span class="n">LabelStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<span class="w">  </span><span class="n">PlotLabel</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;k sampling: 5*10^4&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">PlotRange</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">All</span><span class="p">,</span><span class="w"> </span><span class="n">PlotStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">cLst</span><span class="p">]</span>
+</pre></div>
+</div>
+<figure class="text-center">
+  <picture> 
+    <source type="image/svg+xml" srcset="../../media/figs/Tutorials/Supercells/dos_88_alt_scm1.png">
+    <img src="../../media/figs/Tutorials/Supercells/dos_88_alt_scm1.png" class="figure-img img-fluid rounded" alt="{8,8}-lattice NN-TB model DOS 1st supercell sequence" width="600"/>
+  </picture>
+</figure>
+<p>and for the supercell sequence 2A:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">SmoothHistogram</span><span class="p">[</span><span class="n">evals</span><span class="p">,</span><span class="w"> </span><span class="mf">0.05</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;PDF&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="n">Frame</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">True</span><span class="p">,</span><span class="w"> </span><span class="n">FrameLabel</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;Energy E&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Density of states&quot;</span><span class="p">}</span><span class="w"> </span><span class="n">FrameStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Black</span><span class="p">,</span><span class="w"> </span>
+<span class="w">  </span><span class="n">ImageSize</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w"> </span><span class="n">ImagePadding</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{{</span><span class="n">Automatic</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">Automatic</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">}},</span><span class="w"> </span><span class="n">LabelStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<span class="w">  </span><span class="n">PlotLabel</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;k sampling: 5*10^4&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">PlotRange</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">All</span><span class="p">,</span><span class="w"> </span><span class="n">PlotStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">cLst</span><span class="p">]</span>
+</pre></div>
+</div>
+<figure class="text-center">
+  <picture> 
+    <source type="image/svg+xml" srcset="../../media/figs/Tutorials/Supercells/dos_88_alt_scm2.png">
+    <img src="../../media/figs/Tutorials/Supercells/dos_88_alt_scm2.png" class="figure-img img-fluid rounded" alt="{8,8}-lattice NN-TB model DOS 1st supercell sequence" width="600"/>
+  </picture>
+</figure>
+<div class="flex ">
+  <a href="../../misc/code_snippets/Tutorials/Supercells/tutorial_Supercells_HyperCells_sc_sequence_files.zip" class="btn btn-primary" class="flex-child"><i class="fa-solid fa-download"></i> Download generated files</a>
+  <a href="../../misc/code_snippets/Tutorials/Supercells/tutorial_Supercells_HyperCells.g" class="btn btn-primary" class="flex-child"><i class="fa-solid fa-download"></i> Download GAP Code</a>
+  <a href="../../misc/code_snippets/Tutorials/Supercells/tutorial_Supercells_HyperBloch.nb" class="btn btn-primary"><i class="fa-solid fa-download"></i> Download Mathematica Notebook</a>
+</div>
+<br>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="tutorials.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Tutorials</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Coherent_SC_sequences.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Coherent sequences</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constructing-a-supercell-sequence">Constructing a supercell sequence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-supercell-method">The supercell method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-supercell-sequences">Alternative supercell sequences</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2023-2024, Patrick M. Lenggenhager, Joseph Maciejko and Tomáš Bzdušek. Website development and tutorials by Marcelo Looser.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

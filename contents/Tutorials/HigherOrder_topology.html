@@ -1,0 +1,1077 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" data-theme="light">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Higher-order topology &#8212; HyperCells &amp; HyperBloch</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=3519ded7" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'contents/Tutorials/HigherOrder_topology';</script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Documentation" href="../Documentation/documentation.html" />
+    <link rel="prev" title="Hatano-Nelson model" href="HatanoNelson_model.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1.0" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="light">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+    
+    <img src="../../_static/html_logo_HyperSupercells2_light.png" class="logo__image only-light" alt="HyperCells & HyperBloch - Home"/>
+    <img src="../../_static/html_logo_HyperSupercells2_dark.png" class="logo__image only-dark pst-js-only" alt="HyperCells & HyperBloch - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../About/about.html">
+    About
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Installation/installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../GettingStarted/getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="tutorials.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Documentation/documentation.html">
+    Documentation
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../Contribute/contribute.html">
+    How to contribute
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../Cite/cite.html">
+    How to cite
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../LicenseCopyright/licenseCopyright.html">
+    License and copyright
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/HyperCells" title="Github" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Github</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../About/about.html">
+    About
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Installation/installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../GettingStarted/getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="tutorials.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Documentation/documentation.html">
+    Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Contribute/contribute.html">
+    How to contribute
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Cite/cite.html">
+    How to cite
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../LicenseCopyright/licenseCopyright.html">
+    License and copyright
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/HyperCells" title="Github" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Github</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Supercells.html">Supercells</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Coherent_SC_sequences.html">Coherent sequences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Flat-bands.html">Flat-bands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Haldane_model.html">Haldane model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="HatanoNelson_model.html">Hatano-Nelson model</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Higher-order topology</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="tutorials.html" class="nav-link">Tutorials</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Higher-order topology</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="higher-order-topology">
+<h1>Higher-order topology<a class="headerlink" href="#higher-order-topology" title="Link to this heading">#</a></h1>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-success sd-bg-text-success">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-light-bulb" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg></span><span class="sd-summary-text">Learning goals</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Construction of:</p>
+<ul class="simple">
+<li><p class="sd-card-text">elementary nearest-neighbor model with multiple orbitals per site,</p></li>
+<li><p class="sd-card-text">finite flakes and the computation of energy spectra with open boundary conditions</p></li>
+<li><p class="sd-card-text">and construction of disclination defects with negative Frank angles.</p></li>
+</ul>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-info sd-bg-text-info">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-gear" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a8.2 8.2 0 0 1 .701.031C9.444.095 9.99.645 10.16 1.29l.288 1.107c.018.066.079.158.212.224.231.114.454.243.668.386.123.082.233.09.299.071l1.103-.303c.644-.176 1.392.021 1.82.63.27.385.506.792.704 1.218.315.675.111 1.422-.364 1.891l-.814.806c-.049.048-.098.147-.088.294.016.257.016.515 0 .772-.01.147.038.246.088.294l.814.806c.475.469.679 1.216.364 1.891a7.977 7.977 0 0 1-.704 1.217c-.428.61-1.176.807-1.82.63l-1.102-.302c-.067-.019-.177-.011-.3.071a5.909 5.909 0 0 1-.668.386c-.133.066-.194.158-.211.224l-.29 1.106c-.168.646-.715 1.196-1.458 1.26a8.006 8.006 0 0 1-1.402 0c-.743-.064-1.289-.614-1.458-1.26l-.289-1.106c-.018-.066-.079-.158-.212-.224a5.738 5.738 0 0 1-.668-.386c-.123-.082-.233-.09-.299-.071l-1.103.303c-.644.176-1.392-.021-1.82-.63a8.12 8.12 0 0 1-.704-1.218c-.315-.675-.111-1.422.363-1.891l.815-.806c.05-.048.098-.147.088-.294a6.214 6.214 0 0 1 0-.772c.01-.147-.038-.246-.088-.294l-.815-.806C.635 6.045.431 5.298.746 4.623a7.92 7.92 0 0 1 .704-1.217c.428-.61 1.176-.807 1.82-.63l1.102.302c.067.019.177.011.3-.071.214-.143.437-.272.668-.386.133-.066.194-.158.211-.224l.29-1.106C6.009.645 6.556.095 7.299.03 7.53.01 7.764 0 8 0Zm-.571 1.525c-.036.003-.108.036-.137.146l-.289 1.105c-.147.561-.549.967-.998 1.189-.173.086-.34.183-.5.29-.417.278-.97.423-1.529.27l-1.103-.303c-.109-.03-.175.016-.195.045-.22.312-.412.644-.573.99-.014.031-.021.11.059.19l.815.806c.411.406.562.957.53 1.456a4.709 4.709 0 0 0 0 .582c.032.499-.119 1.05-.53 1.456l-.815.806c-.081.08-.073.159-.059.19.162.346.353.677.573.989.02.03.085.076.195.046l1.102-.303c.56-.153 1.113-.008 1.53.27.161.107.328.204.501.29.447.222.85.629.997 1.189l.289 1.105c.029.109.101.143.137.146a6.6 6.6 0 0 0 1.142 0c.036-.003.108-.036.137-.146l.289-1.105c.147-.561.549-.967.998-1.189.173-.086.34-.183.5-.29.417-.278.97-.423 1.529-.27l1.103.303c.109.029.175-.016.195-.045.22-.313.411-.644.573-.99.014-.031.021-.11-.059-.19l-.815-.806c-.411-.406-.562-.957-.53-1.456a4.709 4.709 0 0 0 0-.582c-.032-.499.119-1.05.53-1.456l.815-.806c.081-.08.073-.159.059-.19a6.464 6.464 0 0 0-.573-.989c-.02-.03-.085-.076-.195-.046l-1.102.303c-.56.153-1.113.008-1.53-.27a4.44 4.44 0 0 0-.501-.29c-.447-.222-.85-.629-.997-1.189l-.289-1.105c-.029-.11-.101-.143-.137-.146a6.6 6.6 0 0 0-1.142 0ZM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9.5 8a1.5 1.5 0 1 0-3.001.001A1.5 1.5 0 0 0 9.5 8Z"></path></svg></span><span class="sd-summary-text">Featured functions</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>HyperBloch:</strong></p>
+<code class="code-Mathematica">
+AbelianBlochHamiltonian, IntroduceDisclination, ShowCellBoundary, ShowCellGraphFlattened, TBHamiltonian, VisualizeModelGraph
+</code>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-warning sd-bg-text-warning">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-tools" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.433 2.304A4.492 4.492 0 0 0 3.5 6c0 1.598.832 3.002 2.09 3.802.518.328.929.923.902 1.64v.008l-.164 3.337a.75.75 0 1 1-1.498-.073l.163-3.33c.002-.085-.05-.216-.207-.316A5.996 5.996 0 0 1 2 6a5.993 5.993 0 0 1 2.567-4.92 1.482 1.482 0 0 1 1.673-.04c.462.296.76.827.76 1.423v2.82c0 .082.041.16.11.206l.75.51a.25.25 0 0 0 .28 0l.75-.51A.249.249 0 0 0 9 5.282V2.463c0-.596.298-1.127.76-1.423a1.482 1.482 0 0 1 1.673.04A5.993 5.993 0 0 1 14 6a5.996 5.996 0 0 1-2.786 5.068c-.157.1-.209.23-.207.315l.163 3.33a.752.752 0 0 1-1.094.714.75.75 0 0 1-.404-.64l-.164-3.345c-.027-.717.384-1.312.902-1.64A4.495 4.495 0 0 0 12.5 6a4.492 4.492 0 0 0-1.933-3.696c-.024.017-.067.067-.067.16v2.818a1.75 1.75 0 0 1-.767 1.448l-.75.51a1.75 1.75 0 0 1-1.966 0l-.75-.51A1.75 1.75 0 0 1 5.5 5.282V2.463c0-.092-.043-.142-.067-.159Z"></path></svg></span><span class="sd-summary-text">Needed functions</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>Mathematica:</strong></p>
+<p class="sd-card-text">In previous tutorials, such as <a class="reference internal" href="../GettingStarted/getSetGo_HyperBloch.html"><span class="std std-doc">Getting started with the HyperBloch package</span></a> and HyperBloch <a class="reference internal" href="Supercells.html"><span class="std std-doc">Supercells</span></a> tutorial etc., we have calculated the density of states of various nearest-neighbor tight-binding models via exact diagonalization and random samples. We predefine a function in order to calculate the eigenvalues for the Abelian Bloch Hamiltonians that we will construct. We  take advantage of the independence of different momentum sectors and parallelize the computation, where we partition the set of <code class="code-Mathematica">Npts</code> into <code class="code-Mathematica">Nruns</code> subsets:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">ComputeEigenvalues</span><span class="p">[</span><span class="nv">cfH_</span><span class="p">,</span><span class="w"> </span><span class="nv">Npts_</span><span class="p">,</span><span class="w"> </span><span class="nv">Nruns_</span><span class="p">,</span><span class="w"> </span><span class="nv">genus_</span><span class="p">]</span><span class="w"> </span><span class="o">:=</span>
+<span class="w"> </span><span class="n">Flatten</span><span class="o">@</span><span class="n">ParallelTable</span><span class="p">[</span>
+<span class="w">   </span><span class="n">Flatten</span><span class="o">@</span><span class="n">Table</span><span class="p">[</span>
+<span class="w">     </span><span class="n">Eigenvalues</span><span class="p">[</span><span class="n">cfH</span><span class="w"> </span><span class="o">@@</span><span class="w"> </span><span class="n">RandomReal</span><span class="p">[{</span><span class="o">-</span><span class="n">Pi</span><span class="p">,</span><span class="w"> </span><span class="n">Pi</span><span class="p">},</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">genus</span><span class="p">]],</span><span class="w"> </span>
+<span class="w">    </span><span class="p">{</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">Round</span><span class="p">[</span><span class="n">Npts</span><span class="o">/</span><span class="n">Nruns</span><span class="p">]}],</span><span class="w"> </span><span class="p">{</span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">Nruns</span><span class="p">},</span><span class="w"> </span>
+<span class="w">  </span><span class="n">Method</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;FinestGrained&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</details><p>In this tutorial we will see how model graphs can be endowed with <strong>multiple orbitals</strong> per site using the HyperBloch package. This enables us to assign hopping amplitudes in a particular configuration such that we can describe a variant of the Benalcazar-Bernevig-Hughes model, <strong>BBH model</strong>, exhibiting a <strong>higher-order topological</strong> phase. We will showcase how the HyperBloch package can be used to demonstrate the <strong>bulk-boundary correspondence</strong> in a higher-order topological phase through the introduction of <strong>disclination-defects</strong> in <strong>finite flakes</strong>.</p>
+<div class="seealso-icon admonition">
+<p class="admonition-title">Return to page <a class="reference internal" href="HatanoNelson_model.html"><span class="std std-doc">Hatano-Nelson model</span></a></p>
+<p>This tutorial uses the <span class="math notranslate nohighlight">\(\{6,4\}\)</span>-tesselation model graphs constructed in the previous tutorial “Hatano-Nelson model”. There, in the first section “Prerequisites”, the corresponding files can be constructed by following the instructions or directly downloaded using the download buttons.</p>
+</div>
+<section id="multiple-orbitals">
+<h2>Multiple orbitals<a class="headerlink" href="#multiple-orbitals" title="Link to this heading">#</a></h2>
+<p>Every model graph can be equipped with multiple orbitals per site, and even with a varying number of orbitals at each site. This can be achieved by specifying matrices dictating the coupling configuration.</p>
+<p>We choose to endow the <span class="math notranslate nohighlight">\(\{6,4\}\)</span>-lattice with four orbitals per site:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">norbits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Imagine placing a set of four orbitals, numbered from 1 to 4, uniformly around each vertex in the model graph. The on-site terms for the individual orbitals are constructed by specifying a <span class="math notranslate nohighlight">\(4\)</span>x<span class="math notranslate nohighlight">\(4\)</span> identity matrix for each vertex, which we choose to set to zero:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">onsiteMassMat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span>
+<span class="w">   </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span>
+<span class="w">   </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span>
+<span class="w">   </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">}};</span>
+</pre></div>
+</div>
+<p>By choosing the assigned numbers of the orbitals to increase in counter-clockwise direction around a vertex, we are able to define a undirected cycle of <strong>intra-site hopping</strong> terms. These hopping amplitudes can be defined at the level of the vertex on-site terms as well, through the corresponding matrix:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">onsiteInteractionMat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">},</span>
+<span class="w">   </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span>
+<span class="w">   </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">},</span>
+<span class="w">   </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">}};</span>
+</pre></div>
+</div>
+<p>For example, the first row in the matrix <code class="code-Mathematica" style="font-size:1.1em;">onsiteMat</code> describes the hopping amplitudes of orbital 1, which couples with orbitals 2 and 4. These coupling constants can be assigned by associating the amplitudes with vertices in the model graph:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">vertices</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">VertexList</span><span class="o">@</span><span class="n">pcmodel</span><span class="p">[</span><span class="s">&quot;Graph&quot;</span><span class="p">];</span>
+<span class="n">onsitePC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AssociationThread</span><span class="p">[</span><span class="n">vertices</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">ConstantArray</span><span class="p">[</span><span class="n">onsiteMassMat</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">onsiteInteractionMat</span><span class="p">,</span><span class="w"> </span><span class="n">Length</span><span class="o">@</span><span class="n">vertices</span><span class="p">]];</span>
+</pre></div>
+</div>
+<p><strong>Intra-site hopping</strong> amplitudes need to be assigned with more care. We need to consider the individual edges in the model graph, and as such it is instructive to take a look at the list of edges:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">EdgeList</span><span class="o">@</span><span class="n">pcmodel</span><span class="p">[</span><span class="s">&quot;Graph&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<figure class="text-center">
+  <picture> 
+    <source type="image/svg+xml" srcset="../../media/figs/Tutorials/HatanoNelson/edges_{6,4}-tess-NN_pc_T2.2.png">
+    <img src="../../media/figs/Tutorials/HatanoNelson/edges_{6,4}-tess-NN_pc_T2.2.png" class="figure-img img-fluid rounded" alt="Vertices tessellation model {6,4}-lattice" width="1000"/>
+  </picture>
+</figure>
+<p>A careful inspection of the individual edges reveals that we need two matrices to describe the intra-site hopping amplitudes, one for <strong>intra-cell</strong> coupling terms and one for <strong>inter-cell</strong> couplings.</p>
+<p>The intra-cell hopping amplitudes couple the orbitals 1 and 1 as well as 2 and 4 of different vertices in the same unit cell, as such, the corresponding matrix is given by:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">hopIntraCellMat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span>
+<span class="w">   </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">},</span>
+<span class="w">   </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span>
+<span class="w">   </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">}};</span>
+</pre></div>
+</div>
+<p>The inter-cell hopping amplitudes couple the orbitals 2 and 4 as well as 3 and 3 of different vertices in an adjacent copy of the unit cell, as such, the corresponding matrix is given by:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">hopIntraCellMat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span>
+<span class="w">   </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">},</span>
+<span class="w">   </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span>
+<span class="w">   </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">}};</span>
+</pre></div>
+</div>
+<p>The intra and inter-cell hopping amplitudes can be assigned by inspecting the list of edges in the model graph. To make sure that we assign the hopping amplitudes correctly, we can take a look at the translation operators associated with the edges (see also <a class="reference internal" href="../GettingStarted/getSetGo_HyperBloch.html"><span class="std std-doc">Getting started with the HyperBloch package</span></a>):</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">pcmodel</span><span class="p">[</span><span class="s">&quot;EdgeTranslations&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<figure class="text-center">
+  <picture> 
+    <source type="image/svg+xml" srcset="../../media/figs/Tutorials/HOTI/EdgeTranslations.png">
+    <img src="../../media/figs/Tutorials/HOTI/EdgeTranslations.png" class="figure-img img-fluid rounded" alt="EdgeTranslations {6,4}-tess model" width="700"/>
+  </picture>
+</figure>
+<p>Edges associated with trivial translations should be endowed with intra-cell hopping amplitudes and inter-cell hopping amplitudes otherwise. Once again, we assign the hopping amplitudes programmatically by iterating through the list of edge translations:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">hoppingsVec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">If</span><span class="p">[</span><span class="nv">#</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">hopIntraCellMat</span><span class="p">,</span><span class="w"> </span><span class="n">hopInterCellMat</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">/@</span><span class="w"> </span><span class="n">pcmodel</span><span class="p">[</span><span class="s">&quot;EdgeTranslations&quot;</span><span class="p">];</span>
+
+<span class="n">edges</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EdgeList</span><span class="o">@</span><span class="n">pcmodel</span><span class="p">[</span><span class="s">&quot;Graph&quot;</span><span class="p">];</span>
+<span class="n">hoppingsPC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AssociationThread</span><span class="p">[</span><span class="n">edges</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">hoppingsVec</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>The Abelian Bloch Hamiltonians can be constructed as usual:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="c">(* Hamiltonian for the primitive cell *)</span>
+<span class="n">Hpc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AbelianBlochHamiltonian</span><span class="p">[</span><span class="n">pcmodel</span><span class="p">,</span><span class="w"> </span><span class="n">norbits</span><span class="w"> </span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="n">onsitePC</span><span class="p">,</span><span class="w"> </span><span class="n">hoppingsPC</span><span class="p">,</span><span class="w"> </span><span class="n">CompileFunction</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">True</span><span class="p">];</span>
+
+<span class="c">(* Hamiltonians for the supercells *)</span>
+<span class="n">Hsclst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Association</span><span class="p">[</span><span class="nv">#</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span>
+<span class="w">    </span><span class="n">AbelianBlochHamiltonian</span><span class="p">[</span><span class="n">scmodels</span><span class="p">[</span><span class="nv">#</span><span class="p">],</span><span class="w"> </span><span class="n">Norb</span><span class="w"> </span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="n">onsitePC</span><span class="p">,</span><span class="w"> </span><span class="n">hoppingsPC</span><span class="p">,</span><span class="w"> </span><span class="n">PCModel</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">pcmodel</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="n">CompileFunction</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">True</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;/@</span><span class="w"> </span><span class="n">cells</span><span class="p">[[</span><span class="mi">2</span><span class="w"> </span><span class="o">;;</span><span class="p">]]];</span>
+
+<span class="c">(* All *)</span>
+<span class="n">Hclst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Join</span><span class="p">[</span><span class="n">Association</span><span class="p">[</span><span class="n">cells</span><span class="p">[[</span><span class="mi">1</span><span class="p">]]</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Hpc</span><span class="p">],</span><span class="w"> </span><span class="n">Hsclst</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>and the density of states can be computed by using the function ComputeEigenvalues, which can be found in the dropdown menu <strong>Needed function</strong> above.</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="c">(* Eigenvalues *)</span>
+<span class="n">evals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Association</span><span class="p">[</span><span class="nv">#</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">ComputeEigenvalues</span><span class="p">[</span><span class="n">Hclst</span><span class="p">[</span><span class="nv">#</span><span class="p">],</span><span class="w"> </span><span class="mi">10</span><span class="o">^</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="n">genusLst</span><span class="p">[</span><span class="nv">#</span><span class="p">]]</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">/@</span><span class="w"> </span><span class="n">cells</span><span class="p">];</span>
+
+<span class="c">(* color maps *)</span>
+<span class="n">cLst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ColorData</span><span class="p">[</span><span class="s">&quot;SunsetColors&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ColorFunction&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">/@</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Range</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="o">/</span><span class="mf">3.</span><span class="p">));</span>
+
+<span class="c">(* Visualize *)</span>
+<span class="n">SmoothHistogram</span><span class="p">[</span><span class="n">evals</span><span class="p">,</span><span class="w"> </span><span class="mf">0.02</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;PDF&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="n">Frame</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">True</span><span class="p">,</span><span class="w"> </span><span class="n">FrameLabel</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;Energy E&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Density of states&quot;</span><span class="p">}</span><span class="w"> </span><span class="n">FrameStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Black</span><span class="p">,</span><span class="w"> </span>
+<span class="w">  </span><span class="n">ImageSize</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w"> </span><span class="n">ImagePadding</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{{</span><span class="n">Automatic</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">Automatic</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">}},</span><span class="w"> </span><span class="n">LabelStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<span class="w">  </span><span class="n">PlotLabel</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;k sampling: 10^2&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">PlotRange</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">All</span><span class="p">,</span><span class="w"> </span><span class="n">PlotStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">cLst</span><span class="p">]</span>
+</pre></div>
+</div>
+<figure class="text-center">
+  <picture> 
+    <source type="image/svg+xml" srcset="../../media/figs/Tutorials/HOTI/dos_MultiOrbit-64_scm.png">
+    <img src="../../media/figs/Tutorials/HOTI/dos_MultiOrbit-64_scm.png" class="figure-img img-fluid rounded" alt="Vertices tessellation model {6,4}-lattice" width="500"/>
+  </picture>
+</figure>
+</section>
+<section id="bbh-model">
+<h2><span class="math notranslate nohighlight">\(\{6,4\}\)</span>-BBH model<a class="headerlink" href="#bbh-model" title="Link to this heading">#</a></h2>
+<p>The <span class="math notranslate nohighlight">\(\{6,4\}\)</span>-BBH model can be constructed by adjusting particular hopping amplitudes in the previously defined model. Our goal is to thread the lattice with magnetic <strong><span class="math notranslate nohighlight">\(\pi\)</span>-fluxes</strong> through each cycle of orbitals as well as through each plaquette with alternating inter and intra-site hopping amplitudes.</p>
+<p>We choose to adjust the intra-site coupling between orbital 1 and 4 by changing the sign of the hopping amplitude in the on-site terms. This introduces a <span class="math notranslate nohighlight">\(\pi\)</span>-flux through each cycle of orbitals:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">onsiteInteractionMat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">h0</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">{</span><span class="w">  </span><span class="mi">0</span><span class="p">,</span><span class="w">  </span><span class="mi">1</span><span class="p">,</span><span class="w">  </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w">  </span><span class="mi">1</span><span class="p">,</span><span class="w">  </span><span class="mi">0</span><span class="p">,</span><span class="w">  </span><span class="mi">1</span><span class="p">,</span><span class="w">  </span><span class="mi">0</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w">  </span><span class="mi">0</span><span class="p">,</span><span class="w">  </span><span class="mi">1</span><span class="p">,</span><span class="w">  </span><span class="mi">0</span><span class="p">,</span><span class="w">  </span><span class="mi">1</span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">  </span><span class="mi">0</span><span class="p">,</span><span class="w">  </span><span class="mi">1</span><span class="p">,</span><span class="w">  </span><span class="mi">0</span><span class="p">}};</span>
+
+<span class="n">vertices</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">VertexList</span><span class="o">@</span><span class="n">pcmodel</span><span class="p">[</span><span class="s">&quot;Graph&quot;</span><span class="p">];</span>
+<span class="n">onsitePC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AssociationThread</span><span class="p">[</span><span class="n">vertices</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span>
+<span class="w">  </span><span class="n">ConstantArray</span><span class="p">[</span><span class="n">onsiteMassMat</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">onsiteInteractionMat</span><span class="p">,</span><span class="w"> </span><span class="n">Length</span><span class="o">@</span><span class="n">vertices</span><span class="p">]];</span>
+</pre></div>
+</div>
+<p>where we have introduced a coupling constant <code class="code-Mathematica" style="font-size:1.1em;">h0</code> in order tune the intra-site coupling strength.</p>
+<p>The above modification introduces <span class="math notranslate nohighlight">\(\pi\)</span>-fluxes through some plaquettes with alternating intra and inter-site hopping amplitudes in certain regions of the lattice. This implies that yet another modification is needed such that each plaquette is threaded by a <span class="math notranslate nohighlight">\(\pi\)</span>-flux. We can achieve this by adjusting the inter-site coupling between orbital 3 and 3 of another site by changing the sign of the inter-cell amplitudes in the hopping terms:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">hopIntraCellMat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="p">{</span><span class="w">  </span><span class="mi">0</span><span class="p">,</span><span class="w">  </span><span class="mi">0</span><span class="p">,</span><span class="w">  </span><span class="mi">0</span><span class="p">,</span><span class="w">  </span><span class="mi">0</span><span class="p">},</span>
+<span class="w">   </span><span class="p">{</span><span class="w">  </span><span class="mi">0</span><span class="p">,</span><span class="w">  </span><span class="mi">0</span><span class="p">,</span><span class="w">  </span><span class="mi">0</span><span class="p">,</span><span class="w">  </span><span class="mi">1</span><span class="p">},</span>
+<span class="w">   </span><span class="p">{</span><span class="w">  </span><span class="mi">0</span><span class="p">,</span><span class="w">  </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">  </span><span class="mi">0</span><span class="p">},</span>
+<span class="w">   </span><span class="p">{</span><span class="w">  </span><span class="mi">0</span><span class="p">,</span><span class="w">  </span><span class="mi">0</span><span class="p">,</span><span class="w">  </span><span class="mi">0</span><span class="p">,</span><span class="w">  </span><span class="mi">0</span><span class="p">}};</span>
+</pre></div>
+</div>
+<p>We can assign the hopping amplitudes programmatically by iterating through the list of edge translations:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">hoppingsVec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">h1</span><span class="w"> </span><span class="n">If</span><span class="p">[</span><span class="nv">#</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">hopIntraCellMat</span><span class="p">,</span><span class="w"> </span><span class="n">hopInterCellMat</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">/@</span><span class="w"> </span><span class="n">pcmodel</span><span class="p">[</span><span class="s">&quot;EdgeTranslations&quot;</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>where we have introduced yet another a coupling constant <code class="code-Mathematica" style="font-size:1.1em;">h1</code> in order tune the inter-site coupling strength. Therefore:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">edges</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EdgeList</span><span class="o">@</span><span class="n">pcmodel</span><span class="p">[</span><span class="s">&quot;Graph&quot;</span><span class="p">];</span>
+<span class="n">hoppingsPC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AssociationThread</span><span class="p">[</span><span class="n">edges</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">hoppingsVec</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>The Abelian Bloch Hamiltonians can be constructed as usual:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="c">(* Hamiltonian for the primitive cell *)</span>
+<span class="n">Hpc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AbelianBlochHamiltonian</span><span class="p">[</span><span class="n">pcmodel</span><span class="p">,</span><span class="w"> </span><span class="n">norbits</span><span class="w"> </span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="n">onsitePC</span><span class="p">,</span><span class="w"> </span><span class="n">hoppingsPC</span><span class="p">,</span><span class="w"> </span><span class="n">CompileFunction</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">True</span><span class="p">];</span>
+
+<span class="c">(* Hamiltonians for the supercells *)</span>
+<span class="n">Hsclst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Association</span><span class="p">[</span><span class="nv">#</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span>
+<span class="w">    </span><span class="n">AbelianBlochHamiltonian</span><span class="p">[</span><span class="n">scmodels</span><span class="p">[</span><span class="nv">#</span><span class="p">],</span><span class="w"> </span><span class="n">Norb</span><span class="w"> </span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="n">onsitePC</span><span class="p">,</span><span class="w"> </span><span class="n">hoppingsPC</span><span class="p">,</span><span class="w"> </span><span class="n">PCModel</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">pcmodel</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="n">CompileFunction</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">True</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;/@</span><span class="w"> </span><span class="n">cells</span><span class="p">[[</span><span class="mi">2</span><span class="w"> </span><span class="o">;;</span><span class="p">]]];</span>
+
+<span class="c">(* All *)</span>
+<span class="n">Hclst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Join</span><span class="p">[</span><span class="n">Association</span><span class="p">[</span><span class="n">cells</span><span class="p">[[</span><span class="mi">1</span><span class="p">]]</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Hpc</span><span class="p">],</span><span class="w"> </span><span class="n">Hsclst</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>Three distinct phases can be identified by tuning the parameters:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">phases</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;Topological phase&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Metallic phase&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Trivial phase&quot;</span><span class="p">};</span>
+<span class="n">h0Lst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AssociationThread</span><span class="p">[</span><span class="n">phases</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mf">0.5</span><span class="p">,</span><span class="w"> </span><span class="mf">0.77</span><span class="p">,</span><span class="w"> </span><span class="mf">1.5</span><span class="p">}];</span>
+
+<span class="n">evals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Association</span><span class="p">[</span>
+<span class="w">  </span><span class="n">Table</span><span class="p">[</span><span class="n">phase</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">    </span><span class="n">Association</span><span class="p">[</span><span class="nv">#</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span>
+<span class="w">      </span><span class="n">ComputeEigenvalues</span><span class="p">[</span><span class="n">Hclst</span><span class="p">[</span><span class="nv">#</span><span class="p">]</span><span class="w"> </span><span class="o">/.</span><span class="w"> </span><span class="p">{</span><span class="n">h0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">h0Lst</span><span class="p">[</span><span class="n">phase</span><span class="p">],</span><span class="w"> </span><span class="n">h1</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">},</span><span class="w">  </span><span class="mi">10</span><span class="o">^</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="n">genusLst</span><span class="p">[</span><span class="nv">#</span><span class="p">]]</span><span class="w"> </span>
+<span class="w">    </span><span class="o">&amp;/@</span><span class="w"> </span><span class="n">cells</span><span class="p">],</span>
+<span class="w">  </span><span class="p">{</span><span class="n">phase</span><span class="p">,</span><span class="w"> </span><span class="n">phases</span><span class="p">}]</span>
+<span class="p">];</span>
+
+<span class="n">Row</span><span class="p">[</span>
+<span class="w"> </span><span class="n">SmoothHistogram</span><span class="p">[</span><span class="n">evals</span><span class="p">[</span><span class="nv">#</span><span class="p">],</span><span class="w"> </span><span class="mf">0.02</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;PDF&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Frame</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">True</span><span class="p">,</span><span class="w"> </span><span class="n">FrameLabel</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;Energy E&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Density of states&quot;</span><span class="p">},</span>
+<span class="w">    </span><span class="n">FrameStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Black</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ImageSize</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">270</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="n">ImagePadding</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{{</span><span class="n">Automatic</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">Automatic</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">}},</span><span class="w"> </span>
+<span class="w">    </span><span class="n">LabelStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span>
+<span class="w">    </span><span class="n">PlotLabel</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nv">#</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s">&quot;\nk sampling: 10^3, h0 = &quot;</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">ToString</span><span class="o">@</span><span class="n">h0Lst</span><span class="p">[[</span><span class="nv">#</span><span class="p">]]</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s">&quot;h1&quot;</span><span class="p">,,</span>
+<span class="w">    </span><span class="n">PlotRange</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{{</span><span class="mi">-2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="mf">-0.01</span><span class="p">,</span><span class="w"> </span><span class="mf">1.01</span><span class="p">}},</span><span class="w"> </span><span class="n">PlotStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">cLst</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">/@</span><span class="w"> </span><span class="n">phases</span><span class="p">,</span>
+<span class="w"> </span><span class="n">FrameMargins</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">ImageMargins</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<figure class="text-center">
+  <picture> 
+    <source type="image/svg+xml" srcset="../../media/figs/Tutorials/HOTI/dos_HOTI-64-BBH_scm.png">
+    <img src="../../media/figs/Tutorials/HOTI/dos_HOTI-64-BBH_scm.png" class="figure-img img-fluid rounded" alt="Vertices tessellation model {6,4}-lattice" width="1000"/>
+  </picture>
+</figure>
+<p>Note that at the gap closing <span class="math notranslate nohighlight">\(h_{0}=0.77 h_{1}\)</span> the transition for small supercells appears semi-metallic with vanishing density of states at <span class="math notranslate nohighlight">\(E=0\)</span>. However, the DOS converges to a finite value for larger supercells, which implies that this is a finite-size effect.</p>
+</section>
+<section id="finite-flakes">
+<h2>Finite flakes<a class="headerlink" href="#finite-flakes" title="Link to this heading">#</a></h2>
+<p>In order to demonstrate the bulk-boundary correspondence in the higher-order topological phase of the <span class="math notranslate nohighlight">\(\{6,4\}\)</span>-BBH model, we can repurpose the constructed sequence of supercell model graphs. Before we terminate the system to a finite size, let us visualize the flakes we want to consider. This can be achieved by turning off the display of inter-cell edges specified through the option <code class="code-Mathematica" style="font-size:1.1em;">ShowInterCellEdges</code> within the option <code class="code-Mathematica" style="font-size:1.1em;">ShowCellGraphFlattened</code> in the function <code class="code-Mathematica" style="font-size:1.1em;">VisualizeModelGraph[]</code> by setting it to <code class="code-Mathematica" style="font-size:1.1em;">False</code>:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">Row</span><span class="p">[</span>
+<span class="w">  </span><span class="n">VisualizeModelGraph</span><span class="p">[</span><span class="n">cmodels</span><span class="p">[</span><span class="nv">#</span><span class="p">],</span><span class="w"> </span>
+<span class="w">    </span><span class="n">Elements</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">&lt;|</span>
+<span class="w">      </span><span class="n">ShowCellGraphFlattened</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ShowVertexLabels</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">False</span><span class="p">,</span><span class="w"> </span>
+<span class="w">        </span><span class="n">ShowInterCellEdges</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">False</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="o">|&gt;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="n">ImageSize</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span>
+<span class="w">    </span><span class="n">NumberOfGenerations</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<span class="w">    </span><span class="n">PlotLabel</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nv">#</span><span class="p">,</span><span class="w"> </span><span class="n">LabelStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">20</span><span class="p">]</span>
+<span class="w">  </span><span class="o">&amp;</span><span class="w"> </span><span class="o">/@</span><span class="w"> </span><span class="n">cells</span><span class="p">]</span>
+</pre></div>
+</div>
+<figure class="text-center">
+  <picture> 
+    <source type="image/svg+xml" srcset="../../media/figs/Tutorials/HOTI/{6,4}-finitie_flakes_regular.png">
+    <img src="../../media/figs/Tutorials/HOTI/{6,4}-finitie_flakes_regular.png" class="figure-img img-fluid rounded" alt="Vertices tessellation model {6,4}-lattice" width="1000"/>
+  </picture>
+</figure>
+<p>The Abelian Bloch Hamiltonians of (supercell) model graphs depends on the chosen quasiparticle basis used by the HyperBloch package. The used convention is cell-dependent and thus hyperbolic momenta are introduced in inter-cell hopping terms. This enables us to construct the tight-binding Hamiltonians for finite flakes in real space efficiently by setting inter-cell terms to zero through the function <code class="code-Mathematica" style="font-size:1.1em;">TBHamiltonian</code>:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">HcFlakelst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Join</span><span class="p">[</span>
+<span class="w">  </span><span class="n">Association</span><span class="p">[</span>
+<span class="w">    </span><span class="n">cells</span><span class="p">[[</span><span class="mi">1</span><span class="p">]]</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">TBHamiltonian</span><span class="p">[</span><span class="n">cmodels</span><span class="p">[</span><span class="n">cells</span><span class="p">[[</span><span class="mi">1</span><span class="p">]]],</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="n">onsitePC</span><span class="p">,</span>
+<span class="w">  </span><span class="n">hoppingsPC</span><span class="p">]],</span>
+<span class="w">  </span><span class="n">Association</span><span class="p">[</span>
+<span class="w">    </span><span class="nv">#</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">TBHamiltonian</span><span class="p">[</span><span class="n">cmodels</span><span class="p">[</span><span class="nv">#</span><span class="p">],</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="n">onsitePC</span><span class="p">,</span><span class="w"> </span><span class="n">hoppingsPC</span><span class="p">,</span><span class="w"> </span><span class="n">PCModel</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">cmodels</span><span class="p">[</span><span class="n">cells</span><span class="p">[[</span><span class="mi">1</span><span class="p">]]]]</span><span class="w"> </span>
+<span class="w">  </span><span class="o">&amp;</span><span class="w"> </span><span class="o">/@</span><span class="w"> </span><span class="n">cells</span><span class="p">[[</span><span class="mi">2</span><span class="w"> </span><span class="o">;;</span><span class="p">]]</span>
+<span class="p">]];</span>
+</pre></div>
+</div>
+<p>Next, let us calculate the spectra of the finite flakes by first computing the eigenvalues of the finite flakes:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">evals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Association</span><span class="p">[</span><span class="nv">#</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Eigenvalues</span><span class="p">[</span><span class="n">HcFlakelst</span><span class="p">[</span><span class="nv">#</span><span class="p">]</span><span class="w"> </span><span class="o">/.</span><span class="w"> </span><span class="p">{</span><span class="n">h0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w"> </span><span class="n">h1</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">}]</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">/@</span><span class="w"> </span><span class="n">cells</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>Then the spectra are given by:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">Row</span><span class="p">[</span>
+<span class="w"> </span><span class="n">ListPlot</span><span class="p">[</span><span class="n">Sort</span><span class="p">[</span><span class="n">evals</span><span class="p">[</span><span class="nv">#</span><span class="p">]],</span>
+<span class="w">    </span><span class="n">AxesOrigin</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mf">-2.5</span><span class="p">},</span><span class="w"> </span><span class="n">Frame</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">True</span><span class="p">,</span>
+<span class="w">    </span><span class="n">FrameLabel</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Energy E_n&quot;</span><span class="p">},</span><span class="w"> </span><span class="n">FrameStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Black</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ImageSize</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">350</span><span class="p">,</span><span class="w"> </span><span class="n">LabelStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="n">PlotLabel</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nv">#</span><span class="p">,</span>
+<span class="w">    </span><span class="n">PlotRange</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="n">Automatic</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mf">-2.5</span><span class="p">,</span><span class="w"> </span><span class="mf">2.5</span><span class="p">}}]</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">/@</span><span class="w"> </span><span class="n">cells</span>
+<span class="w"> </span><span class="p">]</span>
+</pre></div>
+</div>
+<figure class="text-center">
+  <picture> 
+    <source type="image/svg+xml" srcset="../../media/figs/Tutorials/HOTI/spec_64_regular_sc.png">
+    <img src="../../media/figs/Tutorials/HOTI/spec_64_regular_sc.png" class="figure-img img-fluid rounded" alt="Vertices tessellation model {6,4}-lattice" width="1000"/>
+  </picture>
+</figure>
+<p>The gapped spectrum indicates emergent boundary modes in the topological phase.</p>
+</section>
+<section id="disclination-defects">
+<h2>Disclination defects<a class="headerlink" href="#disclination-defects" title="Link to this heading">#</a></h2>
+<p>The introduction of disclination defects enables us to demonstrate the existence of boundary modes and associated quantized fractional charges in higher-order topological insulators. The HyperBloch package provides a function for the construction of finite flakes with disclination defects. This is achieved through
+a cutting and glueing procedure known as the <strong>Volterra process</strong>.</p>
+<p>We choose to cut away a sector in the finite flake subtended by an angle <span class="math notranslate nohighlight">\(\pi/3\)</span>, and glue the newly introduced borders together. The corresponding flakes can easily be constructed through the function <code class="code-Mathematica" style="font-size:1.1em;">IntroduceDisclination</code>. To do so, we set the so-called <strong>Frank angle</strong> <span class="math notranslate nohighlight">\(\alpha_{F}\)</span> to <span class="math notranslate nohighlight">\(-\pi/3\)</span>. This can be specified by passing a negative integer to the function, which we denote as the <strong>Frank angle increment</strong> <span class="math notranslate nohighlight">\(\Delta\alpha_{F}\)</span>, taking values <span class="math notranslate nohighlight">\(-1,  -2, ... -(m-1)\)</span>, where <span class="math notranslate nohighlight">\(m\)</span> is given by the <span class="math notranslate nohighlight">\(C_{m}\)</span> rotation symmetry <span class="math notranslate nohighlight">\(m \, \epsilon \, \{r, q, p\}\)</span> specified by the chosen cell center. The actual Frank angle is then given by <span class="math notranslate nohighlight">\(\alpha_{F} = \Delta\alpha_{F}\,2\pi/m\)</span>. In addition, a reference angle needs to be passed, which specifies the relative rotation angle in counter-clockwise direction of the normal vector to the reference vector <span class="math notranslate nohighlight">\(\vec{v}=(1, 0)\)</span> defining the disclination defect. Analogous to the Frank angle increments, the reference angle is specified by a positive integer, which we denote as the <strong>reference angle increment</strong> , taking values <span class="math notranslate nohighlight">\(0, 1,  2, ... 2m-1\)</span>. A disclination defect can thus be introduced as follows:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">cmodelsDisclination</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Association</span><span class="p">[</span><span class="nv">#</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">IntroduceDisclination</span><span class="p">[</span><span class="n">cmodels</span><span class="p">[</span><span class="nv">#</span><span class="p">],</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">/@</span><span class="w"> </span><span class="n">cells</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>We can visualize the (supercell) model graphs with disclination defects using the function <code class="code-Mathematica" style="font-size:1.1em;">VisualizeModelGraph[]</code>:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">Row</span><span class="p">[</span>
+<span class="w">  </span><span class="n">VisualizeModelGraph</span><span class="p">[</span><span class="n">cmodelsDisclination</span><span class="p">[</span><span class="nv">#</span><span class="p">],</span><span class="w"> </span>
+<span class="w">    </span><span class="n">Elements</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">&lt;|</span>
+<span class="w">      </span><span class="n">ShowCellGraphFlattened</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="n">ShowVertexLabels</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">False</span><span class="p">}</span>
+<span class="w">    </span><span class="o">|&gt;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="n">ImageSize</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="n">LabelStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">20</span>
+<span class="w">    </span><span class="n">NumberOfGenerations</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">PlotLabel</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nv">#</span><span class="p">]</span><span class="w"> </span>
+<span class="w">  </span><span class="o">&amp;</span><span class="w"> </span><span class="o">/@</span><span class="w"> </span><span class="n">cells</span><span class="p">]</span>
+</pre></div>
+</div>
+<figure class="text-center">
+  <picture> 
+    <source type="image/svg+xml" srcset="../../media/figs/Tutorials/HOTI/{6,4}-finitie_flakes_disclination.png">
+    <img src="../../media/figs/Tutorials/HOTI/{6,4}-finitie_flakes_disclination.png" class="figure-img img-fluid rounded" alt="Vertices tessellation model {6,4}-lattice" width="1000"/>
+  </picture>
+</figure>
+<p>The newly introduced edges can be accessed through the key <code class="code-Mathematica" style="font-size:1.1em;">”GluedEdges”</code>. They inherit some of the labels originating from the (supercell) model graphs they are based on. Each glued edge carries an edge tag containing a list of the form <code class="code-Mathematica" style="font-size:1.1em;">{ “g”, idx }</code> where the string <code class="code-Mathematica" style="font-size:1.1em;">”g”</code> indicates that the edge is a glued edge and <code class="code-Mathematica" style="font-size:1.1em;">idx</code> is a running index, indicating the position in the list of glued edges.</p>
+<p>For example, for a model graph based on the T2.2 primitive cell the glued edges are given as:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">cmodelsDisclination</span><span class="p">[</span><span class="s">&quot;T2.2&quot;</span><span class="p">][</span><span class="s">&quot;GluedEdges&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<figure class="text-center">
+  <picture> 
+    <source type="image/svg+xml" srcset="../../media/figs/Tutorials/HOTI/{6,4}-tess-T2.2_3_HBDisclination_GluedEdges.png">
+    <img src="../../media/figs/Tutorials/HOTI/{6,4}-tess-T2.2_3_HBDisclination_GluedEdges.png" class="figure-img img-fluid rounded" alt="GluedEdges {6,4}-lattice" width="250"/>
+  </picture>
+</figure>
+<p>and for model graph based on the T5.4 supercell the glued edges are given as:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">cmodelsDisclination</span><span class="p">[</span><span class="s">&quot;T5.4&quot;</span><span class="p">][</span><span class="s">&quot;GluedEdges&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<figure class="text-center">
+  <picture> 
+    <source type="image/svg+xml" srcset="../../media/figs/Tutorials/HOTI/{6,4}-tess-T2.2_sc_T5.4_3_HBDisclination_GluedEdges.png">
+    <img src="../../media/figs/Tutorials/HOTI/{6,4}-tess-T2.2_sc_T5.4_3_HBDisclination_GluedEdges.png" class="figure-img img-fluid rounded" alt="GluedEdges {6,4}-lattice" width="310"/>
+  </picture>
+</figure>
+<p>Particular attention is required when assigning coupling constants for the construction of corresponding Hamiltonians. In general, every flake with a disclination defect should be considered individually due to the newly introduced <code class="code-Mathematica" style="font-size:1.1em;">GluedEdges</code>.</p>
+<p>First, let us consider the smallest flake associated with the <code class="code-Mathematica" style="font-size:1.1em;">T2.2</code> primitive cell. This is a rather trivial case, since all edges, including the <code class="code-Mathematica" style="font-size:1.1em;">GluedEdges</code>, should be associated with intra-cell hopping amplitudes:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">gluedEdges</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cmodelsDisclination</span><span class="p">[</span><span class="s">&quot;T2.2&quot;</span><span class="p">][</span><span class="s">&quot;GluedEdges&quot;</span><span class="p">];</span>
+<span class="n">hoppingsGlued</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AssociationThread</span><span class="p">[</span><span class="n">gluedEdges</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="n">hopMat1</span><span class="p">}];</span>
+</pre></div>
+</div>
+<p>Every other coupling relation is inherited by the previously defined model on the primitive cell. The tight-binding Hamiltonian in real space can now be set up by specifying the model graph with a disclination defect, the model graph of the primitive cell without a disclination defect and the corresponding coupling constants specified above. These arguments are passed to the function <code class="code-Mathematica" style="font-size:1.1em;">TBHamiltonian</code> as follows:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">HPCDisclinationFlake</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TBHamiltonian</span><span class="p">[</span>
+<span class="w">  </span><span class="n">cmodelsDisclination</span><span class="p">[</span><span class="s">&quot;T2.2&quot;</span><span class="p">],</span><span class="w"> </span><span class="n">cmodels</span><span class="p">[</span><span class="s">&quot;T2.2&quot;</span><span class="p">],</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="n">onsitePC</span><span class="p">,</span><span class="w"> </span><span class="n">hoppingsPC</span><span class="p">,</span><span class="w"> </span><span class="n">hoppingsGlued</span>
+<span class="p">];</span>
+</pre></div>
+</div>
+<p>The workflow for the construction of tight-binding Hamiltonians of supercells with a disclination defect is unchanged:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">hoppingsGlued</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AssociationThread</span><span class="p">[</span>
+<span class="w">  </span><span class="n">cmodelsDisclination</span><span class="p">[</span><span class="s">&quot;T5.4&quot;</span><span class="p">][</span><span class="s">&quot;GluedEdges&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="n">hopMat1</span><span class="p">}</span>
+<span class="p">];</span>
+
+<span class="n">HSC1DisclinationFlake</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TBHamiltonian</span><span class="p">[</span>
+<span class="w">  </span><span class="n">cmodelsDisclination</span><span class="p">[</span><span class="s">&quot;T5.4&quot;</span><span class="p">],</span><span class="w"> </span><span class="n">cmodels</span><span class="p">[</span><span class="s">&quot;T2.2&quot;</span><span class="p">],</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="n">onsitePC</span><span class="p">,</span><span class="w"> </span><span class="n">hoppingsPC</span><span class="p">,</span><span class="w"> </span><span class="n">hoppingsGlued</span>
+<span class="p">];</span>
+</pre></div>
+</div>
+<p>We can repeat this procedure for every consecutive supercell:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">hoppingsGlued</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AssociationThread</span><span class="p">[</span>
+<span class="w">  </span><span class="n">cmodelsDisclination</span><span class="p">[</span><span class="s">&quot;T9.3&quot;</span><span class="p">][</span><span class="s">&quot;GluedEdges&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="n">hopMat1</span><span class="p">,</span><span class="w"> </span><span class="n">hopMat2</span><span class="p">}</span>
+<span class="p">];</span>
+
+<span class="n">HSC2DisclinationFlake</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TBHamiltonian</span><span class="p">[</span>
+<span class="w">  </span><span class="n">cmodelsDisclination</span><span class="p">[</span><span class="s">&quot;T9.3&quot;</span><span class="p">],</span><span class="w"> </span><span class="n">cmodels</span><span class="p">[</span><span class="s">&quot;T2.2&quot;</span><span class="p">],</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="n">onsitePC</span><span class="p">,</span><span class="w"> </span><span class="n">hoppingsPC</span><span class="p">,</span><span class="w"> </span><span class="n">hoppingsGlued</span>
+<span class="p">];</span>
+</pre></div>
+</div>
+<p>It is convenient to collect everything:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">HcDisclinationFlakelst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AssociationThread</span><span class="p">[</span><span class="n">cells</span><span class="p">,</span><span class="w"> </span>
+<span class="w">  </span><span class="p">{</span><span class="n">HPCDisclinationFlake</span><span class="p">,</span><span class="w"> </span><span class="n">HSC1DisclinationFlake</span><span class="p">,</span><span class="w"> </span><span class="n">HSC2DisclinationFlake</span><span class="p">}];</span>
+</pre></div>
+</div>
+<p>The spectra are given by:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">evals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Association</span><span class="p">[</span><span class="nv">#</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Eigenvalues</span><span class="p">[</span><span class="n">HcDisclinationFlakelst</span><span class="p">[</span><span class="nv">#</span><span class="p">]</span><span class="w"> </span><span class="o">/.</span><span class="w"> </span><span class="p">{</span><span class="n">h0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w"> </span><span class="n">h1</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">}]</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">/@</span><span class="w"> </span><span class="n">cells</span><span class="p">];</span>
+
+<span class="n">Row</span><span class="p">[</span>
+<span class="w"> </span><span class="n">ListPlot</span><span class="p">[</span><span class="n">Sort</span><span class="p">[</span><span class="n">evals</span><span class="p">[</span><span class="nv">#</span><span class="p">]],</span>
+<span class="w">    </span><span class="n">AxesOrigin</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mf">-2.5</span><span class="p">},</span><span class="w"> </span><span class="n">Frame</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">True</span><span class="p">,</span>
+<span class="w">    </span><span class="n">FrameLabel</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Energy E_n&quot;</span><span class="p">},</span><span class="w"> </span><span class="n">FrameStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Black</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ImageSize</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">350</span><span class="p">,</span><span class="w"> </span><span class="n">LabelStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="n">PlotLabel</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nv">#</span><span class="p">,</span>
+<span class="w">    </span><span class="n">PlotRange</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="n">Automatic</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mf">-2.5</span><span class="p">,</span><span class="w"> </span><span class="mf">2.5</span><span class="p">}}]</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">/@</span><span class="w"> </span><span class="n">cells</span>
+<span class="w"> </span><span class="p">]</span>
+</pre></div>
+</div>
+<figure class="text-center">
+  <picture> 
+    <source type="image/svg+xml" srcset="../../media/figs/Tutorials/HOTI/spec_64_disclination_sc.png">
+    <img src="../../media/figs/Tutorials/HOTI/spec_64_disclination_sc.png" class="figure-img img-fluid rounded" alt="Vertices tessellation model {6,4}-lattice" width="1000"/>
+  </picture>
+</figure>
+<p>We can compare the visualized spectra with the previous ones for the flakes without disclination defects. The emergence of the new <strong>in-gap states</strong> implies a <strong>filling anomaly</strong> and indicates <strong>quantized fractional charges</strong>. Let us explicitly emphasize some of these in-gap states:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">inGapStates</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AssociationThread</span><span class="p">[</span><span class="n">cells</span><span class="p">,</span><span class="w"> </span>
+<span class="w">  </span><span class="p">{{{</span><span class="mf">12.5</span><span class="p">,</span><span class="w"> </span><span class="mf">14.5</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="mf">0.59</span><span class="p">,</span><span class="w"> </span><span class="mf">0.63</span><span class="p">}},</span><span class="w"> </span><span class="p">{{</span><span class="mf">57.5</span><span class="p">,</span><span class="w"> </span><span class="mf">59.5</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="mf">0.59</span><span class="p">,</span><span class="w"> </span><span class="mf">0.63</span><span class="p">}},</span><span class="w"> </span><span class="p">{{</span><span class="mf">92.5</span><span class="p">,</span><span class="w"> </span><span class="mf">94.5</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="mf">0.59</span><span class="p">,</span><span class="w"> </span><span class="mf">0.63</span><span class="p">}}}];</span>
+<span class="n">subPlotPosX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AssociationThread</span><span class="p">[</span><span class="n">cells</span><span class="p">,</span><span class="w"> </span><span class="p">{{</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mf">1.25</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mf">1.25</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="mi">38</span><span class="p">,</span><span class="w"> </span><span class="mf">1.25</span><span class="p">}}];</span>
+
+<span class="n">Row</span><span class="p">[</span>
+<span class="w"> </span><span class="n">ListPlot</span><span class="p">[</span><span class="n">Sort</span><span class="p">[</span><span class="n">evals</span><span class="p">[</span><span class="nv">#</span><span class="p">]],</span>
+<span class="w">    </span><span class="n">AxesOrigin</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mf">-2.5</span><span class="p">},</span><span class="w"> </span><span class="n">Frame</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">True</span><span class="p">,</span>
+<span class="w">    </span><span class="n">FrameLabel</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Energy E_n&quot;</span><span class="p">},</span><span class="w"> </span><span class="n">FrameStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Black</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ImageSize</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">350</span><span class="p">,</span><span class="w"> </span><span class="n">LabelStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="n">PlotLabel</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nv">#</span><span class="p">,</span>
+<span class="w">    </span><span class="n">PlotRange</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="n">Automatic</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="mf">-2.5</span><span class="p">,</span><span class="w"> </span><span class="mf">2.5</span><span class="p">}},</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="n">Epilog</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Inset</span><span class="p">[</span>
+<span class="w">      </span><span class="n">ListPlot</span><span class="p">[</span><span class="n">Sort</span><span class="p">[</span><span class="n">evals</span><span class="p">[</span><span class="nv">#</span><span class="p">]],</span>
+<span class="w">       </span><span class="n">Frame</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">True</span><span class="p">,</span><span class="w"> </span><span class="n">ImageSize</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Scaled</span><span class="p">[</span><span class="mi">130</span><span class="p">],</span>
+<span class="w">       </span><span class="n">PlotRange</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">inGapStates</span><span class="p">[</span><span class="nv">#</span><span class="p">],</span>
+<span class="w">       </span><span class="n">PlotStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Directive</span><span class="p">[</span><span class="n">Red</span><span class="p">,</span><span class="w"> </span><span class="n">PointSize</span><span class="p">[</span><span class="n">Medium</span><span class="p">]]</span>
+<span class="w">       </span><span class="p">],</span><span class="w"> </span><span class="n">subPlotPosX</span><span class="p">[</span><span class="nv">#</span><span class="p">]]</span>
+<span class="w">    </span><span class="p">]</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">/@</span><span class="w"> </span><span class="n">cells</span>
+<span class="w"> </span><span class="p">]</span>
+</pre></div>
+</div>
+<figure class="text-center">
+  <picture> 
+    <source type="image/svg+xml" srcset="../../media/figs/Tutorials/HOTI/spec_InGap_64_disclination_sc.png">
+    <img src="../../media/figs/Tutorials/HOTI/spec_InGap_64_disclination_sc.png" class="figure-img img-fluid rounded" alt="Vertices tessellation model {6,4}-lattice" width="1100"/>
+  </picture>
+</figure>
+<div style="text-align: right;">
+  <a href="../../misc/code_snippets/Tutorials/HOTI/tutorial_HOTI_HyperBloch.nb" class="btn btn-primary"><i class="fa-solid fa-download"></i> Download Mathematica Notebook</a>
+</div>
+<section id="visualizing-the-volterra-process-bonus">
+<h3>Visualizing the Volterra process (bonus)<a class="headerlink" href="#visualizing-the-volterra-process-bonus" title="Link to this heading">#</a></h3>
+<p>We can visualize the Volterra process step by step.</p>
+<p>For example, let us consider the T9.3 supercell. A sector subtended by an angle <span class="math notranslate nohighlight">\(\pi/3\)</span> is cut out of the T9.3 supercell. The cut out wedge lies within the region specified by the following two lines:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">FrankAngle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cmodelsDisclination</span><span class="p">[</span><span class="s">&quot;T9.3&quot;</span><span class="p">][</span><span class="s">&quot;FrankAngle&quot;</span><span class="p">];</span>
+<span class="n">referenceAngle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cmodelsDisclination</span><span class="p">[</span><span class="s">&quot;T9.3&quot;</span><span class="p">][</span><span class="s">&quot;ReferenceAngle&quot;</span><span class="p">];</span>
+
+<span class="n">upperCut</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Line</span><span class="p">[{{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span><span class="w"> </span><span class="n">Dot</span><span class="p">[</span><span class="n">RotationMatrix</span><span class="p">[</span><span class="n">referenceAngle</span><span class="p">],</span><span class="w"> </span><span class="n">RotationMatrix</span><span class="p">[</span><span class="n">Abs</span><span class="p">[</span><span class="n">FrankAngle</span><span class="o">/</span><span class="mi">2</span><span class="p">]],</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">}]}];</span>
+<span class="n">bottomCut</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Line</span><span class="p">[{{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span><span class="w"> </span><span class="n">Dot</span><span class="p">[</span><span class="n">RotationMatrix</span><span class="p">[</span><span class="n">referenceAngle</span><span class="p">],</span><span class="w"> </span><span class="n">RotationMatrix</span><span class="p">[</span><span class="n">FrankAngle</span><span class="o">/</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">}]}];</span>
+</pre></div>
+</div>
+<p>The  regular  flake  together  with  the  two  cuts  can  be  visualized  as  follows :</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">regularFlake</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Show</span><span class="p">[</span>
+<span class="w">   </span><span class="n">VisualizeModelGraph</span><span class="p">[</span><span class="n">cmodels</span><span class="p">[</span><span class="s">&quot;T9.3&quot;</span><span class="p">],</span><span class="w"> </span>
+<span class="w">    </span><span class="n">NumberOfGenerations</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Elements</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">&lt;|</span>
+<span class="w">      </span><span class="n">ShowCellGraphFlattened</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ShowVertexLabels</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">False</span><span class="p">,</span><span class="w"> </span><span class="n">ShowInterCellEdges</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">False</span><span class="p">,</span>
+<span class="w">        </span><span class="n">CellVertexStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Directive</span><span class="p">[</span><span class="n">Black</span><span class="p">,</span><span class="w"> </span><span class="n">AbsolutePointSize</span><span class="p">[</span><span class="mi">3</span><span class="p">]]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="o">|&gt;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">   </span><span class="n">Graphics</span><span class="p">[{</span><span class="n">Orange</span><span class="p">,</span><span class="w"> </span><span class="n">Dashed</span><span class="p">,</span><span class="w"> </span><span class="n">AbsoluteThickness</span><span class="p">[</span><span class="mf">1.5</span><span class="p">],</span><span class="w"> </span><span class="n">upperCut</span><span class="p">}],</span>
+<span class="w">   </span><span class="n">Graphics</span><span class="p">[{</span><span class="n">Orange</span><span class="p">,</span><span class="w"> </span><span class="n">Dashed</span><span class="p">,</span><span class="w"> </span><span class="n">AbsoluteThickness</span><span class="p">[</span><span class="mf">1.5</span><span class="p">],</span><span class="w"> </span><span class="n">bottomCut</span><span class="p">}],</span>
+<span class="w">   </span><span class="n">ImageSize</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w"> </span><span class="n">LabelStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span>
+<span class="w">   </span><span class="n">PlotLabel</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Regular flake\n&quot;</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>The disclination and the glued edges can be visualized using the high-level visualization function VisualizeModelGraph:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">disclinationFlake</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Show</span><span class="p">[</span>
+<span class="w">   </span><span class="n">VisualizeModelGraph</span><span class="p">[</span><span class="n">cmodelsDisclination</span><span class="p">[</span><span class="s">&quot;T9.3&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="n">NumberOfGenerations</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Elements</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">&lt;|</span>
+<span class="w">      </span><span class="n">ShowCellGraphFlattened</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ShowVertexLabels</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">False</span><span class="p">,</span><span class="w"> </span>
+<span class="w">        </span><span class="n">CellVertexStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Directive</span><span class="p">[</span><span class="n">Black</span><span class="p">,</span><span class="w"> </span><span class="n">AbsolutePointSize</span><span class="p">[</span><span class="mi">3</span><span class="p">]],</span>
+<span class="w">        </span><span class="n">EdgeFilter</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">(</span><span class="nv">#</span><span class="p">[[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">]]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s">&quot;g&quot;</span><span class="w"> </span><span class="o">&amp;</span><span class="p">)}</span>
+<span class="w">      </span><span class="o">|&gt;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">   </span><span class="n">ShowCellGraphFlattened</span><span class="p">[</span><span class="n">cmodelsDisclination</span><span class="p">[</span><span class="s">&quot;T9.3&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="n">ShowVertexLabels</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">False</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="n">IntraCellEdgeStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span>
+<span class="w">     </span><span class="n">Directive</span><span class="p">[</span><span class="n">Darker</span><span class="p">[</span><span class="n">Green</span><span class="p">,</span><span class="w"> </span><span class="mf">0.1</span><span class="p">],</span><span class="w"> </span><span class="n">AbsoluteThickness</span><span class="p">[</span><span class="mf">1.5</span><span class="p">]],</span>
+<span class="w">    </span><span class="n">CellVertexStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Directive</span><span class="p">[</span><span class="n">Black</span><span class="p">,</span><span class="w"> </span><span class="n">AbsolutePointSize</span><span class="p">[</span><span class="mi">3</span><span class="p">]],</span><span class="w"> </span>
+<span class="w">    </span><span class="n">EdgeFilter</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">(</span><span class="nv">#</span><span class="p">[[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">]]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;g&quot;</span><span class="w"> </span><span class="o">&amp;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">   </span><span class="n">ImageSize</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w"> </span><span class="n">LabelStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<span class="w">   </span><span class="n">PlotLabel</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Flake with a disclination\n&quot;</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>It is possible to symmetrize the resulting flake using the option <code class="code-Mathematica">SymmetrizeFlake</code> of  <code class="code-Mathematica">IntroduceDisclination</code>:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">cmodelsDisclinationSymmetric</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>
+<span class="w">  </span><span class="n">Association</span><span class="p">[</span><span class="nv">#</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span>
+<span class="w">      </span><span class="n">IntroduceDisclination</span><span class="p">[</span><span class="n">cmodels</span><span class="p">[</span><span class="nv">#</span><span class="p">],</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span>
+<span class="w">       </span><span class="n">SymmetrizeFlake</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">True</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">/@</span><span class="w"> </span><span class="n">cells</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>The disclination defect can explicitly be indicated using the options <code class="code-Mathematica">IndicateDisclination</code> and <code class="code-Mathematica">DisclinationLineStyle</code> of <code class="code-Mathematica">VisualizeModelGraph</code>:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">disclinationFlakeSymmetrized</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Show</span><span class="p">[</span>
+<span class="w">   </span><span class="n">VisualizeModelGraph</span><span class="p">[</span><span class="n">cmodelsDisclinationSymmetric</span><span class="p">[</span><span class="s">&quot;T9.3&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="n">NumberOfGenerations</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<span class="w">    </span><span class="n">IndicateDisclination</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">True</span><span class="p">,</span>
+<span class="w">    </span><span class="n">DisclinationLineStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Directive</span><span class="p">[</span><span class="n">Red</span><span class="p">,</span><span class="w"> </span><span class="n">Dashed</span><span class="p">,</span><span class="w"> </span><span class="n">AbsoluteThickness</span><span class="p">[</span><span class="mf">1.5</span><span class="p">]],</span>
+<span class="w">    </span><span class="n">Elements</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">&lt;|</span>
+<span class="w">      </span><span class="n">ShowCellGraphFlattened</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ShowVertexLabels</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">False</span><span class="p">,</span><span class="w"> </span>
+<span class="w">        </span><span class="n">CellVertexStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Directive</span><span class="p">[</span><span class="n">Black</span><span class="p">,</span><span class="w"> </span><span class="n">AbsolutePointSize</span><span class="p">[</span><span class="mi">3</span><span class="p">]],</span>
+<span class="w">        </span><span class="n">EdgeFilter</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">(</span><span class="nv">#</span><span class="p">[[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">]]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s">&quot;g&quot;</span><span class="w"> </span><span class="o">&amp;</span><span class="p">)}</span>
+<span class="w">      </span><span class="o">|&gt;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">   </span><span class="n">ShowCellGraphFlattened</span><span class="p">[</span><span class="n">cmodelsDisclinationSymmetric</span><span class="p">[</span><span class="s">&quot;T9.3&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="n">ShowVertexLabels</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">False</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="n">IntraCellEdgeStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span>
+<span class="w">     </span><span class="n">Directive</span><span class="p">[</span><span class="n">Darker</span><span class="p">[</span><span class="n">Green</span><span class="p">,</span><span class="w"> </span><span class="mf">0.1</span><span class="p">],</span><span class="w"> </span><span class="n">AbsoluteThickness</span><span class="p">[</span><span class="mf">1.5</span><span class="p">]],</span>
+<span class="w">    </span><span class="n">CellVertexStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Directive</span><span class="p">[</span><span class="n">Black</span><span class="p">,</span><span class="w"> </span><span class="n">AbsolutePointSize</span><span class="p">[</span><span class="mi">3</span><span class="p">]],</span><span class="w"> </span>
+<span class="w">    </span><span class="n">EdgeFilter</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">(</span><span class="nv">#</span><span class="p">[[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">]]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;g&quot;</span><span class="w"> </span><span class="o">&amp;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">   </span><span class="n">ImageSize</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w"> </span><span class="n">LabelStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<span class="w">   </span><span class="n">PlotLabel</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Flake with a disclination,\n symmetrized&quot;</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>Finally, let us put everything together:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">Row</span><span class="p">[{</span><span class="n">regularFlake</span><span class="p">,</span><span class="w"> </span><span class="n">disclinationFlake</span><span class="p">,</span><span class="w"> </span><span class="n">disclinationFlakeSymmetrized</span><span class="p">}]</span>
+</pre></div>
+</div>
+<figure class="text-center">
+  <picture> 
+    <source type="image/svg+xml" srcset="../../media/figs/Tutorials/HOTI/{6,4}-finitie_flake_T9.3_disclination_Volterra.png">
+    <img src="../../media/figs/Tutorials/HOTI/{6,4}-finitie_flake_T9.3_disclination_Volterra.png" class="figure-img img-fluid rounded" alt="GluedEdges {6,4}-lattice" width="1000"/>
+  </picture>
+</figure>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="HatanoNelson_model.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Hatano-Nelson model</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Documentation/documentation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Documentation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-orbitals">Multiple orbitals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bbh-model"><span class="math notranslate nohighlight">\(\{6,4\}\)</span>-BBH model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-flakes">Finite flakes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disclination-defects">Disclination defects</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-the-volterra-process-bonus">Visualizing the Volterra process (bonus)</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2023-2024, Patrick M. Lenggenhager, Joseph Maciejko and Tomáš Bzdušek. Website development and tutorials by Marcelo Looser.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,967 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" data-theme="light">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>HyperBloch &#8212; HyperCells &amp; HyperBloch</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=3519ded7" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'contents/GettingStarted/getSetGo_HyperBloch';</script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Tutorials" href="../Tutorials/tutorials.html" />
+    <link rel="prev" title="HyperCells" href="getSetGo_HyperCells.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.1.0" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="light">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+    
+    <img src="../../_static/html_logo_HyperSupercells2_light.png" class="logo__image only-light" alt="HyperCells & HyperBloch - Home"/>
+    <img src="../../_static/html_logo_HyperSupercells2_dark.png" class="logo__image only-dark pst-js-only" alt="HyperCells & HyperBloch - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../About/about.html">
+    About
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Installation/installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Tutorials/tutorials.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Documentation/documentation.html">
+    Documentation
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../Contribute/contribute.html">
+    How to contribute
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../Cite/cite.html">
+    How to cite
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../LicenseCopyright/licenseCopyright.html">
+    License and copyright
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/HyperCells" title="Github" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Github</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../About/about.html">
+    About
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Installation/installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="getting_started.html">
+    Getting started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Tutorials/tutorials.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Documentation/documentation.html">
+    Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Contribute/contribute.html">
+    How to contribute
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../Cite/cite.html">
+    How to cite
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../LicenseCopyright/licenseCopyright.html">
+    License and copyright
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/HyperCells" title="Github" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Github</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="getSetGo_HyperCells.html">HyperCells</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">HyperBloch</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="getting_started.html" class="nav-link">Getting started</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">HyperBloch</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="hyperbloch">
+<h1>HyperBloch<a class="headerlink" href="#hyperbloch" title="Link to this heading">#</a></h1>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-success sd-bg-text-success">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-light-bulb" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg></span><span class="sd-summary-text">Learning goals</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Import of:</p>
+<ul class="simple">
+<li><p class="sd-card-text">a cell graph,</p></li>
+<li><p class="sd-card-text">a model graph,</p></li>
+<li><p class="sd-card-text">and a supercell model graph file.</p></li>
+</ul>
+<p class="sd-card-text">Visualization of:</p>
+<ul class="simple">
+<li><p class="sd-card-text">graph representation on a primive cell,</p></li>
+<li><p class="sd-card-text">graph representation on a supercell and</p></li>
+</ul>
+<p class="sd-card-text">construction of:</p>
+<ul class="simple">
+<li><p class="sd-card-text">corresponding <strong>Abelian Bloch Hamiltonians</strong>.</p></li>
+</ul>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header sd-bg-info sd-bg-text-info">
+<span class="sd-summary-icon"><svg version="1.1" width="1.0em" height="1.0em" class="sd-octicon sd-octicon-gear" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0a8.2 8.2 0 0 1 .701.031C9.444.095 9.99.645 10.16 1.29l.288 1.107c.018.066.079.158.212.224.231.114.454.243.668.386.123.082.233.09.299.071l1.103-.303c.644-.176 1.392.021 1.82.63.27.385.506.792.704 1.218.315.675.111 1.422-.364 1.891l-.814.806c-.049.048-.098.147-.088.294.016.257.016.515 0 .772-.01.147.038.246.088.294l.814.806c.475.469.679 1.216.364 1.891a7.977 7.977 0 0 1-.704 1.217c-.428.61-1.176.807-1.82.63l-1.102-.302c-.067-.019-.177-.011-.3.071a5.909 5.909 0 0 1-.668.386c-.133.066-.194.158-.211.224l-.29 1.106c-.168.646-.715 1.196-1.458 1.26a8.006 8.006 0 0 1-1.402 0c-.743-.064-1.289-.614-1.458-1.26l-.289-1.106c-.018-.066-.079-.158-.212-.224a5.738 5.738 0 0 1-.668-.386c-.123-.082-.233-.09-.299-.071l-1.103.303c-.644.176-1.392-.021-1.82-.63a8.12 8.12 0 0 1-.704-1.218c-.315-.675-.111-1.422.363-1.891l.815-.806c.05-.048.098-.147.088-.294a6.214 6.214 0 0 1 0-.772c.01-.147-.038-.246-.088-.294l-.815-.806C.635 6.045.431 5.298.746 4.623a7.92 7.92 0 0 1 .704-1.217c.428-.61 1.176-.807 1.82-.63l1.102.302c.067.019.177.011.3-.071.214-.143.437-.272.668-.386.133-.066.194-.158.211-.224l.29-1.106C6.009.645 6.556.095 7.299.03 7.53.01 7.764 0 8 0Zm-.571 1.525c-.036.003-.108.036-.137.146l-.289 1.105c-.147.561-.549.967-.998 1.189-.173.086-.34.183-.5.29-.417.278-.97.423-1.529.27l-1.103-.303c-.109-.03-.175.016-.195.045-.22.312-.412.644-.573.99-.014.031-.021.11.059.19l.815.806c.411.406.562.957.53 1.456a4.709 4.709 0 0 0 0 .582c.032.499-.119 1.05-.53 1.456l-.815.806c-.081.08-.073.159-.059.19.162.346.353.677.573.989.02.03.085.076.195.046l1.102-.303c.56-.153 1.113-.008 1.53.27.161.107.328.204.501.29.447.222.85.629.997 1.189l.289 1.105c.029.109.101.143.137.146a6.6 6.6 0 0 0 1.142 0c.036-.003.108-.036.137-.146l.289-1.105c.147-.561.549-.967.998-1.189.173-.086.34-.183.5-.29.417-.278.97-.423 1.529-.27l1.103.303c.109.029.175-.016.195-.045.22-.313.411-.644.573-.99.014-.031.021-.11-.059-.19l-.815-.806c-.411-.406-.562-.957-.53-1.456a4.709 4.709 0 0 0 0-.582c-.032-.499.119-1.05.53-1.456l.815-.806c.081-.08.073-.159.059-.19a6.464 6.464 0 0 0-.573-.989c-.02-.03-.085-.076-.195-.046l-1.102.303c-.56.153-1.113.008-1.53-.27a4.44 4.44 0 0 0-.501-.29c-.447-.222-.85-.629-.997-1.189l-.289-1.105c-.029-.11-.101-.143-.137-.146a6.6 6.6 0 0 0-1.142 0ZM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9.5 8a1.5 1.5 0 1 0-3.001.001A1.5 1.5 0 0 0 9.5 8Z"></path></svg></span><span class="sd-summary-text">Featured functions</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>HyperCells</strong>:</p>
+<code class="code-gap">
+Export, ProperTriangleGroup, TessellationModelGraph, TGCellGraph, TGCellSymmetric, TGQuotient, TGSuperCellModelGraph
+</code>
+<br></br>
+<p class="sd-card-text"><strong>HyperBloch</strong>:</p>
+<code class="code-Mathematica">
+AbelianBlochHamiltonian, AbelianBlochHamiltonianExpression, ImportCellGraphString, ImportModelGraphString, ImportSupercellModelGraphString, ShowCellBoundary, ShowCellGraphFlattened, ShowCellSchwarzTriangles, VisualizeModelGraph
+</code>
+</div>
+</details><p>In this tutorial we will see how the cell, model and supercell model graphs, constructed through <strong>HyperCells</strong>, can be imported and visualized in the Poincaré disk through the <strong>HyperBloch</strong> package. Moreover, we go through the intended workflow for the construction of corresponding <strong>Abelian Bloch Hamiltonians</strong> in order to demonstrate the <a target="_blank" href="https://doi.org/10.1103/PhysRevLett.131.226401">supercell method</a> through density of states calculations.</p>
+<section id="prerequisits-in-gap">
+<h2>Prerequisits <strong>in GAP</strong><a class="headerlink" href="#prerequisits-in-gap" title="Link to this heading">#</a></h2>
+<p>In order to get started with the HyperBloch package we construct nearest-neighbor graphs of the {8,8}-tessellation of the hyperbolic plane through the <strong>HyperCells</strong> package in GAP. We first construct the primitive cell and the model graph (based on the tessellation graph), and finally the supercell, as we have established previously in getting started with <a class="reference internal" href="getSetGo_HyperCells.html"><span class="doc std std-doc">HyperCells</span></a> package:</p>
+<div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="c1"># load the HyperCells package</span>
+<span class="nv">LoadPackage</span><span class="p">(</span> <span class="s">&quot;HyperCells&quot;</span> <span class="p">)</span><span class="o">;</span>
+
+<span class="c1"># set up (proper) triangle group</span>
+<span class="nv">tg</span> <span class="o">:=</span> <span class="nv">ProperTriangleGroup</span><span class="p">(</span> <span class="p">[</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">8</span><span class="o">,</span> <span class="nv">8</span> <span class="p">]</span> <span class="p">)</span><span class="o">;</span>
+
+<span class="c1"># Primitive cell:</span>
+<span class="c1"># ---------------</span>
+
+<span class="c1"># specify the quotient defining the primitive cell</span>
+<span class="nv">qpc</span> <span class="o">:=</span> <span class="nv">TGQuotient</span><span class="p">(</span> <span class="p">[</span> <span class="nv">2</span><span class="o">,</span> <span class="nv">6</span> <span class="p">]</span> <span class="p">)</span><span class="o">;</span>
+
+<span class="c1"># construct symmetric primitive cell</span>
+<span class="nv">cgpc</span> <span class="o">:=</span> <span class="nv">TGCellGraph</span><span class="p">(</span> <span class="nv">tg</span><span class="o">,</span> <span class="nv">qpc</span><span class="o">,</span> <span class="nv">3</span> : <span class="nv">simplify</span> <span class="o">:=</span> <span class="nv">5</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">Export</span><span class="p">(</span> <span class="nv">cgpc</span><span class="o">,</span> <span class="s">&quot;(2,8,8)_T2.6_3.hcc&quot;</span> <span class="p">)</span><span class="o">;</span> <span class="c1"># export</span>
+
+<span class="c1"># elementary nearest-neighbor model</span>
+<span class="nv">model</span> <span class="o">:=</span> <span class="nv">TessellationModelGraph</span><span class="p">(</span> <span class="nv">cgpc</span><span class="o">,</span> <span class="no">true</span> : <span class="nv">simplify</span> <span class="o">:=</span> <span class="nv">0</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">Export</span><span class="p">(</span> <span class="nv">model</span><span class="o">,</span> <span class="s">&quot;{8,8}-tess_T2.6_3.hcm&quot;</span> <span class="p">)</span><span class="o">;</span> <span class="c1"># export</span>
+
+<span class="c1"># Supercell:</span>
+<span class="c1"># ----------</span>
+
+<span class="c1"># specify the quotient defining the supercell cell</span>
+<span class="nv">qsc</span> <span class="o">:=</span> <span class="nv">TGQuotient</span><span class="p">(</span> <span class="p">[</span> <span class="nv">3</span><span class="o">,</span> <span class="nv">11</span> <span class="p">]</span> <span class="p">)</span><span class="o">;</span>
+
+<span class="c1"># construct symmetric supercell</span>
+<span class="nv">cgsc</span> <span class="o">:=</span> <span class="nv">TGCellGraph</span><span class="p">(</span> <span class="nv">tg</span><span class="o">,</span> <span class="nv">qsc</span><span class="o">,</span> <span class="nv">3</span> : <span class="nv">simplify</span> <span class="o">:=</span> <span class="nv">3</span> <span class="p">)</span><span class="o">;</span>
+<span class="nv">Export</span><span class="p">(</span><span class="nv">cgsc</span><span class="o">,</span> <span class="s">&quot;(2,8,8)_T3.11_3.hcc&quot;</span><span class="p">)</span><span class="o">;</span>
+
+<span class="c1"># construct symmetric supercell</span>
+<span class="nv">sc</span> <span class="o">:=</span> <span class="nv">TGCellSymmetric</span><span class="p">(</span> <span class="nv">tg</span><span class="o">,</span> <span class="nv">qsc</span><span class="o">,</span> <span class="nv">3</span> <span class="p">)</span><span class="o">;</span>
+
+<span class="c1"># extend the model defined on the primitive cell to the supercell</span>
+<span class="nv">scmodel</span> <span class="o">:=</span> <span class="nv">TGSuperCellModelGraph</span><span class="p">(</span> <span class="nv">model</span><span class="o">,</span> <span class="nv">sc</span> : <span class="nv">simplify</span> <span class="o">:=</span> <span class="nv">0</span><span class="p">)</span><span class="o">;</span>
+<span class="nv">Export</span><span class="p">(</span> <span class="nv">scmodel</span><span class="o">,</span> <span class="s">&quot;{8,8}-tess_T2.6_3_sc-T3.11.hcs&quot;</span> <span class="p">)</span><span class="o">;</span> <span class="c1"># export</span>
+</pre></div>
+</div>
+<div class="flex ">
+  <a href="../../misc/code_snippets/GettingStarted/getting_started_HyperCells_pc_sc_files.zip" class="btn btn-primary" class="flex-child"><i class="fa-solid fa-download"></i> Download generated files</a>
+  <a href="../../misc/code_snippets/GettingStarted/getting_started_HyperCells.g" class="btn btn-primary" class="flex-child"><i class="fa-solid fa-download"></i> Download GAP Code</a>
+</div>
+</section>
+<section id="hands-on-in-mathematica">
+<h2>Hands-on <strong>in Mathematica</strong><a class="headerlink" href="#hands-on-in-mathematica" title="Link to this heading">#</a></h2>
+<p>Next, in Mathematica, we load the <strong>HyperBloch</strong> package and set the current directory to the working directory, assuming it contains the <strong>HyperCells</strong> files created above:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="nn">PatrickMLenggenhager`HyperBloch`</span>
+<span class="n">SetDirectory</span><span class="p">[</span><span class="n">NotebookDirectory</span><span class="p">[]];</span>
+</pre></div>
+</div>
+<section id="primitive-cell">
+<h3>Primitive cell<a class="headerlink" href="#primitive-cell" title="Link to this heading">#</a></h3>
+<section id="import-the-cell-graph">
+<h4>Import the cell graph<a class="headerlink" href="#import-the-cell-graph" title="Link to this heading">#</a></h4>
+<p>The cell graph defines a maximally symmetric triangular tessellation of the corresponding connected and compactified translation unit cell.
+We import it with the function <code class="code-Mathematica">ImportCellGraphString</code>:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">pcell</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ImportCellGraphString</span><span class="p">[</span><span class="n">Import</span><span class="p">[</span><span class="s">&quot;(2,8,8)_T2.6_3.hcc&quot;</span><span class="p">]];</span>
+</pre></div>
+</div>
+<p>Note the use of the <code class="code-Mathematica">Import</code> function inside the <code class="code-Mathematica">ImportCellGraphString</code>
+function. This is necessary, because the exported file is a text file, which contains the string representation of the cell graph. The
+<code class="code-Mathematica">Import</code> function is used to read the file, while the <code class="code-Mathematica">ImportCellGraphString</code>
+function is used to parse the string and construct the cell graph. Alternatively, we could have used the function
+<code class="code-gap">ExportString</code> in GAP to export the cell graph as a string, copied the string into a Mathematica notebook,
+and then used the <code class="code-Mathematica">ImportCellGraphString</code> function (or one of the analogous functions) directly to parse the
+string and construct the cell graph.</p>
+</section>
+<section id="import-the-model-graph">
+<h4>Import the model graph<a class="headerlink" href="#import-the-model-graph" title="Link to this heading">#</a></h4>
+<p>The model graph is derived from cell graph. In our case it defines a nearest-neighbor graph of the <span class="math notranslate nohighlight">\(\{8,8\}\)</span>-tesselation of the hyperbolic plane restricted to the primitive cell. It can be imported analogously, but requires the use of the function <code class="code-Mathematica">ImportModelGraphString</code> in order to parse the string and construct the model graph instead:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">pcmodel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ImportModelGraphString</span><span class="p">[</span><span class="n">Import</span><span class="p">[</span><span class="s">&quot;{8,8}-tess_T2.6_3.hcm&quot;</span><span class="p">]];</span>
+</pre></div>
+</div>
+</section>
+<section id="visualize-the-the-model-graph">
+<h4>Visualize the the model graph<a class="headerlink" href="#visualize-the-the-model-graph" title="Link to this heading">#</a></h4>
+<p>The HyperBloch package provides convenient functions for the visualization of graph representations of models on unit cells. We can visualize the model graph with the function <code class="code-Mathematica">VisualizeModelGraph</code>:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">VisualizeModelGraph</span><span class="p">[</span><span class="n">pcmodel</span><span class="p">,</span>
+<span class="w">  </span><span class="n">CellGraph</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">pcell</span><span class="p">,</span>
+<span class="w">	</span><span class="n">Elements</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">&lt;|</span>
+<span class="w">		</span><span class="n">ShowCellBoundary</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="n">ShowEdgeIdentification</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">True</span><span class="p">},</span>
+<span class="w">		</span><span class="n">ShowCellGraphFlattened</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">	</span><span class="o">|&gt;</span><span class="p">,</span>
+<span class="w">  </span><span class="n">ImageSize</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span>
+<span class="w">  </span><span class="n">NumberOfGenerations</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>producing a figure of an elementary nearest-neighbor model on the <span class="math notranslate nohighlight">\(\{8,8\}\)</span>-lattice:</p>
+<figure class="text-center">
+  <picture>
+    <source type="image/svg+xml" srcset="../../media/figs/getSetGoHyperBloch/ENNMPC_88.png">
+    <img src="../../media/figs/getSetGoHyperBloch/ENNMPC_88.png" class="figure-img img-fluid rounded" alt="elementary nearest-neighbor model on the {8,8} lattice" width="350"/>
+  </picture>
+</figure>
+<p>The function <code class="code-Mathematica">ShowCellGraphFlattened</code> is used to shown all edges connecting pairs of vertices as hyperbolic geodesics in the Poincaré disk. We have passed the cell graph to the option <code class="code-Mathematica">CellGraph</code> which enables us to indicate the unit cell boundary through the function <code class="code-Mathematica">ShowCellBoundary</code>. Moreover, the boundary segments are indicated together with the associated (composite) translations in the translation group <span class="math notranslate nohighlight">\(\Gamma_{pc}\)</span> and colored according to the boundary identification.</p>
+<p>We can further emphasize the <strong>Schwarz triangles</strong> inside the indicated primitive cell through the function <code class="code-Mathematica">ShowCellSchwarzTriangles</code>:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">VisualizeModelGraph</span><span class="p">[</span><span class="n">pcmodel</span><span class="p">,</span>
+<span class="w">  </span><span class="n">CellGraph</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">pcell</span><span class="p">,</span>
+<span class="w">  </span><span class="n">Elements</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">&lt;|</span>
+<span class="w">   	</span><span class="n">ShowCellBoundary</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="n">ShowEdgeIdentification</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">True</span><span class="p">},</span>
+<span class="w">   	</span><span class="n">ShowCellSchwarzTriangles</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="n">TriangleStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">FaceForm</span><span class="p">[</span><span class="n">GrayLevel</span><span class="p">[</span><span class="mf">0.5</span><span class="p">]]}</span>
+<span class="w">  </span><span class="o">|&gt;</span><span class="p">,</span>
+<span class="w">  </span><span class="n">ImageSize</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span>
+<span class="w">  </span><span class="n">NumberOfGenerations</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+<figure class="text-center">
+  <picture> 
+    <source type="image/svg+xml" srcset="../../media/figs/getSetGoHyperBloch/ENNMPC_UnitCell_88.png">
+    <img src="../../media/figs/getSetGoHyperbloch/ENNMPC_UnitCell_88.png" class="figure-img img-fluid rounded" alt="{8,8} pc" width="350"/>
+  </picture>
+</figure>
+<p>There are 8 Schwarz triangles in the primitive cell associated with the chosen representatives in the <strong>right transversal</strong> <span class="math notranslate nohighlight">\(T_{\Delta^{+}}(\Gamma_{pc})\)</span>.</p>
+</section>
+<section id="construct-the-hamiltonian">
+<h4>Construct the Hamiltonian<a class="headerlink" href="#construct-the-hamiltonian" title="Link to this heading">#</a></h4>
+<p>In order to construct the <strong>Abelian Bloch Hamiltonian</strong>, parameters need to be assigned to the vertices and the edges in the model graph. This takes a very compact form for an elementary nearest-neighbour tight-binding model. In order to illustrate the procedure, we will start with the most general assignment strategy and demonstrate the compact form afterwards.</p>
+<div class="seealso-icon admonition">
+<p class="admonition-title">Skip to subsection <a class="reference internal" href="#cs">Compact strategy</a></p>
+<p>On a first reading, you may want to skip the section “General strategy” and continue with the section “Compact strategy”.</p>
+</div>
+<section id="general-strategy">
+<h5>General strategy<a class="headerlink" href="#general-strategy" title="Link to this heading">#</a></h5>
+<section id="number-of-orbitals">
+<h6>Number of orbitals<a class="headerlink" href="#number-of-orbitals" title="Link to this heading">#</a></h6>
+<p>Every model graph can be equipped with <strong>multiple orbitals</strong> per site, and even with a varying number of orbitals at each site. We will construct more involved models with multiple orbitals per site in the <a class="reference internal" href="../Tutorials/HigherOrder_topology.html"><span class="std std-doc">Higher-order topology</span></a> tutorial, for now, however, we will set the number of orbitals to one:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">norbits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Next, we need to assign the parameters which describe the tight-binding model. This is achieved through the vertices and edges specified in the model graph. Each, should be associated with a coupling constant such that they can be called through a function or an <code class="code-Mathematica">Association</code>.</p>
+</section>
+<section id="on-site-terms">
+<h6>On-site terms<a class="headerlink" href="#on-site-terms" title="Link to this heading">#</a></h6>
+<p><strong>On-site</strong> terms in the Hamiltonian are associated with vertices in the model graph. As such, it is instructive to explicitly print these vertices by using the function <code class="code-Mathematica">VertexList</code>, which takes as argument the graph representation:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">VertexList</span><span class="o">@</span><span class="n">pcmodel</span><span class="p">[</span><span class="s">&quot;Graph&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>There is only one site residing in this particular primitive cell of the <span class="math notranslate nohighlight">\(\{8,8\}\)</span>-lattice, as such the vertex list contains only one entry <code class="docutils literal notranslate"><span class="pre">{{3,</span> <span class="pre">1}}</span></code>. Each vertex is given in the form <code class="code-Mathematica">{w, gi}</code>, where <code class="code-Mathematica">w</code> is an integer between <code class="code-Mathematica">1</code> and <code class="code-Mathematica">3</code> indicating the type of vertex of the Schwarz triangle <code class="code-Mathematica">(x, y, z)</code>, i.e., a <strong>Wyckoff position</strong>, and <code class="code-Mathematica">gi</code>  is the position in the transversal <span class="math notranslate nohighlight">\(T_{G^+}(G_{w}^{+})\)</span> labeling the Schwarz triangle the vertex is a part of, as specified in any <code class="code-Mathematica">HCModelGraph</code>.</p>
+<p>We choose to set the on-site term to zero by associating the list of vertices with a list of zeros using an <code class="code-Mathematica">Association</code>:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">mVec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ConstantArray</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"> </span>
+<span class="n">onsitePC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AssociationThread</span><span class="p">[</span><span class="n">VertexList</span><span class="o">@</span><span class="n">pcmodel</span><span class="p">[</span><span class="s">&quot;Graph&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">mVec</span><span class="p">];</span>
+</pre></div>
+</div>
+</section>
+<section id="hopping-terms">
+<h6>Hopping terms<a class="headerlink" href="#hopping-terms" title="Link to this heading">#</a></h6>
+<p>The <strong>hopping terms</strong> are associated with edges in the model graph. In analogy with the on-site terms, it is useful to explicitly print the edges using the function <code class="code-Mathematica">EdgeList</code>, which takes as argument the graph representation:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">EdgeList</span><span class="o">@</span><span class="n">pcmodel</span><span class="p">[</span><span class="s">&quot;Graph&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<figure class="text-center">
+  <picture>
+    <source type="image/svg+xml" srcset="../../media/figs/getSetGoHyperBloch/EdgeListPC88.png">
+    <img src="../../media/figs/getSetGoHyperBloch/EdgeListPC88.png" class="figure-img img-fluid rounded" alt="Edge list primitive cell {8,8}-lattice" width="600"/>
+  </picture>
+</figure>
+<p>Each element in the list is a <code class="code-Mathematica">DirectedEdge</code>, connecting a pair of vertices. The <code class="code-Mathematica">EdgeTags</code> (nested list above the arrows) for the nearest-neighbour edges take the form <code class="code-Mathematica">{1, {ve, s1, s2}}</code>, where the first entry, <code class="code-Mathematica">1</code>, indicates a nearest-neighbor edge, <code class="code-Mathematica">ve={w, g}</code> specifies the cell-graph edge vertex with <code class="code-Mathematica">w</code> the type of vertex and <code class="code-Mathematica">g</code> the position of the element in <span class="math notranslate nohighlight">\(T_{G^{+}}(G_{w}^{+})\)</span>, and <code class="code-Mathematica">s1</code>, <code class="code-Mathematica">s2</code> are the positions of the Schwarz triangles associated with the cell-graph edges in <span class="math notranslate nohighlight">\(T_{\Delta^{+}}(\Gamma)\)</span>. However, this labeling convention comes with some exceptions, which we will explore in more the more involved <a href="./../Tutorials/tutorials.html">HyperBloch package tutorials</a>.</p>
+<p>We choose to set the hopping terms to a constant real value <span class="math notranslate nohighlight">\(-1\)</span> for all edges by associating the edge list with a list of constant values:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">nnHoppingVec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ConstantArray</span><span class="p">[</span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">];</span>
+<span class="n">hoppingPC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AssociationThread</span><span class="p">[</span><span class="n">EdgeList</span><span class="o">@</span><span class="n">pcmodel</span><span class="p">[</span><span class="s">&quot;Graph&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">nnHoppingVec</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>If we would consider a more involved model it might be helpful to look at the translation operators associated with the edges:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">pcmodel</span><span class="p">[</span><span class="s">&quot;EdgeTranslations&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>which contains the translation operators <code class="docutils literal notranslate"><span class="pre">{g1,</span> <span class="pre">g4,</span> <span class="pre">...</span> <span class="pre">}</span></code>. In our particular case, all edges are associated with a non-trivial translation, i.e., the parameters we have assigned are inter-cell hopping amplitudes.</p>
+<p>The HyperBloch package is equipped with elaborate visualization tools of cell, model and supercell model graphs which can further guide the construction of models in more advanced settings. We will exploit these in subsequent tutorials.</p>
+</section>
+<section id="hamiltonian">
+<h6>Hamiltonian<a class="headerlink" href="#hamiltonian" title="Link to this heading">#</a></h6>
+<p>The Abelian Bloch Hamiltonian can now be set up by passing the model graph and the corresponding coupling constants specified above as arguments to the function <code class="code-Mathematica">AbelianBlochHamiltonian</code> or alternatively <code class="code-Mathematica">AbelianBlochHamiltonianExpression</code>, the former returns the Hamiltonian as a function of momenta. We choose to use the latter for now, in order to print a symbolic expression of the Hamiltonian:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">Hpc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AbelianBlochHamiltonianExpression</span><span class="p">[</span><span class="n">pcmodel</span><span class="p">,</span><span class="w"> </span><span class="n">norbits</span><span class="p">,</span><span class="w"> </span><span class="n">onsitePC</span><span class="p">,</span><span class="w"> </span><span class="n">hoppingPC</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>which in this particular example constructs a <span class="math notranslate nohighlight">\(1\times1\)</span> matrix as a function of four momenta:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">-2</span><span class="w"> </span><span class="p">(</span><span class="n">Cos</span><span class="p">[</span><span class="n">k</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Cos</span><span class="p">[</span><span class="n">k</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Cos</span><span class="p">[</span><span class="n">k</span><span class="p">[</span><span class="mi">3</span><span class="p">]]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Cos</span><span class="p">[</span><span class="n">k</span><span class="p">[</span><span class="mi">4</span><span class="p">]])</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="compact-strategy">
+<span id="cs"></span><h5>Compact strategy<a class="headerlink" href="#compact-strategy" title="Link to this heading">#</a></h5>
+<p>The simplicity of the specified model reduces the construction of the Hamiltonian to just one line of code. Once again we set the number of orbitals per site in the second argument to <span class="math notranslate nohighlight">\(1\)</span>, the on-site term to <span class="math notranslate nohighlight">\(0\)</span> and the nearest-neighbor coupling to <span class="math notranslate nohighlight">\(-1\)</span>, with the function <code class="code-Mathematica">AbelianBlochHamiltonian</code>, which returns the Hamiltonian as a function of momenta. A very economic way to do this is through the use of constant <code class="code-Mathematica">Function</code>s instead of <code class="code-Mathematica">Association</code>s:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">Hpc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AbelianBlochHamiltonian</span><span class="p">[</span><span class="n">pcmodel</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="o">&amp;</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>For more efficient evaluation, we precompile the Bloch Hamiltonian
+by specifying the option <code class="code-Mathematica">CompileFunction-&gt;True</code>:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">Hpccf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AbelianBlochHamiltonian</span><span class="p">[</span><span class="n">pcmodel</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="n">CompileFunction</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">True</span><span class="p">];</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="density-of-states">
+<h4>Density of states<a class="headerlink" href="#density-of-states" title="Link to this heading">#</a></h4>
+<p>To compute the <strong>density of states</strong>, we can now take advantage of the independence of different momentum sectors and therefore parallelize the computation of the eigenvalues. We take a set of <code class="code-Mathematica">Npts</code> random samples in momentum space and partition this set into <code class="code-Mathematica">Nruns</code> subsets. The dimension of <strong>Brillouin zone</strong> is defined by the genus of the compactified primitive cell and is <span class="math notranslate nohighlight">\(2 \cdot genus\)</span>, which we specify by passing the <code class="code-Mathematica">genus</code> as an argument. As such, we compute the eigenvalues with the following function:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">ComputeEigenvalues</span><span class="p">[</span><span class="nv">cfH_</span><span class="p">,</span><span class="w"> </span><span class="nv">Npts_</span><span class="p">,</span><span class="w"> </span><span class="nv">Nruns_</span><span class="p">,</span><span class="w"> </span><span class="nv">genus_</span><span class="p">]</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span>
+<span class="w">  </span><span class="n">Flatten</span><span class="w"> </span><span class="o">@</span><span class="w"> </span><span class="n">ParallelTable</span><span class="p">[</span>
+<span class="w">    </span><span class="n">Flatten</span><span class="w"> </span><span class="o">@</span><span class="w"> </span><span class="n">Table</span><span class="p">[</span>
+<span class="w">      </span><span class="n">Eigenvalues</span><span class="p">[</span><span class="n">cfH</span><span class="w"> </span><span class="o">@@</span><span class="w"> </span><span class="n">RandomReal</span><span class="p">[{</span><span class="o">-</span><span class="n">Pi</span><span class="p">,</span><span class="w"> </span><span class="n">Pi</span><span class="p">},</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">genus</span><span class="p">]],</span><span class="w"> </span>
+<span class="w">    </span><span class="p">{</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">Round</span><span class="p">[</span><span class="n">Npts</span><span class="o">/</span><span class="n">Nruns</span><span class="p">]}],</span><span class="w"> </span><span class="p">{</span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">Nruns</span><span class="p">},</span><span class="w"> </span>
+<span class="w">  </span><span class="n">Method</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;FinestGrained&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>We compute the eigenvalues with a set of  <span class="math notranslate nohighlight">\(10^6\)</span> random samples in momentum space and  <span class="math notranslate nohighlight">\(32\)</span> subsets:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">evspc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ComputeEigenvalues</span><span class="p">[</span><span class="n">Hpc</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="o">^</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">32</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>We choose to visualize the density of states via a kernel density estimation with an energy binwidth of <span class="math notranslate nohighlight">\(0.005\)</span> for the elementary nearest-neighbor model on the primitive cell of the <span class="math notranslate nohighlight">\(\{8,8\}\)</span>-lattice:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">SmoothHistogram</span><span class="p">[</span><span class="n">evals</span><span class="p">,</span><span class="w"> </span><span class="mf">0.005</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;PDF&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="n">Frame</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">True</span><span class="p">,</span><span class="w"> </span><span class="n">FrameLabel</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;Energy E&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Density of states&quot;</span><span class="p">}</span><span class="w"> </span><span class="n">FrameStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Black</span><span class="p">,</span><span class="w"> </span>
+<span class="w">  </span><span class="n">ImageSize</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w"> </span><span class="n">ImagePadding</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{{</span><span class="n">Automatic</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">Automatic</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">}},</span><span class="w"> </span><span class="n">LabelStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<span class="w">  </span><span class="n">PlotLabel</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Primitive cell (T2.6); k sampling: 10^6&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">PlotRange</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">All</span><span class="p">]</span>
+</pre></div>
+</div>
+<figure class="text-center">
+  <picture>
+    <source type="image/svg+xml" srcset="../../media/figs/getSetGoHyperBloch/dos_88_T2.6.png">
+    <img src="../../media/figs/getSetGoHyperBloch/dos_88_T2.6.png" class="figure-img img-fluid rounded" alt="density of Abelian Bloch states of the elementary nearest-neighbor model on the primitive cell T2.6 of the {8,8} lattice" width="500"/>
+  </picture>
+</figure>
+</section>
+</section>
+<section id="first-supercell">
+<h3>First supercell<a class="headerlink" href="#first-supercell" title="Link to this heading">#</a></h3>
+<section id="import-the-cell-and-supercell-model-graph">
+<h4>Import the cell and supercell model graph<a class="headerlink" href="#import-the-cell-and-supercell-model-graph" title="Link to this heading">#</a></h4>
+<p>The cell graph for the compactified translation supercell can be imported like the one for the primitive cell through the function <code class="code-Mathematica">ImportCellGraphString</code>:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">scell</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ImportCellGraphString</span><span class="p">[</span><span class="n">Import</span><span class="p">[</span><span class="s">&quot;(2,8,8)_T3.11_3.hcc&quot;</span><span class="p">]];</span>
+</pre></div>
+</div>
+<p>The supercell model graph is derived from cell graph can be imported analogously, but requires the use of the function <code class="code-Mathematica">ImportSupercellModelGraphString</code> instead:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">scmodel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ImportSupercellModelGraphString</span><span class="p">[</span><span class="n">Import</span><span class="p">[</span><span class="s">&quot;{8,8}-tess_T2.6_3_sc-T3.11.hcs&quot;</span><span class="p">]];</span>
+</pre></div>
+</div>
+</section>
+<section id="visualize-the-supercell-model-graph">
+<h4>Visualize the supercell model graph<a class="headerlink" href="#visualize-the-supercell-model-graph" title="Link to this heading">#</a></h4>
+<p>Let us visualize the supercell model representation of the nearest-neighbor model:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">VisualizeModelGraph</span><span class="p">[</span><span class="n">scmodel</span><span class="p">,</span>
+<span class="w">  </span><span class="n">CellGraph</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">scell</span><span class="p">,</span>
+<span class="w">  </span><span class="n">Elements</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">&lt;|</span>
+<span class="w">    </span><span class="n">ShowCellBoundary</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="n">ShowEdgeIdentification</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">True</span><span class="p">},</span>
+<span class="w">    </span><span class="n">ShowCellGraphFlattened</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="o">|&gt;</span><span class="p">,</span>
+<span class="w">  </span><span class="n">ImageMargins</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">ImagePadding</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span>
+<span class="w">  </span><span class="n">ImageSize</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w"> </span><span class="n">NumberOfGenerations</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+<figure class="text-center">
+  <picture>
+    <source type="image/svg+xml" srcset="../../media/figs/getSetGoHyperBloch/ENNMSC_88.png">
+    <img src="../../media/figs/getSetGoHyperBloch/ENNMSC_88.png" class="figure-img img-fluid rounded" alt="elementary nearest-neighbor model on the {8,8} lattice" width="400"/>
+  </picture>
+</figure>
+<p>Let us further emphasize the Schwarz triangles inside the indicated supercell:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">VisualizeModelGraph</span><span class="p">[</span><span class="n">scmodel</span><span class="p">,</span>
+<span class="w">  </span><span class="n">CellGraph</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">scell</span><span class="p">,</span>
+<span class="w">  </span><span class="n">Elements</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">&lt;|</span>
+<span class="w">    </span><span class="n">ShowCellBoundary</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="n">ShowEdgeIdentification</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">True</span><span class="p">},</span>
+<span class="w">    </span><span class="n">ShowCellSchwarzTriangles</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">TriangleStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Directive</span><span class="p">[</span><span class="w"> </span><span class="n">Opacity</span><span class="p">[</span><span class="mf">0.6</span><span class="p">],</span><span class="w"> </span><span class="n">FaceForm</span><span class="p">[</span><span class="n">GrayLevel</span><span class="p">[</span><span class="mf">0.5</span><span class="p">]]]</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">  </span><span class="o">|&gt;</span><span class="p">,</span>
+<span class="w">  </span><span class="n">ImageSize</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w"> </span><span class="n">ImageMargins</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">  </span><span class="n">ImagePadding</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="n">NumberOfGenerations</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+<figure class="text-center">
+  <picture> 
+    <source type="image/svg+xml" srcset="../../media/figs/getSetGoHyperBloch/ENNMSC_UnitCell_88.png">
+    <img src="../../media/figs/getSetGoHyperbloch/ENNMSC_UnitCell_88.png" class="figure-img img-fluid rounded" alt="{8,8} pc" width="400"/>
+  </picture>
+</figure>
+<p>There are 16 Schwarz triangles in the supercell associated with the chosen representatives in the right transversal <span class="math notranslate nohighlight">\(T_{\Delta^{+}}(\Gamma_{sc})\)</span>, as such this particular supercell consists of a symmetric aggregation of two primitive cells.</p>
+<p>Since the model on the primitive cell already defines all the necessary model specification for the supercell, we do in general not need to explicitly print the vertices and edges of supercell model graphs. However, it is instructive to do so in order to understand the underlying mechanism:</p>
+<div class="seealso-icon admonition">
+<p class="admonition-title">Skip to subsubsection <a class="reference internal" href="#sch"><span class="std std-ref">Hamiltonian and density of states</span></a></p>
+<p>On a first read one may want to skip the next two subsubsection “Vertices” and “Edges” and continue at the subsection “Hamiltonian and density of states”.</p>
+</div>
+<section id="vertices">
+<h5>Vertices<a class="headerlink" href="#vertices" title="Link to this heading">#</a></h5>
+<p>Analogous to the model graph, the vertices can be extracted by using the function <code class="code-Mathematica">VertexList</code>, which takes as argument the graph representation:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">VertexList</span><span class="o">@</span><span class="n">scmodel</span><span class="p">[</span><span class="s">&quot;Graph&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>There are two site residing in this particular supercell <code class="docutils literal notranslate"><span class="pre">{{3,</span> <span class="pre">1,</span> <span class="pre">1},</span> <span class="pre">{3,</span> <span class="pre">1,</span> <span class="pre">2}}</span></code>. Vertices in the supercell model graphs are given in the form <code class="code-Mathematica">{w, gi, etaj}</code>, where <code class="code-Mathematica">w</code> is an integer between <code class="code-Mathematica">1</code> and <code class="code-Mathematica">3</code> indicating the type of vertex of the Schwarz triangle <code class="code-Mathematica">(x, y, z)</code>, <code class="code-Mathematica">gi</code> is the position in the transversal <span class="math notranslate nohighlight">\(T_{G^{+}}(G_{w}^{+})\)</span> labeling the Schwarz triangle the vertex is a part of, and <code class="code-Mathematica">etaj</code> the position of the element in the transversal <span class="math notranslate nohighlight">\(T_{\Gamma_{pc}}(\Gamma_{sc})\)</span> labeling the copy of the primitive cell containing the vertex inside the supercell, as specified in any <code class="code-Mathematica">HCSupercellModelGraph</code>.</p>
+</section>
+<section id="edges">
+<h5>Edges<a class="headerlink" href="#edges" title="Link to this heading">#</a></h5>
+<p>Similarly, the edges can be extracted by using the function <code class="code-Mathematica">EdgeList</code>, which takes as argument the graph representation:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">EdgeList</span><span class="o">@</span><span class="n">scmodel</span><span class="p">[</span><span class="s">&quot;Graph&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<figure class="text-center">
+  <picture>
+    <source type="image/svg+xml" srcset="../../media/figs/getSetGoHyperBloch/EdgeListSC88.png">
+    <img src="../../media/figs/getSetGoHyperBloch/EdgeListSC88.png" class="figure-img img-fluid rounded" alt="Edge list supercell {8,8}-lattice" width="1000"/>
+  </picture>
+</figure>
+<p>The edge tags are of the form <code class="code-Mathematica">{v1pc, v2pc, tagpc}</code> with <code class="code-Mathematica">v1pc, v2pc</code> the positions of the vertices in the primitive cell, and <code class="code-Mathematica">tagpc</code> the tag of the edge in the primitive cell. However, also this labeling convention comes with some exceptions, which we will explore in more the more involved <a href="./../Tutorials/tutorials.html">HyperBloch package tutorials</a>.</p>
+</section>
+</section>
+<section id="hamiltonian-and-density-of-states">
+<span id="sch"></span><h4>Hamiltonian and density of states<a class="headerlink" href="#hamiltonian-and-density-of-states" title="Link to this heading">#</a></h4>
+<p>The construction of the model on the primitive cell already defines all the necessary model specification for the supercell. In order to construct the elementary nearest-neighbor tight-binding model on the supercell, we just need to replace the model graph with the supercell model graph in the first argument in the function <code class="code-Mathematica">AbelianBlochHamiltonian</code>. In addition, we also need to specify the associated model graph with the option <em>PCModel</em>. This already captures some of the higher-dimensional irreducible representations on the original primitive cell:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">Hsccf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AbelianBlochHamiltonian</span><span class="p">[</span><span class="n">scmodel</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="n">PCModel</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">pcmodel</span><span class="p">,</span><span class="w"> </span><span class="n">CompileFunction</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">True</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>We compute the Eigenvalues with a set of  <span class="math notranslate nohighlight">\(10^5\)</span> random samples in momentum space and <span class="math notranslate nohighlight">\(32\)</span> subsets:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">evssc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ComputeEigenvalues</span><span class="p">[</span><span class="n">Hsc</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="mi">10</span><span class="o">^</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">32</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>Once again, we choose to visualize the density of states via a kernel density estimation with an energy binwidth of <span class="math notranslate nohighlight">\(0.005\)</span> for first consecutive supercell of the primitive cell:</p>
+<div class="highlight-Mathematica notranslate"><div class="highlight"><pre><span></span><span class="n">SmoothHistogram</span><span class="p">[</span><span class="n">evssc</span><span class="p">,</span><span class="w"> </span><span class="mf">0.005</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;PDF&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="n">Frame</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">True</span><span class="p">,</span><span class="w"> </span><span class="n">FrameLabel</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;Energy E&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Density of states&quot;</span><span class="p">}</span><span class="w"> </span><span class="n">FrameStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Black</span><span class="p">,</span><span class="w"> </span>
+<span class="w">  </span><span class="n">ImageSize</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w"> </span><span class="n">ImagePadding</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{{</span><span class="n">Automatic</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="n">Automatic</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">}},</span><span class="w"> </span><span class="n">LabelStyle</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<span class="w">  </span><span class="n">PlotLabel</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Primitive cell (T2.6); k sampling: 2*10^5&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">PlotRange</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">All</span><span class="p">]</span>
+</pre></div>
+</div>
+<figure class="text-center">
+  <picture>
+    <source type="image/svg+xml" srcset="../../media/figs/getSetGoHyperBloch/dos_88_scT3.11.png">
+    <img src="../../media/figs/getSetGoHyperBloch/dos_88_scT3.11.png" class="figure-img img-fluid rounded" alt="density of states of the elementary nearest-neighbor model on the {8,8} lattice as computed using the supercell method with sequence T2.6, T3.11, T5.13, T9.20, T17.29, T33.44, T65.78" width="500"/>
+  </picture>
+</figure>
+<div style="text-align: right;">
+  <a href="../../misc/code_snippets/GettingStarted/getting_started_HyperBloch.nb" class="btn btn-primary"><i class="fa-solid fa-download"></i> Download Mathematica Notebook</a>
+</div>
+<br>
+<p>Aspects of the content above originate from the  <a target="_blank" href="https:/doi.org/10.5281/zenodo.10142167">Supplementary Data and Code</a>, where more examples are provided and the necessary steps to find the <strong>density of states</strong> of an elementary nearest-neighbor hopping model on the <span class="math notranslate nohighlight">\(\{8,8\}\)</span>-lattice are discussed in detail.</p>
+</section>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="getSetGo_HyperCells.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">HyperCells</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Tutorials/tutorials.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Tutorials</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisits-in-gap">Prerequisits <strong>in GAP</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hands-on-in-mathematica">Hands-on <strong>in Mathematica</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#primitive-cell">Primitive cell</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-cell-graph">Import the cell graph</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-model-graph">Import the model graph</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-the-model-graph">Visualize the the model graph</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#construct-the-hamiltonian">Construct the Hamiltonian</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#general-strategy">General strategy</a><ul class="nav section-nav flex-column">
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#number-of-orbitals">Number of orbitals</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#on-site-terms">On-site terms</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hopping-terms">Hopping terms</a></li>
+<li class="toc-h6 nav-item toc-entry"><a class="reference internal nav-link" href="#hamiltonian">Hamiltonian</a></li>
+</ul>
+</li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#compact-strategy">Compact strategy</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#density-of-states">Density of states</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-supercell">First supercell</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#import-the-cell-and-supercell-model-graph">Import the cell and supercell model graph</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-supercell-model-graph">Visualize the supercell model graph</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#vertices">Vertices</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#edges">Edges</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hamiltonian-and-density-of-states">Hamiltonian and density of states</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2023-2024, Patrick M. Lenggenhager, Joseph Maciejko and Tomáš Bzdušek. Website development and tutorials by Marcelo Looser.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

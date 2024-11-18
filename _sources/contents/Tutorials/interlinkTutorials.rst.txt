@@ -1,0 +1,177 @@
+:orphan:
+
+.. _Supercells: ./Supercells.html
+
+.. _Coherent sequences: ./Coherent_SC_sequences.html
+
+.. _Higher-order topology: ./HigherOrder_topology.html
+
+.. _Flat-bands: ./Flat-bands.html
+
+.. _Hatano-Nelson model: ./HatanoNelson_model.html
+
+.. _Haldane model: ./Haldane_model.html
+
+.. _Getting started - HyperCells: ./../GettingStarted/getSetGo_HyperCells.html
+
+.. _Getting started - HyperBloch: ./../GettingStarted/getSetGo_HyperBloch.html
+
+
+
+.. dropdown:: HyperCells package
+   :color: info
+   :icon: package
+
+   .. dropdown:: AddOrientedNNNEdgesToTessellationModelGraph
+
+      `Haldane model`_
+   .. dropdown:: AsTGSubgroup
+
+      `Coherent sequences`_
+   .. dropdown:: EvaluatePGMatrix
+
+      `Haldane model`_
+   .. dropdown:: Export
+
+      `Supercells`_, `Coherent sequences`_, `Flat-bands`_, `Hatano-Nelson model`_, `Haldane model`_, `Getting started - HyperBloch`_
+   .. dropdown:: FpGroup
+
+      `Coherent sequences`_, `Haldane model`_, `Getting started - HyperCells`_
+   .. dropdown:: KagomeModelGraph
+
+      `Flat-bands`_
+   .. dropdown:: LiebModelGraph
+
+      `Flat-bands`_
+   .. dropdown:: ListTGQuotients
+
+      `Getting started - HyperCells`_
+   .. dropdown:: LongestSequence
+
+      `Coherent sequences`_, `Flat-bands`_, `Hatano-Nelson model`_, `Haldane model`_
+   .. dropdown:: PGMatrices
+
+      `Haldane model`_
+   .. dropdown:: PGMatricesOfGenerators
+
+      `Haldane model`_
+   .. dropdown:: ProperTriangleGroup
+
+      `Supercells`_, `Coherent sequences`_, `Flat-bands`_, `Hatano-Nelson model`_, `Haldane model`_, `Getting started - HyperCells`_, `Getting started - HyperBloch`_
+   .. dropdown:: Signature
+
+      `Coherent sequences`_
+   .. dropdown:: TGCellGraph
+
+      `Supercells`_, `Coherent sequences`_, `Flat-bands`_, `Haldane model`_, `Getting started - HyperCells`_, `Getting started - HyperBloch`_
+   .. dropdown:: TGCellModelGraph
+
+      `Flat-bands`_
+   .. dropdown:: TGCellSymmetric
+
+      `Supercells`_, `Coherent sequences`_, `Flat-bands`_, `Hatano-Nelson model`_, `Haldane model`_, `Getting started - HyperCells`_, `Getting started - HyperBloch`_
+   .. dropdown:: TGQuotient
+
+      `Supercells`_, `Coherent sequences`_, `Flat-bands`_, `Hatano-Nelson model`_, `Haldane model`_, `Getting started - HyperCells`_, `Getting started - HyperBloch`_
+   .. dropdown:: TGQuotientGenus
+
+      `Getting started - HyperCells`_
+   .. dropdown:: TGQuotientGroup
+
+      `Getting started - HyperCells`_
+   .. dropdown:: TGQuotientName
+
+      `Coherent sequences`_
+   .. dropdown:: TGQuotientOrder
+
+      `Getting started - HyperCells`_
+   .. dropdown:: TGQuotientRelators
+
+      `Coherent sequences`_, `Getting started - HyperCells`_
+   .. dropdown:: TGQuotientSequencesStructure
+
+      `Coherent sequences`_, `Flat-bands`_, `Hatano-Nelson model`_, `Haldane model`_
+   .. dropdown:: TGSuperCellModelGraph
+
+      `Supercells`_, `Coherent sequences`_, `Flat-bands`_, `Hatano-Nelson model`_, `Haldane model`_, `Getting started - HyperCells`_, `Getting started - HyperBloch`_
+   .. dropdown:: TGTranslationGroup
+
+      `Coherent sequences`_, `Getting started - HyperCells`_
+   .. dropdown:: TessellationModelGraph
+
+      `Supercells`_, `Coherent sequences`_, `Hatano-Nelson model`_, `Haldane model`_, `Getting started - HyperCells`_, `Getting started - HyperBloch`_
+   .. dropdown:: TriangleGroup
+
+      `Coherent sequences`_, `Haldane model`_
+
+
+.. dropdown:: HyperBloch package
+   :color: danger
+   :icon: package
+
+   .. dropdown:: AbelianBlochHamiltonian
+
+      `Supercells`_, `Higher-order topology`_, `Flat-bands`_, `Hatano-Nelson model`_, `Haldane model`_, `Getting started - HyperBloch`_
+   .. dropdown:: AbelianBlochHamiltonianExpression
+
+      `Getting started - HyperBloch`_
+   .. dropdown:: GetCellGraphEdge
+
+      `Hatano-Nelson model`_
+   .. dropdown:: GetCellGraphFace
+
+      `Haldane model`_
+   .. dropdown:: GetEdge
+
+      `Haldane model`_
+   .. dropdown:: GetSchwarzTriangle
+
+      `Flat-bands`_, `Haldane model`_
+   .. dropdown:: GetVertex
+
+      `Haldane model`_
+   .. dropdown:: GetWyckoffPosition
+
+      `Flat-bands`_
+   .. dropdown:: ImportCellGraphString
+
+      `Flat-bands`_, `Hatano-Nelson model`_, `Haldane model`_, `Getting started - HyperBloch`_
+   .. dropdown:: ImportModelGraphString
+
+      `Supercells`_, `Flat-bands`_, `Hatano-Nelson model`_, `Haldane model`_, `Getting started - HyperBloch`_
+   .. dropdown:: ImportPGMatricesString
+
+      `Haldane model`_
+   .. dropdown:: ImportQuotientSequencesStructureString
+
+      `Coherent sequences`_
+   .. dropdown:: ImportSupercellModelGraphString
+
+      `Supercells`_, `Flat-bands`_, `Hatano-Nelson model`_, `Haldane model`_, `Getting started - HyperBloch`_
+   .. dropdown:: IntroduceDisclination
+
+      `Higher-order topology`_
+   .. dropdown:: NonReciprocalAbelianBlochHamiltonian
+
+      `Hatano-Nelson model`_
+   .. dropdown:: ShowCellBoundary
+
+      `Higher-order topology`_, `Flat-bands`_, `Hatano-Nelson model`_, `Haldane model`_, `Getting started - HyperBloch`_
+   .. dropdown:: ShowCellGraphFlattened
+
+      `Higher-order topology`_, `Flat-bands`_, `Hatano-Nelson model`_, `Haldane model`_, `Getting started - HyperBloch`_
+   .. dropdown:: ShowCellSchwarzTriangles
+
+      `Haldane model`_, `Getting started - HyperBloch`_
+   .. dropdown:: ShowTriangles
+
+      `Haldane model`_
+   .. dropdown:: TBHamiltonian
+
+      `Higher-order topology`_
+   .. dropdown:: VisualizeModelGraph
+
+      `Higher-order topology`_, `Flat-bands`_, `Hatano-Nelson model`_, `Haldane model`_, `Getting started - HyperBloch`_
+   .. dropdown:: VisualizeQuotientSequences
+
+      `Coherent sequences`_
