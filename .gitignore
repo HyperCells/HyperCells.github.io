@@ -1,3 +1,10 @@
+# Python
 env
 sphinxenv
+**/__pycache__
+
+# Build directory
 build
+
+# Automatically generated files
+source/contents/Tutorials/interlinkTutorials.rst
