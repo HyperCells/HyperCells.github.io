@@ -14,10 +14,10 @@ detailed explanations ranging from simple examples to more advanced applications
 ## Authors
 
 Main author and developer:\
-&ensp;&ensp;**Marcelo Looser**\
+&ensp;&ensp;**Marcelo Looser**
 
 Coauthors:\
-&ensp;&ensp;**Patrick M. Lenggenhager** ([https://patrick-lenggenhager.github.io](https://patrick-lenggenhager.github.io), plengg@pks.mpg.de)
+&ensp;&ensp;**Patrick M. Lenggenhager** ([https://patrick-lenggenhager.github.io](https://patrick-lenggenhager.github.io), plengg@pks.mpg.de)\
 &ensp;&ensp;**Tomáš Bzdušek** (tomas.bzdusek@uzh.ch)
 
 ## Building and viewing the website
