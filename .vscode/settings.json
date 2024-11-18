@@ -1,4 +1,11 @@
 {
+    "markdown.extension.toc.omittedFromToc": {
+        "README.md": [
+            "# The HyperCells & HyperBloch website",
+            "#### Table of contents",
+        ]
+    },
+
     "cSpell.words": [
         "Abelian",
         "assignement",
