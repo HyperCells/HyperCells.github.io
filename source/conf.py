@@ -80,7 +80,7 @@ numfig = False
 # ===============================================================================================
 
 notfound_pagename = "404"
-notfound_urls_prefix = "/build/"
+notfound_urls_prefix = "/HyperCells.github.io/"
 
 # ===============================================================================================
 # Options for HTML output :
@@ -94,7 +94,7 @@ html_extra_path = ["assets"]
 # Title to concatenated with tab title in browser.
 html_title = "HyperCells & HyperBloch"
 
-# Theme template and cotum css file path.
+# Theme template and custom css file path.
 html_theme = "pydata_sphinx_theme"
 html_css_files = ["css/custom.css"]
 
@@ -104,7 +104,7 @@ html_favicon = "_static/images/lightMode/favicon.ico"
 # Logo on webpage title.
 html_logo = "_static/images/lightMode/html_logo_HyperSupercells2_light.png"
 
-# html light/drak mode setting.
+# html light/dark mode setting.
 # Note, I will set this to automatic eventually.
 html_context = {"default_mode": "light"}
 
@@ -163,32 +163,6 @@ html_theme_options = {
 
     # Footer options.
     "article_footer_items": []
-}
-
-
-#   "external_links": [
-#      {"name": "link-one-name", "url": "https://<link-one>"},
-#      {"name": "link-two-name", "url": "https://<link-two>"} 
-#   ]
-#
-
-# Prevent the copy button from appearing on top of notebook cell numbers:
-#copybutton_selector = ":not(.prompt) > div.highlight pre"
-
-# ===============================================================================================
-# Latex and simplepdf configurations (to be dropped once the website is online)
-# ===============================================================================================
-
-latex_elements = {
-   'papersize':'a4paper',
-   'pointsize':'11pt',
-   'classoptions': ',openany',
-   'babel': '\\usepackage[english]{babel}',
-
-}
-
-simplepdf_vars = {
-    'cover-bg': 'url(images/pdf_cover_temp.png) no-repeat center'
 }
 
 # ===============================================================================================
