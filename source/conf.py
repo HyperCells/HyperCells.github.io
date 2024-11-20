@@ -79,8 +79,8 @@ numfig = False
 # 404 not found page configuration :
 # ===============================================================================================
 
-notfound_pagename = "404"
-notfound_urls_prefix = "/HyperCells.github.io/"
+#notfound_pagename = "404"
+#notfound_urls_prefix = "/HyperCells.github.io/"
 
 # ===============================================================================================
 # Options for HTML output :
