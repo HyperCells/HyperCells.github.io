@@ -80,7 +80,7 @@ numfig = False
 # ===============================================================================================
 
 #notfound_pagename = "404"
-#notfound_urls_prefix = "/HyperCells.github.io/"
+notfound_urls_prefix = ""
 
 # ===============================================================================================
 # Options for HTML output :
