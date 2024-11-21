@@ -431,7 +431,7 @@ od;
 ```
 
 <div class="flex ">
-  <a href="../../misc/code_snippets/Tutorials/HaldaneModel/tutorial_HaldaneModel_PGMatrices_HyperCells_pc_sc_files.zip" class="btn btn-primary" class="flex-child"><i class="fa-solid fa-download"></i> Download generated files</a>
+  <a href="../../misc/code_snippets/Tutorials/HaldaneModel/tutorial_HaldaneModel_PGMatrices_files.zip" class="btn btn-primary" class="flex-child"><i class="fa-solid fa-download"></i> Download generated files</a>
   <a href="../../misc/code_snippets/Tutorials/HaldaneModel/tutorial_HaldaneModel_PGMatrices_HyperCells.g" class="btn btn-primary" class="flex-child"><i class="fa-solid fa-download"></i> Download GAP Code</a>
 </div>
 

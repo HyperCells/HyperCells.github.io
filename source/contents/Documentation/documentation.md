@@ -13,7 +13,7 @@
 
 ## HyperCells
 
-The HyperCells documentation can be found here <a target="_blank" href="https://patrick-lenggenhager.github.io/HyperCells/doc/chap0_mj.html">HyperCells documentation</a>. 
+The HyperCells documentation can be found here <a target="_blank" href="https://hypercells.github.io/HyperCells/doc/chap0_mj.html">HyperCells documentation</a>. 
 
 Alternatively, provided the HyperCells package was installed properly, the documentation can be generated via the [AutoDoc](https://docs.gap-system.org/pkg/autodoc/doc/chap1_mj.html) package in GAP. Open GAP and execute the following code snippet:
 

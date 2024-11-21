@@ -44,7 +44,7 @@ In this tutorial we will see how the cell, model and supercell model graphs, con
 
 ## Prerequisits **in GAP**
 
-In order to get started with the HyperBloch package we construct nearest-neighbor graphs of the {8,8}-tessellation of the hyperbolic plane through the **HyperCells** package in GAP. We first construct the primitive cell and the model graph (based on the tessellation graph), and finally the supercell, as we have established previously in getting started with [HyperCells](./getSetGo_HyperCells) package:
+In order to get started with the HyperBloch package we construct nearest-neighbor graphs of the {8,8}-tessellation of the hyperbolic plane through the **HyperCells** package in GAP. We first construct the primitive cell and the model graph (based on the tessellation graph), and finally the supercell, as we have established previously in [getting started with HyperCells package](./getSetGo_HyperCells):
 
 ```gap
 # load the HyperCells package

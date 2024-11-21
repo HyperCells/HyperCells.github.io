@@ -34,7 +34,7 @@ year = date.strftime("%Y")
 
 project = "HyperCells and HyperBloch documentation"
 copyright = f"2023-{year}, Patrick M. Lenggenhager, Joseph Maciejko and Tomáš Bzdušek. Website development and tutorials by Marcelo Looser" 
-author = "by the HyperCells development team"
+author = "Marcelo Looser"
 release = "0.1.0"
 version = "0.1.0"
 
@@ -119,7 +119,6 @@ html_sidebars = {
   "contents/Gallery/SubgroupTreegraph64": [],
   "contents/Gallery/PrimitiveCell64GAP": [],
   "contents/Publications/publications": [],
-  "contents/Contribute/contribute": [],
   "contents/Contact/contact": [],
   "contents/Cite/cite": [],
   "contents/Documentation/documentation": [],

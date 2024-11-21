@@ -16,6 +16,6 @@ orphan: true
 
 # HyperCells
 
-The HyperCells documentation can be found here <a target="_blank" href="https://patrick-lenggenhager.github.io/HyperCells/doc/chap0_mj.html">HyperCells documentations</a>. 
+The HyperCells documentation can be found here <a target="_blank" href="https://hypercells.github.io/HyperCells/doc/chap0_mj.html">HyperCells documentations</a>. 
 
 
