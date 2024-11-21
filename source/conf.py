@@ -105,8 +105,7 @@ html_favicon = "_static/images/lightMode/favicon.ico"
 html_logo = "_static/images/lightMode/html_logo_HyperSupercells2_light.png"
 
 # html light/dark mode setting.
-# Note, I will set this to automatic eventually.
-html_context = {"default_mode": "light"}
+html_context = {"default_mode": "auto"}
 
 # Drop primary sidebar (left, called Section Navigation) of pages.
 # Note, in order to drop the secondary sidebar (right), one needs to
