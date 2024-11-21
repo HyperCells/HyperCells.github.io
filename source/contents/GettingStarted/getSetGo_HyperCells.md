@@ -70,7 +70,7 @@ It is instructive to use the **HyperBloch** package in Mathematica in order to v
   </picture>
 </figure>
 
-Next, we specify a unit cell of the lattice in terms of the quotient of the proper triangle group {math}`\Delta^{+}` with a translation group {math}`\Gamma \triangleleft \Delta^{+}`. For that we can query the included database based on the work of <a target="_blank" href="https://patrick-lenggenhager.github.io/HyperCells/doc/chapBib_mj.html#biBConder:2007">Marston Conder</a>, which allows us to select one of them:
+Next, we specify a unit cell of the lattice in terms of the quotient of the proper triangle group {math}`\Delta^{+}` with a translation group {math}`\Gamma \triangleleft \Delta^{+}`. For that we can query the included database based on the work of <a target="_blank" href="https://hypercells.github.io/HyperCells/doc/chapBib_mj.html#biBConder:2007">Marston Conder</a>, which allows us to select one of them:
 
 ```gap
 gap> ListTGQuotients( [ 2, 8, 8 ] );

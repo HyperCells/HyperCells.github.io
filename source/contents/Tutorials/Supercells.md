@@ -32,9 +32,9 @@ The HyperCells package provides a framework for an efficient construction of **s
 
 Appropriate supercell sequences, associated with corresponding translation group sequences, are restricted to so-called **coherent sequences** of translation groups. The workflow to identify such sequences will be discussed in more depth in the next tutorial [Coherent sequences](./Coherent_SC_sequences.md). So long, let us construct an appropriate supercell sequence in order to use the supercell method for an elementary tight-binding model on the {math}`\{8,8\}`-lattice.
 
-Previously, in [Getting started with HyperCells](../GettingStarted/getSetGo_HyperCells.md) and [Getting started with HyperBloch](../GettingStarted/getSetGo_HyperBloch.md) package, we have seen how a primitive cell and one supercell on the {math}`\{8,8\}`-lattice can be constructed. This minimal sequence can be extended with consecutive **m-supercell**s by considering higher order quotient groups {math}`\Delta^{+}/\Gamma^{(m)}`. 
+Previously, in [Getting started with the HyperCells](../GettingStarted/getSetGo_HyperCells.md) and [Getting started with the HyperBloch](../GettingStarted/getSetGo_HyperBloch.md) packages, we have seen how a primitive cell and one supercell on the {math}`\{8,8\}`-lattice can be constructed. This minimal sequence can be extended with consecutive **m-supercell**s by considering higher order quotient groups {math}`\Delta^{+}/\Gamma^{(m)}`. 
 
-We choose the following supercell sequence identified with quotient groups in <a target="_blank" href="https://patrick-lenggenhager.github.io/HyperCells/doc/chapBib_mj.html#biBConder:2007">Marston Conder's</a> list:
+We choose the following supercell sequence identified with quotient groups in <a target="_blank" href="https://hypercells.github.io/HyperCells/doc/chapBib_mj.html#biBConder:2007">Marston Conder's</a> list:
 
 <p style="text-align: center;">
 <b>Supercell sequence 1</b>: &emsp; <code class="code-gap">T2.6</code>, <code class="code-gap">T3.11</code>, <code class="code-gap">T5.13</code>, <code class="code-gap">T9.20</code>, <code class="code-gap">T17.29</code>, <code class="code-gap">T33.44</code> and <code class="code-gap">T65.78</code> 

@@ -34,7 +34,7 @@ Getting started
 
 .. |documentation| raw:: html
 
-   <a href="https://patrick-lenggenhager.github.io/HyperCells/doc/chap7_mj.html#X8091CEE880E799B4" target="_blank">documentation</a>
+   <a href="https://hypercells.github.io/HyperCells/doc/chap7_mj.html#X8091CEE880E799B4" target="_blank">documentation</a>
 
 
 
