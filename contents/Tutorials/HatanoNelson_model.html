@@ -516,7 +516,7 @@ AbelianBlochHamiltonian, GetCellGraphEdge, ImportCellGraphString, ImportModelGra
 <div class="highlight-gap notranslate"><div class="highlight"><pre><span></span><span class="c1"># Supercells:</span>
 <span class="c1"># -----------</span>
 <span class="nv">tgQS</span> <span class="o">:=</span> <span class="nv">TGQuotientSequencesStructure</span><span class="p">(</span><span class="nv">tg</span> : <span class="nv">boundByGenus</span> <span class="o">:=</span> <span class="nv">10</span><span class="p">)</span><span class="o">;;</span>
-<span class="nv">sequence</span> <span class="o">:=</span> <span class="nv">GetLongestSequence</span><span class="p">(</span><span class="nv">tgQS</span> : <span class="nv">quotient</span> <span class="o">:=</span> <span class="nv">1</span><span class="p">)</span><span class="o">;</span>
+<span class="nv">sequence</span> <span class="o">:=</span> <span class="nv">LongestSequence</span><span class="p">(</span><span class="nv">tgQS</span> : <span class="nv">quotient</span> <span class="o">:=</span> <span class="nv">1</span><span class="p">)</span><span class="o">;</span>
 <span class="nv">sc_lst</span> <span class="o">:=</span> <span class="nv">sequence</span><span class="p">{[</span><span class="nv">2</span><span class="o">..</span><span class="nv">Length</span><span class="p">(</span><span class="nv">sequence</span><span class="p">)]}</span><span class="o">;</span>
 
 <span class="k">for</span> <span class="nv">sc_i_index</span> <span class="ow">in</span> <span class="nv">sc_lst</span> <span class="k">do</span>

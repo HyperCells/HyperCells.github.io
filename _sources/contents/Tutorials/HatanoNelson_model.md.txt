@@ -75,7 +75,7 @@ We choose a supercell sequence by following the central concepts discussed in th
 # Supercells:
 # -----------
 tgQS := TGQuotientSequencesStructure(tg : boundByGenus := 10);;
-sequence := GetLongestSequence(tgQS : quotient := 1);
+sequence := LongestSequence(tgQS : quotient := 1);
 sc_lst := sequence{[2..Length(sequence)]};
 
 for sc_i_index in sc_lst do

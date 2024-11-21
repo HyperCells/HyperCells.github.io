@@ -34,7 +34,7 @@ AbelianBlochHamiltonian, GetSchwarzTriangle, GetWyckoffPosition, ImportCellGraph
 
 **Mathematica:**
 
-In previous tutorials, [Getting started with the HyperBloch](../GettingStarted/getSetGo_HyperBloch.md) package and HyperBloch [Supercells](./Supercells.md) tutorial, we have calculated the density of states of various nearest-neighbor tight-binding models via exact diagonalization and random samples. We predefine a function in order to calculate the eigenvalues for the Abelian Bloch Hamiltonians that we will construct. We  take advantage of the independence of different momentum sectors and parallelize the computation, where we partition the set of <code class="code-Mathematica">Npts</code> into <code class="code-Mathematica">Nruns</code> subsets:
+In previous tutorials, [Getting started with the HyperBloch package](../GettingStarted/getSetGo_HyperBloch.md) and HyperBloch [Supercells](./Supercells.md) tutorial, we have calculated the density of states of various nearest-neighbor tight-binding models via exact diagonalization and random samples. We predefine a function in order to calculate the eigenvalues for the Abelian Bloch Hamiltonians that we will construct. We  take advantage of the independence of different momentum sectors and parallelize the computation, where we partition the set of <code class="code-Mathematica">Npts</code> into <code class="code-Mathematica">Nruns</code> subsets:
 
 ```Mathematica
 ComputeEigenvalues[cfH_, Npts_, Nruns_, genus_] :=

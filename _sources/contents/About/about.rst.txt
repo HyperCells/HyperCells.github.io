@@ -33,7 +33,7 @@ This includes:
 
 .. |HyperCells documentation| raw:: html
 
-   <a href="https://patrick-lenggenhager.github.io/HyperCells/doc/chap0_mj.html" target="_blank">documentation</a>
+   <a href="https://hypercells.github.io/HyperCells/doc/chap0_mj.html" target="_blank">documentation</a>
 
 For supercell graphs, the embedding of the primitive cell graph and the corresponding homomorphism
 between the translation groups are also provided.

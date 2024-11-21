@@ -54,12 +54,12 @@
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'contents/Contribute/contribute';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'contents/Contribute/contributeHCHBWeb';</script>
     <link rel="icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="How to contribute" href="contributeHCHBWeb.html" />
-    <link rel="prev" title="Documentation" href="../Documentation/documentation.html" />
+    <link rel="next" title="How to cite" href="../Cite/cite.html" />
+    <link rel="prev" title="How to contribute" href="contribute.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="0.1.0" />
@@ -183,7 +183,7 @@
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
 <li class=" current active">
-  <a class="nav-link dropdown-item nav-internal" href="#">
+  <a class="nav-link dropdown-item nav-internal" href="contribute.html">
     How to contribute
   </a>
 </li>
@@ -326,7 +326,7 @@
 
 
 <li class="nav-item current active">
-  <a class="nav-link nav-internal" href="#">
+  <a class="nav-link nav-internal" href="contribute.html">
     How to contribute
   </a>
 </li>
@@ -390,8 +390,8 @@
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">How to contribute</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Packages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="contributeHCHBWeb.html">Website</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">Packages</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Website</a></li>
 </ul>
 </div>
 </nav></div>
@@ -427,6 +427,9 @@
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
+    
+    <li class="breadcrumb-item"><a href="contribute.html" class="nav-link">How to contribute</a></li>
+    
     <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">How to contribute</span></li>
   </ul>
 </nav>
@@ -446,26 +449,27 @@
                   
   <style type="text/css">
       @media (min-width: 959.98px) {
-         .bd-main .bd-content {
-            max-width: 80%!important;
+        .bd-main .bd-content {
+            max-width: 80%!important; 
             text-align:left!important;
             }
-         }
-</style><section id="how-to-contribute">
-<span id="contribute"></span><h1>How to contribute<a class="headerlink" href="#how-to-contribute" title="Link to this heading">#</a></h1>
-<section id="hypercells-and-hyperbloch-packages">
-<h2>HyperCells and HyperBloch packages<a class="headerlink" href="#hypercells-and-hyperbloch-packages" title="Link to this heading">#</a></h2>
-<p>Thank you for considering contributing to the development of the HyperCells GAP package and or the HyperBloch Mathematica package!
-This document describes how to contribute to HyperCells and HyperBloch. If you have any questions,
+        }
+</style>
+<section id="how-to-contribute">
+<h1>How to contribute<a class="headerlink" href="#how-to-contribute" title="Link to this heading">#</a></h1>
+<section id="hypercells-hyperbloch-website">
+<h2>HyperCells &amp; HyperBloch website<a class="headerlink" href="#hypercells-hyperbloch-website" title="Link to this heading">#</a></h2>
+<p>Thank you for considering contributing to the development of the HyperCells &amp; HyperBloch website!
+This document describes how to contribute to the website. If you have any questions,
 please contact the maintainer.</p>
 <p>Reading and following these guidelines will help us make the contribution process
 easy and effective for everyone involved. It also communicates that you agree to
 respect the time of the developers managing and developing these open source projects.
 In return, we will reciprocate that respect by addressing your issue, assessing changes,
-and helping you finalize your pull requests on GitHub.</p>
+and helping you finalize your pull requests.</p>
 <section id="getting-started">
 <h3>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">#</a></h3>
-<p>Contributions to <a target="_blank" href="https://github.com/HyperCells/HyperCells">HyperCells</a> and <a target="_blank" href="https://github.com/HyperCells/HyperBloch">HyperBloch</a> are managed through GitHub and are based on Issues
+<p>Contributions to the HyperCells &amp; HyperBloch website are managed through GitHub and are based on Issues
 and Pull Requests. Please search for existing Issues and Pull Requests before creating
 your own.</p>
 <section id="issues">
@@ -496,32 +500,29 @@ in the description of your Pull Request.</p></li>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">category</span><span class="o">&gt;/&lt;</span><span class="n">reference</span><span class="o">&gt;/&lt;</span><span class="n">branch</span> <span class="n">name</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>where <code class="code docutils literal notranslate"><span class="pre">&lt;category&gt;</span></code> is one of the following:</p>
-<ul>
-<li><p><code class="code docutils literal notranslate"><span class="pre">feat</span></code>: new feature</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">bugfix</span></code>: bug fix</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">hotfix</span></code>: hot fix
-and <code class="code docutils literal notranslate"><span class="pre">&lt;reference&gt;</span></code> is a reference to an issue (or no-ref if there is no reference),</p>
-<p>and <code class="code docutils literal notranslate"><span class="pre">&lt;branch</span> <span class="pre">name&gt;</span></code> is a short but descriptive name.</p>
-</li>
+<p>where <code class="docutils literal notranslate"><span class="pre">&lt;category&gt;</span></code> is one of the following:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">feat</span></code>: new feature</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bugfix</span></code>: bug fix</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hotfix</span></code>: hot fix
+and <code class="docutils literal notranslate"><span class="pre">&lt;reference&gt;</span></code> is a reference to an issue (or no-ref if there is no reference),
+and <code class="docutils literal notranslate"><span class="pre">&lt;branch</span> <span class="pre">name&gt;</span></code> is a short but descriptive name.</p></li>
 </ul>
 </li>
 <li><p>Please use the following scheme for commit messages:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">category</span><span class="o">&gt;</span><span class="p">:</span> <span class="n">first</span> <span class="n">thing</span><span class="p">;</span> <span class="n">second</span> <span class="n">thing</span>
 </pre></div>
 </div>
-<p>where <code class="code docutils literal notranslate"><span class="pre">&lt;category&gt;</span></code> is one of the following:</p>
-<ul>
-<li><p><code class="code docutils literal notranslate"><span class="pre">feat</span></code>: new feature</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">fix</span></code>: bug fix</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">refactor</span></code>: code change that neither fixes a bug nor adds a feature</p></li>
-<li><p><code class="code docutils literal notranslate"><span class="pre">chore</span></code>: writing documentation or adding tests (not related to a new feature or change),</p>
-<p>changing formatting, etc.</p>
-</li>
+<p>where <code class="docutils literal notranslate"><span class="pre">&lt;category&gt;</span></code> is one of the following:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">feat</span></code>: new feature</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fix</span></code>: bug fix</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">refactor</span></code>: code change that neither fixes a bug nor adds a feature</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chore</span></code>: writing documentation or adding tests (not related to a new feature or change), changing formatting, etc.</p></li>
 </ul>
 </li>
 </ul>
-<p>In general, we follow the <a target="_blank" href="https://github.com/susam/gitpr">"fork-and-pull" Git workflow</a></p>
+<p>In general, we follow the <a target="_blank" href="https://github.com/susam/gitpr">”fork-and-pull” Git workflow</a></p>
 <ol class="arabic simple">
 <li><p>Fork the repository to your own Github account</p></li>
 <li><p>Clone the project to your machine</p></li>
@@ -532,16 +533,158 @@ and <code class="code docutils literal notranslate"><span class="pre">&lt;refere
 </ol>
 </section>
 </section>
+<section id="style-guide">
+<h3>Style guide<a class="headerlink" href="#style-guide" title="Link to this heading">#</a></h3>
+<p>Please follow the following style guide when contributing to existing pages or creating new pages.</p>
+<ul>
+<li><p>Page with subpages (including further nested pages):</p>
+<p>Use a restructured text file  (.rst) for the page in the lowest level followed either by a markdown
+(.md) or .rst files as subpages.</p>
+<ul>
+<li><p>Primary sidebar (left):</p>
+<p>Make sure that the primary sidebar (left sidebar) is displayed, if not, you may need
+to modify the conf.py file and delete the corresponding page from the list <code class="docutils literal notranslate"><span class="pre">html_sidebars</span></code>.</p>
+</li>
+<li><p>Secondary sidebar (right):</p>
+<p>If you disable the secondary sidebar via:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="rst" for="sd-tab-item-0">
+RST</label><div class="sd-tab-content docutils">
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="nc">:html_theme.sidebar_secondary.remove:</span> true
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="markdown" for="sd-tab-item-1">
+MARKDOWN</label><div class="sd-tab-content docutils">
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>---
+<span class="gu">html_theme.sidebar_secondary.remove: true</span>
+<span class="gu">---</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>make sure you include the following code snippet in the corresponding files,
+in order to appropriately adjust the width and alignment of the elements in the page:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="rst" for="sd-tab-item-2">
+RST</label><div class="sd-tab-content docutils">
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">raw</span><span class="p">::</span> html
+<span class="nt">&lt;style type=&quot;text/css&quot;&gt;</span>
+  @media (min-width: 959.98px) {
+    .bd-main .bd-content {
+      max-width: 80%!important; 
+      text-align:left!important;
+    }
+  }
+<span class="nt">&lt;/style&gt;</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="markdown" for="sd-tab-item-3">
+MARKDOWN</label><div class="sd-tab-content docutils">
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>&lt;style type=&quot;text/css&quot;&gt;
+  <span class="ni">@media</span> (min-width: 959.98px) {
+    .bd-main .bd-content {
+      max-width: 80%!important; 
+      text-align:left!important;
+    }
+  }
+&lt;/style&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>Page without subpages:</p>
+<ul>
+<li><p>Primary sidebar (left):</p>
+<p>If there are no subpages disable the primary sidebar by modifying
+the conf.py file,  as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">html_sidebars</span> <span class="o">=</span> <span class="p">{</span> 
+    <span class="c1"># ... other pages here</span>
+    <span class="s2">&quot;&lt;relative path to page&gt;/pagename&quot;</span> <span class="p">:</span> <span class="p">[]</span>
+</pre></div>
+</div>
+</li>
+<li><p>Secondary sidebar (right):</p>
+<p>If you <strong>include</strong> a secondary sidebar, make sure to appropriately adjust the width and alignment
+of the elements in the page by including the following code snippet in the corresponding file:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="rst" for="sd-tab-item-4">
+RST</label><div class="sd-tab-content docutils">
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">raw</span><span class="p">::</span> html
+  &lt;style type=&quot;text/css&quot;&gt;
+    @media (min-width: 959.98px) {
+      .bd-main .bd-content  {
+        max-width: 84.1%;
+        align-self: end;
+      }
+      .bd-main .bd-content .bd-sidebar-secondary .bd-toc {
+        align-items:right;
+      }
+    }
+  &lt;/style&gt;
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="markdown" for="sd-tab-item-5">
+MARKDOWN</label><div class="sd-tab-content docutils">
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>&lt;style type=&quot;text/css&quot;&gt;
+  <span class="ni">@media</span> (min-width: 959.98px) {
+    .bd-main .bd-content  {
+      max-width: 84.1%;
+      align-self: end;
+    }
+    .bd-main .bd-content .bd-sidebar-secondary .bd-toc {
+      align-items:right;
+    }
+  }
+&lt;/style&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>otherwise, <strong>disable</strong> the secondary sidebar as follows:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-6" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="rst" for="sd-tab-item-6">
+RST</label><div class="sd-tab-content docutils">
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="nc">:html_theme.sidebar_secondary.remove:</span> true
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-7" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="markdown" for="sd-tab-item-7">
+MARKDOWN</label><div class="sd-tab-content docutils">
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>---
+<span class="gu">html_theme.sidebar_secondary.remove: true</span>
+<span class="gu">---</span>
+</pre></div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</section>
 <section id="license">
 <h3>License<a class="headerlink" href="#license" title="Link to this heading">#</a></h3>
 <p>By contributing, you agree that your contributions will be licensed under the
-CC BY-SA-4.0 License, as described in the <a target="_blank" href="../../misc/LICENSE/LICENSE.txt">LICENSE</a> file.</p>
+CC BY-SA-4.0 License, as described in the <a target="_blank" href="../../misc/LICENSE/LICENSE_HCHBWeb.txt">LICENSE</a> file.</p>
 </section>
 <section id="references">
 <h3>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h3>
-<p>Parts of this document are based on the template provided by <a target="_blank" href="https://github.com/auth0">Auth0</a>: <a target="_blank" href="https://github.com/auth0/open-source-template/blob/master/GENERAL-CONTRIBUTING.md">[https://github.com/auth0/open-source-template/blob/master/GENERAL-CONTRIBUTING.md]</a></p>
-<div class="toctree-wrapper compound">
-</div>
+<p>Parts of this document are based on the template provided by <a target="_blank" href="https://github.com/auth0">Auth0</a>:
+<a target="_blank" href="https://github.com/auth0/open-source-template/blob/master/GENERAL-CONTRIBUTING.md">[https://github.com/auth0/open-source-template/blob/master/GENERAL-CONTRIBUTING.md]</a></p>
 </section>
 </section>
 </section>
@@ -557,20 +700,20 @@ CC BY-SA-4.0 License, as described in the <a target="_blank" href="../../misc/LI
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../Documentation/documentation.html"
+       href="contribute.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Documentation</p>
+        <p class="prev-next-title">How to contribute</p>
       </div>
     </a>
     <a class="right-next"
-       href="contributeHCHBWeb.html"
+       href="../Cite/cite.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">How to contribute</p>
+        <p class="prev-next-title">How to cite</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

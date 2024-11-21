@@ -15,7 +15,7 @@ Export(model, "{6,4}-tess-NN_T2.2_3.hcm");
 # Supercells:
 # -----------
 tgQSS := TGQuotientSequencesStructure(tg : boundByGenus := 10);;
-sequence := GetLongestSequence(tgQSS : quotient := 1);
+sequence := LongestSequence(tgQSS : quotient := 1);
 sc_lst := sequence{[2..Length(sequence)]};
 
 for sc_i_index in sc_lst do
