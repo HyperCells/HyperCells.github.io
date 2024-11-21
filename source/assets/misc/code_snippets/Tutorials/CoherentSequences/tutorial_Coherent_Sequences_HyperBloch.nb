@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[   3173423,      70097]
-NotebookOptionsPosition[   3164342,      69948]
-NotebookOutlinePosition[   3164960,      69969]
-CellTagsIndexPosition[   3164917,      69966]
+NotebookDataLength[   3176537,      70300]
+NotebookOptionsPosition[   3167460,      70151]
+NotebookOutlinePosition[   3168078,      70172]
+CellTagsIndexPosition[   3168035,      70169]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -25,10 +25,9 @@ Cell[TextData[Cell[BoxData[
   RowBox[{"HyperBloch", " ", "package", " ", "tutorial"}],
   BaseStyle->"Hyperlink",
   ButtonData->{
-    URL["http://localhost:52330/build/contents/Tutorials/tutorials.html"], 
-    None},
+    URL["https://hypercells.net/contents/Tutorials/tutorials.html"], None},
   ButtonNote->
-   "http://localhost:52330/build/contents/Tutorials/tutorials.html"]], \
+   "https://hypercells.net/contents/Tutorials/tutorials.html"]], \
 "InlineFormula",ExpressionUUID->"f41f6b2f-fe94-9b41-9187-7d737dbd16f5"]], \
 "Title",
  Editable->False,
@@ -50,11 +49,11 @@ Cell[TextData[Cell[BoxData[
   RowBox[{"Coherent", " ", "sequences"}],
   BaseStyle->"Hyperlink",
   ButtonData->{
-    URL["http://localhost:52330/build/contents/Tutorials/Coherent_SC_\
-sequences.html"], None},
+    URL["https://hypercells.net/contents/Tutorials/Coherent_SC_sequences.\
+html"], None},
   ButtonNote->
-   "http://localhost:52330/build/contents/Tutorials/Coherent_SC_sequences.\
-html"]], "InlineFormula",
+   "https://hypercells.net/contents/Tutorials/Coherent_SC_sequences.html"]], \
+"InlineFormula",
  Editable->
   False,ExpressionUUID->"3003749e-fc74-b740-b944-67a7b3966665"]], "Chapter",
  Editable->False,
@@ -76,13 +75,14 @@ tandem with the ",
  Cell[BoxData[
   ButtonBox[
    RowBox[{"HyperBloch", " ", "coherent", " ", "sequences", " ", "tutorial"}],
+   
    BaseStyle->"Hyperlink",
    ButtonData->{
-     URL["http://localhost:52330/build/contents/Tutorials/Coherent_SC_\
-sequences.html"], None},
+     URL["https://hypercells.net/contents/Tutorials/Coherent_SC_sequences.\
+html"], None},
    ButtonNote->
-    "http://localhost:52330/build/contents/Tutorials/Coherent_SC_sequences.\
-html"]], "InlineFormula",
+    "https://hypercells.net/contents/Tutorials/Coherent_SC_sequences.html"]], 
+  "InlineFormula",
   FontSize->18,ExpressionUUID->"de0f9e9b-39d4-5b47-82f2-7409bad1ced2"],
  StyleBox[" on the ",
   FontSize->18],
@@ -91,25 +91,23 @@ html"]], "InlineFormula",
    ButtonBox["HyperCells",
     BaseStyle->"Hyperlink",
     ButtonData->{
-      URL[
-      "http://localhost:52330/build/contents/Installation/installation.html"],
-       None},
+      URL["https://hypercells.net/contents/Installation/installation.html"], 
+      None},
     ButtonNote->
-     "http://localhost:52330/build/contents/Installation/installation.html"], 
+     "https://hypercells.net/contents/Installation/installation.html"], 
    ButtonBox["&",
     BaseStyle->"Hyperlink",
     ButtonData->{
-      URL[
-      "http://localhost:52330/build/contents/Installation/installation.html"],
-       None},
+      URL["https://hypercells.net/contents/Installation/installation.html"], 
+      None},
     ButtonNote->
-     "http://localhost:52330/build/contents/Installation/installation.html"], 
+     "https://hypercells.net/contents/Installation/installation.html"], 
    ButtonBox[
     RowBox[{"HyperBloch", " ", "website"}],
     BaseStyle->"Hyperlink",
     ButtonData->{
-      URL["http://localhost:52330/build/index.html"], None},
-    ButtonNote->"http://localhost:52330/build/index.html"]}]], "InlineFormula",
+      URL["https://hypercells.net/index.html"], None},
+    ButtonNote->"https://hypercells.net/index.html"]}]], "InlineFormula",
   FontSize->18,ExpressionUUID->"98269120-bf2b-6849-844f-dba1c0cc34ef"],
  StyleBox[". In this tutorial, the ",
   FontSize->18],
@@ -202,35 +200,32 @@ please follow the instruction on the website ",
    ButtonBox["HyperCells",
     BaseStyle->"Hyperlink",
     ButtonData->{
-      URL[
-      "http://localhost:52330/build/contents/Installation/installation.html"],
-       None},
+      URL["https://hypercells.net/contents/Installation/installation.html"], 
+      None},
     ButtonNote->
-     "http://localhost:52330/build/contents/Installation/installation.html"], 
+     "https://hypercells.net/contents/Installation/installation.html"], 
    ButtonBox["&",
     BaseStyle->"Hyperlink",
     ButtonData->{
-      URL[
-      "http://localhost:52330/build/contents/Installation/installation.html"],
-       None},
+      URL["https://hypercells.net/contents/Installation/installation.html"], 
+      None},
     ButtonNote->
-     "http://localhost:52330/build/contents/Installation/installation.html"], 
+     "https://hypercells.net/contents/Installation/installation.html"], 
    ButtonBox[
     RowBox[{"HyperBloch", " ", "installation"}],
     BaseStyle->"Hyperlink",
     ButtonData->{
-      URL[
-      "http://localhost:52330/build/contents/Installation/installation.html"],
-       None},
+      URL["https://hypercells.net/contents/Installation/installation.html"], 
+      None},
     ButtonNote->
-     "http://localhost:52330/build/contents/Installation/installation.html"]}]\
-], "InlineFormula",ExpressionUUID->"5d5d331c-b468-214c-b314-dfc6628ad938"],
+     "https://hypercells.net/contents/Installation/installation.html"]}]], 
+  "InlineFormula",ExpressionUUID->"5d5d331c-b468-214c-b314-dfc6628ad938"],
  "."
 }], "Item",
  Editable->False,
  CellChangeTimes->{{3.929088273654503*^9, 3.9290883556943913`*^9}, 
-   3.929089232041995*^9, {3.9392650151951447`*^9, 3.939265079035681*^9}, {
-   3.9392652894057217`*^9, 3.93926531587562*^9}, {3.93926581969244*^9, 
+   3.929089232041995*^9, {3.939265015195144*^9, 3.939265079035681*^9}, {
+   3.939265289405721*^9, 3.93926531587562*^9}, {3.93926581969244*^9, 
    3.939265824209727*^9}},ExpressionUUID->"630d3371-1912-8546-a4d7-\
 677cc36ac855"],
 
@@ -272,13 +267,14 @@ instructions in the ",
  Cell[BoxData[
   ButtonBox[
    RowBox[{"HyperBloch", " ", "coherent", " ", "sequences", " ", "tutorial"}],
+   
    BaseStyle->"Hyperlink",
    ButtonData->{
-     URL["http://localhost:52330/build/contents/Tutorials/Coherent_SC_\
-sequences.html"], None},
+     URL["https://hypercells.net/contents/Tutorials/Coherent_SC_sequences.\
+html"], None},
    ButtonNote->
-    "http://localhost:52330/build/contents/Tutorials/Coherent_SC_sequences.\
-html"]], "InlineFormula",
+    "https://hypercells.net/contents/Tutorials/Coherent_SC_sequences.html"]], 
+  "InlineFormula",
   FontSize->18,ExpressionUUID->"16753680-ba18-e34c-ab31-3b66b8970154"],
  StyleBox[", ",
   FontSize->18],
@@ -398,7 +394,7 @@ Cell["Import quotient sequences structure adjacency matrix:", "Subsection",
  CellChangeTimes->{{3.909109766864945*^9, 3.909109771535059*^9}, {
    3.909109823230064*^9, 3.9091098236720653`*^9}, {3.9391493879679832`*^9, 
    3.939149397269655*^9}, {3.940751588404852*^9, 3.9407515902311916`*^9}, 
-   3.9407521109960327`*^9, 3.9407522561511345`*^9, {3.940752351231287*^9, 
+   3.940752110996033*^9, 3.940752256151135*^9, {3.940752351231287*^9, 
    3.940752356846012*^9}},ExpressionUUID->"d53212c8-3895-c94f-948b-\
 b8e117b2fb9b"],
 
@@ -429,10 +425,10 @@ the quotient sequences structure:"
    3.9393518733470936`*^9}, {3.9393519959368668`*^9, 3.939352062897074*^9}, {
    3.939352129643358*^9, 3.939352130073164*^9}, {3.939453948045456*^9, 
    3.939453949085251*^9}, {3.9397440085728264`*^9, 3.939744017142914*^9}, {
-   3.9407515538908367`*^9, 3.940751557630535*^9}, {3.940751917280794*^9, 
-   3.9407520757112293`*^9}, {3.9407521894009132`*^9, 3.940752206611162*^9}, 
+   3.940751553890837*^9, 3.940751557630535*^9}, {3.940751917280794*^9, 
+   3.9407520757112293`*^9}, {3.940752189400913*^9, 3.940752206611162*^9}, 
    3.940752239741375*^9, {3.9407523792414684`*^9, 
-   3.9407523830330696`*^9}},ExpressionUUID->"e46a51d9-7fde-d643-af0f-\
+   3.9407523830330687`*^9}},ExpressionUUID->"e46a51d9-7fde-d643-af0f-\
 f2eb5d60c47f"],
 
 Cell[BoxData[
@@ -494,6 +490,7 @@ Cell[BoxData[
    TagBox["SparseArray",
     "SummaryHead"], "[", 
    DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+    
     TemplateBox[{
       PaneSelectorBox[{False -> GridBox[{{
             PaneBox[
@@ -1714,7 +1711,6 @@ Cell[BoxData[
             ContentPadding -> False]& ], {18, 5} -> 
          Placed[{"", "T18.5"}, {Below, Below}, Framed[
             Style[#, 
-             
              OptionValue[{
               PatrickMLenggenhager`HyperBloch`VisualizeQuotientSequences, 
                Graph, AdjacencyGraph, Subgraph, HighlightGraph, Framed, Style,
@@ -1949,6 +1945,7 @@ w57GmLK0D6dWu73duldphJVXmToz2+s7BYVG0Azc1nlUKteObzFC98wnnWOH
               
               FilledCurveBox[{{{1, 4, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 
                3}}}, {{{0., 0.}, {0., 
+               
                0.}, {-0.42233177292624635`, -0.2761782454396067}, {-1., \
 -0.3073863871742821}, {-1., -0.3073863871742821}, {-0.8561525608627805, \
 -0.14844580692378884`}, {-0.8561525608627805, 0.}, {-0.8561525608627805, 
@@ -2226,6 +2223,7 @@ KhSWlKs2JTdVV7SS9n8zKTvnVUxKV7WRpVwTyn467czkPAUZUWNAmeaXdCZL
           6.9688014702972225`, 4.066351156024873}}]}, 
         {Arrowheads[{{0.01, 0.5, {
              GraphicsBox[
+              
               FilledCurveBox[{{{1, 4, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 
                3}}}, {{{0., 0.}, {0., 
                0.}, {-0.42233177292624635`, -0.2761782454396067}, {-1., \
@@ -2519,7 +2517,6 @@ wKHD4AAALbQL9g==
               
               FilledCurveBox[{{{1, 4, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 
                3}}}, {{{0., 0.}, {0., 
-               
                0.}, {-0.42233177292624635`, -0.2761782454396067}, {-1., \
 -0.3073863871742821}, {-1., -0.3073863871742821}, {-0.8561525608627805, \
 -0.14844580692378884`}, {-0.8561525608627805, 0.}, {-0.8561525608627805, 
@@ -3865,7 +3862,7 @@ G6Di/UVuqT+aQaofmdQtQGIjw4KLlYQ/cIQe+AbwLUAiq9LDbemXv/5GT7E=
   FrameTicks->None,
   ImageSize->1100]], "Output",
  CellChangeTimes->{{3.939354993439888*^9, 3.939355021480142*^9}, 
-   3.939355057720522*^9, {3.939355100690107*^9, 3.9393551890247946`*^9}, {
+   3.939355057720522*^9, {3.939355100690107*^9, 3.9393551890247936`*^9}, {
    3.9393552217344265`*^9, 3.939355335050249*^9}, 3.939355534843857*^9},
  CellLabel->"Out[44]=",ExpressionUUID->"0e1a17b2-9fde-8e47-87b5-92430a53cf8d"]
 }, Open  ]],
@@ -3959,7 +3956,7 @@ Cell[CellGroupData[{
 Cell["Visualize a coherent sequence:", "Subsubsection",
  Editable->False,
  CellChangeTimes->{{3.9393568450485573`*^9, 3.93935685770866*^9}, {
-  3.9393569098088007`*^9, 3.939356922178587*^9}, {3.940744626288105*^9, 
+  3.9393569098087997`*^9, 3.939356922178587*^9}, {3.940744626288105*^9, 
   3.940744640958643*^9}},ExpressionUUID->"7391b6cb-db42-ac48-ab5d-\
 493b8b4e8939"],
 
@@ -3979,7 +3976,7 @@ labels alternately above and below the vertices of the tree graph:"
    3.939357869413101*^9, 3.939357966158287*^9}, {3.939358304148653*^9, 
    3.939358327448257*^9}, {3.9393583590283623`*^9, 3.93935853110873*^9}, {
    3.93935860240817*^9, 3.939358602888818*^9}, {3.940744662688572*^9, 
-   3.9407446629834347`*^9}},ExpressionUUID->"6830ff74-0e97-6d4c-929d-\
+   3.940744662983435*^9}},ExpressionUUID->"6830ff74-0e97-6d4c-929d-\
 b13d17b3a3a4"],
 
 Cell[CellGroupData[{
@@ -3989,6 +3986,7 @@ Cell[BoxData[
   RowBox[{"QSS", ",", "\[IndentingNewLine]", 
    RowBox[{"EdgeArrowSize", "->", "0.01"}], ",", 
    RowBox[{"ImageSize", "\[Rule]", "1140"}], ",", " ", "\[IndentingNewLine]", 
+   
    RowBox[{"LayerDistributionFunction", "->", 
     RowBox[{"(", 
      RowBox[{
@@ -4047,7 +4045,7 @@ Cell[BoxData[
    3.9393239656127205`*^9}, {3.939325081118372*^9, 3.939325126045084*^9}, {
    3.9393251742879257`*^9, 3.939325201568144*^9}, {3.939350894903618*^9, 
    3.939350895073808*^9}, {3.939351456086889*^9, 3.9393514812066135`*^9}, {
-   3.9393585450884953`*^9, 3.939358578803417*^9}, {3.9396926332754993`*^9, 
+   3.9393585450884953`*^9, 3.939358578803417*^9}, {3.939692633275499*^9, 
    3.939692646919697*^9}},ExpressionUUID->"4368fbba-0cb5-ec4e-91c7-\
 0788871051f4"],
 
@@ -4090,7 +4088,8 @@ Cell[BoxData[
           77}, {78}, {79}, {80}, {80}, {81}, {82}, {78}, {82}, {85}, {77}, {
           81}, {85}, {73}, {78}, {84}, {91}, {78}, {91}, {92}, {93}, {94}, {
           95}, {74}, {75}, {79}, {93}, {79}, {94}, {95}, {96}, {97}, {98}, {
-          99}}}, Pattern}], Null}, {AspectRatio -> 0.5, EdgeShapeFunction -> {
+          99}}}, Pattern}], Null}, {
+      AspectRatio -> 0.5, EdgeShapeFunction -> {
          GraphComputation`GraphElementData[{
           "FilledArcArrow", "ArrowSize" -> 0.01, "ArrowPositions" -> 0.5}]}, 
        EdgeStyle -> {
@@ -7430,8 +7429,10 @@ NVxkbR/wbwC78ldnHotliX7315b0zTrKZ2bLekv0H6JASKA=
            "]]]}, 
         {Arrowheads[{{0.01, 0.5, {
              GraphicsBox[
+              
               FilledCurveBox[{{{1, 4, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 
                3}}}, {{{0., 0.}, {0., 
+               
                0.}, {-0.42233177292624635`, -0.2761782454396067}, {-1., \
 -0.3073863871742821}, {-1., -0.3073863871742821}, {-0.8561525608627805, \
 -0.14844580692378884`}, {-0.8561525608627805, 0.}, {-0.8561525608627805, 
@@ -8056,7 +8057,6 @@ IUSHLqZ8WpDCh/8BWX1mBQ==
               
               FilledCurveBox[{{{1, 4, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 
                3}}}, {{{0., 0.}, {0., 
-               
                0.}, {-0.42233177292624635`, -0.2761782454396067}, {-1., \
 -0.3073863871742821}, {-1., -0.3073863871742821}, {-0.8561525608627805, \
 -0.14844580692378884`}, {-0.8561525608627805, 0.}, {-0.8561525608627805, 
@@ -8823,6 +8823,7 @@ GKXVFrVos4Qg67JrT/sVowI/scJUJIT/ATXpUjM=
            "]]]}, 
         {Arrowheads[{{0.01, 0.5, {
              GraphicsBox[
+              
               FilledCurveBox[{{{1, 4, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 
                3}}}, {{{0., 0.}, {0., 
                0.}, {-0.42233177292624635`, -0.2761782454396067}, {-1., \
@@ -10141,6 +10142,7 @@ YtVEQEwvSnb5ly/AOVFIFK8QRUBvuqd1uNkvwMqYW3W+Q0VAEP9psyoJMMCh
               
               FilledCurveBox[{{{1, 4, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 
                3}}}, {{{0., 0.}, {0., 
+               
                0.}, {-0.42233177292624635`, -0.2761782454396067}, {-1., \
 -0.3073863871742821}, {-1., -0.3073863871742821}, {-0.8561525608627805, \
 -0.14844580692378884`}, {-0.8561525608627805, 0.}, {-0.8561525608627805, 
@@ -11255,7 +11257,6 @@ nQSjAiqEhfUcFP30z0UfCerysn7E32dA+FikTt4iwYJ7qw0tbjR0/joibMiW
               
               FilledCurveBox[{{{1, 4, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 
                3}}}, {{{0., 0.}, {0., 
-               
                0.}, {-0.42233177292624635`, -0.2761782454396067}, {-1., \
 -0.3073863871742821}, {-1., -0.3073863871742821}, {-0.8561525608627805, \
 -0.14844580692378884`}, {-0.8561525608627805, 0.}, {-0.8561525608627805, 
@@ -12337,9 +12338,8 @@ gHJGT0w9tslBOjdtTcL42u90A7bcjW5zYJJQ5BP8Qovdkvt+XriThMJD5s+N
            FrameMargins->2,
            ImageSize->Automatic,
            RoundingRadius->4,
-           StripOnInput->False], 
-          Offset[{0, -2}, {63.140606640496785, -10.651360283964124}], 
-          ImageScaled[{0.5, 1}],
+           StripOnInput->False], Offset[{0, -2}, 
+          {63.140606640496785, -10.651360283964124}], ImageScaled[{0.5, 1}],
           BaseStyle->"Graphics"]}, {
          {RGBColor[0.75, 0., 0.], 
           DiskBox[{57.13462934614826, -10.265463302921386`}, 
@@ -15604,7 +15604,8 @@ Cell[BoxData[
           77}, {78}, {79}, {80}, {80}, {81}, {82}, {78}, {82}, {85}, {77}, {
           81}, {85}, {73}, {78}, {84}, {91}, {78}, {91}, {92}, {93}, {94}, {
           95}, {74}, {75}, {79}, {93}, {79}, {94}, {95}, {96}, {97}, {98}, {
-          99}}}, Pattern}], Null}, {AspectRatio -> 0.5, EdgeShapeFunction -> {
+          99}}}, Pattern}], Null}, {
+      AspectRatio -> 0.5, EdgeShapeFunction -> {
          GraphComputation`GraphElementData[{
           "FilledArcArrow", "ArrowSize" -> 0.01, "ArrowPositions" -> 0.5}]}, 
        EdgeStyle -> {
@@ -16366,7 +16367,6 @@ Cell[BoxData[
                PatrickMLenggenhager`HyperBloch`VertexLabelPlacement -> 
                "Alternate"}, VertexLabelStyle], 
              Apply[Sequence, 
-              
               FilterRules[{
                PatrickMLenggenhager`HyperBloch`VertexFilter -> (
                  MemberQ[$CellContext`keepVertices, #]& ), 
@@ -16843,7 +16843,6 @@ Cell[BoxData[
                PatrickMLenggenhager`HyperBloch`VertexLabelPlacement -> 
                "Alternate"}, VertexLabelStyle], 
              Apply[Sequence, 
-              
               FilterRules[{
                PatrickMLenggenhager`HyperBloch`VertexFilter -> (
                  MemberQ[$CellContext`keepVertices, #]& ), 
@@ -17320,7 +17319,6 @@ Cell[BoxData[
                PatrickMLenggenhager`HyperBloch`VertexLabelPlacement -> 
                "Alternate"}, VertexLabelStyle], 
              Apply[Sequence, 
-              
               FilterRules[{
                PatrickMLenggenhager`HyperBloch`VertexFilter -> (
                  MemberQ[$CellContext`keepVertices, #]& ), 
@@ -17797,7 +17795,6 @@ Cell[BoxData[
                PatrickMLenggenhager`HyperBloch`VertexLabelPlacement -> 
                "Alternate"}, VertexLabelStyle], 
              Apply[Sequence, 
-              
               FilterRules[{
                PatrickMLenggenhager`HyperBloch`VertexFilter -> (
                  MemberQ[$CellContext`keepVertices, #]& ), 
@@ -18274,7 +18271,6 @@ Cell[BoxData[
                PatrickMLenggenhager`HyperBloch`VertexLabelPlacement -> 
                "Alternate"}, VertexLabelStyle], 
              Apply[Sequence, 
-              
               FilterRules[{
                PatrickMLenggenhager`HyperBloch`VertexFilter -> (
                  MemberQ[$CellContext`keepVertices, #]& ), 
@@ -18751,7 +18747,6 @@ Cell[BoxData[
                PatrickMLenggenhager`HyperBloch`VertexLabelPlacement -> 
                "Alternate"}, VertexLabelStyle], 
              Apply[Sequence, 
-              
               FilterRules[{
                PatrickMLenggenhager`HyperBloch`VertexFilter -> (
                  MemberQ[$CellContext`keepVertices, #]& ), 
@@ -19228,7 +19223,6 @@ Cell[BoxData[
                PatrickMLenggenhager`HyperBloch`VertexLabelPlacement -> 
                "Alternate"}, VertexLabelStyle], 
              Apply[Sequence, 
-              
               FilterRules[{
                PatrickMLenggenhager`HyperBloch`VertexFilter -> (
                  MemberQ[$CellContext`keepVertices, #]& ), 
@@ -19705,7 +19699,6 @@ Cell[BoxData[
                PatrickMLenggenhager`HyperBloch`VertexLabelPlacement -> 
                "Alternate"}, VertexLabelStyle], 
              Apply[Sequence, 
-              
               FilterRules[{
                PatrickMLenggenhager`HyperBloch`VertexFilter -> (
                  MemberQ[$CellContext`keepVertices, #]& ), 
@@ -20182,7 +20175,6 @@ Cell[BoxData[
                PatrickMLenggenhager`HyperBloch`VertexLabelPlacement -> 
                "Alternate"}, VertexLabelStyle], 
              Apply[Sequence, 
-              
               FilterRules[{
                PatrickMLenggenhager`HyperBloch`VertexFilter -> (
                  MemberQ[$CellContext`keepVertices, #]& ), 
@@ -20659,7 +20651,6 @@ Cell[BoxData[
                PatrickMLenggenhager`HyperBloch`VertexLabelPlacement -> 
                "Alternate"}, VertexLabelStyle], 
              Apply[Sequence, 
-              
               FilterRules[{
                PatrickMLenggenhager`HyperBloch`VertexFilter -> (
                  MemberQ[$CellContext`keepVertices, #]& ), 
@@ -21574,7 +21565,6 @@ XsA8JGzgH3+u2NoQ/gfJqVUg
               
               FilledCurveBox[{{{1, 4, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 
                3}}}, {{{0., 0.}, {0., 
-               
                0.}, {-0.42233177292624635`, -0.2761782454396067}, {-1., \
 -0.3073863871742821}, {-1., -0.3073863871742821}, {-0.8561525608627805, \
 -0.14844580692378884`}, {-0.8561525608627805, 0.}, {-0.8561525608627805, 
@@ -22130,6 +22120,7 @@ OMu64FtGefM+VYUrg1wUsRrgJuWU08fO0Ba4WOBZ+UMh5Qx6TUwuzQyNB33C
            56.13915097258733, -2.8429940352977967`}}]}}, 
         {Arrowheads[{{0.01, 0.5, {
              GraphicsBox[
+              
               FilledCurveBox[{{{1, 4, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 
                3}}}, {{{0., 0.}, {0., 
                0.}, {-0.42233177292624635`, -0.2761782454396067}, {-1., \
@@ -22271,7 +22262,6 @@ j3SVgCjVW8uG/wH3wYe8
               
               FilledCurveBox[{{{1, 4, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 
                3}}}, {{{0., 0.}, {0., 
-               
                0.}, {-0.42233177292624635`, -0.2761782454396067}, {-1., \
 -0.3073863871742821}, {-1., -0.3073863871742821}, {-0.8561525608627805, \
 -0.14844580692378884`}, {-0.8561525608627805, 0.}, {-0.8561525608627805, 
@@ -22399,6 +22389,7 @@ zft02hQFcZ8Kz2Tp2uPZUK2M21piePYgKfgnpj3+If37di1TDEWBXqeMv7bH
                 0.3073863871742821}, {-0.42233177292624635`, 
                 0.2761782454396067}, {0., 0.}, {0., 0.}}}]], 
               0.8561525608627805}}}], ArrowBox[BezierCurveBox[CompressedData["
+
 1:eJwBYQKe/SFib1JlAgAAACUAAAACAAAADjz2ss8RTEDqnSKoc74GwDcHDa7L
 F0xA6FfVmhRNB8DRzP3raB5MQBL9ZAW56gfA3IzIbKclTEBijdHnYJcIwFVH
 bTCHLUxA2ggbQgxTCcBB/Os2CDZMQHxvQRS7HQrAmqtEgCo/TEBFwURebfcK
@@ -23003,6 +22994,7 @@ T/gMYlZgp0VGc7hCT/gfDzRFUw==
                 0.3073863871742821}, {-0.42233177292624635`, 
                 0.2761782454396067}, {0., 0.}, {0., 0.}}}]], 
               0.8561525608627805}}}], ArrowBox[BezierCurveBox[CompressedData["
+
 1:eJwVzX0w03EcB3CE067jmodYUdtvzB44p0bn9puvIupWmVvRVa66VIeap9MD
 qW65NA/R0JUeWHfFtNFGNqk+Vpeu1vWE6UHqbuQ5QlJaff3xufe97v2++9D3
 SeOS7GxsbALxLaSprNDSTxeiYVVM2McLdKgEtqYHezD5z1GZjg7HR9pcn2M3
@@ -23930,6 +23922,7 @@ nmGIYJif9ym4XIKuh4bv9+SI4D8so1Lx
                 0.3073863871742821}, {-0.42233177292624635`, 
                 0.2761782454396067}, {0., 0.}, {0., 0.}}}]], 
               0.8561525608627805}}}], ArrowBox[BezierCurveBox[CompressedData["
+
 1:eJwVz31MzHEcB/C7npaTwgrtLE4PenC/+93v94vWft/5oo6Yh+hcEre6S+Wh
 s0o4CpecSA9IR1pFyZSmkodIH8PlIWsj6kKqS2xWrZVWzHG/Pz5777V99tn7
 I4rVbI6z4fF4hHW4DBnfaSpLR3hb7ekz7vvFcP+79m34YYS7ogNbn14QQ8R3
@@ -25159,8 +25152,9 @@ gHJGT0w9tslBOjdtTcL42u90A7bcjW5zYJJQ5BP8Qovdkvt+XriThMJD5s+N
            FrameMargins->2,
            ImageSize->Automatic,
            RoundingRadius->4,
-           StripOnInput->False], Offset[{0, 2}, 
-          {50.134545032689076, 3.4808783598438113}], ImageScaled[{0.5, 0}],
+           StripOnInput->False], 
+          Offset[{0, 2}, {50.134545032689076, 3.4808783598438113}], 
+          ImageScaled[{0.5, 0}],
           BaseStyle->"Graphics"]}, {
          {RGBColor[0.75, 0., 0.], 
           DiskBox[{29.022015427849354`, 0.1259936717516391}, 
@@ -25932,9 +25926,8 @@ gHJGT0w9tslBOjdtTcL42u90A7bcjW5zYJJQ5BP8Qovdkvt+XriThMJD5s+N
            FrameMargins->2,
            ImageSize->Automatic,
            RoundingRadius->4,
-           StripOnInput->False], 
-          Offset[{0, -2}, {49.13083360016553, -10.651360283964124}], 
-          ImageScaled[{0.5, 1}],
+           StripOnInput->False], Offset[{0, -2}, 
+          {49.13083360016553, -10.651360283964124}], ImageScaled[{0.5, 1}],
           BaseStyle->"Graphics"]}, {
          {RGBColor[0.75, 0., 0.], 
           DiskBox[{63.140606640496785`, -10.265463302921386`}, 
@@ -26522,8 +26515,9 @@ gHJGT0w9tslBOjdtTcL42u90A7bcjW5zYJJQ5BP8Qovdkvt+XriThMJD5s+N
            FrameMargins->2,
            ImageSize->Automatic,
            RoundingRadius->4,
-           StripOnInput->False], Offset[{0, 2}, 
-          {13.13114270622539, -14.333047882452801}], ImageScaled[{0.5, 0}],
+           StripOnInput->False], 
+          Offset[{0, 2}, {13.13114270622539, -14.333047882452801}], 
+          ImageScaled[{0.5, 0}],
           BaseStyle->"Graphics"], InsetBox[
           FrameBox[
            StyleBox["\<\"T33.50\"\>",
@@ -29069,7 +29063,7 @@ gHJGT0w9tslBOjdtTcL42u90A7bcjW5zYJJQ5BP8Qovdkvt+XriThMJD5s+N
   FormatType->TraditionalForm,
   FrameTicks->None,
   ImageSize->1140]], "Output",
- CellChangeTimes->{{3.9393612220053186`*^9, 3.939361238519684*^9}, {
+ CellChangeTimes->{{3.939361222005319*^9, 3.939361238519684*^9}, {
    3.939361277977433*^9, 3.9393612923319454`*^9}, {3.939362953504726*^9, 
    3.939362977654789*^9}, {3.939363042915369*^9, 3.939363056314485*^9}, {
    3.939363110224998*^9, 3.939363163924484*^9}, 3.939363324834581*^9, {
@@ -29121,10 +29115,8 @@ FindLongestPath"]], "InlineFormula",ExpressionUUID->
    RowBox[{"HyperBloch", " ", "Supercells", " ", "tutorial"}],
    BaseStyle->"Hyperlink",
    ButtonData->{
-     URL["http://localhost:52330/build/contents/Tutorials/Supercells.html"], 
-     None},
-   ButtonNote->
-    "http://localhost:52330/build/contents/Tutorials/Supercells.html"]], 
+     URL["https://hypercells.net/contents/Tutorials/Supercells.html"], None},
+   ButtonNote->"https://hypercells.net/contents/Tutorials/Supercells.html"]], 
   "InlineFormula",
   FontSize->18,ExpressionUUID->"be98fd48-cf95-2240-853e-c6dfe9a74111"],
  " (where we adopt the sequence labels introduced in said tutorial):"
@@ -29133,7 +29125,7 @@ FindLongestPath"]], "InlineFormula",ExpressionUUID->
  CellChangeTimes->{{3.9393683684542103`*^9, 3.939368472849121*^9}, {
   3.939368523293924*^9, 3.939368691264339*^9}, {3.939368737149147*^9, 
   3.939368819213911*^9}, {3.93936891712544*^9, 
-  3.9393689328980675`*^9}},ExpressionUUID->"c9b485a6-48db-1a46-88d7-\
+  3.939368932898067*^9}},ExpressionUUID->"c9b485a6-48db-1a46-88d7-\
 7cefcca178ea"],
 
 Cell[BoxData[
@@ -29353,7 +29345,7 @@ Cell[CellGroupData[{
 Cell["Supercell sequence 2A:", "Subsubsection",
  Editable->False,
  CellChangeTimes->{{3.939368827024469*^9, 3.939368832169086*^9}, 
-   3.939369311988048*^9, {3.9393694733631535`*^9, 3.939369473447855*^9}, {
+   3.939369311988048*^9, {3.939369473363153*^9, 3.939369473447855*^9}, {
    3.9397401411874313`*^9, 
    3.939740145744007*^9}},ExpressionUUID->"6dd25854-be93-f14a-950b-\
 9230afcd5d2b"],
@@ -29364,7 +29356,7 @@ The initial and the final vertex in the next supercell sequence are:\
  Editable->False,
  CellChangeTimes->{{3.939369184878431*^9, 3.93936925479871*^9}, {
   3.939369361692974*^9, 
-  3.9393693677183537`*^9}},ExpressionUUID->"75d07c46-45d1-bb4c-9c89-\
+  3.939369367718354*^9}},ExpressionUUID->"75d07c46-45d1-bb4c-9c89-\
 a9a3a2aa6a25"],
 
 Cell[BoxData[{
@@ -29423,7 +29415,7 @@ Cell[BoxData[
    RowBox[{"[", "2", "]"}], "]"}]}]], "Input",
  CellChangeTimes->{{3.9393690813434677`*^9, 3.939369088268154*^9}, {
   3.939369383623058*^9, 3.9393693872705784`*^9}, {3.9393695361984*^9, 
-  3.9393695385633698`*^9}, {3.9393695903581877`*^9, 3.939369590426399*^9}},
+  3.9393695385633698`*^9}, {3.939369590358187*^9, 3.939369590426399*^9}},
  CellLabel->"In[19]:=",ExpressionUUID->"9197de0b-e9a1-1446-b578-3b5b7abbde41"],
 
 Cell[BoxData[
@@ -29453,7 +29445,7 @@ Cell["Highlight multiple coherent sequences (bonus):", "Subsection",
  CellChangeTimes->{{3.939358730698496*^9, 3.9393587485183887`*^9}, 
    3.939369778118582*^9, {3.9393703251613674`*^9, 3.9393703278384743`*^9}, {
    3.939371487906618*^9, 3.939371492046741*^9}, 
-   3.9394569937120275`*^9},ExpressionUUID->"f08860f0-a247-694b-bac6-\
+   3.9394569937120266`*^9},ExpressionUUID->"f08860f0-a247-694b-bac6-\
 4d1f2e9efbdf"],
 
 Cell[TextData[{
@@ -29486,7 +29478,7 @@ can use the option ",
 
 Cell["The corresponding edges are easily constructed:", "Text",
  CellChangeTimes->{{3.939370338174944*^9, 
-  3.9393703699282837`*^9}},ExpressionUUID->"75f19ab0-2770-0143-87f8-\
+  3.939370369928283*^9}},ExpressionUUID->"75f19ab0-2770-0143-87f8-\
 bffb66466d71"],
 
 Cell[BoxData[{
@@ -29671,7 +29663,8 @@ Cell[BoxData[
           77}, {78}, {79}, {80}, {80}, {81}, {82}, {78}, {82}, {85}, {77}, {
           81}, {85}, {73}, {78}, {84}, {91}, {78}, {91}, {92}, {93}, {94}, {
           95}, {74}, {75}, {79}, {93}, {79}, {94}, {95}, {96}, {97}, {98}, {
-          99}}}, Pattern}], Null}, {AspectRatio -> 0.5, EdgeShapeFunction -> {
+          99}}}, Pattern}], Null}, {
+      AspectRatio -> 0.5, EdgeShapeFunction -> {
          GraphComputation`GraphElementData[{
           "FilledArcArrow", "ArrowSize" -> 0.01, "ArrowPositions" -> 0.5}]}, 
        EdgeStyle -> {
@@ -29793,7 +29786,8 @@ Cell[BoxData[
              Directive[
               RGBColor[0., 0., 0.], 
               AbsoluteThickness[4]], 
-             Opacity[1]}}, DirectedEdge[{17, 29}, {33, 44}] -> {EdgeStyle -> {
+             Opacity[1]}}, 
+         DirectedEdge[{17, 29}, {33, 44}] -> {EdgeStyle -> {
              Directive[
               RGBColor[1., 0.682688, 0.129771], 
               AbsoluteThickness[4]], 
@@ -29892,6 +29886,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -30102,6 +30097,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -30215,6 +30211,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -30419,11 +30416,13 @@ Cell[BoxData[
                 PatrickMLenggenhager`HyperBloch`VertexLabelPlacement -> 
                 "Alternate"}, {Style}]]], ImageSize -> Automatic, 
             Apply[Sequence, 
+             
              FilterRules[{
               PatrickMLenggenhager`HyperBloch`EdgeFilter -> (
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -30537,6 +30536,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -30747,6 +30747,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -30860,6 +30861,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -31070,6 +31072,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -31183,6 +31186,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -31393,6 +31397,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -31506,6 +31511,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -31716,6 +31722,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -31829,6 +31836,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -32039,6 +32047,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -32152,6 +32161,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -32362,6 +32372,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -32475,6 +32486,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -32685,6 +32697,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -32798,6 +32811,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -33008,6 +33022,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -33121,6 +33136,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -33331,6 +33347,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -33444,6 +33461,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -33654,6 +33672,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -33767,6 +33786,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -33977,6 +33997,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -34090,6 +34111,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -34300,6 +34322,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -34413,6 +34436,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -34623,6 +34647,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -34736,6 +34761,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -34946,6 +34972,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -35059,6 +35086,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -35269,6 +35297,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -35382,6 +35411,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -35592,6 +35622,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -35705,6 +35736,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -35915,6 +35947,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -36028,6 +36061,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -36238,6 +36272,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -36351,6 +36386,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -36561,6 +36597,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -36674,6 +36711,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -36884,6 +36922,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -36997,6 +37036,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -37207,6 +37247,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -37320,6 +37361,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -37530,6 +37572,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -37643,6 +37686,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -37853,6 +37897,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -37966,6 +38011,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -38176,6 +38222,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -38289,6 +38336,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -38499,6 +38547,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -38612,6 +38661,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -38822,6 +38872,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -38935,6 +38986,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -39145,6 +39197,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -39258,6 +39311,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -39468,6 +39522,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -39581,6 +39636,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -39791,6 +39847,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -39904,6 +39961,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -40114,6 +40172,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -40227,6 +40286,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -40437,6 +40497,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -40550,6 +40611,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -40760,6 +40822,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -40873,6 +40936,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -41083,6 +41147,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -41196,6 +41261,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -41406,6 +41472,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -41519,6 +41586,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -41729,6 +41797,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -41842,6 +41911,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -42052,6 +42122,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -42165,6 +42236,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -42375,6 +42447,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -42488,6 +42561,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -42698,6 +42772,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -42811,6 +42886,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -43021,6 +43097,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -43134,6 +43211,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -43344,6 +43422,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -43457,6 +43536,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -43667,6 +43747,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -43780,6 +43861,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -43990,6 +44072,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -44103,6 +44186,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -44313,6 +44397,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -44426,6 +44511,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -44636,6 +44722,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -44749,6 +44836,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -44959,6 +45047,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -45072,6 +45161,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -45282,6 +45372,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -45395,6 +45486,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -45605,6 +45697,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -45718,6 +45811,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -45928,6 +46022,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -46041,6 +46136,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -46251,6 +46347,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -46364,6 +46461,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -46574,6 +46672,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -46687,6 +46786,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -46897,6 +46997,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -47010,6 +47111,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -47220,6 +47322,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -47333,6 +47436,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -47543,6 +47647,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -47656,6 +47761,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -47866,6 +47972,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -47979,6 +48086,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -48189,6 +48297,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -48302,6 +48411,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -48512,6 +48622,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -48625,6 +48736,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -48835,6 +48947,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -48948,6 +49061,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -49158,6 +49272,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -49271,6 +49386,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -49481,6 +49597,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -49594,6 +49711,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -49804,6 +49922,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -49917,6 +50036,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -50127,6 +50247,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -50240,6 +50361,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -50450,6 +50572,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -50563,6 +50686,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -50773,6 +50897,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -50886,6 +51011,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -51096,6 +51222,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -51209,6 +51336,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -51419,6 +51547,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -51532,6 +51661,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -51742,6 +51872,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -51855,6 +51986,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -52065,6 +52197,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -52178,6 +52311,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -52388,6 +52522,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -52501,6 +52636,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -52711,6 +52847,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -52824,6 +52961,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -53034,6 +53172,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -53147,6 +53286,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -53357,6 +53497,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -53470,6 +53611,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -53680,6 +53822,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -53793,6 +53936,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -54003,6 +54147,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -54116,6 +54261,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -54326,6 +54472,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -54439,6 +54586,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -54649,6 +54797,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -54762,6 +54911,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -54972,6 +55122,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -55085,6 +55236,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -55295,6 +55447,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -55408,6 +55561,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -55618,6 +55772,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -55731,6 +55886,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -55941,6 +56097,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -56054,6 +56211,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -56264,6 +56422,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -56377,6 +56536,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -56587,6 +56747,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -56700,6 +56861,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -56910,6 +57072,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -57023,6 +57186,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -57233,6 +57397,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -57346,6 +57511,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -57556,6 +57722,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -57669,6 +57836,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -57879,6 +58047,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -57992,6 +58161,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -58202,6 +58372,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -58315,6 +58486,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -58525,6 +58697,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -58638,6 +58811,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -58848,6 +59022,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -58961,6 +59136,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -59171,6 +59347,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -59284,6 +59461,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -59494,6 +59672,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -59607,6 +59786,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -59817,6 +59997,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -59930,6 +60111,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -60140,6 +60322,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -60253,6 +60436,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -60463,6 +60647,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -60576,6 +60761,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -60786,6 +60972,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -60899,6 +61086,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -61109,6 +61297,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -61222,6 +61411,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -61432,6 +61622,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -61545,6 +61736,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -61755,6 +61947,7 @@ Cell[BoxData[
                 MemberQ[$CellContext`allEdges, #]& ), 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraph -> True, 
                PatrickMLenggenhager`HyperBloch`HighlightSubgraphEdgeStyle -> {
+                
                  Style[
                   DirectedEdge[{2, 6}, {3, 11}], 
                   Directive[
@@ -63249,6 +63442,7 @@ zft02hQFcZ8Kz2Tp2uPZUK2M21piePYgKfgnpj3+If37di1TDEWBXqeMv7bH
                 0.3073863871742821}, {-0.42233177292624635`, 
                 0.2761782454396067}, {0., 0.}, {0., 0.}}}]], 
               0.8561525608627805}}}], ArrowBox[BezierCurveBox[CompressedData["
+
 1:eJwBYQKe/SFib1JlAgAAACUAAAACAAAADjz2ss8RTEDqnSKoc74GwDcHDa7L
 F0xA6FfVmhRNB8DRzP3raB5MQBL9ZAW56gfA3IzIbKclTEBijdHnYJcIwFVH
 bTCHLUxA2ggbQgxTCcBB/Os2CDZMQHxvQRS7HQrAmqtEgCo/TEBFwURebfcK
@@ -63415,6 +63609,7 @@ Iec+QELgU0bT3yDAvhrvdTqtPkAXLMrmgBMhwEKvfywOeT5AJWeabxFCIcDy
                 0.3073863871742821}, {-0.42233177292624635`, 
                 0.2761782454396067}, {0., 0.}, {0., 0.}}}]], 
               0.8561525608627805}}}], ArrowBox[BezierCurveBox[CompressedData["
+
 1:eJwBYQKe/SFib1JlAgAAACUAAAACAAAAAr4yNdAvQUDqnSKoc74GwHV/8/Rt
 JUFA6FfVmhRNB8BvBNbj8xlBQBL9ZAW56gfA70zaAWINQUBijdHnYJcIwPJY
 AE+4/0BA2ggbQgxTCcB7KEjL9vBAQHxvQRS7HQrAiruxdh3hQEBFwURebfcK
@@ -63444,6 +63639,7 @@ K5WgK0A2QFfkeKB8aSHAxFyyTYq2NUDqqkg6248hwB3VECM=
                 0.3073863871742821}, {-0.42233177292624635`, 
                 0.2761782454396067}, {0., 0.}, {0., 0.}}}]], 
               0.8561525608627805}}}], ArrowBox[BezierCurveBox[CompressedData["
+
 1:eJwBYQKe/SFib1JlAgAAACUAAAACAAAAAr4yNdAvQUDqnSKoc74GwGQy9fVz
 MkFA6FfVmhRNB8A/R3vYXjVBQBL9ZAW56gfAkPzE3JA4QUBijdHnYJcIwFVS
 0gIKPEFA2ggbQgxTCcCRSKNKyj9BQHxvQRS7HQrARN83tNFDQUBFwURebfcK
@@ -63856,6 +64052,7 @@ T/gMYlZgp0VGc7hCT/gfDzRFUw==
                 0.3073863871742821}, {-0.42233177292624635`, 
                 0.2761782454396067}, {0., 0.}, {0., 0.}}}]], 
               0.8561525608627805}}}], ArrowBox[BezierCurveBox[CompressedData["
+
 1:eJwVzX0w03EcB3CE067jmodYUdtvzB44p0bn9puvIupWmVvRVa66VIeap9MD
 qW65NA/R0JUeWHfFtNFGNqk+Vpeu1vWE6UHqbuQ5QlJaff3xufe97v2++9D3
 SeOS7GxsbALxLaSprNDSTxeiYVVM2McLdKgEtqYHezD5z1GZjg7HR9pcn2M3
@@ -64099,6 +64296,7 @@ tQHJ/jygxwRvsMcOr8nOcUziwX+PJEy0
                 0.3073863871742821}, {-0.42233177292624635`, 
                 0.2761782454396067}, {0., 0.}, {0., 0.}}}]], 
               0.8561525608627805}}}], ArrowBox[BezierCurveBox[CompressedData["
+
 1:eJwB8QIO/SFib1JlAgAAAC4AAAACAAAAxFyyTYq2NUDqqkg6248hwOVFjIxz
 wzVARAKELDK0IcAaO3tTLtI1QB3m02en3SHAZTx/orriNUB1VjjsOgwiwMBJ
 mHkY9TVASlOxuew/IsAyY8bYRwk2QJ7cPtC8eCLAtogJwEgfNkBx8uAvq7Yi
@@ -64434,6 +64632,7 @@ IGvQTZ/eghERpWnrAxHMEtnOBqovjk80h2URwZ7zvRlOD6meIhoOFxD+cK1q
                 0.3073863871742821}, {-0.42233177292624635`, 
                 0.2761782454396067}, {0., 0.}, {0., 0.}}}]], 
               0.8561525608627805}}}], ArrowBox[BezierCurveBox[CompressedData["
+
 1:eJwB8QIO/SFib1JlAgAAAC4AAAACAAAA1ntRK5iEQUDqqkg6248hwH93Ddp8
 k0FAwJQPPiC1IcBacvxnK6VBQAwwAq5f4SHAaGwe1aO5QUDPfCCKmRQiwKdl
 cyHm0EFAB3tq0s1OIsAZXvtM8upBQLUq4Ib8jyLAvVW2V8gHQkDai4GnJdgi
@@ -64634,6 +64833,7 @@ YtVEQEwvSnb5ly/AOVFIFK8QRUBvuqd1uNkvwMqYW3W+Q0VAEP9psyoJMMCh
               
               FilledCurveBox[{{{1, 4, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 
                3}}}, {{{0., 0.}, {0., 
+               
                0.}, {-0.42233177292624635`, -0.2761782454396067}, {-1., \
 -0.3073863871742821}, {-1., -0.3073863871742821}, {-0.8561525608627805, \
 -0.14844580692378884`}, {-0.8561525608627805, 0.}, {-0.8561525608627805, 
@@ -64779,6 +64979,7 @@ nmGIYJif9ym4XIKuh4bv9+SI4D8so1Lx
                
                FilledCurveBox[{{{1, 4, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 
                 3}}}, {{{0., 0.}, {0., 
+                
                 0.}, {-0.42233177292624635`, -0.2761782454396067}, {-1., \
 -0.3073863871742821}, {-1., -0.3073863871742821}, {-0.8561525608627805, \
 -0.14844580692378884`}, {-0.8561525608627805, 0.}, {-0.8561525608627805, 
@@ -64786,6 +64987,7 @@ nmGIYJif9ym4XIKuh4bv9+SI4D8so1Lx
                 0.3073863871742821}, {-0.42233177292624635`, 
                 0.2761782454396067}, {0., 0.}, {0., 0.}}}]], 
               0.8561525608627805}}}], ArrowBox[BezierCurveBox[CompressedData["
+
 1:eJwVz31MzHEcB/C7npaTwgrtLE4PenC/+93v94vWft/5oo6Yh+hcEre6S+Wh
 s0o4CpecSA9IR1pFyZSmkodIH8PlIWsj6kKqS2xWrZVWzHG/Pz5777V99tn7
 I4rVbI6z4fF4hHW4DBnfaSpLR3hb7ekz7vvFcP+79m34YYS7ogNbn14QQ8R3
@@ -64878,6 +65080,7 @@ Utc4uHuANMDnC7cZ0gc8QDg0rezNlTTAlN2kesgfPEDkWGTtK6g0wKIuSm4=
                 0.3073863871742821}, {-0.42233177292624635`, 
                 0.2761782454396067}, {0., 0.}, {0., 0.}}}]], 
               0.8561525608627805}}}], ArrowBox[BezierCurveBox[CompressedData["
+
 1:eJwB8QIO/SFib1JlAgAAAC4AAAACAAAAvFTHWXghN0BZroiKGXAtwPjbXyY3
 7jZAf61QqiWWLcBDB8H0dq82QMGIRm66xC3An9bqxDdlNkAcQGrW1/stwAlK
 3ZZ5DzZAjtO74n07LsCCYZhqPK41QBpDO5Osgy7ACh0cQIBBNUC/jujnY9Qu
@@ -65699,6 +65902,7 @@ s58UkqDRR234GEujhrN3zJZBwMIUKzhfRaPRmJMzdY0P4q2rqcZzNHYuR786
                 0.3073863871742821}, {-0.42233177292624635`, 
                 0.2761782454396067}, {0., 0.}, {0., 0.}}}]], 
               0.8561525608627805}}}], ArrowBox[BezierCurveBox[CompressedData["
+
 1:eJwVzn0s1HEcB/DL41Q3J2q1qK48He53D7/fCpf5+H3TFI3IzkNRHgprda4h
 ylMPJvIwUdFKm3A0ZXbYmHwypayl1oVqDJ0ienJ6Jv364733Xn+938KY48Hx
 Rjwej+LyvzNc3BV+pwiE38kvWKcSY9W2LQmKVAKXAkRfFOVibOgudchTEbAy
@@ -66286,9 +66490,8 @@ gHJGT0w9tslBOjdtTcL42u90A7bcjW5zYJJQ5BP8Qovdkvt+XriThMJD5s+N
            FrameMargins->2,
            ImageSize->Automatic,
            RoundingRadius->4,
-           StripOnInput->False], 
-          Offset[{0, 2}, {18.149123772295226, -2.5929773035328454}], 
-          ImageScaled[{0.5, 0}],
+           StripOnInput->False], Offset[{0, 2}, 
+          {18.149123772295226, -2.5929773035328454}], ImageScaled[{0.5, 0}],
           BaseStyle->"Graphics"], InsetBox[
           FrameBox[
            StyleBox["\<\"T9.23\"\>",
@@ -69969,132 +70172,132 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 1095, 21, 101, "Title",ExpressionUUID->"5c84ba5f-0e5e-8c41-9d0f-2ec7dcb39fcd"],
+Cell[580, 22, 1078, 20, 101, "Title",ExpressionUUID->"5c84ba5f-0e5e-8c41-9d0f-2ec7dcb39fcd"],
 Cell[CellGroupData[{
-Cell[1700, 47, 982, 20, 72, "Chapter",ExpressionUUID->"e6614c64-9ecd-e940-9919-87257049e552"],
-Cell[2685, 69, 4217, 97, 170, "Text",ExpressionUUID->"6b9cda8c-f97d-4d44-95d1-d62e52c5f746"],
+Cell[1683, 46, 970, 20, 72, "Chapter",ExpressionUUID->"e6614c64-9ecd-e940-9919-87257049e552"],
+Cell[2656, 68, 4160, 96, 170, "Text",ExpressionUUID->"6b9cda8c-f97d-4d44-95d1-d62e52c5f746"],
 Cell[CellGroupData[{
-Cell[6927, 170, 177, 4, 67, "Section",ExpressionUUID->"fbf5d764-c159-8f44-abb8-b581959c62f9"],
+Cell[6841, 168, 177, 4, 67, "Section",ExpressionUUID->"fbf5d764-c159-8f44-abb8-b581959c62f9"],
 Cell[CellGroupData[{
-Cell[7129, 178, 199, 4, 54, "Subsection",ExpressionUUID->"888d8fe9-4f13-8645-a6e6-bf113c93e391"],
-Cell[7331, 184, 550, 10, 35, "Text",ExpressionUUID->"02e31d14-bc1e-ab42-89d1-9e5aa2ec9fa5"],
-Cell[7884, 196, 1426, 38, 35, "Item",ExpressionUUID->"630d3371-1912-8546-a4d7-677cc36ac855"],
-Cell[9313, 236, 615, 13, 32, "Item",ExpressionUUID->"fb7add91-23ad-4044-b96c-5eb76bb1b411"],
-Cell[9931, 251, 923, 15, 53, "Text",ExpressionUUID->"4d82e8a7-58d3-0a44-9189-0e428e827d66"],
-Cell[10857, 268, 1306, 28, 39, "Text",ExpressionUUID->"5259efea-f536-a94d-8f62-2c89048149d4"]
+Cell[7043, 176, 199, 4, 54, "Subsection",ExpressionUUID->"888d8fe9-4f13-8645-a6e6-bf113c93e391"],
+Cell[7245, 182, 550, 10, 70, "Text",ExpressionUUID->"02e31d14-bc1e-ab42-89d1-9e5aa2ec9fa5"],
+Cell[7798, 194, 1366, 35, 70, "Item",ExpressionUUID->"630d3371-1912-8546-a4d7-677cc36ac855"],
+Cell[9167, 231, 615, 13, 70, "Item",ExpressionUUID->"fb7add91-23ad-4044-b96c-5eb76bb1b411"],
+Cell[9785, 246, 923, 15, 70, "Text",ExpressionUUID->"4d82e8a7-58d3-0a44-9189-0e428e827d66"],
+Cell[10711, 263, 1299, 29, 70, "Text",ExpressionUUID->"5259efea-f536-a94d-8f62-2c89048149d4"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[12200, 301, 229, 5, 38, "Subsection",ExpressionUUID->"991790db-df1e-4144-ae86-87a91d88d6d5"],
-Cell[12432, 308, 404, 8, 35, "Text",ExpressionUUID->"9d882564-aea7-a94e-86b9-8016d5abbab4"],
-Cell[12839, 318, 351, 9, 28, "Input",ExpressionUUID->"7081ebab-83cf-3b49-8a8c-ac19422497ea"],
-Cell[13193, 329, 359, 9, 28, "Input",ExpressionUUID->"bf7d3773-90dc-c749-bb69-0289b10f5bd7"]
+Cell[12047, 297, 229, 5, 38, "Subsection",ExpressionUUID->"991790db-df1e-4144-ae86-87a91d88d6d5"],
+Cell[12279, 304, 404, 8, 70, "Text",ExpressionUUID->"9d882564-aea7-a94e-86b9-8016d5abbab4"],
+Cell[12686, 314, 351, 9, 70, "Input",ExpressionUUID->"7081ebab-83cf-3b49-8a8c-ac19422497ea"],
+Cell[13040, 325, 359, 9, 70, "Input",ExpressionUUID->"bf7d3773-90dc-c749-bb69-0289b10f5bd7"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[13589, 343, 245, 5, 38, "Subsection",ExpressionUUID->"95281ed8-b2f5-1841-a7a3-0d22446ea9b1"],
-Cell[13837, 350, 261, 5, 35, "Text",ExpressionUUID->"0b5c050f-ba7f-8f4f-8cd1-c4db25b9eaff"],
-Cell[14101, 357, 354, 7, 48, "Input",ExpressionUUID->"b3060bd4-074f-224e-88da-f714df353dcd"],
-Cell[14458, 366, 429, 9, 35, "Text",ExpressionUUID->"4d31d91a-4878-c840-ba33-a4903335bfb1"],
-Cell[14890, 377, 202, 4, 28, "Input",ExpressionUUID->"1a10485f-7046-6442-b4c0-c5079ed5d662"]
+Cell[13436, 339, 245, 5, 38, "Subsection",ExpressionUUID->"95281ed8-b2f5-1841-a7a3-0d22446ea9b1"],
+Cell[13684, 346, 261, 5, 70, "Text",ExpressionUUID->"0b5c050f-ba7f-8f4f-8cd1-c4db25b9eaff"],
+Cell[13948, 353, 354, 7, 70, "Input",ExpressionUUID->"b3060bd4-074f-224e-88da-f714df353dcd"],
+Cell[14305, 362, 429, 9, 70, "Text",ExpressionUUID->"4d31d91a-4878-c840-ba33-a4903335bfb1"],
+Cell[14737, 373, 202, 4, 70, "Input",ExpressionUUID->"1a10485f-7046-6442-b4c0-c5079ed5d662"]
 }, Closed]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[15141, 387, 190, 4, 67, "Section",ExpressionUUID->"b0069796-2944-4948-acc0-1954141dd445"],
+Cell[14988, 383, 190, 4, 67, "Section",ExpressionUUID->"b0069796-2944-4948-acc0-1954141dd445"],
 Cell[CellGroupData[{
-Cell[15356, 395, 470, 7, 54, "Subsection",ExpressionUUID->"d53212c8-3895-c94f-948b-b8e117b2fb9b"],
-Cell[15829, 404, 1487, 31, 66, "Text",ExpressionUUID->"e46a51d9-7fde-d643-af0f-f2eb5d60c47f"],
-Cell[17319, 437, 459, 9, 28, "Input",ExpressionUUID->"161cb86e-1aac-5443-9a39-39dc2b8a4d18"]
+Cell[15203, 391, 466, 7, 54, "Subsection",ExpressionUUID->"d53212c8-3895-c94f-948b-b8e117b2fb9b"],
+Cell[15672, 400, 1483, 31, 70, "Text",ExpressionUUID->"e46a51d9-7fde-d643-af0f-f2eb5d60c47f"],
+Cell[17158, 433, 459, 9, 70, "Input",ExpressionUUID->"161cb86e-1aac-5443-9a39-39dc2b8a4d18"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[17815, 451, 242, 5, 38, "Subsection",ExpressionUUID->"36aefe12-8056-4f44-9f68-1c61c12f8f97"],
-Cell[18060, 458, 962, 23, 59, "Text",ExpressionUUID->"3ea1f48e-8b5c-9b4d-a6a7-70bd784e7fc8"],
+Cell[17654, 447, 242, 5, 38, "Subsection",ExpressionUUID->"36aefe12-8056-4f44-9f68-1c61c12f8f97"],
+Cell[17899, 454, 962, 23, 70, "Text",ExpressionUUID->"3ea1f48e-8b5c-9b4d-a6a7-70bd784e7fc8"],
 Cell[CellGroupData[{
-Cell[19047, 485, 223, 3, 28, "Input",ExpressionUUID->"24fef700-5786-8645-941d-88eaeaf468c9"],
-Cell[19273, 490, 11882, 242, 62, "Output",ExpressionUUID->"5e5e99ce-f528-0b47-8942-789750626510"]
+Cell[18886, 481, 223, 3, 70, "Input",ExpressionUUID->"24fef700-5786-8645-941d-88eaeaf468c9"],
+Cell[19112, 486, 11887, 243, 70, "Output",ExpressionUUID->"5e5e99ce-f528-0b47-8942-789750626510"]
 }, Open  ]]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[31204, 738, 255, 5, 38, "Subsection",ExpressionUUID->"47105595-78cc-1b41-937d-5e1adb654d6f"],
+Cell[31048, 735, 255, 5, 38, "Subsection",ExpressionUUID->"47105595-78cc-1b41-937d-5e1adb654d6f"],
 Cell[CellGroupData[{
-Cell[31484, 747, 184, 4, 45, "Subsubsection",ExpressionUUID->"6459df97-60aa-f04f-b318-4a4a9b963c10"],
-Cell[31671, 753, 1578, 34, 85, "Text",ExpressionUUID->"58b3029f-5027-ef44-abb0-f35577404230"],
+Cell[31328, 744, 184, 4, 45, "Subsubsection",ExpressionUUID->"6459df97-60aa-f04f-b318-4a4a9b963c10"],
+Cell[31515, 750, 1578, 34, 70, "Text",ExpressionUUID->"58b3029f-5027-ef44-abb0-f35577404230"],
 Cell[CellGroupData[{
-Cell[33274, 791, 898, 21, 67, "Input",ExpressionUUID->"63e250af-0940-564a-8fec-43813bd2c955"],
-Cell[34175, 814, 145450, 3055, 594, "Output",ExpressionUUID->"0e1a17b2-9fde-8e47-87b5-92430a53cf8d"]
+Cell[33118, 788, 898, 21, 70, "Input",ExpressionUUID->"63e250af-0940-564a-8fec-43813bd2c955"],
+Cell[34019, 811, 145451, 3055, 70, "Output",ExpressionUUID->"0e1a17b2-9fde-8e47-87b5-92430a53cf8d"]
 }, Open  ]],
-Cell[179640, 3872, 3465, 81, 70, "Text",ExpressionUUID->"7b136cd4-28f0-a84e-8632-2a4d539bda37"]
+Cell[179485, 3869, 3465, 81, 70, "Text",ExpressionUUID->"7b136cd4-28f0-a84e-8632-2a4d539bda37"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[183142, 3958, 297, 5, 37, "Subsubsection",ExpressionUUID->"7391b6cb-db42-ac48-ab5d-493b8b4e8939"],
-Cell[183442, 3965, 983, 17, 81, "Text",ExpressionUUID->"6830ff74-0e97-6d4c-929d-b13d17b3a3a4"],
+Cell[182987, 3955, 297, 5, 37, "Subsubsection",ExpressionUUID->"7391b6cb-db42-ac48-ab5d-493b8b4e8939"],
+Cell[183287, 3962, 981, 17, 70, "Text",ExpressionUUID->"6830ff74-0e97-6d4c-929d-b13d17b3a3a4"],
 Cell[CellGroupData[{
-Cell[184450, 3986, 4380, 65, 86, "Input",ExpressionUUID->"4368fbba-0cb5-ec4e-91c7-0788871051f4"],
-Cell[188833, 4053, 557892, 11423, 614, "Output",ExpressionUUID->"e00164d9-ba91-ea46-b517-10be218302eb"]
+Cell[184293, 3983, 4382, 66, 70, "Input",ExpressionUUID->"4368fbba-0cb5-ec4e-91c7-0788871051f4"],
+Cell[188678, 4051, 557918, 11425, 70, "Output",ExpressionUUID->"e00164d9-ba91-ea46-b517-10be218302eb"]
 }, Open  ]],
-Cell[746740, 15479, 568, 15, 35, "Text",ExpressionUUID->"7cf9b889-5746-584d-863b-613741e4f992"],
-Cell[747311, 15496, 765, 21, 28, "Input",ExpressionUUID->"3c253e2e-d480-3344-9082-cf6f1f324965"],
+Cell[746611, 15479, 568, 15, 70, "Text",ExpressionUUID->"7cf9b889-5746-584d-863b-613741e4f992"],
+Cell[747182, 15496, 765, 21, 70, "Input",ExpressionUUID->"3c253e2e-d480-3344-9082-cf6f1f324965"],
 Cell[CellGroupData[{
-Cell[748101, 15521, 2241, 44, 105, "Input",ExpressionUUID->"40955334-a394-5649-bb60-8aace10d92d6"],
-Cell[750345, 15567, 661602, 13509, 614, "Output",ExpressionUUID->"9321deae-6d0f-414a-9c3b-e317ab0ec897"]
-}, Open  ]]
-}, Closed]]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[1412008, 29083, 245, 5, 54, "Subsection",ExpressionUUID->"6ae004a3-1b0c-2041-9a24-4dbc0bca5cba"],
-Cell[CellGroupData[{
-Cell[1412278, 29092, 185, 4, 45, "Subsubsection",ExpressionUUID->"44f33c91-5352-4b4f-b6e5-9aa19bdb8b55"],
-Cell[1412466, 29098, 1545, 38, 70, "Text",ExpressionUUID->"c9b485a6-48db-1a46-88d7-7cefcca178ea"],
-Cell[1414014, 29138, 617, 15, 70, "Input",ExpressionUUID->"d2a831c5-6e4a-6347-afff-cf6ad7dba3e8"]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[1414668, 29158, 238, 5, 37, "Subsubsection",ExpressionUUID->"47a5ed08-401b-fd42-a6f9-8ceed593cd51"],
-Cell[1414909, 29165, 236, 6, 70, "Text",ExpressionUUID->"314c1de1-c9dd-714f-b881-fd1fcdd7655d"],
-Cell[1415148, 29173, 474, 13, 70, "Input",ExpressionUUID->"0972a8ee-0af1-6047-a1fa-638dc4cd2498"],
-Cell[1415625, 29188, 441, 12, 70, "Text",ExpressionUUID->"e402ee1d-0f33-e44b-82a0-e578a2080cd7"],
-Cell[1416069, 29202, 511, 12, 70, "Input",ExpressionUUID->"0de83aca-ba18-4543-b56a-acd0c3077107"],
-Cell[1416583, 29216, 245, 6, 70, "Text",ExpressionUUID->"7a4399ba-1795-3c4f-8309-4d5e7463c46c"],
-Cell[CellGroupData[{
-Cell[1416853, 29226, 275, 6, 70, "Input",ExpressionUUID->"3dc4854e-c7ed-924a-8ac1-92ef8d8f5971"],
-Cell[1417131, 29234, 596, 18, 70, "Output",ExpressionUUID->"02eeb009-3227-8f43-94d3-dd3aa9877907"]
-}, Open  ]]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[1417776, 29258, 264, 5, 37, "Subsubsection",ExpressionUUID->"9aec4d97-ad1e-f149-8640-5d16e1d7d6fd"],
-Cell[1418043, 29265, 284, 7, 70, "Text",ExpressionUUID->"7d2163eb-29ba-e74a-8fc6-04ee7925f0b3"],
-Cell[1418330, 29274, 521, 13, 70, "Input",ExpressionUUID->"0f4fb406-3631-f84d-8df5-cabbe42ef56b"],
-Cell[1418854, 29289, 229, 6, 70, "Text",ExpressionUUID->"421bb897-c725-d14f-a270-74f77a3855cb"],
-Cell[1419086, 29297, 538, 13, 70, "Input",ExpressionUUID->"5807ac61-3dbb-0a49-9dee-dfd7a26e7b55"],
-Cell[1419627, 29312, 245, 6, 70, "Text",ExpressionUUID->"f91f9a7f-4521-cd4c-acec-6e7f87d4e4ed"],
-Cell[CellGroupData[{
-Cell[1419897, 29322, 308, 6, 70, "Input",ExpressionUUID->"f54c1fa8-0ec3-cc48-8ebb-0c13a10f6450"],
-Cell[1420208, 29330, 559, 16, 70, "Output",ExpressionUUID->"13de3e13-3c7c-9944-b7a1-a812fc2bf450"]
-}, Open  ]]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[1420816, 29352, 318, 6, 37, "Subsubsection",ExpressionUUID->"6dd25854-be93-f14a-950b-9230afcd5d2b"],
-Cell[1421137, 29360, 286, 7, 70, "Text",ExpressionUUID->"75d07c46-45d1-bb4c-9c89-a9a3a2aa6a25"],
-Cell[1421426, 29369, 573, 14, 70, "Input",ExpressionUUID->"6cb58e6e-a1d9-d64e-884d-7168c9b9ca7f"],
-Cell[1422002, 29385, 229, 6, 70, "Text",ExpressionUUID->"0ddeb0be-6c04-ab49-96da-114f184b02de"],
-Cell[1422234, 29393, 583, 13, 70, "Input",ExpressionUUID->"96d29c68-c38d-ac44-9b22-cec9c296bdf5"],
-Cell[1422820, 29408, 298, 7, 70, "Text",ExpressionUUID->"1901e0cf-7b96-4349-8a29-5a08b63f847a"],
-Cell[CellGroupData[{
-Cell[1423143, 29419, 405, 7, 70, "Input",ExpressionUUID->"9197de0b-e9a1-1446-b578-3b5b7abbde41"],
-Cell[1423551, 29428, 523, 15, 70, "Output",ExpressionUUID->"4bc868a5-c9c1-8548-8f30-6226d2028c68"]
+Cell[747972, 15521, 2241, 44, 70, "Input",ExpressionUUID->"40955334-a394-5649-bb60-8aace10d92d6"],
+Cell[750216, 15567, 661454, 13503, 70, "Output",ExpressionUUID->"9321deae-6d0f-414a-9c3b-e317ab0ec897"]
 }, Open  ]]
 }, Closed]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[1424135, 29450, 365, 6, 54, "Subsection",ExpressionUUID->"f08860f0-a247-694b-bac6-4d1f2e9efbdf"],
-Cell[1424503, 29458, 1056, 26, 70, "Text",ExpressionUUID->"45b80421-d2ec-ac45-8428-4e6824b27171"],
-Cell[1425562, 29486, 191, 3, 70, "Text",ExpressionUUID->"75f19ab0-2770-0143-87f8-bffb66466d71"],
-Cell[1425756, 29491, 1383, 39, 70, "Input",ExpressionUUID->"16c21375-0206-3e47-b2da-2162bdd14b58"],
-Cell[1427142, 29532, 286, 7, 70, "Text",ExpressionUUID->"c776c6a8-344d-8942-a1de-c700ba7dafc2"],
-Cell[1427431, 29541, 1695, 44, 70, "Input",ExpressionUUID->"6625f867-ca48-2e49-ba9d-d95bb805e6da"],
-Cell[1429129, 29587, 269, 5, 70, "Text",ExpressionUUID->"4ad69b74-ab28-f445-a49b-0fed0c0c154d"],
+Cell[1411731, 29077, 245, 5, 54, "Subsection",ExpressionUUID->"6ae004a3-1b0c-2041-9a24-4dbc0bca5cba"],
 Cell[CellGroupData[{
-Cell[1429423, 29596, 1500, 36, 70, "Input",ExpressionUUID->"367711d1-cf3a-5c4c-934b-a6736bb59444"],
-Cell[1430926, 29634, 1733142, 40302, 70, "Output",ExpressionUUID->"536ddde8-7adc-3a49-80c9-1e85a57969ad"]
+Cell[1412001, 29086, 185, 4, 45, "Subsubsection",ExpressionUUID->"44f33c91-5352-4b4f-b6e5-9aa19bdb8b55"],
+Cell[1412189, 29092, 1520, 36, 70, "Text",ExpressionUUID->"c9b485a6-48db-1a46-88d7-7cefcca178ea"],
+Cell[1413712, 29130, 617, 15, 70, "Input",ExpressionUUID->"d2a831c5-6e4a-6347-afff-cf6ad7dba3e8"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1414366, 29150, 238, 5, 37, "Subsubsection",ExpressionUUID->"47a5ed08-401b-fd42-a6f9-8ceed593cd51"],
+Cell[1414607, 29157, 236, 6, 70, "Text",ExpressionUUID->"314c1de1-c9dd-714f-b881-fd1fcdd7655d"],
+Cell[1414846, 29165, 474, 13, 70, "Input",ExpressionUUID->"0972a8ee-0af1-6047-a1fa-638dc4cd2498"],
+Cell[1415323, 29180, 441, 12, 70, "Text",ExpressionUUID->"e402ee1d-0f33-e44b-82a0-e578a2080cd7"],
+Cell[1415767, 29194, 511, 12, 70, "Input",ExpressionUUID->"0de83aca-ba18-4543-b56a-acd0c3077107"],
+Cell[1416281, 29208, 245, 6, 70, "Text",ExpressionUUID->"7a4399ba-1795-3c4f-8309-4d5e7463c46c"],
+Cell[CellGroupData[{
+Cell[1416551, 29218, 275, 6, 70, "Input",ExpressionUUID->"3dc4854e-c7ed-924a-8ac1-92ef8d8f5971"],
+Cell[1416829, 29226, 596, 18, 70, "Output",ExpressionUUID->"02eeb009-3227-8f43-94d3-dd3aa9877907"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1417474, 29250, 264, 5, 37, "Subsubsection",ExpressionUUID->"9aec4d97-ad1e-f149-8640-5d16e1d7d6fd"],
+Cell[1417741, 29257, 284, 7, 70, "Text",ExpressionUUID->"7d2163eb-29ba-e74a-8fc6-04ee7925f0b3"],
+Cell[1418028, 29266, 521, 13, 70, "Input",ExpressionUUID->"0f4fb406-3631-f84d-8df5-cabbe42ef56b"],
+Cell[1418552, 29281, 229, 6, 70, "Text",ExpressionUUID->"421bb897-c725-d14f-a270-74f77a3855cb"],
+Cell[1418784, 29289, 538, 13, 70, "Input",ExpressionUUID->"5807ac61-3dbb-0a49-9dee-dfd7a26e7b55"],
+Cell[1419325, 29304, 245, 6, 70, "Text",ExpressionUUID->"f91f9a7f-4521-cd4c-acec-6e7f87d4e4ed"],
+Cell[CellGroupData[{
+Cell[1419595, 29314, 308, 6, 70, "Input",ExpressionUUID->"f54c1fa8-0ec3-cc48-8ebb-0c13a10f6450"],
+Cell[1419906, 29322, 559, 16, 70, "Output",ExpressionUUID->"13de3e13-3c7c-9944-b7a1-a812fc2bf450"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1420514, 29344, 316, 6, 37, "Subsubsection",ExpressionUUID->"6dd25854-be93-f14a-950b-9230afcd5d2b"],
+Cell[1420833, 29352, 284, 7, 70, "Text",ExpressionUUID->"75d07c46-45d1-bb4c-9c89-a9a3a2aa6a25"],
+Cell[1421120, 29361, 573, 14, 70, "Input",ExpressionUUID->"6cb58e6e-a1d9-d64e-884d-7168c9b9ca7f"],
+Cell[1421696, 29377, 229, 6, 70, "Text",ExpressionUUID->"0ddeb0be-6c04-ab49-96da-114f184b02de"],
+Cell[1421928, 29385, 583, 13, 70, "Input",ExpressionUUID->"96d29c68-c38d-ac44-9b22-cec9c296bdf5"],
+Cell[1422514, 29400, 298, 7, 70, "Text",ExpressionUUID->"1901e0cf-7b96-4349-8a29-5a08b63f847a"],
+Cell[CellGroupData[{
+Cell[1422837, 29411, 403, 7, 70, "Input",ExpressionUUID->"9197de0b-e9a1-1446-b578-3b5b7abbde41"],
+Cell[1423243, 29420, 523, 15, 70, "Output",ExpressionUUID->"4bc868a5-c9c1-8548-8f30-6226d2028c68"]
+}, Open  ]]
+}, Closed]]
 }, Open  ]],
-Cell[3164083, 69939, 207, 3, 70, "Input",ExpressionUUID->"290bd3b5-62ce-bf4c-8bb8-5fbc3df6518f"]
+Cell[CellGroupData[{
+Cell[1423827, 29442, 365, 6, 70, "Subsection",ExpressionUUID->"f08860f0-a247-694b-bac6-4d1f2e9efbdf"],
+Cell[1424195, 29450, 1056, 26, 70, "Text",ExpressionUUID->"45b80421-d2ec-ac45-8428-4e6824b27171"],
+Cell[1425254, 29478, 189, 3, 70, "Text",ExpressionUUID->"75f19ab0-2770-0143-87f8-bffb66466d71"],
+Cell[1425446, 29483, 1383, 39, 70, "Input",ExpressionUUID->"16c21375-0206-3e47-b2da-2162bdd14b58"],
+Cell[1426832, 29524, 286, 7, 70, "Text",ExpressionUUID->"c776c6a8-344d-8942-a1de-c700ba7dafc2"],
+Cell[1427121, 29533, 1695, 44, 70, "Input",ExpressionUUID->"6625f867-ca48-2e49-ba9d-d95bb805e6da"],
+Cell[1428819, 29579, 269, 5, 70, "Text",ExpressionUUID->"4ad69b74-ab28-f445-a49b-0fed0c0c154d"],
+Cell[CellGroupData[{
+Cell[1429113, 29588, 1500, 36, 70, "Input",ExpressionUUID->"367711d1-cf3a-5c4c-934b-a6736bb59444"],
+Cell[1430616, 29626, 1736570, 40513, 70, "Output",ExpressionUUID->"536ddde8-7adc-3a49-80c9-1e85a57969ad"]
+}, Open  ]],
+Cell[3167201, 70142, 207, 3, 70, "Input",ExpressionUUID->"290bd3b5-62ce-bf4c-8bb8-5fbc3df6518f"]
 }, Closed]]
 }, Open  ]]
 }, Open  ]]
