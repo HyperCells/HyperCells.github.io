@@ -164,7 +164,7 @@ and their symmetries are of interest, independent of a potential momentum-space 
 
    contents/Documentation/documentation.md
 
-   contents/Contribute/contribute.md
+   contents/Contribute/contribute.rst
 
    contents/Cite/cite.md
 
