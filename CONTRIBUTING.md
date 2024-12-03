@@ -1,21 +1,4 @@
----
-html_theme.sidebar_secondary.remove: true
----
-
-<style type="text/css">
-      @media (min-width: 959.98px) {
-        .bd-main .bd-content {
-            max-width: 80%!important; 
-            text-align:left!important;
-            }
-        }
-</style>
-
-
-# How to contribute
-
-
-## HyperCells & HyperBloch website
+## Contributing to the HyperCells & HyperBloch website
 
 Thank you for considering contributing to the development of the HyperCells & HyperBloch website!
 This document describes how to contribute to the website. If you have any questions,
@@ -28,13 +11,13 @@ In return, we will reciprocate that respect by addressing your issue, assessing 
 and helping you finalize your pull requests.
 
 
-### Getting Started
+## Getting Started
 
 Contributions to the HyperCells & HyperBloch website are managed through GitHub and are based on Issues
 and Pull Requests. Please search for existing Issues and Pull Requests before creating
 your own.
 
-#### Issues
+### Issues
 
 Issues are used to track bugs, enhancements, and other requests. They are also
 used as a way to discuss potential changes before opening a Pull Request.
@@ -46,7 +29,7 @@ with your own reproduction steps to the existing Issue rather than creating a ne
 one. This helps us focus on the discussion in one place rather than having to track
 multiple Issues.
 
-#### Pull Requests
+### Pull Requests
 
 Pull Requests are used to propose changes to the codebase. They are also used
 to propose changes to the documentation. Please follow the guidelines below when
@@ -87,7 +70,7 @@ In general, we follow the <a target="_blank" href="https://github.com/susam/gitp
 5. Push changes to your fork
 6. Open a Pull Request in our repository
 
-### Style guide
+## Style guide
 
 Please follow the following style guide when contributing to existing pages or creating new pages. 
 
@@ -208,17 +191,16 @@ Please follow the following style guide when contributing to existing pages or c
     ```
     ````
 
-### License
+## License
 
 By contributing, you agree that your contributions will be licensed under the below
 mentioned licenses.
 Contributions to tutorial code, i.e., code examples downloadable as source files and
-code provided in the tutorials, will be licensed under the
-<a target="_blank" href="../../misc/LICENSE/LICENSE_HCHBWebCode.txt">CC0 1.0 License</a>,
+code provided in the tutorials, will be licensed under the [CC0 1.0 License](license_code.txt),
 while any other contribution to the website will be licensed under the CC BY-SA-4.0 License,
-as described in the <a target="_blank" href="../../misc/LICENSE/LICENSE_HCHBWeb.txt">LICENSE</a> file.
+as described in the [LICENSE](LICENSE.txt) file.
 
-### References
+## References
 
-Parts of this document are based on the template provided by <a target="_blank" href="https://github.com/auth0">Auth0</a>:
-<a target="_blank" href="https://github.com/auth0/open-source-template/blob/master/GENERAL-CONTRIBUTING.md">[https://github.com/auth0/open-source-template/blob/master/GENERAL-CONTRIBUTING.md]</a> 
+Parts of this document are based on the template provided by [Auth0](https://github.com/auth0):
+[https://github.com/auth0/open-source-template/blob/master/GENERAL-CONTRIBUTING.md]
