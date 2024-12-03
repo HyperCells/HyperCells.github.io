@@ -5,7 +5,7 @@ This website serves as a comprehensive guide to the installation and usage of th
 [HyperBloch](https://github.com/HyperCells/HyperBloch) packages, providing tutorials with
 detailed explanations ranging from simple examples to more advanced applications.
 
-The website is online here: [https://hypercells.github.io/](https://hypercells.github.io/).
+The website is online here: [https://www.hypercells.net](https://www.hypercells.net).
 
 #### Table of contents
   - [Authors](#authors)
