@@ -26,12 +26,6 @@ Tutorials
 .. _Higher-order topology: ./HigherOrder_topology.html
 .. _Advanced visualization: ./AdvancedVisualization.html
 
-.. admonition:: Under construction
-   :class: danger
-
-   The HyperCells & HyperBloch website is currently under construction! Some tutorials refer to currently non-available 
-   features, which will soon be accessible in the new releases of the HyperCells and HyperBloch packages.
-
 
 The HyperCells and HyperBloch packages offer a framework for efficient modeling 
 of tight-binding models on a broad list of hyperbolic lattices. We provide tutorials 
