@@ -81,7 +81,7 @@ PacletInstall["https://github.com/NCAlgebra/NC/blob/master/NCAlgebra-6.0.3.pacle
 
 and then the package itself as a paclet:
 ```Mathematica
-PacletInstall["https://github.com/HyperCells/HyperBloch/releases/download/v0.9.0/PatrickMLenggenhager__HyperBloch-0.9.0.paclet"]
+PacletInstall["https://github.com/HyperCells/HyperBloch/releases/download/v1.0.0/PatrickMLenggenhager__HyperBloch-1.0.0.paclet"]
 ```
 If necessary, update the version number to match the one of the <a target="_blank" href="https://github.com/HyperCells/HyperBloch/releases/latest">latest release</a>. Alternatively, download the release file manually, and install it with <code class="code-Mathematica">PacletInstall["path"]</code> by passing the path to the downloaded file as argument.
 

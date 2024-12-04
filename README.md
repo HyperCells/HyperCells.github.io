@@ -5,13 +5,13 @@ This website serves as a comprehensive guide to the installation and usage of th
 [HyperBloch](https://github.com/HyperCells/HyperBloch) packages, providing tutorials with
 detailed explanations ranging from simple examples to more advanced applications.
 
-The website is online here: [https://hypercells.github.io/](https://hypercells.github.io/).
+The website is online here: [https://www.hypercells.net](https://www.hypercells.net).
 
 #### Table of contents
   - [Authors](#authors)
   - [Building and viewing the website](#building-and-viewing-the-website)
   - [Contact](#contact)
-  - [Copyright](#copyright)
+  - [License and copyright](#license-and-copyright)
 
 ## Authors
 
@@ -47,6 +47,8 @@ make html
 To report issues, please use the issue tracker at
 [https://github.com/HyperCells/HyperCells.github.io/issues](https://github.com/HyperCells/HyperCells.github.io/issues).
 
-## Copyright
+## License and copyright
 
-Copyright 2024 Marcelo Looser, Patrick M. Lenggenhager, Tomáš Bzdušek
+See the attached [LICENSE](LICENSE.txt) for details.
+
+&copy; 2024 Marcelo Looser, Patrick M. Lenggenhager, Tomáš Bzdušek

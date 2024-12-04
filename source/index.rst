@@ -49,11 +49,6 @@
   <link rel="preload" href="_static/images/darkMode/TitleFigure2.2_dark.png" as="image">
 
 
-.. admonition:: Under construction
-   :class: danger
-
-   The HyperCells & HyperBloch website is currently under construction!
-
 .. image:: _static/images/lightMode/TitleFigure2.2_light.png
    :width: 100%
    :class: no-scaled-link, dark-light
@@ -121,6 +116,14 @@ Overview
 
    <a href="https://doi.org/10.3929/ethz-b-000645370" target="_blank">PhD thesis</a>
 
+.. |library of graphs| raw:: html
+
+   <a href="https://github.com/HyperCells/cell-graph-library" target="_blank">library of graphs</a>
+
+.. |documentation on the file format| raw:: html
+
+   <a href="https://www.hypercells.net/HyperCells/doc/chap7_mj.html#X8091CEE880E799B4" target="_blank">documentation on the file format</a>
+
 .. |space| unicode:: U+2064 .. space
 
 Hyperbolic lattices are symmetric tessellations of the hyperbolic plane, i.e., the space of
@@ -147,6 +150,11 @@ reports of bugs and code contributions, are welcome.
 While most tutorials focus on examples from condensed matter physics and the supercell method,
 **HyperCells** has a much broader scope and can be used anywhere where hyperbolic lattices
 and their symmetries are of interest, independent of a potential momentum-space description.
+
+We also provide a Github repository with a |library of graphs| generated with **HyperCells**,
+which can be used without the need to install the package.
+Check out the |documentation on the file format| to use them in your own projects.
+Alternatively, you can import them in Mathematica using the **HyperBloch** package.
 
 
 .. toctree::
