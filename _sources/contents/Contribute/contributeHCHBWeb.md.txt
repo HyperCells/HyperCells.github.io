@@ -210,8 +210,13 @@ Please follow the following style guide when contributing to existing pages or c
 
 ### License
 
-By contributing, you agree that your contributions will be licensed under the
-CC BY-SA-4.0 License, as described in the <a target="_blank" href="../../misc/LICENSE/LICENSE_HCHBWeb.txt">LICENSE</a> file.
+By contributing, you agree that your contributions will be licensed under the below
+mentioned licenses.
+Contributions to tutorial code, i.e., code examples downloadable as source files and
+code provided in the tutorials, will be licensed under the
+<a target="_blank" href="../../misc/LICENSE/LICENSE_HCHBWebCode.txt">CC0 1.0 License</a>,
+while any other contribution to the website will be licensed under the CC BY-SA-4.0 License,
+as described in the <a target="_blank" href="../../misc/LICENSE/LICENSE_HCHBWeb.txt">LICENSE</a> file.
 
 ### References
 
