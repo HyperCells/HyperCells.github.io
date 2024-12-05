@@ -7,11 +7,14 @@ html {
      --pst-sidebar-font-size-mobile: 100%!important; 
 }
 
-/* Set global text alignemnt for block quotes.
-*  and set the color of the border.*/
+/* Set global text alignment for sections.*/
 section {
      text-align:justify!important;
 } 
+
+:is(h1, h2, h3, h4, h5, h6) {
+     text-align: left;
+ }
 
 /* Custom admonition */
 
@@ -72,7 +75,7 @@ div.admonition.HyperBloch > .admonition-title::after {
    }
 /*-------------------*/
 
-/* Set global text alignemnt for block quotes.
+/* Set global text alignment for block quotes.
 *  and set the color of the border.*/
 blockquote {
      text-align:justify!important;
