@@ -17,9 +17,6 @@ qpc := TGQuotient( 1, [ 2, 8, 8 ] );
 # construct symmetric primitive cell
 cgpc := TGCellGraph( tg, qpc, 3 : simplify := 5 );
 
-# associated translation group
-tgGamma_pc1 := TGTranslationGroup( tg, qpc );
-
 # elementary nearest-neighbor model
 model := TessellationModelGraph( cgpc, true : simplify := 5 );
 Export( model, "{8,8}-tess_T2.6_3.hcm" ); # export
@@ -28,8 +25,6 @@ Export( model, "{8,8}-tess_T2.6_3.hcm" ); # export
 # -----------
 
 sc_lst := [[3, 11], [5, 13], [9, 20], [17, 29], [33, 44], [65, 78]];
-
-tgGamma_sc_i := tgGamma_pc1;
 
 for sc_i_index in sc_lst do
   
@@ -59,21 +54,16 @@ od;
 qpc := TGQuotient( [3, 10], [ 2, 8, 8 ] );
 
 # construct symmetric primitive cell
-cgpc := TGCellGraph( tg, qpc, 3 : simplify := 5 );
-
-# associated translation group
-tgGamma_pc1 := TGTranslationGroup( tg, qpc );
+cgpc := TGCellGraph( tg, qpc, 3 : simplify := 2 );
 
 # elementary nearest-neighbor model
-model := TessellationModelGraph( cgpc, true : simplify := 5 );
+model := TessellationModelGraph( cgpc, true : simplify := 3 );
 Export( model, "{8,8}-tess_T3.10_3.hcm" ); # export
 
 # Supercells:
 # -----------
 
 sc_lst := [[5, 13], [9, 22], [17, 35], [33, 58], [65, 81]];
-
-tgGamma_sc_i := tgGamma_pc1;
 
 for sc_i_index in sc_lst do
   
@@ -105,19 +95,14 @@ qpc := TGQuotient( [5, 12], [ 2, 8, 8 ] );
 # construct symmetric primitive cell
 cgpc := TGCellGraph( tg, qpc, 3 );
 
-# associated translation group
-tgGamma_pc1 := TGTranslationGroup( tg, qpc);
-
 # elementary nearest-neighbor model
-model := TessellationModelGraph( cgpc, true : simplify := 5 );
+model := TessellationModelGraph( cgpc, true : simplify := 2 );
 Export( model, "{8,8}-tess_T5.12_3.hcm" ); # export
 
 # Supercells:
 # -----------
 
 sc_lst := [[9, 22], [17, 32], [33, 46], [65, 79]];
-
-tgGamma_sc_i := tgGamma_pc1;
 
 for sc_i_index in sc_lst do
   
