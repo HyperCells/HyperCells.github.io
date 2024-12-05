@@ -93,7 +93,7 @@ Please follow the following style guide when contributing to existing pages or c
 
 - Page with subpages (including further nested pages): 
 
-  Use a restructured text file  (.rst) for the page in the lowest level followed either by a markdown 
+  Use a restructured text file (.rst) for the page in the lowest level followed either by markdown 
   (.md) or .rst files as subpages. 
   - Primary sidebar (left):
 
@@ -123,14 +123,15 @@ Please follow the following style guide when contributing to existing pages or c
     ````{tab-set-code}
     ```{code-block} rst
     .. raw:: html
-    <style type="text/css">
-      @media (min-width: 959.98px) {
-        .bd-main .bd-content {
-          max-width: 80%!important; 
-          text-align:left!important;
+
+       <style type="text/css">
+        @media (min-width: 959.98px) {
+          .bd-main .bd-content {
+            max-width: 80%!important; 
+            text-align:left!important;
+          }
         }
-      }
-    </style>
+      </style>
     ```
 
     ```{code-block} markdown
@@ -155,6 +156,7 @@ Please follow the following style guide when contributing to existing pages or c
     html_sidebars = { 
 	    # ... other pages here
 	    "<relative path to page>/pagename" : []
+    }
     ```
   - Secondary sidebar (right):
   
