@@ -245,7 +245,7 @@ def interlinkFile(path, name, ffspDics, filetype=".rst", rstLinks=None):
         Whether to include a list of .rst hyperlinks in the cerated .rst file. The default is None.
     """ 
     file = open(path + name + filetype, "w")
-    file.write(":orphan:\n\n")
+    file.write(":orphan:\n:nosearch:\n\n")
     
     if not rstLinks == None:
         for link in rstLinks:
