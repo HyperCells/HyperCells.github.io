@@ -1,5 +1,6 @@
 ---
 orphan: true
+nosearch: true
 ---
 
 # Publications

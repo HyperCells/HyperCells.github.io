@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=3519ded7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=d9e52e08" />
   
   <!-- So that users can add custom icons -->
   <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
@@ -540,7 +540,7 @@ and <code class="docutils literal notranslate"><span class="pre">&lt;branch</spa
 <p>Please follow the following style guide when contributing to existing pages or creating new pages.</p>
 <ul>
 <li><p>Page with subpages (including further nested pages):</p>
-<p>Use a restructured text file  (.rst) for the page in the lowest level followed either by a markdown
+<p>Use a restructured text file (.rst) for the page in the lowest level followed either by markdown
 (.md) or .rst files as subpages.</p>
 <ul>
 <li><p>Primary sidebar (left):</p>
@@ -574,14 +574,15 @@ in order to appropriately adjust the width and alignment of the elements in the 
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="rst" for="sd-tab-item-2">
 RST</label><div class="sd-tab-content docutils">
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">raw</span><span class="p">::</span> html
-<span class="nt">&lt;style type=&quot;text/css&quot;&gt;</span>
-  @media (min-width: 959.98px) {
-    .bd-main .bd-content {
-      max-width: 80%!important; 
-      text-align:left!important;
+
+  &lt;style type=&quot;text/css&quot;&gt;
+    @media (min-width: 959.98px) {
+      .bd-main .bd-content {
+        max-width: 80%!important; 
+        text-align:left!important;
+      }
     }
-  }
-<span class="nt">&lt;/style&gt;</span>
+  &lt;/style&gt;
 </pre></div>
 </div>
 </div>
@@ -611,6 +612,7 @@ the conf.py file,  as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">html_sidebars</span> <span class="o">=</span> <span class="p">{</span> 
     <span class="c1"># ... other pages here</span>
     <span class="s2">&quot;&lt;relative path to page&gt;/pagename&quot;</span> <span class="p">:</span> <span class="p">[]</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </li>
@@ -622,6 +624,7 @@ of the elements in the page by including the following code snippet in the corre
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="rst" for="sd-tab-item-4">
 RST</label><div class="sd-tab-content docutils">
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">raw</span><span class="p">::</span> html
+
   &lt;style type=&quot;text/css&quot;&gt;
     @media (min-width: 959.98px) {
       .bd-main .bd-content  {

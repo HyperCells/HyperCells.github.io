@@ -3,6 +3,7 @@ html_theme.sidebar_secondary.remove: |
   true
 
 orphan: true
+nosearch: true
 ---
 
 # Releases
