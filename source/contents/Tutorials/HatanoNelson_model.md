@@ -183,7 +183,7 @@ The supercell method can be applied as usual, where we use the function ComputeE
 
 ```Mathematica
 evals = Association[# -> 
-    ComputeEigenvalues[Hclst[#] /. {M -> 0.1, Eta -> 1}, 10^4, 32, genusLst[#]] 
+    ComputeEigenvalues[Hclst[#] /. {M -> 0.1, eta -> 1}, 10^4, 32, genusLst[#]] 
   &/@cells];
 ```
 
